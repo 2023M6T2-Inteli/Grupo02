@@ -23,10 +23,20 @@
 (Matriz SWOT)
 
 ## 1.3. Análise do time de desenvolvimento
-<img href="./">
+(Matriz de riscos)
+
 
 ## 1.4. Análise da solução
-(Proposta de valor)
+<img src="business_understanding\proposta_de_valor.png">
+Nossa proposta de valor consiste em uma solução que contempla os seguintes serviços: 
+<ul>
+  <li> Simulação do trajeto de um robô seguidor e seus dados de sensores para medição atmosférica</li>
+  <li> Interface gráfica com um dashboard interativo para os dados captados </li>
+  <li> Protótipo de robô seguidor focado no funcionamento dos sensores </li>
+</ul>
+Essa solução consegue mitigar as principais dores do cliente: a segurança do operador que realiza a manutenção e a dificuldade em avaliar se há riscos ao colaborador sem entrar no ambiente confinado. Essas dores são sanadas graças aos sensores que identificam a presença e a quantidade de componentes gasosos tóxicos, inflamáveis e seu nível de perigo no local; além do fato de que o protótipo verificará o ambiente primeiro, perdendo a necessidade de um colaborador se arriscar dentro dos ambientes confinados.
+
+Outrossim, há uma interface gráfica que tem como objetivo ajudar no planejamento para as inspeções e manutenções desses ambientes confinados. Essa interface gráfica possuirá dashboards que se atualizam em tempo real e, também, fotos do interior do ambiente confinado que serão captadas pela câmera que o protótipo está equipado.
 
 # 2. Entendimento do metadesign
 
