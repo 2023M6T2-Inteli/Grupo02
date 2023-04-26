@@ -50,19 +50,20 @@ Em um conceito macro do projeto, é possível perceber que seu processo de desen
 
 ## 3.1  Engenharia de requisitos
 
-### Requisitos funcionais e não funcionais 
+### Requisitos Funcionais 
 
 1. Os usuários terão acesso aos dados e às funcionalidades do sistema por meio de uma interface de usuário, que contará com uma simulação do robô e uma aba para o operador fazer sua guiagem.
+
+2. Coleta e armazenagem de dados em área por sensores.
+    
+### Requisitos Não Funcionais 
     1. Utilizando electron e react para criar uma aplicação web capaz de rodar de forma local.
     2. Os dados necessários para o sistema serão fornecidos por uma API, utilizando MongoDB.
     3. A simulação será feita com a biblioteca ROS2 e suas ferramentas.
     4. Com o auxílio de uma câmara nosso sistema será capaz de processar e fazer o stream para o controlador do que está acontecendo. 
-    
-2. Coleta e armazenagem de dados em área por sensores.
-    1. Nosso robô contará com sensores atmosféricos e de procimidade.
-    2. Nosso robô fará o envio dos dados coletados para nossa aplicação por meio do protocolo HTTP, utilizando WIFI. 
-    3. Nosso sistema irá fazer a captura dos dados por meio de um sistema de metrôs.
-
+    5. Nosso robô contará com sensores atmosféricos e de procimidade.
+    6. Nosso robô fará o envio dos dados coletados para nossa aplicação por meio do protocolo HTTP, utilizando WIFI. 
+    7. Nosso sistema irá fazer a captura dos dados por meio de um sistema de metrôs.
 
 # 4. Sistema de locomoção e otimização de rota.
 
