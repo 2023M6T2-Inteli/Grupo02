@@ -8,11 +8,11 @@
 </tr>
 </table>
 
-# Nome do Projeto
+# Nome do projeto
 
-## Nome do Grupo
+## Safe McQueen
 
-## Integrantes: <a href="https://www.linkedin.com/in/victorbarq/">Goku Sayajin</a>, <a href="https://www.linkedin.com/in/victorbarq/">Saitama One</a>, <a href="https://www.linkedin.com/in/victorbarq/">Ikki de Fenix</a>, <a href="https://www.linkedin.com/in/victorbarq/">Yusuke Urameshi</a>, <a href="https://www.linkedin.com/in/victorbarq/">Roronoa Zoro</a>
+## Integrantes: <a href="https://www.linkedin.com/in/alberto-da-rocha-miranda-angrysine/">Alberto Miranda</a>, <a href="https://www.linkedin.com/in/amanda-fontes/">Amanda Fontes</a>, <a href="https://www.linkedin.com/in/antonio-angelo-teixeira-a70b781a7/">Antonio Teixeira</a>, <a href="https://www.linkedin.com/in/jv-oliveira-rodrigues/">Joao Vitor Oliveira</a>, <a href="https://www.linkedin.com/in/lucas-henrique-sales-de-souza/">Lucas Sales</a>,<a href="https://www.linkedin.com/in/tainara-rodrigues-teixeira/">Tainara Teixeira</a>, <a href="https://www.linkedin.com/in/vitor-zeferino/"> Vitor Zeferino</a>
 
 ## Descrição
 
