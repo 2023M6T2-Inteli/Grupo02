@@ -10,37 +10,54 @@
 
 # Sumário
 
-- [Entendimento de negócio](#entendimento-de-negócio)
-  - [Análise setorial](#análise-setorial)
-  - [Análise empresarial](#análise-empresarial)
-  - [Análise do time de desenvolvimento](#análise-do-time-de-desenvolvimento)
-  - [Análise da solução](#análise-da-solução)
-- [Entendimento do metadesign](#entendimento-do-metadesign)
-  - [Fatores mercadológicos](#fatores-mercadológicos)
-  - [Sistema produto/design](#sistema-produto-design)
-  - [Sustentabilidade ambiental](#sustentabilidade-ambiental)
-- [Arquitetura do sistema](#arquitetura-do-sistema)
-  - [Engenharia de requisitos](#engenharia-de-requisitos)
-- [Manuais](#manuais)
-  - [Manual de Implantação](#manual-de-implantação)
-  - [Manual do Usuário](#manual-do-usuário)
-- [Referências](#referências)
-- [Material de apoio](#material-de-apoio)
-- [Anexos](#anexos)
+- [Sumário](#sumário)
+- [1. Entendimento de negócio](#1-entendimento-de-negócio)
+  - [1.1. Análise setorial](#11-análise-setorial)
+  - [1.2. Análise empresarial](#12-análise-empresarial)
+  - [1.3. Análise do time de desenvolvimento](#13-análise-do-time-de-desenvolvimento)
+  - [1.4. Análise da solução](#14-análise-da-solução)
+- [2. Entendimento do metadesign](#2-entendimento-do-metadesign)
+  - [2.1. Fatores mercadológicos](#21-fatores-mercadológicos)
+    - [Relação entre o produto desenvolvido e sua precificação com o merdaco atual](#relação-entre-o-produto-desenvolvido-e-sua-precificação-com-o-merdaco-atual)
+    - [Precificação](#precificação)
+  - [2.2. Sistema produto/design](#22-sistema-produtodesign)
+    - [Missão do projeto proposto](#missão-do-projeto-proposto)
+    - [Unidade formal entre design, divulgação e venda](#unidade-formal-entre-design-divulgação-e-venda)
+  - [2.3. Sustentabilidade ambiental](#23-sustentabilidade-ambiental)
+  - [2.4. Influências socioculturais](#24-influências-socioculturais)
+  - [2.5. Tipológico-formais e ergonômicos](#25-tipológico-formais-e-ergonômicos)
+  - [2.6. Tecnologia produtiva e materiais empregados](#26-tecnologia-produtiva-e-materiais-empregados)
+- [3. Arquitetura do sistema](#3-arquitetura-do-sistema)
+  - [3.1 Engenharia de requisitos](#31-engenharia-de-requisitos)
+    - [Requisitos Funcionais](#requisitos-funcionais)
+    - [Requisitos Não Funcionais](#requisitos-não-funcionais)
+- [4. Sistema de locomoção e otimização de rota](#4-sistema-de-locomoção-e-otimização-de-rota)
+- [5. Interface de usuário](#5-interface-de-usuário)
+- [6. Sistema de visão computacional](#6-sistema-de-visão-computacional)
+- [7. Sistemas de segurança](#7-sistemas-de-segurança)
+- [8. Backend](#8-backend)
+- [9. Integração de sistemas](#9-integração-de-sistemas)
+- [10. Validação da eficácia do sistema](#10-validação-da-eficácia-do-sistema)
+- [11. Referências](#11-referências)
+- [12. Material de apoio](#12-material-de-apoio)
+- [13. Anexos](#13-anexos)
 
 # 1. Entendimento de negócio
 
 ## 1.1. Análise setorial
+
 (Oceano azul)
 
 ## 1.2. Análise empresarial
+
 (Matriz SWOT)
 
 ## 1.3. Análise do time de desenvolvimento
+
 (Matriz de riscos)
 
-
 ## 1.4. Análise da solução
+
 <p align="center"><img src="media\proposta_de_valor.png" width="60%"></p>
 Nossa proposta de valor consiste em uma solução que contempla os seguintes serviços: 
 <ul>
@@ -64,9 +81,9 @@ Em um conceito macro do projeto, é possível perceber que seu processo de desen
 
 #### Precificação
 
-O processo de precificação  acontece com o objetivo primordial de levantar os dados sobre os serviços necessários para a implementação da solução, de modo que, seja visível os materiais utilizados, uma estimativa mais realista possível do tempo que será preciso para o protótipo ser consolidado. Doravante e além desses parâmetros, é imprescindível nesta etapa a contribuição da equipe de desenvolvimento para explicar ao parceiro os principais benefícios dos componentes e como eles se relacionam com os requisitos, para assim, ser alcançado um excelente padrão de qualidade dentro do alinhamento de expectativas realizado na conversa com o colaborador empresarial em questão, especialmente os representantes do setor industrial e automotivo da Gerdau. 
+O processo de precificação acontece com o objetivo primordial de levantar os dados sobre os serviços necessários para a implementação da solução, de modo que, seja visível os materiais utilizados, uma estimativa mais realista possível do tempo que será preciso para o protótipo ser consolidado. Doravante e além desses parâmetros, é imprescindível nesta etapa a contribuição da equipe de desenvolvimento para explicar ao parceiro os principais benefícios dos componentes e como eles se relacionam com os requisitos, para assim, ser alcançado um excelente padrão de qualidade dentro do alinhamento de expectativas realizado na conversa com o colaborador empresarial em questão, especialmente os representantes do setor industrial e automotivo da Gerdau.
 
-No total iram ser 10 semanas, mudando gradativamente o processo de simulação feita ROS2 para o ambiente de demonstração física utilizando o robô TurtleBot 3 Burger que está custando atualmente 3.279 reais, para as medições vamos implementar na solução os seguintes sensores: o MQ-135, usado para mensurar a taxa de gases tóxicos e está custando em média 20 reais, o Bme-280, que tem como principal função a medição de temperatura, umidade e pressão atmosférica, hoje está sendo comercializado por 40 reais, e para a inspeção do ambiente vamos usar no robô a câmera para Raspberry, estimado no valor de 70 reais. Com isso, o custo total dos nossos principais componentes para o desenvolvimento do projeto, será de 3.409 reais. 
+No total iram ser 10 semanas, mudando gradativamente o processo de simulação feita ROS2 para o ambiente de demonstração física utilizando o robô TurtleBot 3 Burger que está custando atualmente 3.279 reais, para as medições vamos implementar na solução os seguintes sensores: o MQ-135, usado para mensurar a taxa de gases tóxicos e está custando em média 20 reais, o Bme-280, que tem como principal função a medição de temperatura, umidade e pressão atmosférica, hoje está sendo comercializado por 40 reais, e para a inspeção do ambiente vamos usar no robô a câmera para Raspberry, estimado no valor de 70 reais. Com isso, o custo total dos nossos principais componentes para o desenvolvimento do projeto, será de 3.409 reais.
 
 ## 2.2. Sistema produto/design
 
@@ -88,21 +105,27 @@ A princípio, será concebida uma simulação virtual do veículo autônomo guia
 
 # 3. Arquitetura do sistema
 
-## 3.1  Engenharia de requisitos
+<p align="center"><img src="diagrama_solução.drawio" width="60%"></p>
 
-### Requisitos Funcionais 
+Atualmente nossa arquitetura pode ser dividia em 2 partes:
+A primeira envolve todo o sistema que controla o robo e seus periféricos, esse parte lida com a comunicação entre os componentes e a simulação do robo, essa parte é feita utilizando o ROS2, que é um framework de robótica que permite a comunicação entre os componentes do sistema, além disso ele também permite a simulação do robo, o que facilita o desenvolvimento do sistema, pois não é necessário ter um robo fisico para testar o sistema. A segunda parte é uma solução web que permite a visualização dos dados coletados pelo robo, essa parte é feita utilizando o React, que é um framework de desenvolvimento web, flask que é um framework de desenvolvimento web para python e sqlite.
+
+## 3.1 Engenharia de requisitos
+
+### Requisitos Funcionais
 
 1. Os usuários terão acesso aos dados e às funcionalidades do sistema por meio de uma interface de usuário, que contará com uma simulação do robô e uma aba para o operador fazer sua guiagem.
 
 2. Coleta e armazenagem de dados em área por sensores.
-    
-### Requisitos Não Funcionais 
+
+### Requisitos Não Funcionais
+
     1. Utilizando electron e react para criar uma aplicação web capaz de rodar de forma local.
     2. Os dados necessários para o sistema serão fornecidos por uma API, utilizando MongoDB.
     3. A simulação será feita com a biblioteca ROS2 e suas ferramentas.
-    4. Com o auxílio de uma câmara nosso sistema será capaz de processar e fazer o stream para o controlador do que está acontecendo. 
+    4. Com o auxílio de uma câmara nosso sistema será capaz de processar e fazer o stream para o controlador do que está acontecendo.
     5. Nosso robô contará com sensores atmosféricos e de procimidade.
-    6. Nosso robô fará o envio dos dados coletados para nossa aplicação por meio do protocolo HTTP, utilizando WIFI. 
+    6. Nosso robô fará o envio dos dados coletados para nossa aplicação por meio do protocolo HTTP, utilizando WIFI.
     7. Nosso sistema irá fazer a captura dos dados por meio de um sistema de metrôs.
 
 # 4. Sistema de locomoção e otimização de rota
@@ -117,7 +140,7 @@ A princípio, será concebida uma simulação virtual do veículo autônomo guia
 
 # 9. Integração de sistemas
 
-# 10.  Validação da eficácia do sistema
+# 10. Validação da eficácia do sistema
 
 # 11. Referências
 
