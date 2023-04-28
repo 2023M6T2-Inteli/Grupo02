@@ -14,8 +14,10 @@
 - [1. Entendimento de negócio](#1-entendimento-de-negócio)
   - [1.1. Análise setorial](#11-análise-setorial)
   - [1.2. Análise empresarial](#12-análise-empresarial)
-  - [1.3. Análise do time de desenvolvimento](#13-análise-do-time-de-desenvolvimento)
-  - [1.4. Análise da solução](#14-análise-da-solução)
+  - [1.3. Análise financeira](#13-análise-financeira)
+  - [1.4. Análise do time de desenvolvimento](#14-análise-do-time-de-desenvolvimento)
+      - [Matriz de risco](#matriz-de-riscos)
+  - [1.5. Análise da solução](#15-análise-da-solução) 
 - [2. Entendimento do metadesign](#2-entendimento-do-metadesign)
   - [2.1. Fatores mercadológicos](#21-fatores-mercadológicos)
     - [Relação entre o produto desenvolvido e sua precificação com o merdaco atual](#relação-entre-o-produto-desenvolvido-e-sua-precificação-com-o-merdaco-atual)
@@ -75,11 +77,25 @@
 
 (Matriz SWOT)
 
-## 1.3. Análise do time de desenvolvimento
+## 1.3 Análise financeira
+  A análise financeira de um projeto visa mostrar a um parceiro de negócios que sua implementação é viável do ponto de vista financeiro, complementando a precificação. Nesse contexto, a mitigação do risco de acidentes no ambiente de trabalho foi considerada a forma de viabilizar o projeto. Com isso, os funcionários estariam mais protegidos em relação à entrada em ambientes confinados, o que reduziria o risco de acidentes e, consequentemente, os custos associados, como despesas médicas, indenizações, reparação de danos e perda de produtividade. Além disso, os custos indiretos, como danos à reputação e perda de negócios, também seriam minimizados. 
+  Os acidentes no ambiente de trabalho não geram apenas custos financeiros diretos e indiretos, mas também podem ter um impacto negativo na moral e produtividade dos funcionários. Somado ao fato de que os funcionários podem precisar lidar com a interrupção do trabalho enquanto o acidente é investigado e resolvido, o que pode levar à perda de produtividade. 
+  Em contrapartida, a implementação de políticas de segurança eficazes pode ter um impacto positivo na moral e produtividade dos funcionários. Ademais, uma cultura de segurança positiva pode levar a uma maior colaboração e comunicação entre os funcionários, o que pode melhorar a eficiência e a qualidade do trabalho. Portanto, investir em medidas preventivas e políticas de segurança eficazes é uma forma de proteger os funcionários, reduzir os custos associados a acidentes no ambiente de trabalho e melhorar a moral e produtividade da equipe. Dessa forma, é possível garantir a saúde e segurança dos funcionários e evitar custos desnecessários para a empresa, tornando a implementação do projeto financeiramente viável e positiva para todos os envolvidos.
+	Foi realizada uma pesquisa com o objetivo de coletar informações quantitativas sobre os custos dos acidentes de trabalho, a fim de embasar a abordagem proposta na análise financeira. O grupo teve como prioridade os dados relacionados aos acidentes sofridos pelos funcionários da empresa, incluindo desde casos leves até os mais graves. Além disso, foram levantadas informações sobre as multas decorrentes da emissão de gases durante o processo de fundição do aço, que é a principal atividade realizada pela Gerdau. Com base nas pesquisas realizadas na internet, foi elaborada uma planilha de preços que mostra o custo de alguns acidentes que poderiam ser evitados pela empresa ao adotar soluções preventivas.
 
-(Matriz de riscos)
+  <img src="artefatos_negocios/numeros_analise.jpeg"></img>
+fontes: Indenização por acidente de trabalho: valor, requisitos e como receber (2023):
+https://mdn.adv.br/indenizacao-por-acidente-de-trabalho/#:~:text=Para%20a%20CLT%2C%20o%20valor,com%20a%20gravidade%20da%20situa%C3%A7%C3%A3o.
 
-## 1.4. Análise da solução
+Tabelas de Preços de Referência para Cálculo de Multas Ambientais divulgadas pela Companhia Ambiental do Estado de São Paulo (Cetesb) em 2021:
+(https://cetesb.sp.gov.br/legislacao-e-normas/).
+## 1.4. Análise do time de desenvolvimento
+#### Matriz de riscos
+Uma matriz de riscos é uma ferramenta utilizada para avaliar e gerenciar os riscos e oportunidades envolvidos em um projeto, atividade ou processo. Ela ajuda a identificar e avaliar os potenciais riscos e a probabilidade de sua ocorrência, bem como o impacto que eles podem exercer sobre o projeto ou atividade. A matriz também pode ajudar a definir a prioridade das ações correspondentes ao gerenciamento do projeto, indicando quais riscos devem ser tratados com maior urgência, por exemplo. Além disso, no projeto em questão, a criação da matriz visa apresentar ao parceiro o que a equipe imagina enfrentar e pensar em conjunto em maneiras de mitigar os riscos, bem como aproveitar as oportunidades existentes.
+  <img src="artefatos_negocios/matriz_riscos.png"></img>
+
+
+## 1.5. Análise da solução
 
 <p align="center"><img src="media\proposta_de_valor.png" width="60%"></p>
 Nossa proposta de valor consiste em uma solução que contempla os seguintes serviços: 
@@ -119,6 +135,10 @@ O propósito do projeto elaborado para a Gerdau relaciona-se à crescente atenç
 A princípio, será concebida uma simulação virtual do veículo autônomo guiado atuando sobre um espaço confinado genérico. Desse modo, será possível estudar a viabilidade da construção de um protótipo físico que atenda aos requisitos da empresa. É ideal que o protótipo seja capaz de reproduzir os resultados obtidos por meio da simulação. Além disso, é de fundamental importância que o protótipo seja escalável — requisito imperativo para a implementação do produto por parte do cliente. O produto desenvolvido, portanto, será apresentado ao mercado como ferramenta de apoio à manutenção da segurança do trabalho, cumprindo o papel de inspecionar de forma eficaz os ambientes confinados que ofereçam potenciais riscos em casos de intervenção humana. Espera-se tornar evidente a qualidade do produto por meio de demonstrações de seu funcionamento, desde sua configuração no ambiente industrial em que será utilizado até a geração do relatório referente à inspeção feita. Os diferenciais da solução, como a possibilidade de análise de imagens computacionais e controle do veículo via interface, também serão destacados. Será imprescindível, por fim, tratar de maneira transparente o processo de produção do veículo, evidenciando os aspectos que funcionam e os pontos de melhoria para implementação futura.
 
 ## 2.3. Sustentabilidade ambiental
+#### Ecoeficiência ambiental proposta pelo projeto
+O projeto em parceria com a Gerdau tem como objetivo alcançar a ecoeficiência de forma indireta, evitando impactos ambientais prejudiciais ao entorno da instalação da Gerdau. Uma das soluções propostas é o uso de Veículos Autônomos Guiados (AGVs) para monitorar regularmente as tubulações de gás e prevenir possíveis acidentes que possam contaminar o meio ambiente e afetar a saúde humana. Além disso, o uso de energia elétrica em vez de combustíveis fósseis torna essa solução ainda mais vantajosa para o meio ambiente.
+
+O grupo também propôs uma solução visando ser mais ecoeficiente, que poderia ser aplicada em um projeto com fins lucrativos em parceria com a Gerdau. Em vez de vender diretamente um robô fabricado para o parceiro de negócio, a solução seria oferecer o robô como serviço de assinatura. Dessa forma, o parceiro ainda veria vantagens econômicas em contratar o serviço, já que o manteria sempre atualizado e contaria com o suporte mais assertivo, enquanto o grupo reduziria o uso de recursos naturais ao evitar a compra de mais um robô. Em resumo, o uso de veículos autônomos não apenas contribui para a ecoeficiência e a redução de danos ambientais, mas também torna os procedimentos de inspeção mais eficientes e seguros.
 
 ## 2.4. Influências socioculturais
 
