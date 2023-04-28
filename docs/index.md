@@ -128,7 +128,7 @@ A princípio, será concebida uma simulação virtual do veículo autônomo guia
 
 # 3. Arquitetura do sistema
 
-<p align="center"><img src="diagrama_solução.drawio" width="60%"></p>
+<p align="center"><img src="media/diagrama_solução.drawio" width="60%"></p>
 
 Atualmente nossa arquitetura pode ser dividia em 2 partes:
 A primeira envolve todo o sistema que controla o robo e seus periféricos, esse parte lida com a comunicação entre os componentes e a simulação do robo, essa parte é feita utilizando o ROS2, que é um framework de robótica que permite a comunicação entre os componentes do sistema, além disso ele também permite a simulação do robo, o que facilita o desenvolvimento do sistema, pois não é necessário ter um robo fisico para testar o sistema. A segunda parte é uma solução web que permite a visualização dos dados coletados pelo robo, essa parte é feita utilizando o React, que é um framework de desenvolvimento web, flask que é um framework de desenvolvimento web para python e sqlite.
@@ -143,8 +143,8 @@ A primeira envolve todo o sistema que controla o robo e seus periféricos, esse 
 
 ### Requisitos Não Funcionais
 
-    1. Utilizando electron para criar uma aplicação web capaz fornecer dados em tempo real.
-    2. Os dados necessários para o sistema serão fornecidos por uma API, utilizando Sqlite.
+    1. Os dados necessários para o sistema serão enviados para o backend pelo ROS2 usando a arquitetura pub/sub.
+    2. Nosso Frontend será em React e nosso banco de dados será em MongoDB
     3. A simulação será feita com a biblioteca ROS2 e suas ferramentas.
     4. Com o auxílio de uma câmara nosso sistema será capaz de processar e fazer o stream para o controlador do que está acontecendo.
     5. Nosso robô contará com sensores atmosféricos.
