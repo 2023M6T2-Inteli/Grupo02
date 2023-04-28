@@ -49,7 +49,7 @@
 <p>Inicialmente, a empresa enfrentava desafios em relação à segurança, com riscos para a saúde e segurança de seus colaboradores. Sem a nossa solução, a Gerdau teria que continuar a lidar com os riscos e consequências negativas, como afastamentos, lesões, doenças, entre outros fatores que infelizmente estão sujeitos.</p>
 <p>Nossa solução é uma forma de reduzir os riscos e garantir a segurança dos funcionários em espaços confinados. Isso envolve a implementação de novas tecnologias. Com a proposta da Safe McQueen, a Gerdau pode agora evitar riscos potenciais à saúde e ao bem-estar de seus funcionários. Por isso, nossa Matriz Oceano Azul é uma relação de fatores da empresa Gerdau atual, e a perspectiva após a solução implementada.</P>
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/docs/media/diagrama_solu%C3%A7%C3%A3o.drawio.png?raw=true" width="60%"></p>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/docs/media/matriz_oceano_azul.pdf" width="60%"></p>
 <ul>
   <li><b>Reduzir</b></li>
   Inovação: Reduzir a necessidade de equipamentos ou processos obsoletos no processo.<br>
