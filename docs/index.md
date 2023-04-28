@@ -128,7 +128,7 @@ A princípio, será concebida uma simulação virtual do veículo autônomo guia
 
 # 3. Arquitetura do sistema
 
-<p align="center"><img src="media/diagrama_solução.drawio" width="60%"></p>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/docs/media/diagrama_solu%C3%A7%C3%A3o.drawio.png?raw=true" width="60%"></img></p>
 
 Atualmente nossa arquitetura pode ser dividia em 2 partes:
 A primeira envolve todo o sistema que controla o robo e seus periféricos, esse parte lida com a comunicação entre os componentes e a simulação do robo, essa parte é feita utilizando o ROS2, que é um framework de robótica que permite a comunicação entre os componentes do sistema, além disso ele também permite a simulação do robo, o que facilita o desenvolvimento do sistema, pois não é necessário ter um robo fisico para testar o sistema. A segunda parte é uma solução web que permite a visualização dos dados coletados pelo robo, essa parte é feita utilizando o React, que é um framework de desenvolvimento web, flask que é um framework de desenvolvimento web para python e sqlite.
