@@ -120,13 +120,12 @@ A primeira envolve todo o sistema que controla o robo e seus periféricos, esse 
 
 ### Requisitos Não Funcionais
 
-    1. Utilizando electron e react para criar uma aplicação web capaz de rodar de forma local.
-    2. Os dados necessários para o sistema serão fornecidos por uma API, utilizando MongoDB.
+    1. Utilizando electron para criar uma aplicação web capaz fornecer dados em tempo real.
+    2. Os dados necessários para o sistema serão fornecidos por uma API, utilizando Sqlite.
     3. A simulação será feita com a biblioteca ROS2 e suas ferramentas.
     4. Com o auxílio de uma câmara nosso sistema será capaz de processar e fazer o stream para o controlador do que está acontecendo.
-    5. Nosso robô contará com sensores atmosféricos e de procimidade.
-    6. Nosso robô fará o envio dos dados coletados para nossa aplicação por meio do protocolo HTTP, utilizando WIFI.
-    7. Nosso sistema irá fazer a captura dos dados por meio de um sistema de metrôs.
+    5. Nosso robô contará com sensores atmosféricos.
+    6. Nosso robô fará o envio dos dados coletados para nossa aplicação por meio do ROS2, utilizando o metodo publisher-subscriber.
 
 # 4. Sistema de locomoção e otimização de rota
 
