@@ -46,7 +46,30 @@
 
 ## 1.1. Análise setorial
 
-(Oceano azul)
+<p>Inicialmente, a empresa enfrentava desafios em relação à segurança, com riscos para a saúde e segurança de seus colaboradores. Sem a nossa solução, a Gerdau teria que continuar a lidar com os riscos e consequências negativas, como afastamentos, lesões, doenças, entre outros fatores que infelizmente estão sujeitos.</p>
+<p>Nossa solução é uma forma de reduzir os riscos e garantir a segurança dos funcionários em espaços confinados. Isso envolve a implementação de novas tecnologias. Com a proposta da Safe McQueen, a Gerdau pode agora evitar riscos potenciais à saúde e ao bem-estar de seus funcionários. Por isso, nossa Matriz Oceano Azul é uma relação de fatores da empresa Gerdau atual, e a perspectiva após a solução implementada.</P>
+
+<p align="center"><img src="media\matriz_oceano_azul.pdf" width="60%"></p>
+<ul>
+  <li><b>Reduzir</b></li>
+  Inovação: Reduzir a necessidade de equipamentos ou processos obsoletos no processo.<br>
+  Segurança: Reduzir riscos e situações de perigo que os colaboradores enfrentam 
+  
+  <li><b>Eliminar</b></li>
+  Sustentabilidade: Eliminar o uso de materiais prejudiciais ao meio ambiente na solução, utilizando materiais sustentáveis e com baixo impacto ambiental.
+  
+  <li><b>Aumentar</b></li>
+  Tecnologia: Oferecer uma solução com tecnologia de ponta que facilite o trabalho dos funcionários.<br>
+  Segurança: Aumentar a eficiência da solução no que se refere à segurança dos funcionários em espaços confinados.<br>
+  Custos: Pode haver um aumento no custo inicial de implementação, porém, a longo prazo, a empresa terá redução de riscos e pode trazer benefícios para a imagem da empresa e, consequentemente, suas receitas.<br>
+  Qualidade: A qualidade do serviço pode não aumentar. Todavia, a qualidade da experiência do funcionário pode ser aumentada, já que eles terão mais confiança e segurança em seu trabalho.
+  
+  
+  <li><b>Criar</b></li>
+  Perenidade: Criar uma solução que seja durável e de fácil manutenção.<br>
+  Conforto: Criar um ambiente de trabalho mais confortável para os funcionários que precisam trabalhar em espaços confinados. Já que a segurança em ambientes confinados pode ser uma fonte de estresse e desconforto. Além de demonstrar a preocupação da empresa quanto a saúde deles.<br>
+  Tecnologia: Com esse protótipo inicial é possível criar tecnologias mais avançadas; sistemas de monitoramento, sensores, até realidade virtual, o que pode ser visto como um diferencial tecnológico em relação à concorrência
+</ul>
 
 ## 1.2. Análise empresarial
 
