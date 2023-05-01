@@ -164,15 +164,21 @@ A primeira envolve todo o sistema que controla o robo e seus periféricos, esse 
 
 ## 3.1 Engenharia de requisitos
 
+A engenharia de requisitos tem como objetivo promover em frases curtas e objetivas funcionalidades e características específicas do sistema, assim, atendendo as necessidades e expectativas do usuário, cumprir as especificações técnicas, a conformidades com as regulamentações e o padrão de qualidade aplicável em cada etapa do projeto.   
+
 ### Requisitos Funcionais
+
+Tem como objetivo primordial descrever as principais funcionalidades e características específicas da interação do sistema robótico. 
 
 1. Anteriormente ao processo de entrada aos espaços confinados, o robô será configurado para a definição do intervalo de distância entre os pontos da medição. 
 
 2. Após a concretização das medições, o robô enviar as informações para o relatório que poderá ser acessado via interface gráfica. 
 
-3. O armazenamento de dados referentes aos espaços confinados serão conletados por meio de sensores. 
+3. O armazenamento de dados atmosféricos referentes aos espaços confinados serão conletados por meio de sensores. 
 
 ### Requisitos Não Funcionais
+
+Tem como objetivo primordial descrever aspectos mais generalizados, como desempenho na usabilidade e segurança do sistema, não são diretamente relacionados às funcionalidades mas sim à eficiência e eficácia em relação ao usuário final da aplicação.   
 
 1. Os dados necessários para o sistema serão enviados para o Backend pelo ROS2 usando a arquitetura publisher/subscriber.
 
