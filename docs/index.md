@@ -168,7 +168,7 @@ A engenharia de requisitos tem como objetivo promover em frases curtas e objetiv
 
 ### Requisitos Funcionais
 
-Tem como objetivo primordial descrever as principais funcionalidades e características específicas da interação do sistema robótico. 
+Tem como objetivo primordial descrever as principais funcionalidades e características específicas da interação do sistema robótico. Como: a configuração do intervalo de distância entre os pontos de medição, a transmissão das informações para o relatório e o armazenamento dos dados atmosféricos por meio de sensores. 
 
 1. Anteriormente ao processo de entrada aos espaços confinados, o robô será configurado para a definição do intervalo de distância entre os pontos da medição. 
 
@@ -178,7 +178,7 @@ Tem como objetivo primordial descrever as principais funcionalidades e caracter�
 
 ### Requisitos Não Funcionais
 
-Tem como objetivo primordial descrever aspectos mais generalizados, como desempenho na usabilidade e segurança do sistema, não são diretamente relacionados às funcionalidades mas sim à eficiência e eficácia em relação ao usuário final da aplicação.   
+Tem como objetivo primordial descrever aspectos mais generalizados, como desempenho na usabilidade e segurança do sistema, não são diretamente relacionados às funcionalidades mas sim à eficiência e eficácia em relação ao usuário final da aplicação. Incluindo: a comunicação entre o robô e o Backend usando a arquitetura publisher/subscriber, a coordenação da simulação e protótipo por meio do sistema ROS2, a capacidade de armazenar arquivos de imagem e vídeo por meio da câmera, o uso de sensores de medição atmosférica e a escolha de tecnologias específicas para o armazenamento de dados não relacionais e a construção do Frontend.  
 
 1. Os dados necessários para o sistema serão enviados para o Backend pelo ROS2 usando a arquitetura publisher/subscriber.
 
