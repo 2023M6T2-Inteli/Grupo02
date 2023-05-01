@@ -33,7 +33,7 @@
   - [3.1 Engenharia de requisitos](#31-engenharia-de-requisitos)
     - [Requisitos Funcionais](#requisitos-funcionais)
     - [Requisitos Não Funcionais](#requisitos-não-funcionais)
-  -  [3.2 Viabilidade Ténica](#)
+  -  [3.2 Viabilidade Ténica](#3.2-viabilidade)
 - [4. Sistema de locomoção e otimização de rota](#4-sistema-de-locomoção-e-otimização-de-rota)
 - [5. Interface de usuário](#5-interface-de-usuário)
 - [6. Sistema de visão computacional](#6-sistema-de-visão-computacional)
