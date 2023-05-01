@@ -29,6 +29,9 @@
   - [2.4. Influências socioculturais](#24-influências-socioculturais)
   - [2.5. Tipológico-formais e ergonômicos](#25-tipológico-formais-e-ergonômicos)
   - [2.6. Tecnologia produtiva e materiais empregados](#26-tecnologia-produtiva-e-materiais-empregados)
+  - [2.7 Entendimento da experiência do usuário](#26-entendimento-da-experiência-do-usuário)
+    - [Persona](#Persona)
+    - [User Story](#User-Story)
 - [3. Arquitetura do sistema](#3-arquitetura-do-sistema)
   - [3.1 Engenharia de requisitos](#31-engenharia-de-requisitos)
     - [Requisitos Funcionais](#requisitos-funcionais)
@@ -142,6 +145,15 @@ O grupo também propôs uma solução visando ser mais ecoeficiente, que poderia
 ## 2.5. Tipológico-formais e ergonômicos
 
 ## 2.6. Tecnologia produtiva e materiais empregados
+
+## 2.7. Entendimento da experiência do usuário
+
+### Persona 
+
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/docs/media/persona.png" width="60%"></img></p>
+A persona foi criada para ajudar a entender as necessidades e os desejos do público alvo para a solução de automação industrial que foi apresentada, ela é um personagem fictício, doravante, com informações reais fornecidas pelos representantes da Gerdau. Nesse caso, especificamente,  Joana é técnica em segurança do trabalho, realiza atividades de alto risco, e, portanto, está sempre com equipamentos de proteção individual, sobretudo, por serem ainda atividades arriscadas, compreende que é um trabalho bastante delicado. Com a implementação da solução em desenvolvimento , Joana teria que aprender a supervisionar o trabalho do robô, deixando para ele concluir a etapa mais perigosa e garantindo que seu desempenho nas demais responsabilidades do processo de inspeção do ambiente confinado estivessem ocorrendo de forma correta.  
+
+### User Story 
 
 # 3. Arquitetura do sistema
 
