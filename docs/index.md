@@ -33,6 +33,7 @@
   - [3.1 Engenharia de requisitos](#31-engenharia-de-requisitos)
     - [Requisitos Funcionais](#requisitos-funcionais)
     - [Requisitos Não Funcionais](#requisitos-não-funcionais)
+  -  [3.2 Viabilidade Ténica](#)
 - [4. Sistema de locomoção e otimização de rota](#4-sistema-de-locomoção-e-otimização-de-rota)
 - [5. Interface de usuário](#5-interface-de-usuário)
 - [6. Sistema de visão computacional](#6-sistema-de-visão-computacional)
@@ -114,15 +115,11 @@ Outrossim, há uma interface gráfica que tem como objetivo ajudar no planejamen
 
 #### Relação entre o produto desenvolvido e sua precificação com o merdaco atual
 
-O produto será desenvolvido com a principal função de simular virtualmente a movimentação de um robô que, por sua vez, irá estar em um espaço confinado com objetivo primordial de captar informações sobre o ambiente atmosférico especificado na planta disponibilizada pela Gerdau. Após a simulação consolidada, haverá uma demonstração com um robô de forma física, que irá avaliar o local ao seu entorno, tendo a possibilidade de selecionar pontos específicos com intervalos de distâncias reguláveis. Ademais, os dados atmosféricos coletados pelos sensores estão relacionados principalmente à taxa de oxigênio local, pressão atmosférica, velocidade da ventilação para a remoção de compostos contaminantes, entre outros itens gasosos.
-
-Em um conceito macro do projeto, é possível perceber que seu processo de desenvolvimento será pautado na segurança e na confiabilidade dos sensores usados na sua implementação. Portanto, o robô em sua versão final será capaz de se mover de maneira autônoma, voltando para seu ponto de origem caso aconteça alguma falha, utilizando filmagens para acrescentar na inspeção que será feita. Diante desse cenário, a comercialização dentro desse setor na robótica acontece com custos elevados, dado a quantidade de requisitos e a possibilidade de customização do projeto.
+O produto será desenvolvido com a principal função de simular virtualmente a movimentação de um robô que, por sua vez, irá estar em um espaço confinado com objetivo primordial de captar informações sobre o ambiente atmosférico. Atualmente, a Confederação Nacional da Indústria (CNI) realizou um estudo para mapear os principais níveis de automação industrial do Brasil, aproximadamente 19% das indústrias já possuem sistemas integrados de engenharia, aumentando, portanto, sua produtividade e garantindo a segurança humana em trabalhos com altos riscos. Em 2022, foram contabilizados três milhões de robôs operando em indústrias  em todo o mundo, ao total foram mais de US$ 13,2 bilhões investidos nos últimos anos para a instalação desses projetos robóticos. Especificamente, com o robô a ser utilizado para a solução descrita acima, não irá ultrapassar US$ 1000, é notório, portanto, que o valor investido não é exageradamente elevado, visto que, hoje tem robôs no mercado que custam mais milhões de dólares. 
 
 #### Precificação
 
-O processo de precificação acontece com o objetivo primordial de levantar os dados sobre os serviços necessários para a implementação da solução, de modo que, seja visível os materiais utilizados, uma estimativa mais realista possível do tempo que será preciso para o protótipo ser consolidado. Doravante e além desses parâmetros, é imprescindível nesta etapa a contribuição da equipe de desenvolvimento para explicar ao parceiro os principais benefícios dos componentes e como eles se relacionam com os requisitos, para assim, ser alcançado um excelente padrão de qualidade dentro do alinhamento de expectativas realizado na conversa com o colaborador empresarial em questão, especialmente os representantes do setor industrial e automotivo da Gerdau.
-
-No total iram ser 10 semanas, mudando gradativamente o processo de simulação feita ROS2 para o ambiente de demonstração física utilizando o robô TurtleBot 3 Burger que está custando atualmente 3.279 reais, para as medições vamos implementar na solução os seguintes sensores: o MQ-135, usado para mensurar a taxa de gases tóxicos e está custando em média 20 reais, o Bme-280, que tem como principal função a medição de temperatura, umidade e pressão atmosférica, hoje está sendo comercializado por 40 reais, e para a inspeção do ambiente vamos usar no robô a câmera para Raspberry, estimado no valor de 70 reais. Com isso, o custo total dos nossos principais componentes para o desenvolvimento do projeto, será de 3.409 reais.
+O processo de precificação  acontece com o objetivo primordial de levantar os dados financeiros sobre os serviços necessários para a implementação da solução, de modo que, seja visível o preço dos materiais utilizados, por exemplo: o modelo do robô, taxa de importação, os sensores atmosféricos a serem utilizados, a câmera, etc , as ferramentas digitais usadas no desenvolvimento do projeto que podem incluir algum gasto, por exemplo: o uso do figma e canva pro , o valor que será necessário para o treinamento dos funcionários para terem uma adaptação melhor com o sistema, e se tiver, acrescentar à soma outros fatores que necessitem investimentos para a implementação da solução ocorrer de maneira qualitativamente satisfatória. 
 
 ## 2.2. Sistema produto/design
 
@@ -157,18 +154,40 @@ A primeira envolve todo o sistema que controla o robo e seus periféricos, esse 
 
 ### Requisitos Funcionais
 
-1. Os usuários terão acesso aos dados e às funcionalidades do sistema por meio de uma interface de usuário, que contará com uma simulação do robô e uma aba para o operador fazer sua guiagem.
+1. Anteriormente ao processo de entrada aos espaços confinados, o robô será configurado para a definição do intervalo de distância entre os pontos da medição. 
 
-2. Coleta e armazenagem de dados em área por sensores.
+2. Após a concretização das medições, o robô enviar as informações para o relatório que poderá ser acessado via interface gráfica. 
+
+3. O armazenamento de dados referentes aos espaços confinados serão conletados por meio de sensores. 
 
 ### Requisitos Não Funcionais
 
-    1. Os dados necessários para o sistema serão enviados para o backend pelo ROS2 usando a arquitetura pub/sub.
-    2. Nosso Frontend será em React e nosso banco de dados será em MongoDB
-    3. A simulação será feita com a biblioteca ROS2 e suas ferramentas.
-    4. Com o auxílio de uma câmara nosso sistema será capaz de processar e fazer o stream para o controlador do que está acontecendo.
-    5. Nosso robô contará com sensores atmosféricos.
-    6. Nosso robô fará o envio dos dados coletados para nossa aplicação por meio do ROS2, utilizando o metodo publisher-subscriber.
+1. Os dados necessários para o sistema serão enviados para o Backend pelo ROS2 usando a arquitetura publisher/subscriber.
+
+2. Tanto a simulação quanto o protótipo serão coordenados por meio do sistema ROS2. 
+
+3. Com o auxílio de uma câmera, o sistema será capaz armazenar arquivos de imagens e/ou vídeos. 
+
+4. O robô contará com sensores de medição atmosférica, tais como de pressão, de temperatura e de umidade. 
+
+5. Será utilizado MongoDB para o armazenamento de dados não relacionais.
+
+6. Será utilizado React para a construção do Frontend.
+
+## 3.2 Viabilidade 
+
+Viabilidade Técnica 
+
+A viabilidade técnica, refere-se a possibilidade de implementar na prática  a solução arquitetada, levando em consideração os recursos técnicos a serem utilizados ao decorrer do tempo necessário para a construção do protótipo final. Nesse sentido, é necessário que o projeto passe por pelas seguintes etapas para garantir sua viabilidade técnica:
+
+1. Identificar as ferramentas digitais necessárias: especificamente no desenvolvimento dessa solução, é primordial o uso  das seguintes tecnologias digitais: ROS2 (um conjunto de ferramentas e bibliotecas e nos permitirá integrar todo o sistema operacional para termos um ambiente robótico integrado e fundamentalmente composto pelo o Ubuntu e o TurtleSim) , Ubuntu (utilização da ferramenta que ele oferece para a simulação em 2D de robôs, o TurtleSim), mongoDB (programa de banco de dados orientado a documentos) , React JS (framework para desenvolvimento de front-end) e Gazebo (ferramenta de simulação do 3D para o sistema robótico). 
+
+2. Identificar os principais componentes físicos necessários:  especificamente no desenvolvimento dessa solução, é primordial o uso  dos seguintes componentes eletrônicos: robô TurtleBot 3 Burger, o sensor MQ-135 para mensurar a taxa de gases tóxicos, o sensor Bme-280 que tem como principal função a medição de temperatura, e para ser acoplado no robô a câmera para Raspberry Pi. 
+
+3. Alinhamento de conhecimento da equipe desenvolvedora da solução: para um melhor compartilhamento de conteúdo a ser colocado em prática, é necessário a garantia de que o projeto em todas as vertentes esteja em conformidade com o padrão de verificação e regulamentação técnicas viáveis, dado a boa documentação de tudo que for feito, a construção de um manual do usuário bem interativo, a integração do backend ocorrendo de forma correta, o controle da plataforma robótica e o sistema de segurança com a visão computacional sendo executado sem erros no sistema. Para a realização de todos os tópicos anteriores, é primordial um cruzamento de ideias e um bom desenvolvimento profissional da equipe.  
+
+4. Mapear possíveis desafios técnicos e proporcionar soluções, por exemplo, caso ocorra falha em algum sensor físico, é necessário um planejamento de um plano B, ter um segundo sensor para usar em casos de substituições.  
+
 
 # 4. Sistema de locomoção e otimização de rota
 
