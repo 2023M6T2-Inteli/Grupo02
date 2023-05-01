@@ -236,6 +236,8 @@ G1 Sul do Rio e Costa Verde. Funcionário morre em acidente de trabalho na CSN, 
 
 RODRIGUES, Fania. Operários denunciam aumento de acidentes de trabalho na CSN. **Brasil de Fato**, 09 nov. 2016. Disponível em: https://www.brasildefato.com.br/2016/11/09/operarios-denunciam-aumento-de-acidentes-de-trabalho-na-csn-em-volta-redonda/. Acesso em: 26 abr. 2023.
 
+Mercado de automação e robótica industrial no Brasil
+https://www.vdibrasil.com/aumento-no-mercado-de-robotica-e-automacao-em-2022/#:~:text=A%20ind%C3%BAstria%20de%20rob%C3%B3tica%20e,em%2013%25%20no%20%C3%BAltimo%20ano. Acesso em: 30/04/2023
 # 12. Material de apoio
 
 https://www.robotis.us/turtlebot-3-burger-us/
