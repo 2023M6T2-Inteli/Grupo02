@@ -124,6 +124,13 @@ O produto será desenvolvido com a principal função de simular virtualmente a 
 
 O processo de precificação  acontece com o objetivo primordial de levantar os dados financeiros sobre os serviços necessários para a implementação da solução, de modo que, seja visível o preço dos materiais utilizados, por exemplo: o modelo do robô, taxa de importação, os sensores atmosféricos a serem utilizados, a câmera, etc , as ferramentas digitais usadas no desenvolvimento do projeto que podem incluir algum gasto, por exemplo: o uso do figma e canva pro , o valor que será necessário para o treinamento dos funcionários para terem uma adaptação melhor com o sistema, e se tiver, acrescentar à soma outros fatores que necessitem investimentos para a implementação da solução ocorrer de maneira qualitativamente satisfatória. 
 
+### Cenário do mercado.
+
+A indústria mundial da produção de aço, por séculos, tem se valorizado pela produção de um material resistente e durável, ganhando um importante espaço no avanço da sociedade, permitindo-nos construir pontes, ferrovias, navios e arranha-céus. Com a demanda crescente de aço, o setor consolidou um histórico de aumentos em sua capacidade, volume e valor.
+O aço é importante pelas indústrias que fazem seu uso. Ele está presente na construção civil, na industria automobilística, nas forças armadas e em demais setores. O produto processado é usado na criação de diversos produtos do cotiano, como geladeiras, máquinas de lavar, trens e bisturis cirúrgicos.
+Há uma preocupação relativa ao aspecto ecológico por parte da indústria, que tem explorado significativamente o conceito de aço verde – alternativa inovadora constituída pela fabricação de aço sem a necessidade do uso de combustíveis fósseis e pelo uso efetivo da sucata de metal. Dentre outras inovações dessa área, destaca-se o aumento da automatização de processos, com o uso de AGVs em tarefas de risco, diminuindo o erro humano em acidentes ecológicos.
+O mercado nacional contou com um forte crescimento durante a pandemia de Covid-19, fazendo contra ponto ao setor nesse mesmo período. “Apesar da montanha-russa que foi 2022, foi um bom ano para o setor. Tanto que, em termos de vendas internas, este foi o quarto melhor da década”, resumiu o presidente-executivo do Aço Brasil, Marco Polo de Mello Lopes. Atualmente a área já não está mais em constante crescimento, apresentando um recuo em sua produção, que em fevereiro fechou em 2,5 milhões de toneladas, representando uma queda de 4,9%.
+
 ## 2.2. Sistema produto/design
 
 #### Missão do projeto proposto
