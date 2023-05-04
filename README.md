@@ -82,6 +82,16 @@ Descreva como instalar todas as dependências para desenvolvimento e como rodar 
 
 Para abrir este projeto você necessita das seguintes ferramentas:
 
+### Ros Humble Turtlebot3
+Para instalar esse pacote, abra o terminal do ubuntu e execute:
+
+```sudo apt install ros-humble-turtlebot3*```
+
+Isso instalará todos os pacotes necessários para executar o Gazebo, o ambiente de simulação que utilizamos.
+Por fim, execute no terminal do ubuntu:
+
+```gazebo```
+
 ## 🗃 Histórico de lançamentos
 
 A cada atualização os detalhes devem ser lançados aqui.
