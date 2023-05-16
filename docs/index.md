@@ -272,9 +272,26 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 <img src="../media/arquitetura_sistema/interacao_topicos.png">
 
-# 5. Interface de usuário
 
-## 5.1. Visão geral do design
+# 5. Sistema de otimização de rota 
+
+## 5.1 Introdução
+Primeiramente, para a construção e formulação dos passos necessários para a implementação das rotas e suas principais otimizações, foi utilizado o contexto do problema caixeiro-viajante que estabelece variáveis primordiais para a compreensão de como foi feita a otimização das rotas que passam pelo robô. A seguir, está descrito detalhes do enigma citado, o algoritmo para o aprimoramento do trajeto e a decisão de qual será o caminho que possibilita o aprimoramento do percurso robótico apresentado no tópico anterior do projeto com a utilização do Gazebo. 
+
+## 5.1.2 Problema “O caixeiro viajante” 
+
+O problema em questão consiste na busca de uma resolução de em uma série de pontos pré estabelecidos, que o caixeiro necessita passar em todos eles levando sempre a menor distância possível e após seguir o trajeto ele regressará ao ponto de origem. 
+
+Para a construção de circuitos, é possível recorrer a alguns métodos, um exemplo seria o método do vizinho mais próximo e  priorizar assim a escolha do ponto mais próximo até que todos os pontos sejam visitados. Outro método e o que foi aplicado é o algoritmo de Dijkstra. O algoritmo considera um conjunto S de menores caminhos, iniciado com um vértice inicial I. A cada passo do algoritmo busca-se nas adjacências dos vértices pertencentes a S aquele vértice com menor distância relativa a I e adiciona-o a S e, então, repetindo os passos até que todos os vértices alcançáveis por I estejam em S. Arestas que ligam vértices já pertencentes a S são desconsideradas. Dessa forma, calculando o caminho de custo mínimo entre as vértices do grafo. 
+
+## 5.1.3 Implementação 
+  
+A biblioteca networkx implementa  este algoritmo na função traveling_salesman que foi utilizada pelo grupo. Começamos transformando os pontos em nodos e criando arestas entre todos os vértices, futuramente o usuário poderá escolher as arestas. Após isso calculamos as distâncias entre os pontos para definir os pesos entre as arestas.
+
+
+# 6. Interface de usuário
+
+## 6.1. Visão geral do design
 
 <p>O sistema de design é uma coleção de elementos e padrões visuais que definem a aparência e a experiência do usuário em todo o projeto. Ele garante consistência e coesão em todas as telas e componentes, promovendo uma experiência de usuário unificada. A seguir, apresentamos os principais elementos do sistema de design:</p>
 
@@ -318,7 +335,7 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 <p>Assim como nos tópicos anteriores, o objetivo do grupo é utilizar esses ícones no projeto para manter um padrão e facilitar a experiência do usuário de modo que fique mais intuitivo.</p>
 
-## 5.2. Telas
+## 6.2. Telas
 
 <p>A seguir, apresentamos uma lista das telas principais do projeto, juntamente com uma breve descrição de suas funcionalidades:</p>
 
@@ -356,17 +373,17 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 <img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/rodando.png">
 <p>Essa página é carregada quando a simulação é iniciada. Com informações relevantes para o projeto</p>
 
-# 6. Sistema de visão computacional
+# 7. Sistema de visão computacional
 
-# 7. Sistemas de segurança
+# 8. Sistemas de segurança
 
-# 8. Backend
+# 9. Backend
 
-# 9. Integração de sistemas
+# 10. Integração de sistemas
 
-# 10. Validação da eficácia do sistema
+# 11. Validação da eficácia do sistema
 
-# 11. Referências
+# 12. Referências
 
 BRASIL. Ministério do Trabalho e Emprego. Portaria nº 202, de 22 de dezembro de 2006 - **NR33**. Diário Oficial da União, 27 de dezembro de 2006.<br>
 MELLO, Pedro. Estratégia do Oceano Azul - 22. DÊGRAU10, 01 ago. 2020. Disponível em: https://degrau10.com.br/estrategia-do-oceano-azul/. Acesso em: 19 abr. 2023.<br>
