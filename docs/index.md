@@ -42,6 +42,8 @@
     - [Requisitos Não Funcionais](#requisitos-não-funcionais)
   - [3.2 Viabilidade](#32-viabilidade)
 - [4. Sistema de locomoção e otimização de rota](#4-sistema-de-locomoção-e-otimização-de-rota)
+  - [4.1 Sistema de locomoção](#sistema_de_locomoção)
+  - [4.2 Otimização de rota](#4.2-otimização-de-rota)
 - [5. Interface de usuário](#5-interface-de-usuário)
   - [5.1. Visão geral do design](#51-visão-geral-do-design)
     - [Palheta de cores](#palheta-de-cores)
@@ -241,9 +243,7 @@ A viabilidade técnica, refere-se a possibilidade de implementar na prática a s
 
 4. Mapear possíveis desafios técnicos e proporcionar soluções, por exemplo, caso ocorra falha em algum sensor físico, é necessário um planejamento de um plano B, ter um segundo sensor para usar em casos de substituições.
 
-# 4. Sistema de locomoção e otimização de rota
 
-## 4.1 Sistema de locomoção 
 # 4. Sistema de locomoção e otimização de rota
 
 ## 4.1 Sistema de locomoção 
@@ -275,10 +275,34 @@ A função publisher_callback realiza a subtração entre os ângulos de posiç�
 
 </p>
 
-### 4.1.1 Instalação do ambiente de simulação
+## 4.2 Otimização de rota
+<br>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Primeiramente, para a construção e formulação dos passos necessários para a implementação das rotas e suas principais otimizações, foi utilizado o contexto do problema caixeiro-viajante que estabelece variáveis primordiais para a compreensão de como foi feita a otimização das rotas que passam pelo robô. A seguir, está descrito detalhes do enigma citado, o algoritmo para o aprimoramento do trajeto e a decisão de qual será o caminho que possibilita o aprimoramento do percurso robótico apresentado no tópico anterior do projeto com a utilização do Gazebo. 
+
+<br>
+
+### 4.2.1 Problema “O caixeiro viajante” 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; O problema em questão consiste na busca de uma resolução de em uma série de pontos pré estabelecidos, que o caixeiro necessita passar em todos eles levando sempre a menor distância possível e após seguir o trajeto ele regressará ao ponto de origem. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Para a construção de circuitos, é possível recorrer a alguns métodos, um exemplo seria o método do vizinho mais próximo e  priorizar assim a escolha do ponto mais próximo até que todos os pontos sejam visitados. Outro método e o que foi aplicado é o algoritmo de Dijkstra. O algoritmo considera um conjunto S de menores caminhos, iniciado com um vértice inicial I. A cada passo do algoritmo busca-se nas adjacências dos vértices pertencentes a S aquele vértice com menor distância relativa a I e adiciona-o a S e, então, repetindo os passos até que todos os vértices alcançáveis por I estejam em S. Arestas que ligam vértices já pertencentes a S são desconsideradas. Dessa forma, calculando o caminho de custo mínimo entre as vértices do grafo. 
+<br>
+<br>
+
+### 4.2.2 Implementação 
+  
+A biblioteca networkx implementa  este algoritmo na função traveling_salesman que foi utilizada pelo grupo. Começamos transformando os pontos em nodos e criando arestas entre todos os vértices, futuramente o usuário poderá escolher as arestas. Após isso calculamos as distâncias entre os pontos para definir os pesos entre as arestas.
+</p> 
+
+<br>
+<img src="../media/integracao_rotas/code.png">
+<br>
+<br>
+
+### 5.1.1 Instalação do ambiente de simulação
 Para abrir este projeto você necessita das seguintes ferramentas:
 
-#### 4.1.1.1 Ros Humble Turtlebot3
+#### 5.1.1.1 Ros Humble Turtlebot3
 Para instalar esse pacote, abra o terminal do ubuntu e execute:
 
 ```sudo apt install ros-humble-turtlebot3*```
@@ -291,7 +315,7 @@ Por fim, execute no terminal do ubuntu para verificar se foi instalado corretame
 Em caso de erros, consulte a documentação de instalação do ros2 humble: [Documentação](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
 
 
-### 4.1.3 Comunicação 
+### 5.1.3 Comunicação 
 A comunicação entre a plataforma robótica móvel e o sistema de simulação integrada ao sistema operacional robótico é feita por meio do protocolo TCP/IP, onde os nós definidos em nosso script se comunicam entre os nós do sistema como *subcribers* (que se inscrevem nos tópicos dos nós do sistema para receberem as mensagens que eles enviam) ou *publishers* (que publicam mensagens nos tópicos do sistema para executar comandos no robô, por exemplo).
 
 Por enquanto, usamos os tópicos ```/odom```, para receber a posição atual do robô dentro do ambiente de simulação, e ```/cmd_vel```, para alterar a velocidade linear e angular do robô dentro do ambiente de simulação. Mas faremos uso de outros tópicos para receber as informações dos sensores que estão acoplados ao robô.
@@ -300,22 +324,8 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 <img src="../media/arquitetura_sistema/interacao_topicos.png">
 
-
-# 5. Sistema de otimização de rota 
-
-## 5.1 Introdução
-Primeiramente, para a construção e formulação dos passos necessários para a implementação das rotas e suas principais otimizações, foi utilizado o contexto do problema caixeiro-viajante que estabelece variáveis primordiais para a compreensão de como foi feita a otimização das rotas que passam pelo robô. A seguir, está descrito detalhes do enigma citado, o algoritmo para o aprimoramento do trajeto e a decisão de qual será o caminho que possibilita o aprimoramento do percurso robótico apresentado no tópico anterior do projeto com a utilização do Gazebo. 
-
-## 5.1.2 Problema “O caixeiro viajante” 
-
-O problema em questão consiste na busca de uma resolução de em uma série de pontos pré estabelecidos, que o caixeiro necessita passar em todos eles levando sempre a menor distância possível e após seguir o trajeto ele regressará ao ponto de origem. 
-
-Para a construção de circuitos, é possível recorrer a alguns métodos, um exemplo seria o método do vizinho mais próximo e  priorizar assim a escolha do ponto mais próximo até que todos os pontos sejam visitados. Outro método e o que foi aplicado é o algoritmo de Dijkstra. O algoritmo considera um conjunto S de menores caminhos, iniciado com um vértice inicial I. A cada passo do algoritmo busca-se nas adjacências dos vértices pertencentes a S aquele vértice com menor distância relativa a I e adiciona-o a S e, então, repetindo os passos até que todos os vértices alcançáveis por I estejam em S. Arestas que ligam vértices já pertencentes a S são desconsideradas. Dessa forma, calculando o caminho de custo mínimo entre as vértices do grafo. 
-
-## 5.1.3 Implementação 
-  
-A biblioteca networkx implementa  este algoritmo na função traveling_salesman que foi utilizada pelo grupo. Começamos transformando os pontos em nodos e criando arestas entre todos os vértices, futuramente o usuário poderá escolher as arestas. Após isso calculamos as distâncias entre os pontos para definir os pesos entre as arestas.
-
+<br>
+<br>
 
 # 6. Interface de usuário
 
