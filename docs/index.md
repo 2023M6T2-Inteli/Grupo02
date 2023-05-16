@@ -39,6 +39,8 @@
   -  [3.2 Viabilidade Ténica](#3.2-viabilidade)
 - [4. Sistema de locomoção e otimização de rota](#4-sistema-de-locomoção-e-otimização-de-rota)
 - [5. Interface de usuário](#5-interface-de-usuário)
+  - [5.1. Visão geral do design](#51-visão-geral-do-design)
+  - [5.2. Telas](#52-telas)
 - [6. Sistema de visão computacional](#6-sistema-de-visão-computacional)
 - [7. Sistemas de segurança](#7-sistemas-de-segurança)
 - [8. Backend](#8-backend)
