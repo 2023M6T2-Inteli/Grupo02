@@ -245,11 +245,32 @@ A viabilidade técnica, refere-se a possibilidade de implementar na prática a s
 
 ## 4.1 Sistema de locomoção 
 
-<p>Nosso sistema de locomoção está operando com o sistema de nós do ROS. Esse sistema permite a comunicação entre nosso scripth em python e o ambiente de cimulação Gazebo.</p>
+<p> Nosso sistema de locomoção está operando com o sistema de nós do ROS. Esse sistema permite a comunicação entre nosso script em python e o ambiente de simulação Gazebo. </p>
 
-### 4.1.1 Comunicação 
+### 4.1.1 Instalação do ambiente de simulação
+Para abrir este projeto você necessita das seguintes ferramentas:
+
+#### 4.1.1.1 Ros Humble Turtlebot3
+Para instalar esse pacote, abra o terminal do ubuntu e execute:
+
+```sudo apt install ros-humble-turtlebot3*```
+
+Isso instalará todos os pacotes necessários para executar o Gazebo, o ambiente de simulação que utilizamos.
+Por fim, execute no terminal do ubuntu para verificar se foi instalado corretamente:
+
+```gazebo```
+
+Em caso de erros, consulte a documentação de instalação do ros2 humble: [Documentação](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
 
 
+### 4.1.3 Comunicação 
+A comunicação entre a plataforma robótica móvel e o sistema de simulação integrada ao sistema operacional robótico é feita por meio do protocolo TCP/IP, onde os nós definidos em nosso script se comunicam entre os nós do sistema como *subcribers* (que se inscrevem nos tópicos dos nós do sistema para receberem as mensagens que eles enviam) ou *publishers* (que publicam mensagens nos tópicos do sistema para executar comandos no robô, por exemplo).
+
+Por enquanto, usamos os tópicos ```/odom```, para receber a posição atual do robô dentro do ambiente de simulação, e ```/cmd_vel```, para alterar a velocidade linear e angular do robô dentro do ambiente de simulação. Mas faremos uso de outros tópicos para receber as informações dos sensores que estão acoplados ao robô.
+
+Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, onde as setas pontilhadas indicam a direção das mensagens
+
+<img src="../media/arquitetura_sistema/interacao_topicos.png">
 
 # 5. Interface de usuário
 
