@@ -2,6 +2,7 @@ import networkx as nx
 import math
 from networkx.algorithms.approximation import traveling_salesman_problem
 
+# Nossos nós
 goals = {'a': (1.0, 2.0), # 'a'
          'b': (4.0, 5.0), # 'b'
          'c': (2.0, 1.0), # 'c'
@@ -12,7 +13,8 @@ goals = {'a': (1.0, 2.0), # 'a'
          'h': (0.0, 0.0)} # 'h'
 
 G = nx.Graph()
-i = 0
+
+# Adiciona os nossos nós ao grafo e cria arestas com pesos iguais à distância entre os pontos no mapa entre um nó e todos os outros
 for goal in goals:
     G.add_node(goal)
     for edge in goals:
@@ -20,5 +22,7 @@ for goal in goals:
 print(G.adj)
 
 print('\n'*3)
+
+# Implementação de uma aproximação para o problema do caxeiro viajante
 tsp = traveling_salesman_problem
 print(tsp(G, nodes=['a', 'g', 'b', 'f']))
