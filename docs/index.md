@@ -245,36 +245,32 @@ A viabilidade técnica, refere-se a possibilidade de implementar na prática a s
 
 ## 4.1 Sistema de locomoção 
 
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Foi desenvolvido um algoritmo para a segunda entrega da sprint, com o objetivo de fazer o robô se movimentar até um ponto desejado utilizando ângulos de Euler. O algoritmo utiliza o odômetro para obter os ângulos do robô e do ponto de destino, e então realiza uma subtração contínua desses ângulos até que a diferença esteja dentro de uma faixa aceitável de tolerância. Enquanto o robô estiver dentro dessa faixa, ele se move em direção ao ponto de destino. A lista de pontos é fornecida com coordenadas (x, y, z) e seus respectivos valores.
-<br>
-<br>
-<img src="../media/c%C3%B3digo_prints/pontos.png"></img>
-<br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O controle do robô é feito através da subscrição do tópico '/odom' para obter os valores do odômetro, e da publicação no tópico 'cmd_vel' para enviar os comandos de velocidade.
-<br>
-<br>
-<img src="../media/c%C3%B3digo_prints/topics.png"></img>
-<br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A função listener_callback recebe os valores do odômetro e os converte utilizando a biblioteca "tf_transformations" para obter os ângulos de Euler.
-A função publisher_callback realiza a subtração entre os ângulos de posição do robô e o ângulo do ponto de destino. Além disso, ela avança para o próximo ponto da lista quando o ponto atual é alcançado. Todas essas funções são chamadas e executadas no main.
-<br>
-<br>
-<img src="../media/c%C3%B3digo_prints/funcoes.png"></img>
-<br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No entanto, o grupo identificou uma limitação no código em relação à passagem de uma lista de pontos desordenados. O algoritmo foi projetado para otimizar o movimento até um ponto específico, mas não lida adequadamente para gerar uma sequência lógica e otimizada dos pontos. Para resolver esse problema, o grupo implementou um código complementar que aborda essa questão, conforme explicado no tópico a seguir.
+<p>Nosso sistema de locomoção está operando com o sistema de nós do ROS. Esse sistema permite a comunicação entre nosso scripth em python e o ambiente de cimulação Gazebo.</p>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Além disso, como plano de contingência, o grupo decidiu incorporar a biblioteca "navigation2" do ROS2 como entrega da segunda sprint. O "navigation2" é um pacote de software de código aberto que permite a navegação autônoma de robôs móveis em ambientes complexos. Ele possui vantagens, como desvio efetivo de obstáculos e otimização de rotas. No entanto, também apresenta desvantagens, como uma interface gráfica mais complexa e a necessidade de realizar o mapeamento manual do ambiente para obter rotas otimizadas entre pontos de partida e chegada.
+### 4.1.1 Instalação do ambiente de simulação
+Para abrir este projeto você necessita das seguintes ferramentas:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Em resumo, o grupo desenvolveu um algoritmo inicial para mover o robô até um ponto específico, mas identificou limitações em relação à sequência dos pontos. Para abordar essa questão, um código complementar foi implementado. Além disso, como plano de contingência, o grupo considerou a utilização da biblioteca "navigation2" para oferecer recursos avançados de navegação autônoma, mas também ciente das complexidades e requisitos de mapeamento associados a ela.
+#### 4.1.1.1 Ros Humble Turtlebot3
+Para instalar esse pacote, abra o terminal do ubuntu e execute:
 
-</p>
+```sudo apt install ros-humble-turtlebot3*```
 
-### 4.1.1 Comunicação 
+Isso instalará todos os pacotes necessários para executar o Gazebo, o ambiente de simulação que utilizamos.
+Por fim, execute no terminal do ubuntu para verificar se foi instalado corretamente:
+
+```gazebo```
+
+Em caso de erros, consulte a documentação de instalação do ros2 humble: [Documentação](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
 
 
+### 4.1.3 Comunicação 
+A comunicação entre a plataforma robótica móvel e o sistema de simulação integrada ao sistema operacional robótico é feita por meio do protocolo TCP/IP, onde os nós definidos em nosso script se comunicam entre os nós do sistema como *subcribers* (que se inscrevem nos tópicos dos nós do sistema para receberem as mensagens que eles enviam) ou *publishers* (que publicam mensagens nos tópicos do sistema para executar comandos no robô, por exemplo).
+
+Por enquanto, usamos os tópicos ```/odom```, para receber a posição atual do robô dentro do ambiente de simulação, e ```/cmd_vel```, para alterar a velocidade linear e angular do robô dentro do ambiente de simulação. Mas faremos uso de outros tópicos para receber as informações dos sensores que estão acoplados ao robô.
+
+Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, onde as setas pontilhadas indicam a direção das mensagens
+
+<img src="../media/arquitetura_sistema/interacao_topicos.png">
 
 # 5. Interface de usuário
 
