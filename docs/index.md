@@ -268,7 +268,7 @@ A comunicação entre a plataforma robótica móvel e o sistema de simulação i
 
 Por enquanto, usamos os tópicos ```/odom```, para receber a posição atual do robô dentro do ambiente de simulação, e ```/cmd_vel```, para alterar a velocidade linear e angular do robô dentro do ambiente de simulação. Mas faremos uso de outros tópicos para receber as informações dos sensores que estão acoplados ao robô.
 
-Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, onde as setas pontilhadas indicam a direção das mensagens
+Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, onde as setas pontilhadas indicam a direção das mensagens que são publicadas nos tópicos. 
 
 <img src="../media/arquitetura_sistema/interacao_topicos.png">
 
