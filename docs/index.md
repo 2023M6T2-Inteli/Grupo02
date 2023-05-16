@@ -218,6 +218,73 @@ A viabilidade técnica, refere-se a possibilidade de implementar na prática  a 
 
 # 5. Interface de usuário
 
+## 5.1. Visão geral do design
+
+<p>O sistema de design é uma coleção de elementos e padrões visuais que definem a aparência e a experiência do usuário em todo o projeto. Ele garante consistência e coesão em todas as telas e componentes, promovendo uma experiência de usuário unificada. A seguir, apresentamos os principais elementos do sistema de design:</p>
+
+#### Palheta de cores
+
+<p>A paleta de cores foi selecionada para transmitir a identidade visual da Gerdau. As cores utilizadas são:</p>
+
+<li>Cor primária: #004A8F</li>
+<li>Cor secundária: #F5F5F5</li>
+<li>Cor de fundo: #DAE2EA</li>
+<li>Cor do texto (se fundo azul): #FFFFFF</li>
+<li>Cor do texto (se fundo branco): #004A8F</li>
+
+<p>O objetivo do grupo é utilizar essas cores em todo o projeto para manter a harmonia visual.</p>
+
+#### Tipografia
+
+<p>Acreditamos que seja importante compartilhar a tipografia, afinal ela tem um papel importante na legibilidade. As fontes selecionadas são:</p>
+
+<li>Titulo: Inter (Semi Bold, 36) </li>
+<li>Subtítulo: Inter (Semi Bold, 32) </li>
+<li>Texto destaque: Inter (Semi Bold, 18)</li>
+<li>Texto padrão: Inter (Regular, 20) </li>
+<li>Texto descrição: Inter (Regular, 14)</li>
+
+<p>O objetivo do grupo é utilizar essas fontes em todas as telas para manter a consistência tipográfica.</p>
+
+#### Ícones
+
+<p>Os ícones fornecem representações visuais de elementos ou ações específicas. Utilizamos o plugin "Material Design Icons" para a maioria desse projeto. Alguns ícones relevantes incluem:</p>
+
+<li>Ícone de mais: Para adicionar</li>
+<li>Ícone de lupa: Para pesquisar</li>
+<li>Ícone de pergaminho: Para setup</li>
+<li>Ícone de casa: Para página inicial</li>
+<li>Ícone de lápis: Para editar</li>
+<li>Ícone de play: Para iniciar</li>
+<li>Ícone de seta: Para selecionar</li>
+<li>Ícone de play: Para iniciar</li>
+<li>Ícone de x: Para sair</li> 
+
+<p>Assim como nos tópicos anteriores, o objetivo do grupo é utilizar esses ícones no projeto para manter um padrão e facilitar a experiência do usuário de modo que fique mais intuitivo.</p>
+
+## 5.2. Telas
+
+<p>A seguir, apresentamos uma lista das telas principais do projeto, juntamente com uma breve descrição de suas funcionalidades:</p>
+
+#### Tela inicial
+
+<img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/tela_inicial.png"></img>
+<p>A tela inicial é a primeira informação que o usuário receberá. Essa é nossa página de boas vindas e após selecionar "iniciar", eles são redirecionados para a tela principal do aplicativo.</p>
+
+#### Tela principal
+
+<img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/registros_inspeções_vazio.png">
+<p>Essa é nossa tela principal do aplicativo, o histórico de inspeções. No príncipio ela está vazia, mas a intenção é que após o usuário cadastrar e realizar inspeções, aqui será demonstrado as informações, como na imagem abaixo.</p>
+<img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/registros_inspeções_preenchido.png">
+<p>Aqui, os usuários podem checar as informações das inspeções realizadas com sua data e qual rota foi realizada.</p>
+
+#### Setup
+
+<img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/setup_vazio.png">
+<p>A tela de setup permite que os usuários visualizem e editem suas informações de rota, criem novas rotas ou inicie a inspeção de uma rota. A ideia é que o botão de "Iniciar inspeção" esteja inativo, e somente após selecionar uma rota clicando no ícone de seta ">>" a rota selecionada seja carregada como no exemplo da imagem abaixo</p>
+<img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/setup_selecionado.png">
+
+
 # 6. Sistema de visão computacional
 
 # 7. Sistemas de segurança
