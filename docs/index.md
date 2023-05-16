@@ -57,7 +57,7 @@
 <p>Inicialmente, a empresa enfrentava desafios em relação à segurança, com riscos para a saúde e segurança de seus colaboradores. Sem a nossa solução, a Gerdau teria que continuar a lidar com os riscos e consequências negativas, como afastamentos, lesões, doenças, entre outros fatores que infelizmente estão sujeitos.</p>
 <p>Nossa solução é uma forma de reduzir os riscos e garantir a segurança dos funcionários em espaços confinados. Isso envolve a implementação de novas tecnologias. Com a proposta da Safe McQueen, a Gerdau pode agora evitar riscos potenciais à saúde e ao bem-estar de seus funcionários. Por isso, nossa Matriz Oceano Azul é uma relação de fatores da empresa Gerdau atual, e a perspectiva após a solução implementada.</P>
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/docs/media/matriz_oceano_azul-1.png" width="60%"></p>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/artefatos_negocios/matriz_oceano_azul-1.png" width="60%"></p>
 <ul>
   <li><b>Reduzir</b></li>
   Inovação: Reduzir a necessidade de equipamentos ou processos obsoletos no processo.<br>
@@ -89,7 +89,7 @@
   Em contrapartida, a implementação de políticas de segurança eficazes pode ter um impacto positivo na moral e produtividade dos funcionários. Ademais, uma cultura de segurança positiva pode levar a uma maior colaboração e comunicação entre os funcionários, o que pode melhorar a eficiência e a qualidade do trabalho. Portanto, investir em medidas preventivas e políticas de segurança eficazes é uma forma de proteger os funcionários, reduzir os custos associados a acidentes no ambiente de trabalho e melhorar a moral e produtividade da equipe. Dessa forma, é possível garantir a saúde e segurança dos funcionários e evitar custos desnecessários para a empresa, tornando a implementação do projeto financeiramente viável e positiva para todos os envolvidos.
 	Foi realizada uma pesquisa com o objetivo de coletar informações quantitativas sobre os custos dos acidentes de trabalho, a fim de embasar a abordagem proposta na análise financeira. O grupo teve como prioridade os dados relacionados aos acidentes sofridos pelos funcionários da empresa, incluindo desde casos leves até os mais graves. Além disso, foram levantadas informações sobre as multas decorrentes da emissão de gases durante o processo de fundição do aço, que é a principal atividade realizada pela Gerdau. Com base nas pesquisas realizadas na internet, foi elaborada uma planilha de preços que mostra o custo de alguns acidentes que poderiam ser evitados pela empresa ao adotar soluções preventivas.
 
-  <img src="artefatos_negocios/numeros_analise.jpeg"></img>
+  <img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/artefatos_negocios/numeros_analise.jpeg"></img>
 fontes: Indenização por acidente de trabalho: valor, requisitos e como receber (2023):
 https://mdn.adv.br/indenizacao-por-acidente-de-trabalho/#:~:text=Para%20a%20CLT%2C%20o%20valor,com%20a%20gravidade%20da%20situa%C3%A7%C3%A3o.
 
@@ -98,12 +98,12 @@ Tabelas de Preços de Referência para Cálculo de Multas Ambientais divulgadas 
 ## 1.4. Análise do time de desenvolvimento
 #### Matriz de riscos
 Uma matriz de riscos é uma ferramenta utilizada para avaliar e gerenciar os riscos e oportunidades envolvidos em um projeto, atividade ou processo. Ela ajuda a identificar e avaliar os potenciais riscos e a probabilidade de sua ocorrência, bem como o impacto que eles podem exercer sobre o projeto ou atividade. A matriz também pode ajudar a definir a prioridade das ações correspondentes ao gerenciamento do projeto, indicando quais riscos devem ser tratados com maior urgência, por exemplo. Além disso, no projeto em questão, a criação da matriz visa apresentar ao parceiro o que a equipe imagina enfrentar e pensar em conjunto em maneiras de mitigar os riscos, bem como aproveitar as oportunidades existentes.
-  <img src="artefatos_negocios/matriz_riscos.png"></img>
+  <img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/artefatos_negocios/matriz_riscos.png"></img>
 
 
 ## 1.5. Análise da solução
 
-<p align="center"><img src="media\proposta_de_valor.png" width="60%"></p>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/artefatos_negocios/proposta_de_valor.png" width="60%"></p>
 Nossa proposta de valor consiste em uma solução que contempla os seguintes serviços: 
 <ul>
   <li> Simulação do trajeto de um robô seguidor e seus dados de sensores para medição atmosférica</li>
@@ -159,14 +159,14 @@ O grupo também propôs uma solução visando ser mais ecoeficiente, que poderia
 
 ### Persona 
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/docs/media/persona.png" width="60%"></img></p>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/artefatos_negocios/persona.png" width="60%"></img></p>
 A persona foi criada para ajudar a entender as necessidades e os desejos do público alvo para a solução de automação industrial que foi apresentada, ela é um personagem fictício, doravante, com informações reais fornecidas pelos representantes da Gerdau. Nesse caso, especificamente,  Joana é técnica em segurança do trabalho, realiza atividades de alto risco, e, portanto, está sempre com equipamentos de proteção individual, sobretudo, por serem ainda atividades arriscadas, compreende que é um trabalho bastante delicado. Com a implementação da solução em desenvolvimento , Joana teria que aprender a supervisionar o trabalho do robô, deixando para ele concluir a etapa mais perigosa e garantindo que seu desempenho nas demais responsabilidades do processo de inspeção do ambiente confinado estivessem ocorrendo de forma correta.  
 
 ### User Story 
 
 # 3. Arquitetura do sistema
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/docs/media/diagrama_solu%C3%A7%C3%A3o.drawio.png?raw=true" width="60%"></img></p>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/arquitetura_sistema/diagrama_solu%C3%A7%C3%A3o.drawio.png?raw=true" width="60%"></img></p>
 
 Atualmente nossa arquitetura pode ser dividia em 2 partes:
 A primeira envolve todo o sistema que controla o robo e seus periféricos, esse parte lida com a comunicação entre os componentes e a simulação do robo, essa parte é feita utilizando o ROS2, que é um framework de robótica que permite a comunicação entre os componentes do sistema, além disso ele também permite a simulação do robo, o que facilita o desenvolvimento do sistema, pois não é necessário ter um robo fisico para testar o sistema. A segunda parte é uma solução web que permite a visualização dos dados coletados pelo robo, essa parte é feita utilizando o React, que é um framework de desenvolvimento web, flask que é um framework de desenvolvimento web para python e sqlite.
