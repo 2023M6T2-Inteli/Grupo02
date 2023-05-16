@@ -218,6 +218,14 @@ A viabilidade técnica, refere-se a possibilidade de implementar na prática  a 
 
 # 4. Sistema de locomoção e otimização de rota
 
+## 4.1 Sistema de locomoção 
+
+<p>Nosso sistema de locomoção está operando com o sistema de nós do ROS. Esse sistema permite a comunicação entre nosso scripth em python e o ambiente de cimulação Gazebo.</p>
+
+### 4.1.1 Comunicação 
+
+
+
 # 5. Interface de usuário
 
 ## 5.1. Visão geral do design
