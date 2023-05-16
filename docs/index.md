@@ -228,11 +228,11 @@ A viabilidade técnica, refere-se a possibilidade de implementar na prática  a 
 
 <p>A paleta de cores foi selecionada para transmitir a identidade visual da Gerdau. As cores utilizadas são:</p>
 
-<li>Cor primária: #004A8F</li>
-<li>Cor secundária: #F5F5F5</li>
-<li>Cor de fundo: #DAE2EA</li>
-<li>Cor do texto (se fundo azul): #FFFFFF</li>
-<li>Cor do texto (se fundo branco): #004A8F</li>
+<li><b>Cor primária:</b> #004A8F</li>
+<li><b>Cor secundária:</b> #F5F5F5</li>
+<li><b>Cor de fundo:</b> #DAE2EA</li>
+<li><b>Cor do texto (se fundo azul):</b> #FFFFFF</li>
+<li><b>Cor do texto (se fundo branco):</b> #004A8F</li>
 
 <p>O objetivo do grupo é utilizar essas cores em todo o projeto para manter a harmonia visual.</p>
 
@@ -240,11 +240,11 @@ A viabilidade técnica, refere-se a possibilidade de implementar na prática  a 
 
 <p>Acreditamos que seja importante compartilhar a tipografia, afinal ela tem um papel importante na legibilidade. As fontes selecionadas são:</p>
 
-<li>Titulo: Inter (Semi Bold, 36) </li>
-<li>Subtítulo: Inter (Semi Bold, 32) </li>
-<li>Texto destaque: Inter (Semi Bold, 18)</li>
-<li>Texto padrão: Inter (Regular, 20) </li>
-<li>Texto descrição: Inter (Regular, 14)</li>
+<li><b>Titulo:</b> Inter (Semi Bold, 36) </li>
+<li><b>Subtítulo:</b> Inter (Semi Bold, 32) </li>
+<li><b>Texto destaque:</b> Inter (Semi Bold, 18)</li>
+<li><b>Texto padrão:</b> Inter (Regular, 20) </li>
+<li><b>Texto descrição:</b> Inter (Regular, 14)</li>
 
 <p>O objetivo do grupo é utilizar essas fontes em todas as telas para manter a consistência tipográfica.</p>
 
@@ -252,15 +252,15 @@ A viabilidade técnica, refere-se a possibilidade de implementar na prática  a 
 
 <p>Os ícones fornecem representações visuais de elementos ou ações específicas. Utilizamos o plugin "Material Design Icons" para a maioria desse projeto. Alguns ícones relevantes incluem:</p>
 
-<li>Ícone de mais: Para adicionar</li>
-<li>Ícone de lupa: Para pesquisar</li>
-<li>Ícone de pergaminho: Para setup</li>
-<li>Ícone de casa: Para página inicial</li>
-<li>Ícone de lápis: Para editar</li>
-<li>Ícone de play: Para iniciar</li>
-<li>Ícone de seta: Para selecionar</li>
-<li>Ícone de play: Para iniciar</li>
-<li>Ícone de x: Para sair</li> 
+<li><b>Ícone de mais:</b> Para adicionar</li>
+<li><b>Ícone de lupa:</b> Para pesquisar</li>
+<li><b>Ícone de pergaminho:</b> Para setup</li>
+<li><b>Ícone de casa:</b> Para página inicial</li>
+<li><b>Ícone de lápis:</b> Para editar</li>
+<li><b>Ícone de play:</b> Para iniciar</li>
+<li><b>Ícone de seta:</b> Para selecionar</li>
+<li><b>Ícone de play:</b> Para iniciar</li>
+<li><b>Ícone de x:</b> Para sair</li> 
 
 <p>Assim como nos tópicos anteriores, o objetivo do grupo é utilizar esses ícones no projeto para manter um padrão e facilitar a experiência do usuário de modo que fique mais intuitivo.</p>
 
