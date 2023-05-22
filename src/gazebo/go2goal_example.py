@@ -6,6 +6,8 @@ from nav_msgs.msg import Odometry
 from tf_transformations import euler_from_quaternion
 from math import atan2
 
+from lidar import margem_segura
+
 MAX_DIFF = 0.1
 
 goals = [(1.0, 2.0),
@@ -57,6 +59,8 @@ class TurtleController(Node):
         
         speed = Twist()
         
+
+        
         if (abs(inc_x) < MAX_DIFF and abs(inc_y) < MAX_DIFF):
             self.point = 0 if (len(self.point_list) == self.point + 1) else (self.point + 1)
             
@@ -65,6 +69,9 @@ class TurtleController(Node):
             speed.angular.z = 0.3 if (angle_to_goal - self.theta) > 0.0 else -0.3
         else:
             speed.linear.x = 0.5
+            speed.angular.z = 0.0
+        if margem_segura() == False:
+            speed.linear.x = 0.0
             speed.angular.z = 0.0
         self.publisher.publish(speed)
 
