@@ -1,12 +1,14 @@
 import rclpy
 from rclpy.node import Node
 
+from sensor_msgs.msg import LaserScan
+
 from geometry_msgs.msg import Twist,Point
 from nav_msgs.msg import Odometry
 from tf_transformations import euler_from_quaternion
 from math import atan2
 
-from lidar import margem_segura
+from lidar import Lidar
 
 MAX_DIFF = 0.1
 
@@ -36,7 +38,9 @@ class TurtleController(Node):
             topic='/odom',
             callback=self.listener_callback,
             qos_profile=4)
-
+        
+        self.lidar_ = Lidar(self)
+         
         self.timer = self.create_timer(
             timer_period_sec=0.02,
             callback=self.publisher_callback)
@@ -46,7 +50,7 @@ class TurtleController(Node):
             self.y = msg.pose.pose.position.y
             rot = msg.pose.pose.orientation
             _,_,self.theta = euler_from_quaternion([rot.x,rot.y,rot.z,rot.w])
-            self.get_logger().info(f"x={self.x:3f}, y={self.y:3f}")
+            # self.get_logger().info(f"x={self.x:3f}, y={self.y:3f}")
 
     def publisher_callback(self):
         goal = Point()
@@ -70,7 +74,7 @@ class TurtleController(Node):
         else:
             speed.linear.x = 0.5
             speed.angular.z = 0.0
-        if margem_segura() == False:
+        if self.lidar_.margem_segura() == False:
             speed.linear.x = 0.0
             speed.angular.z = 0.0
         self.publisher.publish(speed)
