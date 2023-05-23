@@ -25,10 +25,12 @@ class TurtleController(Node):
         self.x, self.y, self.theta = 0.0, 0.0, 0.0
         
         self.vel_msg = Twist()
+        self.goal = Point()
         
         self.current_point = 0
         self.point_counter = 1
         self.point_list = goals
+        self.return_list = []
 
         self.publisher = self.create_publisher(
             msg_type=Twist,
@@ -53,29 +55,53 @@ class TurtleController(Node):
             rot = msg.pose.pose.orientation
             _,_,self.theta = euler_from_quaternion([rot.x,rot.y,rot.z,rot.w])
             # self.get_logger().info(f"x={self.x:3f}, y={self.y:3f}")
-
-    # Pegar o goals e seguir o array normal
-    def caminho_de_ida(self):
-
-        pass
     
-    # Pegar o goals e segue o caminho inverso basedo no "current point"
-    def caminho_de_volta(self):
-
-        pass
     
-    def chegou_no_ponto(self):
+    def next_point(self, direção):
+        self.return_list.insert(0, self.point_list[self.current_point])
+        print(self.return_list)
+        self.current_point += direção
         
+
+    # Pegar o goals e segue o caminho inverso basedo no "current point"
+    def goToGoal(self):
+        #onde eu to
+        #pra onde eu vo
+            # point_list[0, 1, 2, 3]
+            # 
+
+        # goal
+        
+        # definir as velocidas
         pass
     
-    # 
-    def update_setpoint(self):
-     
-        pass
+    # Verifica se chegou no ponto (recebe nada, e devolve um bool)
+    def verifica_chegou_no_ponto(self) -> bool:
+        if (abs(self.goal.x - self.x) < MAX_DIFF and abs(self.goal.y - self.y) < MAX_DIFF):
+            return True
+        else: 
+            return False
 
     # Tomador de decisão
     # if's que levam às funções acima
     def publisher_callback(self):
+        
+        # se chegou no ponto, vai pro próximo ponto
+        #next point
+        if (self.lidar_.margem_segura()): # verifica se tá seguro ir pra frente
+            if (self.verifica_chegou_no_ponto()):       
+                self.next_point(1)
+        else:
+            #não tá seguro seguir
+            self.next_point(-1)
+        
+    
+        self.goToGoal() # define as velocidades
+    
+        self.publisher.publish(self.vel_msg) # publica
+    
+        
+
         
         # ele define o goal baseado no array que a gnt passa
         goal = Point()
@@ -83,8 +109,6 @@ class TurtleController(Node):
         goal.y = self.point_list[self.current_point][1]
         
         # calcula a diferença angular entre a frente do robo e o ponto
-        inc_x = goal.x - self.x
-        inc_y = goal.y - self.y
         angle_to_goal = atan2(inc_y,inc_x)
         
         # try: 
@@ -109,7 +133,7 @@ class TurtleController(Node):
             self.vel_msg.angular.z = 0.0
         
         # publica a velocidade
-        self.publisher.publish(self.vel_msg)
+        
         
         # except IndexError as err:
         #     self.current_point = 0
