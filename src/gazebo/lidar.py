@@ -1,9 +1,5 @@
-import rclpy
-from rclpy.node import Node
-
 from sensor_msgs.msg import LaserScan
 import numpy as np
-import math
 
 class Lidar():
     def __init__(self, node):

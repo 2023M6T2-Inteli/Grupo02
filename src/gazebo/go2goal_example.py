@@ -1,9 +1,7 @@
 import rclpy
 from rclpy.node import Node
 
-from sensor_msgs.msg import LaserScan
-
-from geometry_msgs.msg import Twist,Point
+from geometry_msgs.msg import Twist, Point
 from nav_msgs.msg import Odometry
 from tf_transformations import euler_from_quaternion
 from math import atan2
@@ -25,7 +23,9 @@ class TurtleController(Node):
     def __init__(self, goals):
         super().__init__('subscriber_node')
         self.x, self.y, self.theta = 0.0, 0.0, 0.0
-        self.point = 0
+        
+        self.current_point = 0
+        self.point_counter = 1
         self.point_list = goals
 
         self.publisher = self.create_publisher(
@@ -37,7 +37,7 @@ class TurtleController(Node):
             msg_type=Odometry,
             topic='/odom',
             callback=self.listener_callback,
-            qos_profile=4)
+            qos_profile=10)
         
         self.lidar_ = Lidar(self)
          
@@ -52,32 +52,65 @@ class TurtleController(Node):
             _,_,self.theta = euler_from_quaternion([rot.x,rot.y,rot.z,rot.w])
             # self.get_logger().info(f"x={self.x:3f}, y={self.y:3f}")
 
+    #
+    def caminho_de_ida(self):
+
+        pass
+    
+    #
+    def caminho_de_volta(self):
+
+        pass
+    
+    def update_setpoint(self):
+     
+        pass
+
+    # tomador de decisão
     def publisher_callback(self):
         goal = Point()
-        goal.x = self.point_list[self.point][0]
-        goal.y = self.point_list[self.point][1]
+        goal.x = self.point_list[self.current_point][0]
+        goal.y = self.point_list[self.pocurrent_pointint][1]
         
         inc_x = goal.x - self.x
         inc_y = goal.y - self.y
         angle_to_goal = atan2(inc_y,inc_x)
         
         speed = Twist()
-        
-
-        
-        if (abs(inc_x) < MAX_DIFF and abs(inc_y) < MAX_DIFF):
-            self.point = 0 if (len(self.point_list) == self.point + 1) else (self.point + 1)
+        try: 
+            if self.lidar_.margem_segura() == False:
+                raise Exception
+                
+            # Verifica se o robo chegou no ponto
+            if (abs(inc_x) < MAX_DIFF and abs(inc_y) < MAX_DIFF):
+                self.current_point += self.point_counter
+                self.point_counter = 1
+                
+                # raise IndexError("OASBDABSDAS")
+                # self.point = 0 if (len(self.point_list) == self.point + self.point_counter) else (self.point + )
+                
+            if abs(angle_to_goal - self.theta) > MAX_DIFF:
+                speed.linear.x = 0.0
+                speed.angular.z = 0.3 if (angle_to_goal - self.theta) > 0.0 else -0.3
+            else:
+                speed.linear.x = 0.5
+                speed.angular.z = 0.0
+            self.publisher.publish(speed)
+        except IndexError as err:
+            self.current_point = 0
+            self.point_counter = 1
+            print(err)
             
-        if abs(angle_to_goal - self.theta) > MAX_DIFF:
+        except Exception as error:
+            self.point_counter = -1
+            self.current_point += self.point_counter
+            
             speed.linear.x = 0.0
-            speed.angular.z = 0.3 if (angle_to_goal - self.theta) > 0.0 else -0.3
-        else:
-            speed.linear.x = 0.5
-            speed.angular.z = 0.0
-        if self.lidar_.margem_segura() == False:
-            speed.linear.x = 0.0
-            speed.angular.z = 0.0
-        self.publisher.publish(speed)
+            speed.angular.z = 0.3
+            self.publisher.publish(speed)
+            print(error)
+        
+            
 
 
 
