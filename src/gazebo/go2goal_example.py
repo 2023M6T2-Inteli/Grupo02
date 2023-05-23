@@ -24,6 +24,8 @@ class TurtleController(Node):
         super().__init__('subscriber_node')
         self.x, self.y, self.theta = 0.0, 0.0, 0.0
         
+        self.vel_msg = Twist()
+        
         self.current_point = 0
         self.point_counter = 1
         self.point_list = goals
@@ -52,63 +54,76 @@ class TurtleController(Node):
             _,_,self.theta = euler_from_quaternion([rot.x,rot.y,rot.z,rot.w])
             # self.get_logger().info(f"x={self.x:3f}, y={self.y:3f}")
 
-    #
+    # Pegar o goals e seguir o array normal
     def caminho_de_ida(self):
 
         pass
     
-    #
+    # Pegar o goals e segue o caminho inverso basedo no "current point"
     def caminho_de_volta(self):
 
         pass
     
+    def chegou_no_ponto(self):
+        
+        pass
+    
+    # 
     def update_setpoint(self):
      
         pass
 
-    # tomador de decisão
+    # Tomador de decisão
+    # if's que levam às funções acima
     def publisher_callback(self):
+        
+        # ele define o goal baseado no array que a gnt passa
         goal = Point()
         goal.x = self.point_list[self.current_point][0]
-        goal.y = self.point_list[self.pocurrent_pointint][1]
+        goal.y = self.point_list[self.current_point][1]
         
+        # calcula a diferença angular entre a frente do robo e o ponto
         inc_x = goal.x - self.x
         inc_y = goal.y - self.y
         angle_to_goal = atan2(inc_y,inc_x)
         
-        speed = Twist()
-        try: 
-            if self.lidar_.margem_segura() == False:
-                raise Exception
-                
-            # Verifica se o robo chegou no ponto
-            if (abs(inc_x) < MAX_DIFF and abs(inc_y) < MAX_DIFF):
-                self.current_point += self.point_counter
-                self.point_counter = 1
-                
-                # raise IndexError("OASBDABSDAS")
-                # self.point = 0 if (len(self.point_list) == self.point + self.point_counter) else (self.point + )
-                
-            if abs(angle_to_goal - self.theta) > MAX_DIFF:
-                speed.linear.x = 0.0
-                speed.angular.z = 0.3 if (angle_to_goal - self.theta) > 0.0 else -0.3
-            else:
-                speed.linear.x = 0.5
-                speed.angular.z = 0.0
-            self.publisher.publish(speed)
-        except IndexError as err:
-            self.current_point = 0
-            self.point_counter = 1
-            print(err)
-            
-        except Exception as error:
-            self.point_counter = -1
+        # try: 
+        # decide aqui se há um objeto na frente dele
+        # isso vai ser o tomador de decisão
+        if self.lidar_.margem_segura() == False:
+            raise Exception
+        
+        # Verifica se o robo chegou no ponto
+        # vai passar pras duas funções de movimento
+        if (abs(inc_x) < MAX_DIFF and abs(inc_y) < MAX_DIFF):
             self.current_point += self.point_counter
+            self.point_counter = 1
             
-            speed.linear.x = 0.0
-            speed.angular.z = 0.3
-            self.publisher.publish(speed)
-            print(error)
+        # Ajuste do ângulo 
+        if abs(angle_to_goal - self.theta) > MAX_DIFF:
+            self.vel_msg.linear.x = 0.0
+            self.vel_msg.angular.z = 0.3 if (angle_to_goal - self.theta) > 0.0 else -0.3
+        # Anda pra frente se o angulo tá certinho
+        else:
+            self.vel_msg.linear.x = 0.5
+            self.vel_msg.angular.z = 0.0
+        
+        # publica a velocidade
+        self.publisher.publish(self.vel_msg)
+        
+        # except IndexError as err:
+        #     self.current_point = 0
+        #     self.point_counter = 1
+        #     print(err)
+            
+        # except Exception as error:
+        #     self.point_counter = -1
+        #     self.current_point += self.point_counter
+            
+        #     self.vel_msg.linear.x = 0.0
+        #     self.vel_msg.angular.z = 0.3
+        #     self.publisher.publish(self.vel_msg)
+        #     print(error)
         
             
 
