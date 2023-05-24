@@ -50,68 +50,104 @@ class TurtleController(Node):
             callback=self.publisher_callback)
 
     def listener_callback(self, msg):
-        self.x = msg.pose.pose.position.x
-        self.y = msg.pose.pose.position.y
-        rot = msg.pose.pose.orientation
-        _,_,self.theta = euler_from_quaternion([rot.x,rot.y,rot.z,rot.w])
-        # self.get_logger().info(f"x={self.x:3f}, y={self.y:3f}")
+            self.x = msg.pose.pose.position.x
+            self.y = msg.pose.pose.position.y
+            rot = msg.pose.pose.orientation
+            _,_,self.theta = euler_from_quaternion([rot.x,rot.y,rot.z,rot.w])
+            # self.get_logger().info(f"x={self.x:3f}, y={self.y:3f}")
+    
+    
+    def next_point(self, direção):
+        self.return_list.insert(0, self.point_list[self.current_point])
+        print(self.return_list)
+        self.current_point += direção
+        
 
-    def calculate_goal(self):
+    # Pegar o goals e segue o caminho inverso basedo no "current point"
+    def goToGoal(self):
+        #onde eu to
+        #pra onde eu vo
+            # point_list[0, 1, 2, 3]
+            # 
+
+        # goal
+        
+        # definir as velocidas
+        pass
+    
+    # Verifica se chegou no ponto (recebe nada, e devolve um bool)
+    def verifica_chegou_no_ponto(self) -> bool:
+        if (abs(self.goal.x - self.x) < MAX_DIFF and abs(self.goal.y - self.y) < MAX_DIFF):
+            return True
+        else: 
+            return False
+
+    # Tomador de decisão
+    # if's que levam às funções acima
+    def publisher_callback(self):
+        
+        # se chegou no ponto, vai pro próximo ponto
+        #next point
+        if (self.lidar_.margem_segura()): # verifica se tá seguro ir pra frente
+            if (self.verifica_chegou_no_ponto()):       
+                self.next_point(1)
+        else:
+            #não tá seguro seguir
+            self.next_point(-1)
+        
+    
+        self.goToGoal() # define as velocidades
+    
+        self.publisher.publish(self.vel_msg) # publica
+    
+        
+
+        
+        # ele define o goal baseado no array que a gnt passa
         goal = Point()
         goal.x = self.point_list[self.current_point][0]
         goal.y = self.point_list[self.current_point][1]
-        return goal
-
-    def calculate_angle_to_goal(self, goal):
-        return atan2(goal.y - self.y, goal.x - self.x)
-
-    # Verifica se chegou no ponto (recebe nada, e devolve um bool)
-    def check_reached_point(self, inc_x, inc_y):
-        return abs(inc_x) < MAX_DIFF and abs(inc_y) < MAX_DIFF
-
-    def adjust_speed(self, angle_to_goal):
-        speed = Twist()
         
+        # calcula a diferença angular entre a frente do robo e o ponto
+        angle_to_goal = atan2(inc_y,inc_x)
+        
+        # try: 
+        # decide aqui se há um objeto na frente dele
+        # isso vai ser o tomador de decisão
+        if self.lidar_.margem_segura() == False:
+            raise Exception
+        
+        # Verifica se o robo chegou no ponto
+        # vai passar pras duas funções de movimento
+        if (abs(inc_x) < MAX_DIFF and abs(inc_y) < MAX_DIFF):
+            self.current_point += self.point_counter
+            self.point_counter = 1
+            
+        # Ajuste do ângulo 
         if abs(angle_to_goal - self.theta) > MAX_DIFF:
-            speed.linear.x = 0.0
-            speed.angular.z = 0.3 if (angle_to_goal - self.theta) > 0.0 else -0.3
+            self.vel_msg.linear.x = 0.0
+            self.vel_msg.angular.z = 0.3 if (angle_to_goal - self.theta) > 0.0 else -0.3
+        # Anda pra frente se o angulo tá certinho
         else:
-            speed.linear.x = 0.5
-            speed.angular.z = 0.0
-        return speed
-
-    def handle_index_error(self, error):
-        self.current_point = 0
-        self.point_counter = 1
-        print(error)
-
-    def handle_exception(self, error):
-        self.point_list = self.return_list
-        self.current_point += self.point_counter
-        self.lidar_.kill_lidar()
-        print(error)
-
-    def publisher_callback(self):
-        try:
-            goal = self.calculate_goal()
-            angle_to_goal = self.calculate_angle_to_goal(goal)
-
-            if (self.lidar_.check_safety_margin() == False): 
-                raise Exception
-                    
-            if self.check_reached_point(goal.x - self.x, goal.y - self.y):
-                if len(self.return_list) != len(self.point_list):
-                    self.return_list.insert(0, self.point_list[self.point_counter])
-                    
-                self.current_point += self.point_counter
-
-            speed = self.adjust_speed(angle_to_goal)
-            self.publisher.publish(speed)
-                        
-        except IndexError as error:
-            self.handle_index_error(error)
-        except Exception as error:
-            self.handle_exception(error)
+            self.vel_msg.linear.x = 0.5
+            self.vel_msg.angular.z = 0.0
+        
+        # publica a velocidade
+        
+        
+        # except IndexError as err:
+        #     self.current_point = 0
+        #     self.point_counter = 1
+        #     print(err)
+            
+        # except Exception as error:
+        #     self.point_counter = -1
+        #     self.current_point += self.point_counter
+            
+        #     self.vel_msg.linear.x = 0.0
+        #     self.vel_msg.angular.z = 0.3
+        #     self.publisher.publish(self.vel_msg)
+        #     print(error)
         
             
 
