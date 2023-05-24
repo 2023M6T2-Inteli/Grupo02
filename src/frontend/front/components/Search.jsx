@@ -4,8 +4,8 @@ export default function Searchh() {
     return(
         <>
         <div>
-            <div className="bg-gray-50 w-80 py-2 pl-2 rounded-full flex justify-between">
-                <input className="text-sm w-64" placeholder="Pesquise por ID do espaço confinado" />
+            <div className="bg-gray-50 w-5/6 py-2 pl-2 rounded-full flex justify-between">
+                <input className="text-sm w-2/3" placeholder="Pesquise por ID do espaço confinado" />
                 <button className="w-8">    
                     <Search />
                 </button>

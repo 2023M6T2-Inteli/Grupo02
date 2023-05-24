@@ -1,20 +1,18 @@
-export default function Registration(inspecao) {
+import { Pencil } from "react-bootstrap-icons";
+
+export default function Registration(id) {
     return(
         <>
-        <div>
-            <div>
+        <div className="flex pl-2 py-4 pr-6 bg-componentes w-5/6 h-12 rounded-lg flex justify-between">
+            <div className="">
                 <span>
-                    
+                    {id.name}
                 </span>
             </div>
-            <div className="icons">
-                <div className="pencil">
-                    <i class="fi fi-sr-pencil"></i>
-                </div>
-                <div className="next">
-                    <i class="fi fi-ts-angle-double-small-right"></i>
-                </div>
-            </div>
+            <button className="">
+                <Pencil />
+            </button>
+
         </div>
         </>
     );

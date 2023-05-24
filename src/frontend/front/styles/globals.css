@@ -36,9 +36,14 @@
     width: 30px;
 }
 
+.bg-componentes{
+    background-color: #F5F5F5;
+}
+
 .bg-cinza{
     background-color: #DAE2EA;
 }
+
 
 .bg-azul{
     background-color: #004A8F;
