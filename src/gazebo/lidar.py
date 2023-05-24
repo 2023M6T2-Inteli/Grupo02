@@ -20,8 +20,8 @@ class Lidar():
         
     # Cria a margem de segurança
     def safety_margin(self):
-        front_first_quadrant = np.array(self.ranges_[0:8]) 
-        front_second_quadrant = np.array(self.ranges_[352:359])
+        front_first_quadrant = np.array(self.ranges_[0:19])
+        front_second_quadrant = np.array(self.ranges_[341:360])
         return np.concatenate([front_first_quadrant, front_second_quadrant])
     
     # Faz o Lidar parar de funcionar
@@ -34,6 +34,6 @@ class Lidar():
         # print("Margem segura", len(set(self.margem_de_segurança())))
         # Pra saber se tem algo na margem de segurança, precisamos verificar se há algum número dentro do array de segurança menor do que 30 cm (0.3)
         for i in self.safety_margin():
-            if i > 0.3 and self.permission:
+            if i < 0.3 and self.permission:
                 return False
-        return False
+        return True
