@@ -1,4 +1,4 @@
-@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css')
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,6 +9,9 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+:root {
+    --primary: #004A8F;
+}
 
 .display{
     display: flex;
