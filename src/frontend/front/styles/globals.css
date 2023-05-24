@@ -1,0 +1,57 @@
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --primary: #004A8F;
+}
+
+.display{
+    display: flex;
+}
+
+.Header{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 20vh;
+}
+
+.Header > div{
+    display: flex;
+    gap: 50px;
+    padding: 0px 80px 0px 55px;
+
+}
+
+.icons{
+    width: 30px;
+}
+
+
+.bg-cinza{
+    background-color: #DAE2EA;
+}
+
+.bg-azul{
+    background-color: #004A8F;
+}
+
+.insp_h{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    justify-content: center;
+}
+
+.pb-90{
+    padding-bottom: 90px;
+}
