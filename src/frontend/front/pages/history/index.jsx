@@ -18,39 +18,31 @@ export default function History() {
               name="Camara a vaco Norte"
               number="Projetp 02"
               data="22/23/2002"
-
             />
-
 
             <Insp_H
               name="Camara a vaco Norte"
               number="Projetp 03"
               data="22/23/2002"
-
             />
 
             <Insp_H
               name="Camara a vaco Norte"
               number="Projetp 04"
               data="22/23/2002"
-
             />
 
-<Insp_H
+            <Insp_H
               name="Camara a vaco Norte"
               number="Projetp 03"
               data="22/23/2002"
-
             />
 
             <Insp_H
               name="Camara a vaco Norte"
               number="Projetp 04"
               data="22/23/2002"
-
             />
-
-
 
             </div>
         </div>
