@@ -104,8 +104,8 @@ class TurtleController(Node):
             goal = self.calculate_goal()
             angle_to_goal = self.calculate_angle_to_goal(goal)
 
-            if (self.lidar_.check_safety_margin() == False): 
-                self.handle_exception("Não é seguro continuar!")
+            # if (self.lidar_.check_safety_margin() == False): 
+                # self.handle_exception("Não é seguro continuar!")
                     
             if self.check_reached_point(goal.x - self.x, goal.y - self.y):
                 
