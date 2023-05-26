@@ -13,6 +13,7 @@ results = model.predict(
 
 # save result
 image = results[0].plot()
+print(results.__len__())
 
 cv2.imshow("teste", image)
 cv2.waitKey(0)
