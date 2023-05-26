@@ -30,7 +30,7 @@ class TurtleController(Node):
         self.current_point = 0
         self.point_counter = 1
         self.point_list = goals
-        self.return_list = []
+        self.return_list = [(0.0, 0.0)]
 
         self.publisher = self.create_publisher(
             msg_type=Twist,
@@ -72,6 +72,7 @@ class TurtleController(Node):
     def adjust_speed(self, angle_to_goal):
         speed = Twist()
         
+        
         if abs(angle_to_goal - self.theta) > MAX_DIFF:
             speed.linear.x = 0.0
             speed.angular.z = 0.3 if (angle_to_goal - self.theta) > 0.0 else -0.3
@@ -79,15 +80,18 @@ class TurtleController(Node):
             speed.linear.x = 0.5
             speed.angular.z = 0.0
         return speed
+    
 
     def handle_index_error(self, error):
         self.current_point = 0
-        self.point_counter = 1
+        self.point_list = [(0.0, 0.0)]
         print(error)
 
     def handle_exception(self, error):
         self.point_list = self.return_list
-        self.current_point += self.point_counter
+        print(self.point_list)
+        self.current_point = 0
+        print(self.current_point)
         self.lidar_.kill_lidar()
         print(error)
 
@@ -97,21 +101,24 @@ class TurtleController(Node):
             angle_to_goal = self.calculate_angle_to_goal(goal)
 
             if (self.lidar_.check_safety_margin() == False): 
-                raise Exception
+                self.handle_exception("Não é seguro continuar!")
                     
             if self.check_reached_point(goal.x - self.x, goal.y - self.y):
-                if len(self.return_list) != len(self.point_list):
-                    self.return_list.insert(0, self.point_list[self.point_counter])
-                    
+                
                 self.current_point += self.point_counter
+                
+                if len(self.return_list) != len(self.point_list):
+                    self.return_list.insert(0, self.point_list[self.point_counter-1])
+                    
+                    
 
             speed = self.adjust_speed(angle_to_goal)
             self.publisher.publish(speed)
                         
-        except IndexError as error:
-            self.handle_index_error(error)
+        except IndexError:
+            self.handle_index_error("List index out of range")
         except Exception as error:
-            self.handle_exception(error)
+            self.handle_exception(f"Problema: {error}")
         
             
 
