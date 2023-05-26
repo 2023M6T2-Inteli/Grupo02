@@ -8,7 +8,7 @@ from math import atan2
 
 from lidar import Lidar
 
-MAX_DIFF = 0.1
+MAX_DIFF = 0.3
 
 # goals = [(1.0, 2.0),
 #          (4.0, 5.0),
