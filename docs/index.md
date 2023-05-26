@@ -16,18 +16,18 @@
   - [1.2. Análise empresarial](#12-análise-empresarial)
   - [1.3 Análise financeira](#13-análise-financeira)
   - [1.4. Análise do time de desenvolvimento](#14-análise-do-time-de-desenvolvimento)
-    - [Matriz de riscos](#matriz-de-riscos)
+      - [Matriz de riscos](#matriz-de-riscos)
   - [1.5. Análise da solução](#15-análise-da-solução)
 - [2. Entendimento do metadesign](#2-entendimento-do-metadesign)
   - [2.1. Fatores mercadológicos](#21-fatores-mercadológicos)
-    - [Relação entre o produto desenvolvido e sua precificação com o merdaco atual](#relação-entre-o-produto-desenvolvido-e-sua-precificação-com-o-merdaco-atual)
-    - [Precificação](#precificação)
+      - [Relação entre o produto desenvolvido e sua precificação com o merdaco atual](#relação-entre-o-produto-desenvolvido-e-sua-precificação-com-o-merdaco-atual)
+      - [Precificação](#precificação)
     - [Cenário do mercado.](#cenário-do-mercado)
   - [2.2. Sistema produto/design](#22-sistema-produtodesign)
-    - [Missão do projeto proposto](#missão-do-projeto-proposto)
-    - [Unidade formal entre design, divulgação e venda](#unidade-formal-entre-design-divulgação-e-venda)
+      - [Missão do projeto proposto](#missão-do-projeto-proposto)
+      - [Unidade formal entre design, divulgação e venda](#unidade-formal-entre-design-divulgação-e-venda)
   - [2.3. Sustentabilidade ambiental](#23-sustentabilidade-ambiental)
-    - [Ecoeficiência ambiental proposta pelo projeto](#ecoeficiência-ambiental-proposta-pelo-projeto)
+      - [Ecoeficiência ambiental proposta pelo projeto](#ecoeficiência-ambiental-proposta-pelo-projeto)
   - [2.4. Influências socioculturais](#24-influências-socioculturais)
   - [2.5. Tipológico-formais e ergonômicos](#25-tipológico-formais-e-ergonômicos)
   - [2.6. Tecnologia produtiva e materiais empregados](#26-tecnologia-produtiva-e-materiais-empregados)
@@ -35,33 +35,42 @@
     - [Persona](#persona)
     - [User Story](#user-story)
 - [3. Arquitetura do sistema](#3-arquitetura-do-sistema)
-  - [V1](#v1)
-  - [V2](#v2)
+    - [V1](#v1)
+    - [V2](#v2)
   - [3.1 Engenharia de requisitos](#31-engenharia-de-requisitos)
     - [Requisitos Funcionais](#requisitos-funcionais)
     - [Requisitos Não Funcionais](#requisitos-não-funcionais)
   - [3.2 Viabilidade](#32-viabilidade)
 - [4. Sistema de locomoção e otimização de rota](#4-sistema-de-locomoção-e-otimização-de-rota)
-  - [4.1 Sistema de locomoção](#sistema_de_locomoção)
-  - [4.2 Otimização de rota](#4.2-otimização-de-rota)
-- [5. Interface de usuário](#5-interface-de-usuário)
-  - [5.1. Visão geral do design](#51-visão-geral-do-design)
-    - [Palheta de cores](#palheta-de-cores)
-    - [Tipografia](#tipografia)
-    - [Ícones](#ícones)
-  - [5.2. Telas](#52-telas)
-    - [Tela inicial](#tela-inicial)
-    - [Tela principal](#tela-principal)
-    - [Setup](#setup)
-    - [Criar](#criar)
-    - [Editar](#editar)
-    - [Rodando](#rodando)
-- [6. Sistema de visão computacional](#6-sistema-de-visão-computacional)
-- [7. Sistemas de segurança](#7-sistemas-de-segurança)
-- [8. Backend](#8-backend)
-- [9. Integração de sistemas](#9-integração-de-sistemas)
-- [10. Validação da eficácia do sistema](#10-validação-da-eficácia-do-sistema)
-- [11. Referências](#11-referências)
+  - [4.1 Sistema de locomoção](#41-sistema-de-locomoção)
+  - [4.2 Otimização de rota](#42-otimização-de-rota)
+    - [4.2.1 Problema “O caixeiro viajante”](#421-problema-o-caixeiro-viajante)
+    - [4.2.2 Implementação](#422-implementação)
+    - [5.1.1 Instalação do ambiente de simulação](#511-instalação-do-ambiente-de-simulação)
+      - [5.1.1.1 Ros Humble Turtlebot3](#5111-ros-humble-turtlebot3)
+    - [5.1.2 Comunicação](#512-comunicação)
+- [6. Interface de usuário](#6-interface-de-usuário)
+  - [6.1. Visão geral do design](#61-visão-geral-do-design)
+      - [Palheta de cores](#palheta-de-cores)
+      - [Tipografia](#tipografia)
+      - [Ícones](#ícones)
+  - [6.2. Telas](#62-telas)
+      - [Tela inicial](#tela-inicial)
+      - [Tela principal](#tela-principal)
+      - [Setup](#setup)
+      - [Criar](#criar)
+      - [Editar](#editar)
+      - [Rodando](#rodando)
+- [7. Sistema de visão computacional](#7-sistema-de-visão-computacional)
+- [8. Sistemas de segurança](#8-sistemas-de-segurança)
+  - [8.1 Definição, implementação e validação de um sistema de tomada de decisões a partir da detecção de um obstáculo.](#81-definição-implementação-e-validação-de-um-sistema-de-tomada-de-decisões-a-partir-da-detecção-de-um-obstáculo)
+  - [8.2 Mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos.](#82-mapeamento-de-riscos-dos-sistemas-eletromecânicos-mecânicos-e-eletrônicos)
+  - [8.3 Definição, implementação e validação de dispositivos de segurança para os riscos mapeados.](#83-definição-implementação-e-validação-de-dispositivos-de-segurança-para-os-riscos-mapeados)
+  - [8.4 Implementação e validação de sistemas de proteção contra comandos indevidos.](#84-implementação-e-validação-de-sistemas-de-proteção-contra-comandos-indevidos)
+- [9. Backend](#9-backend)
+- [10. Integração de sistemas](#10-integração-de-sistemas)
+- [11. Validação da eficácia do sistema](#11-validação-da-eficácia-do-sistema)
+- [12. Referências](#12-referências)
 - [12. Material de apoio](#12-material-de-apoio)
 - [13. Anexos](#13-anexos)
 
@@ -414,6 +423,52 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 # 7. Sistema de visão computacional
 
 # 8. Sistemas de segurança
+
+## 8.1 Definição, implementação e validação de um sistema de tomada de decisões a partir da detecção de um obstáculo.
+
+## 8.2 Mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos.
+
+<p><b>Acabar a bateria:</b> Existe o risco de o robô ficar sem energia devido ao esgotamento da bateria durante a operação, o que pode resultar na interrupção das tarefas programadas ou na paralisação do robô em um local indesejado. Recomenda-se monitorar continuamente o nível de carga da bateria para evitar uma descarga completa, retornar à estação de carregamento antes que a energia fique muito baixa, caso esteja em uma inspeção.</p>
+
+<p><b>LIDAR com algo na frente:</b> O LIDAR é um componente crítico para a detecção de obstáculos. No entanto, existe o risco de sujeira, poeira ou outros detritos obstruírem a lente do LIDAR, afetando sua precisão e desempenho. É importante realizar verificações periódicas e limpar o LIDAR quando necessário.</p>
+
+<p><b>Objetos em altitude menor que o LIDAR:</b> O LIDAR está localizado no topo do robô, existe o risco de objetos ou obstáculos estarem localizados em alturas inferiores à capacidade de detecção do LIDAR. Isso pode resultar em colisões ou danos ao robô. Recomenda-se utilizar outros sensores, como mais um lidar, ou uma proteção, para complementar a detecção de obstáculos em alturas inferiores.</p>
+
+<p><b>Curto-circuito ou problema nos fios:</b> Os sistemas eletromecânicos e eletrônicos do robô dependem de conexões adequadas e fiação correta para funcionar corretamente. Existe o risco de curto-circuitos, mau contato ou problemas na fiação, o que pode levar a falhas no sistema. É essencial realizar inspeções regulares nos cabos e fios, garantindo que estejam bem conectados e em bom estado.</p>
+
+<p><b>Perder alguma peça no caminho (baixo risco):</b> Embora seja um risco de baixa probabilidade, existe a possibilidade de que alguma peça do robô, como parafusos ou componentes, possa soltar-se durante o deslocamento. Isso pode resultar em mau funcionamento do robô ou em danos aos componentes. É importante verificar periodicamente a fixação adequada de todas as peças e realizar manutenções preventivas para garantir que nenhuma peça importante seja perdida durante as operações.</p>
+
+<p><b>Falta de técnica do parceiro:</b> Após a entrega do robô, é importante ressaltar que o parceiro assume algumas responsabilidades em relação ao seu manuseio adequado e ao uso correto da plataforma web. Essas responsabilidades incluem a capacidade de operar o robô de forma eficiente e habilidosa, bem como a compreensão da plataforma para mapear devidamente os pontos pelos quais o robô deve passar e determinar seu destino final. Com isso, esse ponto de responsabilidade pode gerar algumas falhas por conta da falta de técnica do parceiro relativo a esse manuseio, consistindo em um possível risco à aplicação.</p>
+
+<p><b>Perda de conectividade:</b> Embora o robô tenha sido projetado para operar de forma autônoma, sem depender de conectividade constante, é importante considerar que em certas situações específicas, como a necessidade de uma resposta ao vivo, a falta de conectividade pode representar um desafio significativo. Esse cenário se torna especialmente crítico quando o robô está em um ambiente confinado. Portanto, é fundamental avaliar cuidadosamente as circunstâncias em que uma resposta em tempo real é necessária e, se for o caso, garantir a disponibilidade de uma conexão estável e confiável para atender a essa demanda específica.</p>
+
+## 8.3 Definição, implementação e validação de dispositivos de segurança para os riscos mapeados.
+
+<p>Vale ressaltar que todos os riscos poderiam ter sua possibilidade de ocorrência diminuída com o suporte da equipe antes da entrega da aplicação para o parceiro. Dessa forma, a equipe capacitaria alguns funcionários para terem hábitos adequados com o projeto, mitigando em muito a chance da aplicação falhar.</p>
+
+<p><b>BATERIA:</b> Para mitigar o risco associado à falta de bateria, foi desenvolvido um plano de contenção que inclui a implementação de sinalizações adequadas. Após extensa pesquisa, foi descoberto que o robô emite um som quando a bateria está baixa. No entanto, surgiu uma preocupação específica em relação a esse recurso quando o robô estiver operando em um ambiente confinado, uma vez que o som poderia comprometer seu desempenho.
+Para contornar essa situação, o grupo propôs uma solução alternativa. A ideia é acessar o tópico do robô responsável por monitorar o nível de voltagem da bateria e exibir essa informação na aplicação web. Dessa forma, será possível visualizar facilmente o status da bateria sem a necessidade de emitir um som que possa prejudicar o funcionamento do robô no ambiente confinado.
+Além disso, o grupo também sugeriu a implementação de um alerta na aplicação web quando o robô estiver conectado, mas ainda não tenha sido colocado no ambiente. Esse alerta servirá como uma indicação para não iniciar o processo caso o nível de bateria esteja abaixo de um certo limite. Essa medida preventiva garantirá que o robô não seja colocado em operação quando sua bateria estiver em um estado crítico, evitando danos ao equipamento.
+Com essas medidas em vigor, pretende-se proporcionar uma gestão eficaz do nível de bateria do robô, minimizando riscos e permitindo uma operação segura e eficiente em ambientes confinados.</p>
+
+<p><b>LIDAR SUJO:</b> Para solucionar esse problema, é importante que o colaborador encarregado de utilizar a aplicação realize limpezas periódicas no robô, desmontando as peças de forma adequada e realizando uma limpeza minuciosa. Essa prática tem como objetivo evitar erros decorrentes do acúmulo de sujeira no robô.
+Ao desmontar as peças, o colaborador deve ter cuidado para seguir as instruções de desmontagem e montagem corretas, garantindo que as peças sejam removidas e recolocadas adequadamente. Durante a limpeza, é importante utilizar técnicas apropriadas, como a remoção de sujeira com pincéis ou ar comprimido e a aplicação de soluções de limpeza suaves, quando necessário.
+Essa manutenção regular ajudará a prevenir a ocorrência de problemas causados por acúmulo de sujeira no robô, garantindo seu funcionamento adequado e minimizando falhas ou erros relacionados ao desempenho do equipamento.
+É essencial ressaltar a importância de seguir as orientações de limpeza e manutenção fornecidas pela equipe de suporte, a fim de garantir que as práticas adotadas sejam seguras e eficazes, preservando a integridade do equipamento.</p>
+
+<p><b>LIDAR ALTO:</b> Para mitigar o risco de colisões devido à localização do sensor LIDAR no topo do robô, uma solução viável é a utilização de sensores adicionais, como um LIDAR adicional posicionado na parte inferior do Turtlebot. Essa configuração permitiria a visualização da parte inferior do robô, tornando possível a detecção de obstáculos em áreas anteriormente não visíveis. Além disso, outra adição benéfica para o projeto seriam sensores de proximidade ultrassônicos. Esses sensores emitem ondas sonoras de alta frequência e detectam o retorno dessas ondas ao refletirem em objetos próximos. Com a instalação de sensores ultrassônicos em várias direções ao redor do robô, seria possível detectar obstáculos próximos em distâncias curtas, fornecendo informações adicionais para a navegação em ambientes confinados.
+A combinação desses sensores adicionais, incluindo um LIDAR inferior e sensores de proximidade ultrassônicos, aumentaria significativamente a capacidade do Turtlebot de detectar obstáculos e evitar colisões em ambientes confinados. Esses sensores forneceriam uma visão mais completa do ambiente, tanto em termos de altura quanto de proximidade, permitindo uma navegação mais precisa e segura.</p>
+
+<p><b>Curto-circuito ou problema nos fios, Perder alguma peça no caminho (baixo risco) e Falta de técnica do parceiro:</b> Para resolver esse problema, é crucial que o colaborador tenha um entendimento completo da montagem adequada do robô, verificando cuidadosamente seu estado antes e depois de cada inspeção.
+Antes de iniciar qualquer processo de inspeção, o colaborador deve garantir que esteja familiarizado com as instruções de montagem fornecidas pelo grupo. É essencial entender a sequência correta de montagem das peças do robô, bem como as conexões e encaixes necessários para garantir um funcionamento adequado.
+Após a inspeção, o colaborador deve revisar minuciosamente a montagem do robô, verificando se todas as peças estão devidamente encaixadas e fixadas. Isso inclui a verificação de conexões elétricas, conexões mecânicas e outros componentes relevantes. Qualquer sinal de desalinhamento, soltura ou dano deve ser identificado e corrigido imediatamente.
+Ao adotar essa abordagem, o colaborador assegurará que o robô seja montado corretamente, eliminando a possibilidade de erros decorrentes de montagem inadequada. Além disso, essa prática ajudará a identificar problemas ou danos que possam ter ocorrido durante a inspeção, permitindo que sejam abordados antes que afetem o desempenho do robô.
+A perda de conectividade é um problema complexo de resolver, especialmente quando há uma necessidade de conexão constante, como em ambientes distantes da empresa. Uma solução viável é aumentar a potência da internet para melhorar a conectividade em locais remotos.
+Além disso, o grupo identificou uma abordagem para contornar a falta de conectividade constante, que é o uso do protocolo MQTT (Message Queuing Telemetry Transport). Esse protocolo permite que todas as informações sejam enviadas de uma só vez ao final do processo, quando o robô estiver novamente conectado à internet.
+Com o uso do protocolo MQTT, o robô é capaz de armazenar os dados localmente durante a falta de conectividade e, assim que a conexão for restabelecida, enviar todas as informações de uma só vez. Isso garante que nenhuma informação seja perdida durante os períodos de desconexão, proporcionando uma sincronização eficiente com a plataforma web.
+Dessa forma, ao adotar o protocolo MQTT, é possível superar a falta de conectividade constante, permitindo que o robô mantenha suas operações mesmo em ambientes com acesso limitado à internet.</p>
+
+## 8.4 Implementação e validação de sistemas de proteção contra comandos indevidos.
 
 # 9. Backend
 
