@@ -34,6 +34,6 @@ class Lidar():
         # print("Margem segura", len(set(self.margem_de_segurança())))
         # Pra saber se tem algo na margem de segurança, precisamos verificar se há algum número dentro do array de segurança menor do que 30 cm (0.3)
         for i in self.safety_margin():
-            if i < 0.8 and self.permission:
+            if i < 0.3 and self.permission:
                 return False
         return True
