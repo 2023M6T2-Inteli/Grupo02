@@ -442,6 +442,8 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 <p><b>Perda de conectividade:</b> Embora o robô tenha sido projetado para operar de forma autônoma, sem depender de conectividade constante, é importante considerar que em certas situações específicas, como a necessidade de uma resposta ao vivo, a falta de conectividade pode representar um desafio significativo. Esse cenário se torna especialmente crítico quando o robô está em um ambiente confinado. Portanto, é fundamental avaliar cuidadosamente as circunstâncias em que uma resposta em tempo real é necessária e, se for o caso, garantir a disponibilidade de uma conexão estável e confiável para atender a essa demanda específica.</p>
 
+<p>Além desses exemplos, é importante considerar outros riscos potenciais específicos do ambiente de trabalho em que o robô será utilizado. Cada ambiente pode apresentar desafios e perigos únicos, portanto, é necessário realizar uma análise de risco abrangente e identificar os riscos relevantes, incluindo aqueles relacionados à segurança dos colaboradores e à integridade do equipamento.</p>
+
 ## 8.3 Definição, implementação e validação de dispositivos de segurança para os riscos mapeados.
 
 <p>Vale ressaltar que todos os riscos poderiam ter sua possibilidade de ocorrência diminuída com o suporte da equipe antes da entrega da aplicação para o parceiro. Dessa forma, a equipe capacitaria alguns funcionários para terem hábitos adequados com o projeto, mitigando em muito a chance da aplicação falhar.</p>
