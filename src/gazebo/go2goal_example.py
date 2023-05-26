@@ -79,9 +79,9 @@ class TurtleController(Node):
         
         if abs(angle_to_goal - self.theta) > MAX_DIFF:
             speed.linear.x = 0.0
-            speed.angular.z = 0.3 if (angle_to_goal - self.theta) > 0.0 else -0.3
+            speed.angular.z = 0.1 if (angle_to_goal - self.theta) > 0.0 else -0.1
         else:
-            speed.linear.x = 0.5
+            speed.linear.x = 1.0
             speed.angular.z = 0.0
         return speed
     
