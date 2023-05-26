@@ -10,13 +10,17 @@ from lidar import Lidar
 
 MAX_DIFF = 0.1
 
-goals = [(1.0, 2.0),
-         (4.0, 5.0),
-         (2.0, 1.0),
-         (3.0, 3.0),
-         (5.0, 1.0),
-         (5.0, 4.0),
-         (7.0, 8.0),
+# goals = [(1.0, 2.0),
+#          (4.0, 5.0),
+#          (2.0, 1.0),
+#          (3.0, 3.0),
+#          (5.0, 1.0),
+#          (5.0, 4.0),
+#          (7.0, 8.0),
+#          (0.0, 0.0)]
+
+goals = [(2.0, 0.0),
+         (2.0, 2.0),
          (0.0, 0.0)]
 
 class TurtleController(Node):
@@ -89,8 +93,8 @@ class TurtleController(Node):
 
     def handle_exception(self, error):
         self.point_list = self.return_list
-        print(self.point_list)
-        self.current_point = 0
+        print("Point list: ", self.point_list)
+        self.current_point = -1
         print(self.current_point)
         self.lidar_.kill_lidar()
         print(error)
@@ -106,9 +110,9 @@ class TurtleController(Node):
             if self.check_reached_point(goal.x - self.x, goal.y - self.y):
                 
                 self.current_point += self.point_counter
-                
-                if len(self.return_list) != len(self.point_list):
-                    self.return_list.insert(0, self.point_list[self.point_counter-1])
+                if len(self.return_list) != len(self.point_list) and self.lidar_.permission:
+                    self.return_list.insert(0, self.point_list[self.point_counter])
+                    print("Return list: ", self.return_list)
                     
                     
 
