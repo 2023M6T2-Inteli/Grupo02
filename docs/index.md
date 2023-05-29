@@ -459,8 +459,15 @@ A aplicação de um filtro de contraste na imagem é útil para remover detalhes
 
 > ![Imagem](caminho/para/imagem_filtro_caracteristicas.jpg)
 
+## 7.2 Escolha do modele de predição
+<p>Identificamos a necessidade de criar um sistema automatizado para detecção de rachaduras em imagens, visando permitir que a Gerdau consiga planejar o que deve ser feito pelo colaborador quando ele tiver que entrar no espaço fechado. Para isso, decidimos utilizar técnicas de visão computacional e aprendizado de máquina.
+O primeiro passo foi obter um conjunto de dados adequado para treinamento e teste do modelo. Pesquisamos e encontramos o dataset do Roboflow, que oferecia uma coleção diversificada de imagens contendo rachaduras.
+Em seguida, chegou o momento de treinar o modelo usando a estrutura YOLO. O YOLO é conhecido por sua eficiência na detecção de objetos em tempo real, tornando-o uma escolha adequada para o nosso projeto. O YOLO utiliza frameworks de aprendizado de máquina, como TensorFlow ou PyTorch, para desenvolver o modelo preditivo. Durante o treinamento, o modelo aprendeu a associar características visuais às rachaduras, aprimorando sua capacidade de detecção.
+Após o treinamento, avaliamos o desempenho do modelo usando um conjunto separado de dados de validação ou teste. Utilizamos métricas como precisão, revocação e F1-score para medir a qualidade da detecção das rachaduras. Como será mostrado em seções mais a diante o modelo ainda tem substancial potencial de melhora (edited) </p>
 
-## 7.2 Validação do sistema de visão computacional
+
+
+## 7.3 Validação do sistema de visão computacional
 
 #### Testes de Eficácia
 <br>
