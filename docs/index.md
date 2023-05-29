@@ -450,6 +450,17 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 # 7. Sistema de visão computacional
 
+## 7.1 Pipeline de Pré-processamento de imagem.
+
+<p>O Pipeline de Pré-processamento de Imagem é um conjunto de etapas sequenciais que são aplicadas a uma imagem para prepará-la para análise, processamento ou classificação posterior. Em nosso pipeline fizemos os seguintes processos:</p>
+.1  Carregamento da imagem
+.2 Redimensionamento
+.3 Conversão de cores
+.4 Correção de iluminação
+.5 Filtro de suavização
+.6 Extração de características
+
+
 # 8. Sistemas de segurança
 
 ## 8.1 Definição, implementação e validação de um sistema de tomada de decisões a partir da detecção de um obstáculo.
