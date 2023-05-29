@@ -435,6 +435,31 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 .5 Filtro de suavização
 .6 Extração de características
 
+### Carregamento da imagem
+
+Nesta etapa, a imagem é carregada a partir de um arquivo ou outra fonte de dados.
+
+> ![Imagem](caminho/para/imagem.jpg)
+
+### Conversão de cores
+
+A conversão de cores é útil quando a imagem precisa ser convertida de um espaço de cores para outro. Em nosso projeto, fizemos a conversão das imagens de RGB para escala de cinza. Partimos da premissa de que ao dar maior evidência aos relevos, nosso modelo seria capaz de fazer predições com mais facilidade.
+
+> ![Imagem](caminho/para/imagem_conversao_cores.jpg)
+
+### Correção de iluminação
+
+A correção de iluminação é útil quando a imagem precisa ser ajustada em relação ao brilho e ao contraste. Em nosso projeto, realizamos a conversão das imagens de RGB para escala de cinza. Acreditamos que ao dar maior destaque aos relevos, nosso modelo seria capaz de fazer predições com mais facilidade.
+
+> ![Imagem](caminho/para/imagem_correcao_iluminacao.jpg)
+
+### Filtro para extração de características
+
+A aplicação de um filtro de contraste na imagem é útil para remover detalhes desnecessários. Para esse projeto, desenvolvemos um filtro (kernel2) que ressalta os pontos de destaque e as áreas mais escuras.
+
+> ![Imagem](caminho/para/imagem_filtro_caracteristicas.jpg)
+
+
 ## 7.2 Validação do sistema de visão computacional
 
 #### Testes de Eficácia
