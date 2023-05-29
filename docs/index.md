@@ -46,6 +46,8 @@
   - [4.2 Otimização de rota](#42-otimização-de-rota)
     - [4.2.1 Problema “O caixeiro viajante”](#421-problema-o-caixeiro-viajante)
     - [4.2.2 Implementação](#422-implementação)
+    - [4.3 Validação do sistema de visão computacional](#43-validação-do-sistema-de-visão-computacional)
+      - [Testes de Eficácia](#testes-de-eficácia)
     - [5.1.1 Instalação do ambiente de simulação](#511-instalação-do-ambiente-de-simulação)
       - [5.1.1.1 Ros Humble Turtlebot3](#5111-ros-humble-turtlebot3)
     - [5.1.2 Comunicação](#512-comunicação)
@@ -307,6 +309,32 @@ A biblioteca networkx implementa  este algoritmo na função traveling_salesman 
 <img src="../media/integracao_rotas/code.png">
 <br>
 <br>
+
+### 4.3 Validação do sistema de visão computacional
+
+#### Testes de Eficácia
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A fim de otimizar o processo de identificação de rachaduras, foi desenvolvido um filtro para ser aplicado sobre as imagens do dataset. O filtro em questão coloca em evidência o objeto a ser identificado, de modo a aumentar sua nitidez. Esse processo faz com que a possível rachadura a ser identificada se destaque na imagem em comparação com os outros elementos da figura.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Motivado pelo objetivo de conferir a eficiência do filtro desenvolvido, o grupo construiu dois modelos distintos utilizando o Yolo V8: um que aplica o filtro às imagens do dataset, e um que não utiliza o filtro e processa as imagens puras.
+
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/visao_computacional/rachadura_sem_filtro.png?raw=true" width="50%"></img></p>
+<p>Imagem sem a aplicação do filtro</p>
+
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/visao_computacional/rachadura_com_filtro.png?raw=true" width="50%"></img></p>
+<p>Imagem com a aplicação do filtro</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Desse modo, após a aplicação do filtro é notório que o resultado esperado de que ele atingisse uma métrica de averiguação depois que transformasse a imagem em preto e branco, pudesse também sintetizar com a diferença de contraste em pontos da imagem que tivesse com pouca luminosidade ou não. Outrossim, para esse impasse, é justificável para que ocorra de fato uma melhora no processamento de identificação é necessário a melhoria dessa filtro, visto que, através dos dados fornecidos pelo modelo, não foi possível identificar uma melhoria ou não no tratamento das imagens.
+
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/visao_computacional/exemplos_de_rachaduras.png?raw=true" width="50%"></img></p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;De acordo com a imagem acima, é possível identificar que a detecção das rachaduras acontece de maneira clara e objetiva, considerando a caixa deliminatória vermelha que abrange todo o contorno da rachadura. Nesse sentido, o objetivo primordial se tratando principalmente do desenvolvimento e implementação de testes de performance é justificável considerar um bom resultado atingido. 
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para exemplificar melhor, seguinte a matriz de confusão feita a partir dos dados fornecidos após a execução do processamento: 
+
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/visao_computacional/matrix_de_confusao.png?raw=true" width="50%"></img></p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Considerando os valores descritos, é possível afirmar que existem mais falsos positivos do que falsos negativos, o que nesse caso é extremamente positivo, por exemplo, é melhor o robô identificar uma rachadura em um lugar que não existe, do que ele apenas ignorar uma rachadura inexistente.  
 
 ### 5.1.1 Instalação do ambiente de simulação
 Para abrir este projeto você necessita das seguintes ferramentas:
