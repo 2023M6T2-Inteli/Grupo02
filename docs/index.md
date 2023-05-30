@@ -17,6 +17,7 @@
 <<<<<<< Updated upstream
 # Sumário
 
+- [](#)
 - [Sumário](#sumário)
 - [1. Entendimento de negócio](#1-entendimento-de-negócio)
   - [1.1. Análise setorial](#11-análise-setorial)
@@ -25,6 +26,14 @@
   - [1.4. Análise do time de desenvolvimento](#14-análise-do-time-de-desenvolvimento)
       - [Matriz de riscos](#matriz-de-riscos)
   - [1.5. Análise da solução](#15-análise-da-solução)
+- [Outrossim, há uma interface gráfica que tem como objetivo ajudar no planejamento para as inspeções e manutenções desses ambientes confinados. Essa interface gráfica possuirá dashboards que se atualizam em tempo real e, também, fotos do interior do ambiente confinado que serão captadas pela câmera que o protótipo está equipado.](#outrossim-há-uma-interface-gráfica-que-tem-como-objetivo-ajudar-no-planejamento-para-as-inspeções-e-manutenções-desses-ambientes-confinados-essa-interface-gráfica-possuirá-dashboards-que-se-atualizam-em-tempo-real-e-também-fotos-do-interior-do-ambiente-confinado-que-serão-captadas-pela-câmera-que-o-protótipo-está-equipado)
+- [Conteúdo](#conteúdo)
+- [1. Entendimento de negócio](#1-entendimento-de-negócio-1)
+  - [1.1. Análise setorial](#11-análise-setorial-1)
+  - [1.2. Análise empresarial](#12-análise-empresarial-1)
+  - [1.3. Análise do time de desenvolvimento](#13-análise-do-time-de-desenvolvimento)
+- [(Matriz de Riscos)](#matriz-de-riscos-1)
+  - [1.4. Análise da solução](#14-análise-da-solução)
 - [2. Entendimento do metadesign](#2-entendimento-do-metadesign)
   - [2.1. Fatores mercadológicos](#21-fatores-mercadológicos)
       - [Relação entre o produto desenvolvido e sua precificação com o merdaco atual](#relação-entre-o-produto-desenvolvido-e-sua-precificação-com-o-merdaco-atual)
@@ -70,7 +79,12 @@
       - [Rodando](#rodando)
 - [7. Sistema de visão computacional](#7-sistema-de-visão-computacional)
   - [7.1 Pipeline de Pré-processamento de Imagem](#71-pipeline-de-pré-processamento-de-imagem)
-  - [7.2 Validação do sistema de visão computacional](#72-validação-do-sistema-de-visão-computacional)
+    - [Carregamento da imagem](#carregamento-da-imagem)
+    - [Conversão de cores](#conversão-de-cores)
+    - [Correção de iluminação](#correção-de-iluminação)
+    - [Filtro para extração de características](#filtro-para-extração-de-características)
+  - [7.2 Escolha do modele de predição](#72-escolha-do-modele-de-predição)
+  - [7.3 Validação do sistema de visão computacional](#73-validação-do-sistema-de-visão-computacional)
       - [Testes de Eficácia](#testes-de-eficácia)
 - [8. Sistemas de segurança](#8-sistemas-de-segurança)
   - [8.1 Definição, implementação e validação de um sistema de tomada de decisões a partir da detecção de um obstáculo.](#81-definição-implementação-e-validação-de-um-sistema-de-tomada-de-decisões-a-partir-da-detecção-de-um-obstáculo)
@@ -83,6 +97,27 @@
 - [12. Referências](#12-referências)
 - [12. Material de apoio](#12-material-de-apoio)
 - [13. Anexos](#13-anexos)
+- [Apresentação Sprint 03](#apresentação-sprint-03)
+  - [2.2. Sistema produto/design](#22-sistema-produtodesign-1)
+  - [2.3. Sustentabilidade ambiental](#23-sustentabilidade-ambiental-1)
+  - [2.4. Influências socioculturais](#24-influências-socioculturais-1)
+  - [2.5. Tipológico-formais e ergonômicos](#25-tipológico-formais-e-ergonômicos-1)
+- [\<\<\<\<\<\<\< HEAD](#-head)
+  - [2.6. Tecnologia produtiva e materiais empregados](#26-tecnologia-produtiva-e-materiais-empregados-1)
+- [3. Descrição da arquitetura do sistema.](#3-descrição-da-arquitetura-do-sistema)
+- [\<\<\<\<\<\<\< HEAD](#-head-1)
+  - [3.1  Engenharia de requisitos](#31--engenharia-de-requisitos)
+    - [Requisitos Funcionais](#requisitos-funcionais-1)
+    - [Requisitos Não Funcionais](#requisitos-não-funcionais-1)
+- [4. Sistema de locomoção e otimização de rota.](#4-sistema-de-locomoção-e-otimização-de-rota-1)
+- [5. Interface de usuário.](#5-interface-de-usuário)
+- [6. Sistema de visão computacional.](#6-sistema-de-visão-computacional)
+- [7. Sistemas de segurança.](#7-sistemas-de-segurança)
+- [8. Backend.](#8-backend)
+- [9. Integração de sistemas.](#9-integração-de-sistemas)
+- [10.  Validação da eficácia do sistema.](#10--validação-da-eficácia-do-sistema)
+- [10.  Validação da eficácia do sistema.](#10--validação-da-eficácia-do-sistema-1)
+- [11. Referências](#11-referências)
 
 # 1. Entendimento de negócio
 
@@ -292,7 +327,7 @@ A viabilidade técnica, refere-se a possibilidade de implementar na prática a s
 
 # 4. Sistema de locomoção e otimização de rota
 
-## 4.1 Sistema de locomoção 
+## 4.1 Sistema de locomoção
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Foi desenvolvido um algoritmo para a segunda entrega da sprint, com o objetivo de fazer o robô se movimentar até um ponto desejado utilizando ângulos de Euler. O algoritmo utiliza o odômetro para obter os ângulos do robô e do ponto de destino, e então realiza uma subtração contínua desses ângulos até que a diferença esteja dentro de uma faixa aceitável de tolerância. Enquanto o robô estiver dentro dessa faixa, ele se move em direção ao ponto de destino. A lista de pontos é fornecida com coordenadas (x, y, z) e seus respectivos valores.
 <br>
