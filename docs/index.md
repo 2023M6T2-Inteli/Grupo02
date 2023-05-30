@@ -439,25 +439,25 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 Nesta etapa, a imagem é carregada a partir de um arquivo ou outra fonte de dados.
 
-> ![Imagem](caminho/para/imagem.jpg)
+> ![Imagem](../media/visao_computacional/upload.png)
 
 ### Conversão de cores
 
 A conversão de cores é útil quando a imagem precisa ser convertida de um espaço de cores para outro. Em nosso projeto, fizemos a conversão das imagens de RGB para escala de cinza. Partimos da premissa de que ao dar maior evidência aos relevos, nosso modelo seria capaz de fazer predições com mais facilidade.
 
-> ![Imagem](caminho/para/imagem_conversao_cores.jpg)
+> ![Imagem](../media/visao_computacional/scala_cinza.png)
 
 ### Correção de iluminação
 
 A correção de iluminação é útil quando a imagem precisa ser ajustada em relação ao brilho e ao contraste. Em nosso projeto, realizamos a conversão das imagens de RGB para escala de cinza. Acreditamos que ao dar maior destaque aos relevos, nosso modelo seria capaz de fazer predições com mais facilidade.
 
-> ![Imagem](caminho/para/imagem_correcao_iluminacao.jpg)
+> ![Imagem](../media/visao_computacional/iluminacao.png)
 
 ### Filtro para extração de características
 
 A aplicação de um filtro de contraste na imagem é útil para remover detalhes desnecessários. Para esse projeto, desenvolvemos um filtro (kernel2) que ressalta os pontos de destaque e as áreas mais escuras.
 
-> ![Imagem](caminho/para/imagem_filtro_caracteristicas.jpg)
+> ![Imagem](../media/visao_computacional/filtro.png)
 
 ## 7.2 Escolha do modele de predição
 <p>Identificamos a necessidade de criar um sistema automatizado para detecção de rachaduras em imagens, visando permitir que a Gerdau consiga planejar o que deve ser feito pelo colaborador quando ele tiver que entrar no espaço fechado. Para isso, decidimos utilizar técnicas de visão computacional e aprendizado de máquina.
