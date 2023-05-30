@@ -497,6 +497,14 @@ Após o treinamento, avaliamos o desempenho do modelo usando um conjunto separad
 
 ## 8.1 Definição, implementação e validação de um sistema de tomada de decisões a partir da detecção de um obstáculo.
 
+<p>A definição, implementação e validação de um sistema de tomada de decisões a partir da detecção de obstáculos são fundamentais para que nosso robô equipado com um sensor LIDAR e uma câmera, navegue de forma autônoma e evite colisões.</p>
+
+<p>O sistema funciona da seguinte forma: o robô possui uma lista de metas predefinidas que precisa alcançar. Utilizando o sensor LIDAR, ele verifica continuamente se há obstáculos em seu caminho. Quando o robô não detecta nenhum obstáculo próximo, ele segue em direção da meta atual. Ele calcula a diferença entre sua posição atual e a meta em termos de coordenadas x e y, determinando o ângulo necessário para girar em direção à meta. Se a diferença entre o ângulo atual e o ângulo desejado for maior que um limite predefinido, o robô gira no lugar para alinhar-se corretamente. Caso contrário, ele segue em linha reta em direção à meta até alcança-la.</p>
+
+<p>No entanto, quando o robô detecta um obstáculo próximo usando o sensor LIDAR, ele toma uma decisão para evitar a colisão. Nesse caso, o robô faz o caminho de volta, retornando para sua posição inicial. É importante que a todo o momento o LIDAR está nos fornecendo essas informações, assim é garantido que o robô navegue de forma eficiente e segura sem colisões.</p>
+
+<p>A validação desse sistema foi realizada em um ambiente simulado. Durante os testes, o robô foi capaz de se movimentar em direção às metas, até encontrar um obstáculo e realizar o caminho de volta para sua posição inicial. Nesse teste foi analisado se o robô girava corretamente em direção de suas respectivas metas, identificava obstáculos em seu sensor e retorna ao ponto de partida quando encontra algum empecilho.</p>
+
 ## 8.2 Mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos.
 
 <p><b>Acabar a bateria:</b> Existe o risco de o robô ficar sem energia devido ao esgotamento da bateria durante a operação, o que pode resultar na interrupção das tarefas programadas ou na paralisação do robô em um local indesejado.</p>
