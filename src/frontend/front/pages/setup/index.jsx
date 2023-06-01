@@ -24,7 +24,14 @@ var route_id = [
 export default function Inspection(){
     return(
         <div className="bg">
+<<<<<<< HEAD
             <Header />
+=======
+            <div>
+                <Header />
+            </div>
+            {/* <div style={{display: 'flex', width: 'calc(100vw - 64px)', margin: '0 32px'}}> */}
+>>>>>>> parent of 96cb9c4 (...)
             <div className="flex ml-16 mr-16 mb-16">
                 <div className="mt-16 pt-10 pl-10 pb-8 w-2/5 bg-azul rounded-lg">
                     <div className="font-inter text-white">
