@@ -1,62 +1,26 @@
-def calculate_goal(self):
-    goal = Point()
-    goal.x = self.point_list[self.current_point][0]
-    goal.y = self.point_list[self.current_point][1]
-    return goal
+from auxiliar import calculate_angle_to_goal,calculate_goal,check_lidar_margin,check_reached_point,adjust_speed
+from error_handling import handle_exception,handle_index_error
+from geometry_msgs.msg import Twist, Point
 
-def calculate_angle_to_goal(self, goal):
-    inc_x = goal.x - self.x
-    inc_y = goal.y - self.y
-    angle_to_goal = atan2(inc_y, inc_x)
-    return angle_to_goal
 
-def check_lidar_margin(self):
-    return self.lidar_.margem_segura()
+MAX_DIFF =0.1
 
-def check_reached_point(self, inc_x, inc_y):
-    return abs(inc_x) < MAX_DIFF and abs(inc_y) < MAX_DIFF
 
-def adjust_speed(self, angle_to_goal):
-    speed = Twist()
-    
-    if abs(angle_to_goal - self.theta) > MAX_DIFF:
-        speed.linear.x = 0.0
-        speed.angular.z = 0.3 if (angle_to_goal - self.theta) > 0.0 else -0.3
-    else:
-        speed.linear.x = 0.5
-        speed.angular.z = 0.0
-    return speed
-
-def handle_index_error(self, err):
-    self.current_point = 0
-    self.point_counter = 1
-    print(err)
-
-def handle_exception(self, error):
-    self.point_counter = -1
-    self.current_point += self.point_counter
-
-    speed = Twist()
-    speed.linear.x = 0.0
-    speed.angular.z = 0.3
-    self.publisher.publish(speed)
-    print(error)
-
-def publisher_callback(self):
+def publisher_callback(node):
     try:
-        goal = self.calculate_goal()
-        angle_to_goal = self.calculate_angle_to_goal(goal)
+        goal = calculate_goal(node)
+        angle_to_goal = calculate_angle_to_goal(node,goal)
 
-        if not self.check_lidar_margin():
+        if not check_lidar_margin(node):
             raise Exception
                 
-        if self.check_reached_point(goal.x - self.x, goal.y - self.y):
-            self.current_point += self.point_counter
-            self.point_counter = 1
+        if check_reached_point(goal.x - node.x, goal.y - node.y,MAX_DIFF):
+            node.current_point += node.point_counter
+            node.point_counter = 1
 
-        speed = self.adjust_speed(angle_to_goal)
-        self.publisher.publish(speed)
+        speed = adjust_speed(node,angle_to_goal,MAX_DIFF)
+        node.publisher.publish(speed)
     except IndexError as err:
-        self.handle_index_error(err)
+        handle_index_error(node,err)
     except Exception as error:
-        self.handle_exception(error)
+        handle_exception(node,error)
