@@ -17,13 +17,13 @@ const Canvas = ({ backgroundImageSrc }) => {
             draw();
         };
 
-        const drawImage = () => {
-            const image = new Image();
-            image.src = backgroundImageSrc;
-            image.onload = () => {
-                context.drawImage(image, 0, 0, canvas.width, canvas.height);
-            };
-        };
+        // const drawImage = () => {
+        //     const image = new Image();
+        //     image.src = backgroundImageSrc;
+        //     image.onload = () => {
+        //         context.drawImage(image, 0, 0, canvas.width, canvas.height);
+        //     };
+        // };
 
         const getCanvasOffset = (e) => {
             const rect = canvas.getBoundingClientRect();
@@ -37,7 +37,10 @@ const Canvas = ({ backgroundImageSrc }) => {
 
             // Desenhar a imagem de plano de fundo
             // drawImage();
+            console.log('nodes:', nodes)
+            console.log('edges:', edges)
 
+            // Desenha todas as arestas, que são as linha entre dois nós que possuam conexão
             for (let i = 0; i < edges.current.length; i++) {
                 const fromNode = edges.current[i].from;
                 const toNode = edges.current[i].to;
@@ -48,15 +51,13 @@ const Canvas = ({ backgroundImageSrc }) => {
                 context.lineTo(toNode.x, toNode.y);
                 context.fillStyle = 'red';
                 context.textAlign = 'center';
-                context.fillText(
-                    `${Math.abs(fromNode.x - toNode.x)} ; ${Math.abs(toNode.y - fromNode.y)}`,
+                context.fillText(`W = ${(Math.sqrt((fromNode.x - toNode.x) ** 2 + (fromNode.y - toNode.y) ** 2)).toFixed(3)}`,
                     toNode.x + ((toNode.x - fromNode.x) * -1) / 2,
-                    toNode.y + ((toNode.y - fromNode.y) * -1) / 2
-                );
+                    toNode.y + ((toNode.y - fromNode.y) * -1) / 2)
                 context.stroke();
             }
 
-
+            // Desenha todos os nós, que são círculos azuis com texto 
             for (let i = 0; i < nodes.current.length; i++) {
                 const node = nodes.current[i];
 
@@ -67,7 +68,9 @@ const Canvas = ({ backgroundImageSrc }) => {
                 context.fill();
                 context.fillStyle = 'black';
                 context.textAlign = 'center';
-                context.fillText(`${node.x} ; ${node.y}`, node.x, node.y);
+                context.fillText(`${Math.round(node.x)} ; ${Math.round(node.y)}`,
+                    node.x,
+                    node.y);
                 context.stroke();
             }
 
