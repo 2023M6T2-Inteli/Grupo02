@@ -49,7 +49,7 @@ class ImagePublisher(Node):
     
     if not ret:
       self.get_logger().info("Video seems to be over. Restarting...")
-      self.vid = cv2.VideoCapture(1)
+      self.vid = cv2.VideoCapture(0)
       return
           
     # Publish the image.
