@@ -19,6 +19,8 @@ goals = [(1.0, 2.0),
          (7.0, 8.0),
          (0.0, 0.0)]
 
+    
+
 class TurtleController(Node):
     def __init__(self, goals):
         super().__init__('controller')
@@ -28,7 +30,7 @@ class TurtleController(Node):
         self.goal = Point()
         
         self.current_point = 0
-        
+        self.returning = False
         self.point_list = goals
         self.return_list = [(0.0, 0.0)]
 
@@ -50,14 +52,23 @@ class TurtleController(Node):
         self.timer = self.create_timer(
             timer_period_sec=0.02,
             callback=publisher_lambda)
+    def change(self,val):
+        self.current_point = val
 
                     
-    
+def changeCurrentPoint(objeto: TurtleController):
+    objeto.current_point = -1
+
+
 
 
 def main(args=None):
     rclpy.init(args=args)
     controller = TurtleController(goals)
+    # print(controller.current_point)
+    # changeCurrentPoint(controller)
+    # print(controller.current_point)
+
     rclpy.spin(controller)
     controller.destroy_node()
     rclpy.shutdown()
