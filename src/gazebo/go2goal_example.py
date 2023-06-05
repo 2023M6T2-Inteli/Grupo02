@@ -52,12 +52,9 @@ class TurtleController(Node):
         self.timer = self.create_timer(
             timer_period_sec=0.02,
             callback=publisher_lambda)
-    def change(self,val):
-        self.current_point = val
 
-                    
-def changeCurrentPoint(objeto: TurtleController):
-    objeto.current_point = -1
+
+
 
 
 
@@ -65,9 +62,6 @@ def changeCurrentPoint(objeto: TurtleController):
 def main(args=None):
     rclpy.init(args=args)
     controller = TurtleController(goals)
-    # print(controller.current_point)
-    # changeCurrentPoint(controller)
-    # print(controller.current_point)
 
     rclpy.spin(controller)
     controller.destroy_node()
