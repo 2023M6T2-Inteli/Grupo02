@@ -53,16 +53,13 @@ class TurtleController(Node):
             timer_period_sec=0.02,
             callback=publisher_lambda)
 
-
-
-
+                    
 
 
 
 def main(args=None):
     rclpy.init(args=args)
     controller = TurtleController(goals)
-
     rclpy.spin(controller)
     controller.destroy_node()
     rclpy.shutdown()
