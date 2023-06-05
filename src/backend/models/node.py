@@ -2,7 +2,7 @@
 
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import String, Float, create_engine, ForeignKey
-from base import Base
+from models.base import Base
 
 class Node(Base):
     __tablename__ = "node"

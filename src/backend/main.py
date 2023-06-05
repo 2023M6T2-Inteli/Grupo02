@@ -1,15 +1,12 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from models import Membro
-from sqlalchemy import create_engine
-from sqlalchemy.orm import Session, declarative_base
-
-Base = declarative_base()
-
-engine = create_engine("sqlite+pysqlite:///models/data.db")
-Base.metadata.create_all(engine)
+from routes.node import router as node_router
+from sqlalchemy.orm import Session
+from engine import engine
 
 app = FastAPI()
+
+app.include_router(node_router)
 
 class Member(BaseModel):
     name: str

@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import ForeignKey, String
-from base import Base
+from models.base import Base
 
 class Graph(Base):
     __tablename__ = "graph"
