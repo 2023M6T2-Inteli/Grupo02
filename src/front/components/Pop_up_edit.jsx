@@ -5,7 +5,7 @@ import { MdModeEditOutline } from 'react-icons/md';
 import Canvas from './Canvas'
 
 
-const Pop_up = () => {
+const Pop_up_edit = () => {
    const [isOpen, setIsOpen] = useState(false)
    const [selectedImage, setSelectedImage] = useState(null);
    const [imageUrl, setImageUrl] = useState(null);
@@ -39,7 +39,7 @@ const Pop_up = () => {
             <Modal ariaHideApp={false} isOpen={isOpen} onRequestClose={() => setIsOpen(true)} style={customStyles}>
                <div className='bg-modal'>
                   <div className="flex justify-between ">
-                     <h1 className="ml-4 font-medium text-blue-600 text-3xl font-sans">Crie sua rota</h1>
+                     <h1 className="ml-4 font-medium text-blue-600 text-3xl font-sans">Edite sua rota</h1>
                      <button className="mr-4 text-2xl" onClick={() => setIsOpen(false)}><AiOutlineClose /></button>
                   </div>
                   <div className="flex justify-between items-center mr-4 ml-4 h-full">
@@ -106,4 +106,4 @@ const Pop_up = () => {
       </>
    )
 }
-export default Pop_up
+export default Pop_up_edit
