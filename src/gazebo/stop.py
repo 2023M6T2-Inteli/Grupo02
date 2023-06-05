@@ -11,9 +11,9 @@ def publisher_callback(node):
     node.publisher.publish(speed)
 
 class TurtleController(Node):
-    def __init__(self, goals):
+    def __init__(self):
         super().__init__('controller')
-        self.x, self.y, self.theta = 0.0, 0.0, 0.0
+        
         
         self.vel_msg = Twist()
 
@@ -35,7 +35,7 @@ class TurtleController(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    controller = TurtleController(goals)
+    controller = TurtleController()
     # print(controller.current_point)
     # changeCurrentPoint(controller)
     # print(controller.current_point)
