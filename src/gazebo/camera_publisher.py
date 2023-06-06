@@ -32,7 +32,7 @@ class ImagePublisher(Node):
     # Create the timer
     self.timer = self.create_timer(timer_period, self.timer_callback)
          
-    self.vid = cv2.VideoCapture(1)
+    self.vid = cv2.VideoCapture(0)
          
     # Used to convert between ROS and OpenCV images
     self.br = CvBridge()
