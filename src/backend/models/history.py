@@ -3,7 +3,7 @@ from sqlalchemy import ForeignKey, DateTime
 from models.base import Base
 
 class History(Base):
-    __tablename__: "history"
+    __tablename__= "history"
     id: Mapped[int] = mapped_column(primary_key=True)
     graph_id: Mapped[int] = mapped_column(ForeignKey("graph_id"))
     report_id: Mapped[int] = mapped_column(ForeignKey("report_id"))
