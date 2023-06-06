@@ -1,7 +1,7 @@
 # Estrutura das tabelas que temos no banco de dados
 
 from sqlalchemy.orm import Mapped, mapped_column
-from sqlalchemy import String, Float, create_engine, ForeignKey
+from sqlalchemy import ForeignKey
 from models.base import Base
 
 class Node(Base):

@@ -1,8 +1,8 @@
-from base import Base
+from models.base import Base
 from sqlalchemy import create_engine
-from graph import Graph
-from node import Node
-from edge import Edge
+from models.graph import Graph
+from models.node import Node
+from models.edge import Edge
 
 if __name__ == "__main__":
 

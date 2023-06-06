@@ -1,9 +1,5 @@
 from sqlalchemy.orm import Mapped, mapped_column
-<<<<<<< Updated upstream
-from sqlalchemy import ForeignKey, String
-=======
 from sqlalchemy import String
->>>>>>> Stashed changes
 from models.base import Base
 
 class Graph(Base):
