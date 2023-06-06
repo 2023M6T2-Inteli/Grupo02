@@ -13,6 +13,7 @@ class Edge(BaseModel):
     graph_id: int
 
 class GraphT(BaseModel):
+    id: int | None = None
     name: str
     description: str | None = None
     image_address: str | None = None
