@@ -1,12 +1,12 @@
 from pydantic import BaseModel
 
-class Node(BaseModel):
+class NodeT(BaseModel):
     x: float
     y: float
     first_node: bool 
     graph_id: int
 
-class Edge(BaseModel):
+class EdgeT(BaseModel):
     weight: float
     node1_id: int
     node2_id: int

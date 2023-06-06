@@ -10,17 +10,15 @@ graph_router = APIRouter(prefix='/graph')
 async def get_graph(type,val):
     print("aaaaaaaaaaaaaa",type,val)
     if type == "id":
-        print("aaaaaaaaaaaaaaaaaaaaaaaa")
         stm = select(Graph).where(Graph.id ==val)
     if type == "name":
         stm = select(Graph).where(Graph.name ==val)
     graph = [graph for graph in db.session.execute(stm)][0][0]
     return graph.return_json()
 
-@graph_router.post("/create_graph")
+@graph_router.post("/create")
 async def post_root(msg: GraphT):
 
-    
     graph = Graph(name = msg.name,
                   description = msg.description,
                   image_address = msg.image_address)
@@ -29,9 +27,10 @@ async def post_root(msg: GraphT):
 
     db.session.commit()
     db.session.close()
+    
     return  {f"nome:{msg.name}, descrição:{msg.description}, imagem:{msg.image_address}"}
 
-@graph_router.delete("/delete_graph")
+@graph_router.delete("/delete")
 async def delete_graph(name:dict):
    
     graphs = db.session.execute(select(Graph).where(Graph.name ==name["name"]))
@@ -40,7 +39,7 @@ async def delete_graph(name:dict):
     db.session.delete(graph)
     db.session.commit()
 
-@graph_router.put("/update_graph")
+@graph_router.put("/update")
 async def update_graph(json:dict):
     graph = [graph for graph in db.session.execute(select(Graph).where(Graph.id == json["id"]))][0][0]
     for key in json.keys():

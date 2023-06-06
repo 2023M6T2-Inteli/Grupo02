@@ -6,8 +6,8 @@ class Edge(Base):
     __tablename__ = "edges"
     id: Mapped[int] = mapped_column(primary_key=True)
     weight: Mapped[float] = mapped_column()
-    node1_id: Mapped[int] = mapped_column(ForeignKey("node.id"))
-    node2_id: Mapped[int] = mapped_column(ForeignKey("node.id"))
+    node1_id: Mapped[int] = mapped_column(ForeignKey("node.id"), nullable=False)
+    node2_id: Mapped[int] = mapped_column(ForeignKey("node.id"), nullable=False)
     graph_id: Mapped[int] = mapped_column(ForeignKey("graph.id")
     )
     

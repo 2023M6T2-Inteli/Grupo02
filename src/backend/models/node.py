@@ -15,10 +15,13 @@ class Node(Base):
     def return_json(self):
 
         return {
-            "node_id": self.id,
+            "id": self.id,
             "x": self.x,
             "y": self.y,
             "first_node": self.first_node,
             "graph_id": self.graph_id,
             }
+        
+    def __repr__(self):
+        return f"Node(id={self.id}, x={self.x}, y={self.y}, first_node={self.first_node}, graph_id={self.graph_id})"
 
