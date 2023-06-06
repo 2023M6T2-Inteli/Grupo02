@@ -8,8 +8,7 @@ class Edge(Base):
     weight: Mapped[float] = mapped_column()
     node1_id: Mapped[int] = mapped_column(ForeignKey("node.id"), nullable=False)
     node2_id: Mapped[int] = mapped_column(ForeignKey("node.id"), nullable=False)
-    graph_id: Mapped[int] = mapped_column(ForeignKey("graph.id")
-    )
+    graph_id: Mapped[int] = mapped_column(ForeignKey("graph.id"))
     
     def return_json(self):
 
