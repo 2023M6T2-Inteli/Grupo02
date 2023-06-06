@@ -1,4 +1,4 @@
-import { Plus } from "react-bootstrap-icons";
+import Pop_up_add from "./Pop_up_add";
 
 export default function NewRoute() {
     return(
@@ -8,7 +8,7 @@ export default function NewRoute() {
                 <p>Adicionar nova rota</p>
             </div>
             <button className="">
-                <Plus />
+                <Pop_up_add />
             </button>
 
         </div>
