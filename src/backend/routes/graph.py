@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from sqlalchemy import select
 from models.model_types import GraphT 
 from models.graph import Graph
-from engine import engine, session
+from config import db
 
 graph_router = APIRouter(prefix='/graph')
 
@@ -21,8 +21,8 @@ async def post_root(msg: GraphT):
                   description = msg.description,
                   image_address = msg.image_address)
 
-    session.add(graph)
-    session.commit()
-    session.close()
+    db.session.add(graph)
+    db.session.commit()
+    db.session.close()
 
     return {f"nome:{msg.name}, descrição:{msg.description}, imagem:{msg.image_address}"}

@@ -1,8 +1,7 @@
 from fastapi import APIRouter
 from models.node import Node
 from models.model_types import Node as node_type
-from sqlalchemy import create_engine
-from engine import engine, session
+from config import db
 
 router = APIRouter(prefix="/node")
 
@@ -15,7 +14,7 @@ async def create_nodes(json: node_type):
 
     node = Node(x=x, y=y, first_node=first_node, graph_id=graph_id)
 
-    session.add(node)
-    session.commit()
+    db.session.add(node)
+    db.session.commit()
 
     return f"Node created with values x={x}, y={y}, first_node={first_node}, graph_id={graph_id}"
