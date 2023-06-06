@@ -11,6 +11,7 @@ def publisher_callback(node):
     try:
         goal = calculate_goal(node)
         angle_to_goal = calculate_angle_to_goal(node,goal)
+        node.logger("aqui")
 
         if not check_lidar_margin(node) and not node.returning:
                 
@@ -42,4 +43,4 @@ def publisher_callback(node):
         node.publisher.publish(speed)
    
     except Exception as error:
-       print(error)
+       node.logger(str(error))

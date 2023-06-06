@@ -10,6 +10,7 @@ from rclpy.node import Node # Handles the creation of nodes
 from sensor_msgs.msg import Image # Image is the message type
 from cv_bridge import CvBridge # Package to convert between ROS and OpenCV Images
 import cv2 # OpenCV library
+import base64
  
 class ImageSubscriber(Node):
   """
@@ -42,13 +43,14 @@ class ImageSubscriber(Node):
     self.get_logger().info('Receiving video frame')
  
     # Convert ROS Image message to OpenCV image
-    current_frame = self.br.imgmsg_to_cv2(data)
+    _,current_frame = self.br.imgmsg_to_cv2(data)
     
     # Display image
-    cv2.imshow("camera", current_frame)
-    if cv2.waitKey(25) & 0xFF == ord('q'):
-      cv2.destroyAllWindows()
-      return
+    image = base64.b64encode(cv2.imencode(".jpg", current_frame))
+    print("inicio                  " + image + "                fim")
+    # if cv2.waitKey(25) & 0xFF == ord('q'):
+    #   cv2.destroyAllWindows()
+    #   return
     
   
 def main(args=None):

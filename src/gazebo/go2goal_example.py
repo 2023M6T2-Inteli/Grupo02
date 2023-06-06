@@ -52,16 +52,23 @@ class TurtleController(Node):
         self.timer = self.create_timer(
             timer_period_sec=0.02,
             callback=publisher_lambda)
+    def logger(self,msg):
+        self.get_logger().info(msg)
 
                     
-
+    
 
 
 def main(args=None):
     rclpy.init(args=args)
     controller = TurtleController(goals)
+    controller.logger("aqui_tmb")
     rclpy.spin(controller)
     controller.destroy_node()
     rclpy.shutdown()
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except Exception as e:
+        print(str(e))
+        
