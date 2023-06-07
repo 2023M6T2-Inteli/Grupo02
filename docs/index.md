@@ -42,6 +42,8 @@
     - [Requisitos Não Funcionais](#requisitos-não-funcionais)
   - [3.2 Viabilidade](#32-viabilidade)
 - [4. Sistema de locomoção e otimização de rota](#4-sistema-de-locomoção-e-otimização-de-rota)
+  - [4.1 Sistema de locomoção](#41-sistema-de-locomoção)
+    - [4.1.1 Comunicação](#411-comunicação)
 - [5. Interface de usuário](#5-interface-de-usuário)
   - [5.1. Visão geral do design](#51-visão-geral-do-design)
     - [Palheta de cores](#palheta-de-cores)
@@ -243,13 +245,11 @@ A viabilidade técnica, refere-se a possibilidade de implementar na prática a s
 
 # 4. Sistema de locomoção e otimização de rota
 
-## 4.1 Sistema de locomoção 
+## 4.1 Sistema de locomoção
 
 <p>Nosso sistema de locomoção está operando com o sistema de nós do ROS. Esse sistema permite a comunicação entre nosso scripth em python e o ambiente de cimulação Gazebo.</p>
 
-### 4.1.1 Comunicação 
-
-
+### 4.1.1 Comunicação
 
 # 5. Interface de usuário
 

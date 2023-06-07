@@ -36,3 +36,6 @@ data.db
 *.exe
 *.out
 *.app
+
+# Specific files
+lib
