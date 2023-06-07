@@ -4,7 +4,6 @@ from routes.graph import graph_router
 from routes.edge import edge_router
 from routes.image import router as image_router
 from routes.register import register_router
-from routes.report import report_router
 from config import db
 
 app = FastAPI()
@@ -16,4 +15,3 @@ app.include_router(graph_router)
 app.include_router(edge_router)
 app.include_router(image_router)
 app.include_router(register_router)
-app.include_router(report_router)

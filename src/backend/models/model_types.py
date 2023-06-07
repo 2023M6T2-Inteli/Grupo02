@@ -18,15 +18,8 @@ class GraphT(BaseModel):
     description: str | None = None
     image_address: str | None = None
 
-class ReportT(BaseModel):
-    graph_id: int
-    gas_report_id: int
-    date: str | None = None
-    images_report_id: int
-
 class RegisterT(BaseModel):
     graph_id: int
-    report_id: int
     date: str | None = None
-    register_name: str
+    name: str
     description: str | None = None

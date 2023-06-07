@@ -27,7 +27,7 @@ async def delete_node(node: dict):
     dNode = db.session.execute(select(Node).where(Node.id == node['id']))
     stm = select(Node).where(Node.id == node['id'])
     node = [node for node in db.session.execute(stm)][0][0]
-    node_id = node['id']
+
     
     db.session.delete(dNode)
     db.session.commit()
