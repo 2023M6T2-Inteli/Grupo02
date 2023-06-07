@@ -2,19 +2,40 @@ from fastapi import APIRouter
 from sqlalchemy import select
 from models.model_types import GraphT 
 from models.graph import Graph
+from models.node import Node
+from models.edge import Edge
 from config import db
 
 graph_router = APIRouter(prefix='/graph')
 
-@graph_router.get("/{type}/{val}")
-async def get_graph(type,val):
-    print("aaaaaaaaaaaaaa",type,val)
-    if type == "id":
-        stm = select(Graph).where(Graph.id ==val)
-    if type == "name":
-        stm = select(Graph).where(Graph.name ==val)
+# @graph_router.get("/get/{id}")
+# async def get_graph(id:int):
+#     stm = select(Graph).where(Graph.id == id)
+#     nodes = db.session.query(Node).filter(Node.id == id).all()
+#     edges = db.session.query(Edge).filter(Edge.id == id).all()
+#     graph = [graph for graph in db.session.execute(stm)][0][0]
+#     return graph.return_json()
+
+@graph_router.get("/get/{id}")
+async def get_graph(id: int):
+    stm = select(Graph).where(Graph.id == id)
+    nodes = db.session.query(Node).filter(Node.graph_id == id).all()
+    edges = db.session.query(Edge).filter(Edge.graph_id == id).all()
     graph = [graph for graph in db.session.execute(stm)][0][0]
-    return graph.return_json()
+
+    graph_data = {
+        "graph": graph.return_json(),
+        "nodes": [node.return_json() for node in nodes],
+        "edges": [edge.return_json() for edge in edges]
+    }
+
+    return graph_data
+
+@graph_router.get('/get_all/')
+async def get_all_graphs():
+    graphs = db.session.query(Graph).all()
+    graph_data = [graph.return_json() for graph in graphs]
+    return graph_data
 
 @graph_router.post("/create")
 async def post_root(msg: GraphT):
@@ -33,7 +54,7 @@ async def post_root(msg: GraphT):
 @graph_router.delete("/delete")
 async def delete_graph(name:dict):
    
-    graphs = db.session.execute(select(Graph).where(Graph.name ==name["name"]))
+    graphs = db.session.execute(select(Graph).where(Graph.name == name["name"]))
     graph = [graph for graph in graphs][0][0]
     print("aaaaaa",graph)
     db.session.delete(graph)

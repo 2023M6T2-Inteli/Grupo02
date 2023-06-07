@@ -17,3 +17,9 @@ class GraphT(BaseModel):
     name: str
     description: str | None = None
     image_address: str | None = None
+
+class RegisterT(BaseModel):
+    graph_id: int
+    date: str | None = None
+    name: str
+    description: str | None = None

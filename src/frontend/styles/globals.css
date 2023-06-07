@@ -49,6 +49,8 @@
     background-color: #004A8F;
 }
 
+
+
 .insp_h{
     display: flex;
     flex-wrap: wrap;
@@ -88,4 +90,8 @@
 
 .rounded-2xl{
     border-radius: 15px;
+}
+
+.md-50 {
+    width: 50vw;
 }

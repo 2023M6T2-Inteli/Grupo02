@@ -8,7 +8,7 @@ class Node(Base):
     x: Mapped[float] = mapped_column()
     y: Mapped[float] = mapped_column()
     first_node: Mapped[bool] = mapped_column()
-    graph_id: Mapped[int] = mapped_column(ForeignKey("graph.id"))
+    graph_id: Mapped[int] = mapped_column()#ForeignKey("graph.id")
     
     def return_json(self):
 
