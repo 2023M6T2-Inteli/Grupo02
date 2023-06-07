@@ -16,12 +16,15 @@ export default function Running() {
                                 <p>STATUS</p>
                             </div>
                             <div className="bg-azul flex rounded-xl p-4">
-                                <div className="p-2">
+                                <div className="p-2 flex items-center flex-col">
+                                    <img src="https://raw.githubusercontent.com/2023M6T2-Inteli/Safe-McQueen/Front-end/src/front/public/o2%20(1)%201.png"/>
                                     <p>22%</p>
+
                                 </div>
-                                <div className="p-2">
-                                    <img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/Front-end/src/front/public/o2%20(1)%201.png"/>
+                                <div className="p-2 flex items-center flex-col gap-y-3.5">
+                                    <img src="https://raw.githubusercontent.com/2023M6T2-Inteli/Safe-McQueen/Front-end/src/front/public/thermometer%201.png"/>
                                     <p>22%</p>
+
                                 </div>
                             </div>
                         </div>
