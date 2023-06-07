@@ -15,17 +15,17 @@ supabase: Client = create_client(supabase_url="https://xbjclntldtajiazipkem.supa
 
 @router.get("/get/{file}")
 async def get_all(file):
-
-    return supabase.storage.from_("/test").get_public_url(f"{file}")
+    address = supabase.storage.from_("/test").get_public_url(f"{file}")
+    return address
 
 
 @router.post("/add")
-async def store_image(name: dict):
-    text = name["text"]
-    name = name["name"]
+async def store_image(msg: dict):
+    image = msg["image"]
+    name = msg["name"]
     try:
         f = open(f"{name}.txt", "w")
-        f.write(text)
+        f.write(image)
         f.close()
 
         with open(f"{name}.txt", "rb+") as f:
@@ -33,6 +33,6 @@ async def store_image(name: dict):
             f.close()
         res = supabase.storage.from_("/test").upload(f"{name}.txt", file)
         os.remove(f"{name}.txt")
-        return name
+        return get_all(f'{name}.txt')
     except Exception as e:
         return str(e)
