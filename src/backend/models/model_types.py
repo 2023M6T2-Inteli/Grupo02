@@ -23,3 +23,9 @@ class RegisterT(BaseModel):
     date: str | None = None
     name: str
     description: str | None = None
+    
+class ImageT(BaseException):
+    graph_id: int
+    edge_id: int
+    time: str
+    address: str

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from "react"
 import Registration from "@/components/Registration";
 import NewRoute from "@/components/NewRoute";
 import SearchBar from "@/components/Search";
@@ -20,35 +20,36 @@ const imageMapping = {
   L099D2FA1M: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYhrKBwDjtUEPUqgfOoQtopg1sjXO73P2Gyg&usqp=CAU"
 };
 
-import {useState, useEffect} from "react"
-import axios from "axios"
+// import axios from "axios"
 
-export default function Inspection(){
-    const [graphs, setGraphs] = useState([])
-    const [selectedRoute, setSelectedRoute] = useState('');
+export default function Inspection() {
+  const [graphs, setGraphs] = useState([])
+  const [selectedRoute, setSelectedRoute] = useState('');
 
-    useEffect(() => {
+  useEffect(() => {
 
-        let url = "http://localhost:8000/graph/get_all"
-        
-        getGraphs(url)
-    })
+    let url = "http://localhost:8000/graph/get_all"
 
-    const getGraphs = async (url) => {
-        const config = {
-            headers: {
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
-            }}
-        const response = await axios(url, config).catch((err) => console.log("Error: ", err))
-        //get the data from the response
-        const data = response.data
-        //set the state of the graphs
+    getGraphs(url)
+  }, []);
 
-        console.log(data)
-        setGraphs(data)
-    }
-    
+  const getGraphs = async (url) => {
+    // const config = {
+    //   headers: {
+    //     "Access-Control-Allow-Origin": "*",
+    //     "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+    //   }
+    // }
+    // const response = await axios(url).catch((err) => console.log("Error: ", err))
+    const response = await fetch(url);
+    //get the data from the response
+    const data = await response.json();
+    //set the state of the graphs
+
+    console.log(data)
+
+    setGraphs(data)
+  }
 
   const handleRouteClick = (routeId) => {
     setSelectedRoute(routeId);
@@ -68,7 +69,7 @@ export default function Inspection(){
           <div className="mt-6 mb-6">
             <NewRoute />
           </div>
-          {graohs.map(json => (
+          {graphs.map(json => (
             <div
               key={json.id}
               className="mt-4 text-primary content-center"

@@ -30,6 +30,7 @@ async def get_graph(id: int):
     }
 
     return graph_data
+    
 
 @graph_router.get('/get_all/')
 async def get_all_graphs():
