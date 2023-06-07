@@ -41,6 +41,7 @@ async def delete_node(id: int):
 
     stm = select(Node).where(Node.id == id)
     node = [node for node in db.session.execute(stm)][0][0]
+
     
     db.session.delete(node)
     db.session.commit()

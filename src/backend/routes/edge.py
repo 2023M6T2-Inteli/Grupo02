@@ -39,7 +39,6 @@ async def post_edge(msg: EdgeT):
     
     return {
         "success": True,
-        "id": msg.id,
         "weight": msg.weight,
         "from": msg.node1_id,
         "target": msg.node2_id,
