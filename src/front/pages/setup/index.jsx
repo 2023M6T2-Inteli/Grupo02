@@ -55,7 +55,7 @@ export default function Inspection() {
         <div className="grid w-3/5">
           <div className="ml-16 mt-16 mb-80 bg-azul rounded-lg h-full">
             <div className="font-inter text-white pt-10 pl-10">
-              <p>Selecione um espaço confinado para visualizar uma prévia de sua rota.</p>
+              {!selectedRoute && (<p>Selecione um espaço confinado para visualizar uma prévia de sua rota.</p>)}
               {selectedRoute && (<img src={imageMapping[selectedRoute]} />
               )}
             </div>
