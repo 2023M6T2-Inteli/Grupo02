@@ -20,8 +20,35 @@ const imageMapping = {
   L099D2FA1M: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYhrKBwDjtUEPUqgfOoQtopg1sjXO73P2Gyg&usqp=CAU"
 };
 
-export default function Inspection() {
-  const [selectedRoute, setSelectedRoute] = useState('');
+import {useState, useEffect} from "react"
+import axios from "axios"
+
+export default function Inspection(){
+    const [graphs, setGraphs] = useState([])
+    const [selectedRoute, setSelectedRoute] = useState('');
+
+    useEffect(() => {
+
+        let url = "http://localhost:8000/graph/get_all"
+        
+        getGraphs(url)
+    })
+
+    const getGraphs = async (url) => {
+        const config = {
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+            }}
+        const response = await axios(url, config).catch((err) => console.log("Error: ", err))
+        //get the data from the response
+        const data = response.data
+        //set the state of the graphs
+
+        console.log(data)
+        setGraphs(data)
+    }
+    
 
   const handleRouteClick = (routeId) => {
     setSelectedRoute(routeId);
@@ -41,13 +68,13 @@ export default function Inspection() {
           <div className="mt-6 mb-6">
             <NewRoute />
           </div>
-          {route_id.map(json => (
+          {graohs.map(json => (
             <div
               key={json.id}
               className="mt-4 text-primary content-center"
               onClick={() => handleRouteClick(json.id)}
             >
-              <Registration id={json.id} />
+              <Registration id={json.name} />
             </div>
           ))}
         </div>
