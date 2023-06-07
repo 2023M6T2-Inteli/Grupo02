@@ -13,7 +13,7 @@ class Edge(Base):
     def return_json(self):
 
         return {
-            "edge_id": self.id,
+            "id": self.id,
             "weight": self.weight,
             "from": self.node1_id,
             "target": self.node2_id,

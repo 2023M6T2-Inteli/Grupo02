@@ -12,7 +12,7 @@ class Images(Base):
     def return_json(self):
 
         return {
-            "images_report_id": self.id,
+            "id": self.id,
             "edge_id": self.edge_id,
             "graph_id": self.graph_id,
             "time": self.time,
