@@ -9,8 +9,8 @@ key = os.getenv("api_key")
 router = APIRouter(prefix="/images")
 
 
-supabase: Client = create_client(supabase_url="https://xbjclntldtajiazipkem.supabase.co",
-                                 supabase_key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhiamNsbnRsZHRhamlhemlwa2VtIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NTcyOTIzNSwiZXhwIjoyMDAxMzA1MjM1fQ.LR3l7jL_i3WR4NsU6350WetqdIQSOBf8RZdTG7KzJM0")
+supabase: Client = create_client(supabase_url="",
+                                 supabase_key="")
 
 
 @router.get("/get/{file}")
