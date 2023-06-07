@@ -1,37 +1,38 @@
 from fastapi import APIRouter
 from sqlalchemy import select
+from models.report import Report
+from models.model_types import ReportT
 from config import db
-from sqlalchemy import select
-from models.graph import Graph
-from config import db
+from datetime import datetime
 
-graph_router = APIRouter(prefix='/graph')
+report_router = APIRouter(prefix='/report')
 
-@graph_router.get("/{type}/{val}")
-async def get_graph(type,val):
-    print("aaaaaaaaaaaaaa",type,val)
-    if type == "id":
-        stm = select(Graph).where(Graph.id ==val)
-    if type == "name":
-        stm = select(Graph).where(Graph.name ==val)
-    graph = [graph for graph in db.session.execute(stm)][0][0]
-    return graph.return_json()
+# @report_router.get("/{type}/{val}")
+# async def get_graph(type,val):
+#     print("aaaaaaaaaaaaaa",type,val)
+#     if type == "id":
+#         stm = select(Graph).where(Graph.id ==val)
+#     if type == "name":
+#         stm = select(Graph).where(Graph.name ==val)
+#     graph = [graph for graph in db.session.execute(stm)][0][0]
+#     return graph.return_json()
 
-@graph_router.post("/create")
-async def post_root(msg: GraphT):
 
-    graph = Graph(name = msg.name,
-                  description = msg.description,
-                  image_address = msg.image_address)
+@report_router.post("/create")
+async def post_root(msg: ReportT):
+    date = datetime.now()
+    report = Report(graph_id = msg.graph_id,
+                    gas_report_id = msg.gas_report_id,
+                    date = str(date),
+                    images_report_id = msg.images_report_id)
 
-    db.session.add(graph)
-
+    db.session.add(report)
     db.session.commit()
     db.session.close()
     
-    return  {f"nome:{msg.name}, descrição:{msg.description}, imagem:{msg.image_address}"}
+    return  {f"eu sou idiota"}
 
-@graph_router.delete("/delete")
+@report_router.delete("/delete")
 async def delete_graph(name:dict):
    
     graphs = db.session.execute(select(Graph).where(Graph.name ==name["name"]))
@@ -40,7 +41,7 @@ async def delete_graph(name:dict):
     db.session.delete(graph)
     db.session.commit()
 
-@graph_router.put("/update")
+@report_router.put("/update")
 async def update_graph(json:dict):
     graph = [graph for graph in db.session.execute(select(Graph).where(Graph.id == json["id"]))][0][0]
     for key in json.keys():

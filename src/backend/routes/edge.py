@@ -8,21 +8,6 @@ from config import db
 
 edge_router = APIRouter(prefix='/edge')
 
-# @edge_router.post("/create")
-# async def post_edge(msg: EdgeT):
-# # fazer lógica de só poder adicionar com chave estrangeiras existentes
-#     if node1_id == node
-#     edge = Edge(id = msg.id,
-#                 weight = msg.weight,
-#                 node1_id = msg.node1_id,
-#                 node2_id = msg.node2_id,
-#                 graph_id = msg.graph_id)
-
-#     db.session.add(edge)
-
-#     db.session.commit()
-#     db.session.close()
-#     return {f"id:{msg.id}, weight:{msg.weight}, from:{msg.node1_id}, target:{msg.node2_id}, graph_id:{msg.graph_id}"}
 @edge_router.post("/create")
 async def post_edge(msg: EdgeT):
     # Verificar se o node1 (nó de origem) existe no banco de dados

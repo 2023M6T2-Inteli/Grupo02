@@ -6,13 +6,11 @@ from config import db
 
 graph_router = APIRouter(prefix='/graph')
 
-@graph_router.get("/{type}/{val}")
-async def get_graph(type,val):
-    print("aaaaaaaaaaaaaa",type,val)
-    if type == "id":
-        stm = select(Graph).where(Graph.id ==val)
-    if type == "name":
-        stm = select(Graph).where(Graph.name ==val)
+@graph_router.get("/get/{id}")
+async def get_graph(id:int):
+    stm = select(Graph).where(Graph.id == id)
+    # if type == "name":
+    #     stm = select(Graph).where(Graph.name == name)
     graph = [graph for graph in db.session.execute(stm)][0][0]
     return graph.return_json()
 

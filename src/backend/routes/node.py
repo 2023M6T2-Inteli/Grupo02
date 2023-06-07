@@ -36,5 +36,3 @@ async def delete_node(node: dict):
     
         #deleta a aresta
     
-    
-   
