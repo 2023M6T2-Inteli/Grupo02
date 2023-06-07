@@ -1,62 +1,46 @@
-def calculate_goal(self):
-    goal = Point()
-    goal.x = self.point_list[self.current_point][0]
-    goal.y = self.point_list[self.current_point][1]
-    return goal
+from auxiliar import calculate_angle_to_goal,calculate_goal,check_lidar_margin,check_reached_point,adjust_speed
+import rclpy
+from geometry_msgs.msg import Twist
 
-def calculate_angle_to_goal(self, goal):
-    inc_x = goal.x - self.x
-    inc_y = goal.y - self.y
-    angle_to_goal = atan2(inc_y, inc_x)
-    return angle_to_goal
 
-def check_lidar_margin(self):
-    return self.lidar_.margem_segura()
 
-def check_reached_point(self, inc_x, inc_y):
-    return abs(inc_x) < MAX_DIFF and abs(inc_y) < MAX_DIFF
+MAX_DIFF =0.1
 
-def adjust_speed(self, angle_to_goal):
-    speed = Twist()
-    
-    if abs(angle_to_goal - self.theta) > MAX_DIFF:
-        speed.linear.x = 0.0
-        speed.angular.z = 0.3 if (angle_to_goal - self.theta) > 0.0 else -0.3
-    else:
-        speed.linear.x = 0.5
-        speed.angular.z = 0.0
-    return speed
 
-def handle_index_error(self, err):
-    self.current_point = 0
-    self.point_counter = 1
-    print(err)
-
-def handle_exception(self, error):
-    self.point_counter = -1
-    self.current_point += self.point_counter
-
-    speed = Twist()
-    speed.linear.x = 0.0
-    speed.angular.z = 0.3
-    self.publisher.publish(speed)
-    print(error)
-
-def publisher_callback(self):
+def publisher_callback(node):
     try:
-        goal = self.calculate_goal()
-        angle_to_goal = self.calculate_angle_to_goal(goal)
+        goal = calculate_goal(node)
+        angle_to_goal = calculate_angle_to_goal(node,goal)
+        node.logger("aqui")
 
-        if not self.check_lidar_margin():
-            raise Exception
+        if not check_lidar_margin(node) and not node.returning:
                 
-        if self.check_reached_point(goal.x - self.x, goal.y - self.y):
-            self.current_point += self.point_counter
-            self.point_counter = 1
+                node.returning = True
+                node.point_list = [(0.0,0.0),*node.point_list[0:node.current_point]]
+                node.point_list.reverse()
+                
+                node.current_point =0
+                
+        if check_reached_point(goal.x - node.x, goal.y - node.y,MAX_DIFF):
+            if len(node.point_list)-1 > node.current_point:
+                node.current_point += 1
+            else:
+        
+                speed = Twist()
 
-        speed = self.adjust_speed(angle_to_goal)
-        self.publisher.publish(speed)
-    except IndexError as err:
-        self.handle_index_error(err)
+                
+                speed.linear.x = 0.0
+                speed.angular.z = 0.0
+                node.publisher.publish(speed)
+                rclpy.spin(node)
+                node.destroy_node()
+                rclpy.shutdown()
+          
+            
+       
+
+        speed = adjust_speed(node,angle_to_goal,MAX_DIFF)
+        node.publisher.publish(speed)
+   
     except Exception as error:
-        self.handle_exception(error)
+       node.logger(str(error))
