@@ -2,26 +2,34 @@ import Registration from "@/components/Registration";
 import NewRoute from "@/components/NewRoute";
 import SearchBar from "@/components/Search";
 import Header from "@/components/Header";
-
-var route_id = [
-    {
-        id: "K2WW0PJN3",
-    },
-    {
-        id: "1KA88J102G",
-    },
-    {
-        id: "0M9KL2S15",
-    },
-    {
-        id: "B6Z11L9M3",
-    },
-    {
-        id: "L099D2FA1M",
-    },
-]
+import {useState, useEffect} from "react"
+import axios from "axios"
 
 export default function Inspection(){
+    const [graphs, setGraphs] = useState([])
+
+    useEffect(() => {
+
+        let url = "http://localhost:8000/graph/get_all"
+        
+        getGraphs(url)
+    })
+
+    const getGraphs = async (url) => {
+        const config = {
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+            }}
+        const response = await axios(url, config).catch((err) => console.log("Error: ", err))
+        //get the data from the response
+        const data = response.data
+        //set the state of the graphs
+
+        console.log(data)
+        setGraphs(data)
+    }
+
     return(
         <div className="bg">
             <Header />
@@ -36,7 +44,10 @@ export default function Inspection(){
                     <div className="mt-6 mb-6">
                         <NewRoute />
                     </div>
-                    {route_id.map(json => {return <div className="mt-4 text-primary content-center"><Registration id = {json.id} /></div>})}
+                    {graphs.map(json => {
+                        return <div className="mt-4 text-primary content-center">
+                                    <Registration id = {json.name}/>
+                                </div>})}
                 </div>
 
                 <div className="grid w-3/5">

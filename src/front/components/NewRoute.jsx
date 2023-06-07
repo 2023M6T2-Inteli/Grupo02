@@ -7,9 +7,7 @@ export default function NewRoute() {
             <div className="">
                 <p>Adicionar nova rota</p>
             </div>
-            <button className="">
-                <Pop_up_add />
-            </button>
+            <Pop_up_add />
 
         </div>
         </>

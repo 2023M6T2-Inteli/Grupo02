@@ -4,23 +4,17 @@ import SearchBar from '@/components/Search';
 import { useEffect, useState } from 'react';
 
 export default function History() {
-  const [cards, all_cards] = useState([]);
+  const [registers, set_register] = useState([]);
   useEffect(() => {
-    let url = "http://127.0.0.1:8000/register/id/1"
-    // let url = 'https://jsonplaceholder.typicode.com/todos/'
-    get_all_cards(url)
+    let url = "http://127.0.0.1:8000/register/get_all"
+
+    get_registers(url)
   }, []);
   const get_registers = async (url) => {
     const response = await fetch(url);
     const data = await response.json();
     console.log(data);
-    all_cards(data);
-  }
-  const get_all_cards = async (url) => {
-    const res = await fetch(url);
-    const data = await res.json();
-    console.log(data)
-    all_cards(data);
+    set_register(data);
   };
   return (
     <div className='w-full h-full bg-cinza'>
@@ -32,8 +26,8 @@ export default function History() {
             <SearchBar />
           </div>
           <div className="insp_h">
-            {cards.length > 0 && cards.map(card =>
-              <Insp_H number={card.date} name={card.name} data={card.description} />
+            {registers.length > 0 && registers.map(register =>
+              <Insp_H number={register.date} name={register.name} data={register.description} />
             )}
           </div>
         </div>

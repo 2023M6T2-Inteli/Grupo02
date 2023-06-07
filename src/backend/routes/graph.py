@@ -31,6 +31,12 @@ async def get_graph(id: int):
 
     return graph_data
 
+@graph_router.get('/get_all/')
+async def get_all_graphs():
+    graphs = db.session.query(Graph).all()
+    graph_data = [graph.return_json() for graph in graphs]
+    return graph_data
+
 @graph_router.post("/create")
 async def post_root(msg: GraphT):
 

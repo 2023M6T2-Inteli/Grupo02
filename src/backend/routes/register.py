@@ -18,18 +18,25 @@ async def get_register(type,val):
     register = [register for register in db.session.execute(stm)][0][0]
     return register.return_json()
 
+@register_router.get("/get_all")
+async def get_register():
+    registers = db.session.query(Register).all()
+    registers_data = [reg.return_json() for reg in registers]
+    return registers_data
+    
+
+
 @register_router.post("/create")
 async def get_register(msg: RegisterT):
     date = datetime.now()
     register = Register(
         graph_id = msg.graph_id,
-        report_id = msg.report_id,
         date = date,
-        register_name = msg.register_name,
+        name = msg.name,
         description = msg.description)
 
     db.session.add(register)
     db.session.commit()
     db.session.close()
 
-    return f"Register created with values graph_id={msg.graph_id}, report_id={msg.report_id}, date={msg.date}, register_name={msg.register_name}, description={msg.description}"
+    return f"Register created with values graph_id={msg.graph_id}, date={msg.date}, register_name={msg.name}, description={msg.description}"
