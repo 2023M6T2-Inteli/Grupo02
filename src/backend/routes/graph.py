@@ -31,7 +31,6 @@ async def get_graph(id: int):
 
     return graph_data
 
-
 @graph_router.post("/create")
 async def post_root(msg: GraphT):
 
@@ -49,7 +48,7 @@ async def post_root(msg: GraphT):
 @graph_router.delete("/delete")
 async def delete_graph(name:dict):
    
-    graphs = db.session.execute(select(Graph).where(Graph.name ==name["name"]))
+    graphs = db.session.execute(select(Graph).where(Graph.name == name["name"]))
     graph = [graph for graph in graphs][0][0]
     print("aaaaaa",graph)
     db.session.delete(graph)
