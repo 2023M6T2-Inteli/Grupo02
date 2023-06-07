@@ -91,3 +91,7 @@
 .rounded-2xl{
     border-radius: 15px;
 }
+
+.md-50 {
+    width: 50vw;
+}
