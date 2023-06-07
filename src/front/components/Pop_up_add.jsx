@@ -35,7 +35,7 @@ const Pop_up_add = () => {
    return (
       <>
          <div>
-            <button onClick={() => setIsOpen(true)}><div><Plus /></div></button>
+            <div role="button" onClick={() => setIsOpen(true)}><Plus /></div>
             <Modal ariaHideApp={false} isOpen={isOpen} onRequestClose={() => setIsOpen(true)} style={customStyles}>
                <div className='bg-modal'>
                   <div className="flex justify-between ">
