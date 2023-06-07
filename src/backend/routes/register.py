@@ -10,9 +10,9 @@ register_router = APIRouter(prefix="/register")
 @register_router.get("/{type}/{val}")
 async def get_register(type,val):
     if type == "id":
-        stm = select(Register).where(Register.id ==val)
+        stm = select(Register).where(Register.id == val)
     if type == "register_name":
-        stm = select(Register).where(Register.register_name ==val)
+        stm = select(Register).where(Register.name == val)
     else:
         print(stm)
     register = [register for register in db.session.execute(stm)][0][0]
@@ -20,7 +20,7 @@ async def get_register(type,val):
 
 @register_router.get("/get_all")
 async def get_register():
-    registers = db.session.query(Register).all()
+    registers = db.session.query(Register).order_by(Register.date).all()
     registers_data = [reg.return_json() for reg in registers]
     return registers_data
     
