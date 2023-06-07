@@ -20,6 +20,7 @@ export default function Running() {
                                     <p>22%</p>
                                 </div>
                                 <div className="p-2">
+                                    <img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/Front-end/src/front/public/o2%20(1)%201.png"/>
                                     <p>22%</p>
                                 </div>
                             </div>
