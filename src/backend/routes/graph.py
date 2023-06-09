@@ -39,6 +39,13 @@ async def get_all_graphs():
 
 @graph_router.post("/create")
 async def post_root(msg: GraphT):
+    graphs = db.session.query(Graph).all()
+    graph_data = [(graph.return_json()) for graph in graphs]
+    for content in graph_data:
+        if content["name"] == msg.name:
+            return "Nome já cadastrado"
+
+
 
     graph = Graph(name = msg.name,
                   description = msg.description,
@@ -49,14 +56,13 @@ async def post_root(msg: GraphT):
     db.session.commit()
     db.session.close()
     
-    return  {f"nome:{msg.name}, descrição:{msg.description}, imagem:{msg.image_address}"}
+    return  {f"Sucessful create graph {msg.name}"}
 
 @graph_router.delete("/delete")
 async def delete_graph(name:dict):
    
     graphs = db.session.execute(select(Graph).where(Graph.name == name["name"]))
     graph = [graph for graph in graphs][0][0]
-    print("aaaaaa",graph)
     db.session.delete(graph)
     db.session.commit()
 

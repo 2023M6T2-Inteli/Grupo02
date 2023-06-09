@@ -1,16 +1,15 @@
 from fastapi import APIRouter
 from supabase import create_client, Client
-import os
-from dotenv import load_dotenv
 
-load_dotenv()
-url = os.getenv("url")
-key = os.getenv("api_key")
+
+
+url = "https://xbjclntldtajiazipkem.supabase.co"
+key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhiamNsbnRsZHRhamlhemlwa2VtIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODU3MjkyMzUsImV4cCI6MjAwMTMwNTIzNX0.Ln0EQ-nQ4zLhOpQNAItzLizO8vxcQuWceN_7qTUmdbg"
 router = APIRouter(prefix="/images")
 
 
-supabase: Client = create_client(supabase_url="",
-                                 supabase_key="")
+supabase: Client = create_client(supabase_url=url,
+                                 supabase_key=key)
 
 
 @router.get("/get/{file}")
@@ -32,7 +31,7 @@ async def store_image(msg: dict):
             file = f.read()
             f.close()
         res = supabase.storage.from_("/test").upload(f"{name}.txt", file)
-        os.remove(f"{name}.txt")
+        #os.remove(f"{name}.txt")
         return get_all(f'{name}.txt')
     except Exception as e:
         return str(e)
