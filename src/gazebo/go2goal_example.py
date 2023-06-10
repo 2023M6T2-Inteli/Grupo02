@@ -1,16 +1,24 @@
 import rclpy
 from rclpy.node import Node
 
+from build_goals import build_goals
+
 from geometry_msgs.msg import Twist, Point
 from nav_msgs.msg import Odometry
 
 from publisher_callback import publisher_callback
 from listener_callback import listener_callback
 
+
+
 from lidar import Lidar
 
-
-goals = [(1.0, 2.0),
+try: 
+    graph_id = 1
+    goals = build_goals(graph_id)
+    
+except:
+    goals = [(1.0, 2.0),
          (4.0, 5.0),
          (2.0, 1.0),
          (3.0, 3.0),
