@@ -15,14 +15,14 @@ const imageMapping = {
 };
 
 export default function Inspection(){
-
+    console.log("renderizou")
     const [graphs, setGraphs] = useState([])
     const [selectedRoute, setSelectedRoute] = useState('');
     useEffect(() => {
 
         let url = "http://localhost:8000/graph/get_all"
         getGraphs(url)
-    })
+    },[])
 
     const getGraphs = async (url) => {
         const response = await axios(url).catch((err) => console.log("Error: ", err))
@@ -39,44 +39,45 @@ export default function Inspection(){
   };
 
   return (
-    <div className="bg">
+    <div className="bg bg-cinza w-screen h-screen">
       <Header />
       <div className="flex ml-16 mr-16 mb-16">
-        <div className="mt-16 pt-10 pl-10 pb-8 w-2/5 bg-azul rounded-lg">
-          <div className="font-inter text-white">
-            <p>Selecione o espaço confinado que deseja inspecionar.</p>
-          </div>
-          <div className="mt-4">
-            <SearchBar />
-          </div>
-          <div className="mt-6 mb-6">
-            <NewRoute />
-          </div>
-          {graphs.map(json => (
-            <div
-              key={json.id}
-              className="mt-4 text-primary content-center"
-              onClick={() => handleRouteClick(json.id)}
-            >
-              <Registration id={json.name} />
+          <div className="mt-16 pt-10 pl-10 pb-8 w-2/5 bg-azul rounded-lg">
+            <div className="font-inter text-white">
+              <p>Selecione o espaço confinado que deseja inspecionar.</p>
             </div>
-          ))}
-        </div>
+            <div className="mt-4">
+              <SearchBar />
+            </div>
+            <div className="mt-6 mb-6">
+              <NewRoute />
+            </div>
+            {graphs.map(json => (
+              <div
+                key={json.id}
+                className="mt-4 text-primary content-center"
+                onClick={() => handleRouteClick(json.id)}
+              >
+                <Registration id={json.id} name={json.name} description={json.description} image={json.image} />
+              </div>
+            ))}
+          </div>
 
-        <div className="grid w-3/5">
-          <div className="ml-16 mt-16 mb-80 bg-azul rounded-lg h-full">
-            <div className="font-inter text-white pt-10 pl-10">
-              {!selectedRoute && (<p>Selecione um espaço confinado para visualizar uma prévia de sua rota.</p>)}
-              {selectedRoute && (<img src={imageMapping[selectedRoute]} />
-              )}
+          <div className="grid w-3/5">
+            <div className="ml-16 mt-16 mb-80 bg-azul rounded-lg h-full">
+              <div className="font-inter text-white pt-10 pl-10">
+                {!selectedRoute && (<p>Selecione um espaço confinado para visualizar uma prévia de sua rota.</p>)}
+                {selectedRoute && (<img src={imageMapping[selectedRoute]} />
+                )}
+              </div>
+            </div>
+            <div className="ml-16 mt-24 bg-azul rounded-lg">
+              <div className="font-inter text-white pt-10 pl-10 flex justify-between">
+                <p>Iniciar inspeção</p>
+                <a href="/running">---</a>
+              </div>
             </div>
           </div>
-          <div className="ml-16 mt-24 bg-azul rounded-lg">
-            <div className="font-inter text-white pt-10 pl-10">
-              <p>Iniciar inspeção</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

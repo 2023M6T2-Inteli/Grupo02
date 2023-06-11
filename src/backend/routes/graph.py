@@ -7,7 +7,7 @@ from models.edge import Edge
 from config import db
 
 graph_router = APIRouter(prefix='/graph')
-
+# uvicorn main:app --host 0.0.0.0 --port 8000
 # @graph_router.get("/get/{id}")
 # async def get_graph(id:int):
 #     stm = select(Graph).where(Graph.id == id)
@@ -19,14 +19,19 @@ graph_router = APIRouter(prefix='/graph')
 @graph_router.get("/get/{id}")
 async def get_graph(id: int):
     stm = select(Graph).where(Graph.id == id)
-    nodes = db.session.query(Node).filter(Node.graph_id == id).all()
-    edges = db.session.query(Edge).filter(Edge.graph_id == id).all()
+    get_nodes = db.session.query(Node).filter(Node.graph_id == id).all()
+    nodes = [nodes.return_json() for nodes in get_nodes]
+    get_edges = db.session.query(Edge).filter(Edge.graph_id == id).all()
+    edges = [edges.return_json() for edges in get_edges]
+    
+    for edge in edges:
+        edge["from"] = {"x":nodes[edge["from"]]["x"],"y":nodes[edge["from"]]["y"]}
+        edge["target"] = {"x":nodes[edge["target"]]["x"],"y":nodes[edge["target"]]["y"]}
     graph = [graph for graph in db.session.execute(stm)][0][0]
 
     graph_data = {
         "graph": graph.return_json(),
-        "nodes": [node.return_json() for node in nodes],
-        "edges": [edge.return_json() for edge in edges]
+        "edges": [edge for edge in edges]
     }
 
     return graph_data

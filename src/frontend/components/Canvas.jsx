@@ -1,12 +1,44 @@
 import React, { useRef, useEffect } from 'react';
 
-const Canvas = ({ backgroundImageSrc }) => {
+const Canvas = ({ backgroundImageSrc, node, edge }) => {
     const canvasRef = useRef(null);
     const nodes = useRef([]);
     const edges = useRef([]);
     const selection = useRef(null);
+    const img = new Image();
+    img.src = backgroundImageSrc;
 
+
+                   
     useEffect(() => {
+
+        edge.forEach((edge_dic) => {
+            const node_1 = {
+                x: edge_dic.from.x,
+                y: edge_dic.from.y,
+                radius: 10,
+                fillStyle: '#22CCCC',
+                strokeStyle: '#009999',
+                selectedFill: '#88AAAA',
+                selected: false,
+            };
+
+            nodes.current.push(node_1);
+            const node_2 = {
+                x:edge_dic.target.x,
+                y:edge_dic.target.y,
+                radius: 10,
+                fillStyle: '#22CCCC',
+                strokeStyle: '#009999',
+                selectedFill: '#88AAAA',
+                selected: false,
+            };
+
+            nodes.current.push(node_2);
+
+            edges.current.push({ from: node_1, to: node_2 });
+        });
+        
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
         context.font = '30px Arial';
@@ -31,6 +63,7 @@ const Canvas = ({ backgroundImageSrc }) => {
             const offsetY = e.clientY - rect.top;
             return { offsetX, offsetY };
         };
+
 
         const draw = () => {
             context.clearRect(0, 0, canvas.width, canvas.height);
@@ -155,17 +188,17 @@ const Canvas = ({ backgroundImageSrc }) => {
     }, []);
 
     return (
-        <div style={{ position: 'relative', width: '100%', height: '100%' }} className='W-max-20'>
+        <div style={{ position: 'relative', width: '100%', height: '100%' }}>
             <canvas
                 ref={canvasRef}
                 className='border'
                 style={{
-                    width: '100%',
-                    height: '100%',
+                    width: "100%",
+                    height:"100%",
                     zIndex: 1,
                     backgroundImage: `url("${backgroundImageSrc}")`,
                     backgroundRepeat: 'no-repeat',
-                    backgroundSize: '100% 100%',
+                    backgroundSize: 'contain',
                     // backgroundColor: 'rgba(218, 226, 234, 0.5)'
                 }} />
         </div>
