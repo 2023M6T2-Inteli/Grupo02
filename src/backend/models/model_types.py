@@ -8,8 +8,7 @@ class NodeT(BaseModel):
 
 class EdgeT(BaseModel):
     weight: float
-    node1_id: int
-    node2_id: int
+    nodes: list
     graph_id: int
 
 class GraphT(BaseModel):
