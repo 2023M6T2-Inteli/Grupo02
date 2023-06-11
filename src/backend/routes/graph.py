@@ -30,12 +30,18 @@ async def get_graph(id: int):
     }
 
     return graph_data
-    
 
-@graph_router.get('/get_all/')
-async def get_all_graphs():
+@graph_router.get("/get_all")
+async def get_graphs():
     graphs = db.session.query(Graph).all()
     graph_data = [graph.return_json() for graph in graphs]
+    for graph in graph_data:
+        nodes = db.session.query(Node).filter(Node.graph_id == graph['id']).all()
+        edges = db.session.query(Edge).filter(Edge.graph_id == graph['id']).all()
+        
+        graph['nodes'] = [node.return_json() for node in nodes]
+        graph['edges'] = [edge.return_json() for edge in edges]
+
     return graph_data
 
 @graph_router.post("/create")

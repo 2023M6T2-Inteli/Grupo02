@@ -5,16 +5,22 @@ import { MdModeEditOutline } from 'react-icons/md';
 import Canvas from './Canvas'
 
 
-const Pop_up_edit = () => {
+const Pop_up_edit = ({ name = "Nome da Rota", description = "Descrição da rota", image_address = null, nodes, edges }) => {
    const [isOpen, setIsOpen] = useState(false)
    const [selectedImage, setSelectedImage] = useState(null);
    const [imageUrl, setImageUrl] = useState(null);
    const [fileInputDisplay, setFileInputDisplay] = useState(null);
    useEffect(() => {
-      if (selectedImage) {
+      if ((selectedImage) && (image_address == null)) {
          console.log(selectedImage)
          setFileInputDisplay('none')
+         setSelectedImage(null)
          setImageUrl(URL.createObjectURL(selectedImage));
+      }
+      else {
+         setFileInputDisplay('none');
+         setSelectedImage(image_address);
+         setImageUrl(image_address);
       }
    }, [selectedImage]);
    const customStyles = {
@@ -47,11 +53,10 @@ const Pop_up_edit = () => {
                         <div className="flex justify-between items-center mb-10">
                            <div>
                               {/* <label for="small-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Nome da Rota</label> */}
-                              <input placeholder='Nome da Rota' type="text" id="small-input" className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                              <input placeholder={name} type="text" id="small-input" className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                            </div>
                            <div>
-                              {/* <label for="small-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Descrição da para a rota</label> */}
-                              <input placeholder='Descrição da rota' type="text" id="small-input" className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                              <input placeholder={description} type="text" id="small-input" className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                            </div>
                         </div>
                         <div className="flex flex-col justify-center w-full h-full" style={{ display: fileInputDisplay }}>

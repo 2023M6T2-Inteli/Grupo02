@@ -15,5 +15,5 @@ class Graph(Base):
             "id": self.id,
             "name": self.name,
             "description": self.description,
-            "image": self.image_address,
+            "image_address": self.image_address,
             }
