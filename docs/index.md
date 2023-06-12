@@ -303,36 +303,44 @@ A viabilidade técnica, refere-se a possibilidade de implementar na prática a s
 
 #### Tela inicial
 
-<img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/tela_inicial.png"></img>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/tela_inicial.png" width="65%"></img></p>
 
 <p>A tela inicial é a primeira informação que o usuário receberá. Essa é nossa página de boas vindas e após selecionar "iniciar", eles são redirecionados para a tela principal do aplicativo.</p>
 
 #### Tela principal
 
-<img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/registros_inspeções_vazio.png">
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/registros_inspeções_vazio.png" width="65%"></img></p>
+
 <p>Essa é nossa tela principal do aplicativo, o histórico de inspeções. No príncipio ela está vazia, mas a intenção é que após o usuário cadastrar e realizar inspeções, aqui será demonstrado as informações, como na imagem abaixo.</p>
-<img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/registros_inspeções_preenchido.png">
+
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/registros_inspeções_preenchido.png" width="65%"></p>
+
 <p>Aqui, os usuários podem checar as informações das inspeções realizadas com sua data e qual rota foi realizada.</p>
 
 #### Setup
 
-<img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/setup_vazio.png">
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/setup_vazio.png" width="65%"></p>
+
 <p>A tela de setup permite que os usuários visualizem e editem suas informações de rota, criem novas rotas ou inicie a inspeção de uma rota. A ideia é que o botão de "Iniciar inspeção" esteja inativo, e somente após selecionar uma rota clicando no ícone de seta ">>" a rota selecionada seja carregada como no exemplo da imagem abaixo</p>
-<img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/setup_selecionado.png">
+
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/setup_selecionado.png" width="65%"></p>
 
 #### Criar
 
-<img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/modal_crie.png">
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/modal_crie.png" width="65%"></p>
+
 <p>Ao clicar no "Adicionar nova rota" uma modal surge para que o usuário envie a planta e crie sua rota.</p>
 
 #### Editar
 
-<img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/modal_edite.png">
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/modal_edite.png" width="65%"></p>
+
 <p>Ao clicar no lápis para editar uma rota, será aberta essa modal, semelhante a de criar, em que o usuário pode reorganizar a rota, alterar o nome, descrição e a imagem.</p>
 
 #### Rodando
 
-<img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/rodando.png">
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/rodando.png" width="65%"></p>
+
 <p>Essa página é carregada quando a simulação é iniciada. Com informações relevantes para o projeto</p>
 
 # 6. Sistema de visão computacional
@@ -347,7 +355,6 @@ A viabilidade técnica, refere-se a possibilidade de implementar na prática a s
 
 <img scr="">
 
-
 <p> Desse modo, após a aplicação do filtro é notório que o resultado esperado de que ele atingisse uma métrica de averiguação depois que transformasse a imagem em preto e branco, pudesse também sintetizar com a diferença de contraste em pontos da imagem que tivesse com pouca luminosidade ou não. Outrossim para esse impasse, é justificável para que ocorra de fato uma melhora no processamento de identificação é necessário a melhoria dessa filtro, visto que, através dos dados fornecidos pelo o modelo, não foi possível identificar uma melhoria ou não no tratamento das imagens. </p>
 
 </br>
@@ -356,6 +363,206 @@ A viabilidade técnica, refere-se a possibilidade de implementar na prática a s
 
 # 8. Backend
 
+O sistema de Backend da solução desenvolvida foi projetado de modo a conectar as informações fornecidas pelo Turtlebot e as informações fornecidas pelo usuário via interface gráfica, bem como tornar a aplicação web funcional no que concerne aos procedimentos que devem ser realizados pelo cliente diante da inspeção de um espaço confinado.
+
+Para a construção do banco de dados da solução, duas tecnologias distintas foram utilizadas: SQLAlchemy, para informações advindas do robô e do usuário, e Supabase, enquanto ferramenta de armazenamento de arquivos para abrigar as imagens capturadas pelo robô no ato da inspeção.
+
+A fim de contemplar o conjunto de informações necessárias, as tabelas abaixo foram construídas:
+
+<center>
+<table>
+<tr>
+<td><p align="center"><b>graph</b></p></td>
+</tr>
+<tr>
+<td>
++ id: int
+</td>
+</tr>
+<tr>
+<td>
++ name: string
+</td>
+</tr>
+<tr>
+<td>
++ description: string
+</td>
+</tr>
+<tr>
+<td>
++ image_address: string
++ </td>
+</tr>
+</table>
+</center>
+
+<center>
+<table>
+<tr>
+<td><p align="center"><b>node</b></p></td>
+</tr>
+<tr>
+<td>
++ id: int
+</td>
+</tr>
+<tr>
+<td>
++ x: node
+</td>
+</tr>
+<tr>
+<td>
++ y: node
+</td>
+</tr>
+<tr>
+<td>
++ first_node: bool
+</td>
+</tr>
+<tr>
+<td>
++ graph_id: int
+</td>
+</tr>
+</table>
+<center>
+
+<center>
+<table>
+<tr>
+<td><p align="center"><b>edge</b></p></td>
+</tr>
+<tr>
+<td>
++ id: int
+</td>
+</tr>
+<tr>
+<td>
++ nodeid_1: int
+</td>
+</tr>
+<tr>
+<td>
++ nodeid_2: int
+</td>
+</tr>
+<tr>
+<td>
++ graph_id: int
+</td>
+</tr>
+</table>
+<center>
+
+<center>
+<table>
+<tr>
+<td><p align="center"><b>image_report</b></p></td>
+</tr>
+<tr>
+<td>
++ id: int
+</td>
+</tr>
+<tr>
+<td>
++ graph_id: int
+</td>
+</tr>
+<tr>
+<td>
++ edge_id> int
+</td>
+</tr>
+<tr>
+<td>
++ time: dateTime
+</td>
+</tr>
+<tr>
+<td>
++ image_address: string
+</td>
+</tr>
+</table>
+<center>
+
+<center>
+<table>
+<tr>
+<td><p align="center"><b>gas_report</b></p></td>
+</tr>
+<tr>
+<td>
++ id: int
+</td>
+</tr>
+<tr>
+<td>
++ graph_id: int
+</td>
+</tr>
+<tr>
+<td>
++ edge_id: int
+</td>
+</tr>
+<tr>
+<td>
++ time: dateTime
+</td>
+</tr>
+<tr>
+<td>
++ pression: float
+</td>
+</tr>
+</table>
+<center>
+
+<center>
+<table>
+<tr>
+<td><p align="center"><b>register</b></p></td>
+</tr>
+<tr>
+<td>
++ id: int
+</td>
+</tr>
+<tr>
+<td>
++ description: string
+</td>
+</tr>
+<tr>
+<td>
++ date: dateTime
+</td>
+</tr>
+<tr>
+<td>
++ graph_id: int
+</td>
+</tr>
+<tr>
+<td>
++ name: string
+</td>
+</tr>
+</table>
+<center>
+</table>
+  
+  As tabelas <b>graph</b>, <b>node</b> e <b>register</b> foram idealizadas com base no fato de que a interface gráfica possibilita ao usuário criar a trajetória a ser seguida pelo robô durante a inspeção de um espaço confinado. Para isso, o usuário insere os pontos pelos quais o robô deve passar baseando-se na imagem da planta do espaço confinado em questão. Os pontos inseridos podem ou não formar arestas, indicando a possibilidade de que o robô se direcione de um ponto ao outro com o qual existe conexão. Uma vez criado o desenho da rota a ser seguida pelo Turtlebot, ocorre a conversão da lista de pontos e arestas para um grafo, estrutura escolhida para representar a trajetória que guiará o robô quando este receber as informações de movimentação via ROS. Já a tabela <b>register</b> cumpre a função de armazenar o registro de uma rota criada pelo usuário. Uma vez que o grafo representante da rota é concretizado, é oferecida ao usuário a possibilidade de atribuir à rota em questão um nome e uma descrição.
+
+  
+  A tabela <b>image_report</b>, por outro lado, está associada à necessidade de obter informações do espaço confinado por meio da atuação do robô. Sabendo-se que o Turtlebot terá uma câmera acoplada à sua estrutura, ele será capaz de fotografar o ambiente a cada ponto pelo qual passar. As imagens em questão serão submetidas ao modelo de visão computacional desenvolvido e, após o processamento dos arquivos, eles serão enviados para um bucket do Supabase, de modo que se tornem visíveis no relatório da inspeção exibido na interface gráfica uma vez que o procedimento é finalizado. Considerando também a existência de um sensor de gás acoplado à estrutura robótica, serão coletadas informações relativas às condições atmosféricas do espaço confinado. A fim de que se tornem visíveis no relatório de inspeção, possibilitando sua análise pelo usuário, tais informações serão armazenadas na tabela <b>gas_report</b> e estarão associadas ao identificador do grafo ao qual se referem.
+   
 # 9. Integração de sistemas
 
 # 10. Validação da eficácia do sistema
@@ -380,10 +587,10 @@ https://www.vdibrasil.com/aumento-no-mercado-de-robotica-e-automacao-em-2022/#:~
 
 # 12. Material de apoio
 
-https://www.robotis.us/turtlebot-3-burger-us/
-https://www.arducore.com.br/modulo-sensor-de-gas-amonia-mq-135-mq-135-arduino-pic?utm_[…]emsUyRupLv3cH6KkyQNeWCK8ZT5kR232Obgy_JhbGMYNIBoCtvUQAvD_BwE
-https://produto.mercadolivre.com.br/MLB-3389876702-bme280-modulo-sensor-de-presso-umidade-[…]Rlb8L5vxx2GtEwmO16FrFjN6fAUqAICrxO5YPVuPjRoCTDMQAvD_BwE
-https://www.robocore.net/acessorios-raspberry-pi/camera-para-raspberry-pi-rev-1-3?gcl[…]ylU27O2mcY2VCdnCc8crxZjaG2UlU2uJwvVlelRYsTp56dxoCRKwQAvD_BwE
-https://www.glassdoor.com.br/Sal%C3%A1rios/engenheiro-de-controle-e-automa%C3%A7%C3%A3o-sal%C3%A1rio-SRCH_KO0,34.htm
+<li>https://www.robotis.us/turtlebot-3-burger-us/
+<li>https://www.arducore.com.br/modulo-sensor-de-gas-amonia-mq-135-mq-135-arduino-pic?utm_[…]emsUyRupLv3cH6KkyQNeWCK8ZT5kR232Obgy_JhbGMYNIBoCtvUQAvD_BwE
+<li>https://produto.mercadolivre.com.br/MLB-3389876702-bme280-modulo-sensor-de-presso-umidade-[…]Rlb8L5vxx2GtEwmO16FrFjN6fAUqAICrxO5YPVuPjRoCTDMQAvD_BwE
+<li>https://www.robocore.net/acessorios-raspberry-pi/camera-para-raspberry-pi-rev-1-3?gcl[…]ylU27O2mcY2VCdnCc8crxZjaG2UlU2uJwvVlelRYsTp56dxoCRKwQAvD_BwE
+<li>https://www.glassdoor.com.br/Sal%C3%A1rios/engenheiro-de-controle-e-automa%C3%A7%C3%A3o-sal%C3%A1rio-SRCH_KO0,34.htm
 
 # 13. Anexos
