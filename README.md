@@ -8,7 +8,7 @@
 </tr>
 </table>
 
-# Nome do projeto
+# Simulação de robôs para aplicações diversas
 
 ## Safe McQueen
 
@@ -16,21 +16,10 @@
 
 ## Descrição
 
-📜 Descrição curta sobre o que seu projeto faz.
+📜 O projeto foca no desenvolvimento de uma simulação de robôs que cumprem um papel de realizar a inspeção de espaços confinados visando a segurança do trabalho.
 <br><br>
-Meu projeto é um exemplo de como utilizar o github.
-<br><br>
-<p align="center">
-<img src="https://pix4free.org/assets/library/2021-01-20/originals/game.jpg" alt="NOME DO JOGO" border="0">
-  Game by <a href="http://www.nyphotographic.com/">Nick Youngson</a> <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> <a href="http://pix4free.org/">Pix4free</a>
-</p>
 
-
-💡 De um a dois parágrafos sobre o que é seu projeto e o que ele faz.
-<br><br>
-Meu projeto ajuda estudantes inteli a configurarem seus githubs.
-<br><br>
-May the force be with you!
+💡Nosso projeto é um desenvolvimento, em simulação, de um robô capaz de se mover em ambientes de espaço confinado, coletar dados a partir de sensores (principalmente de oxigênio e outros gases) e que utiliza imagens para apoiar na inspeção prévia da estrutura e localizar rachaduras. 
 <br><br>
 
 ## 🛠 Estrutura de pastas
@@ -56,7 +45,7 @@ A pasta raiz contem dois arquivos que devem ser alterados:
 
 Há também 4 pastas que seguem da seguinte forma:
 
-<b>docs</b>: Aqui está o arquivo index.md, que serve como o ponto principal da documentação do projeto. Note que, para este módulo, ele está vazio. Vocês tem liberdade total para definir a sua estrutura.
+<b>docs</b>: Aqui está o arquivo index.md, que serve como o ponto principal da documentação do projeto.
 
 <b>media</b>: Algumas imagens do sistema e logos prontos para serem utilizados e visualizados.
 
@@ -92,26 +81,10 @@ Por fim, execute no terminal do ubuntu:
 
 ```gazebo```
 
-## 🗃 Histórico de lançamentos
-
-A cada atualização os detalhes devem ser lançados aqui.
-
-* 0.2.1 - 25/01/2022
-    * MUDANÇA: Atualização de docs (código do módulo permanece inalterado)
-* 0.2.0 - 15/01/2022
-    * MUDANÇA: Remove `setDefaultXYZ()`
-    * ADD: Adiciona `init()`
-* 0.1.1 - 11/01/2022
-    * CONSERTADO: Crash quando chama `baz()` (Obrigado @NomeDoContribuidorGeneroso!)
-* 0.1.0 - 10/01/2022
-    * O primeiro lançamento adequado
-    * MUDANÇA: Renomeia `foo()` para `bar()`
-* 0.0.1 - 01/01/2022
-    * Trabalho em andamento
 
 ## 📋 Licença/License
 
-<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/Spidus/Teste_Final_1">MODELO GIT INTELI</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.yggbrasil.com.br/vr">INTELI, VICTOR BRUNO ALEXANDER ROSETTI DE QUIROZ</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p>
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/Spidus/Teste_Final_1">Safe-McQueen</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.yggbrasil.com.br/vr">INTELI, Alberto Miranda, Amanda Fontes, Antonio Teixeira, Joao Vitor Oliveira, Lucas Sales, Tainara Teixeira, Vitor Zeferino</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p>
 
 ## 🎓 Referências
 
@@ -120,4 +93,6 @@ Aqui estão as referências usadas no projeto.
 1. <https://github.com/iuricode/readme-template>
 2. <https://github.com/gabrieldejesus/readme-model>
 3. <https://creativecommons.org/share-your-work/>
-
+4. <https://www.robotis.us/turtlebot-3-burger-us/>
+5. <https://www.arducore.com.br/modulo-sensor-de-gas-amonia-mq-135-mq-135-arduino-pic?utm_[…]emsUyRupLv3cH6KkyQNeWCK8ZT5kR232Obgy_JhbGMYNIBoCtvUQAvD_BwE>
+6. <https://www.robocore.net/acessorios-raspberry-pi/camera-para-raspberry-pi-rev-1-3?gcl[…]ylU27O2mcY2VCdnCc8crxZjaG2UlU2uJwvVlelRYsTp56dxoCRKwQAvD_BwE>
