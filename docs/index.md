@@ -16,18 +16,18 @@
   - [1.2. Análise empresarial](#12-análise-empresarial)
   - [1.3 Análise financeira](#13-análise-financeira)
   - [1.4. Análise do time de desenvolvimento](#14-análise-do-time-de-desenvolvimento)
-    - [Matriz de riscos](#matriz-de-riscos)
+      - [Matriz de riscos](#matriz-de-riscos)
   - [1.5. Análise da solução](#15-análise-da-solução)
 - [2. Entendimento do metadesign](#2-entendimento-do-metadesign)
   - [2.1. Fatores mercadológicos](#21-fatores-mercadológicos)
-    - [Relação entre o produto desenvolvido e sua precificação com o merdaco atual](#relação-entre-o-produto-desenvolvido-e-sua-precificação-com-o-merdaco-atual)
-    - [Precificação](#precificação)
+      - [Relação entre o produto desenvolvido e sua precificação com o merdaco atual](#relação-entre-o-produto-desenvolvido-e-sua-precificação-com-o-merdaco-atual)
+      - [Precificação](#precificação)
     - [Cenário do mercado.](#cenário-do-mercado)
   - [2.2. Sistema produto/design](#22-sistema-produtodesign)
-    - [Missão do projeto proposto](#missão-do-projeto-proposto)
-    - [Unidade formal entre design, divulgação e venda](#unidade-formal-entre-design-divulgação-e-venda)
+      - [Missão do projeto proposto](#missão-do-projeto-proposto)
+      - [Unidade formal entre design, divulgação e venda](#unidade-formal-entre-design-divulgação-e-venda)
   - [2.3. Sustentabilidade ambiental](#23-sustentabilidade-ambiental)
-    - [Ecoeficiência ambiental proposta pelo projeto](#ecoeficiência-ambiental-proposta-pelo-projeto)
+      - [Ecoeficiência ambiental proposta pelo projeto](#ecoeficiência-ambiental-proposta-pelo-projeto)
   - [2.4. Influências socioculturais](#24-influências-socioculturais)
   - [2.5. Tipológico-formais e ergonômicos](#25-tipológico-formais-e-ergonômicos)
   - [2.6. Tecnologia produtiva e materiais empregados](#26-tecnologia-produtiva-e-materiais-empregados)
@@ -35,8 +35,8 @@
     - [Persona](#persona)
     - [User Story](#user-story)
 - [3. Arquitetura do sistema](#3-arquitetura-do-sistema)
-  - [V1](#v1)
-  - [V2](#v2)
+    - [V1](#v1)
+    - [V2](#v2)
   - [3.1 Engenharia de requisitos](#31-engenharia-de-requisitos)
     - [Requisitos Funcionais](#requisitos-funcionais)
     - [Requisitos Não Funcionais](#requisitos-não-funcionais)
@@ -46,17 +46,19 @@
     - [4.1.1 Comunicação](#411-comunicação)
 - [5. Interface de usuário](#5-interface-de-usuário)
   - [5.1. Visão geral do design](#51-visão-geral-do-design)
-    - [Palheta de cores](#palheta-de-cores)
-    - [Tipografia](#tipografia)
-    - [Ícones](#ícones)
+      - [Palheta de cores](#palheta-de-cores)
+      - [Tipografia](#tipografia)
+      - [Ícones](#ícones)
   - [5.2. Telas](#52-telas)
-    - [Tela inicial](#tela-inicial)
-    - [Tela principal](#tela-principal)
-    - [Setup](#setup)
-    - [Criar](#criar)
-    - [Editar](#editar)
-    - [Rodando](#rodando)
+      - [Tela inicial](#tela-inicial)
+      - [Tela principal](#tela-principal)
+      - [Setup](#setup)
+      - [Criar](#criar)
+      - [Editar](#editar)
+      - [Rodando](#rodando)
 - [6. Sistema de visão computacional](#6-sistema-de-visão-computacional)
+  - [6.1. Implementação da técnica de filtros para detecção ou escolha de modelo pré-treinado a ser utilizado](#61-implementação-da-técnica-de-filtros-para-detecção-ou-escolha-de-modelo-pré-treinado-a-ser-utilizado)
+  - [6.3. Validação do sistema de visão computacional.](#63-validação-do-sistema-de-visão-computacional)
 - [7. Sistemas de segurança](#7-sistemas-de-segurança)
 - [8. Backend](#8-backend)
 - [9. Integração de sistemas](#9-integração-de-sistemas)
@@ -594,3 +596,11 @@ https://www.vdibrasil.com/aumento-no-mercado-de-robotica-e-automacao-em-2022/#:~
 <li>https://www.glassdoor.com.br/Sal%C3%A1rios/engenheiro-de-controle-e-automa%C3%A7%C3%A3o-sal%C3%A1rio-SRCH_KO0,34.htm
 
 # 13. Anexos
+
+<a href="https://www.canva.com/design/DAFhPCq2eRY/Wk-zreUHokyIZD_C5jtf9Q/view?utm_content=DAFhPCq2eRY&utm_campaign=designshare&utm_medium=link&utm_source=homepage_design_menu">Apresentação Sprint 01</a>
+
+<a href="https://www.canva.com/design/DAFio2sNXFQ/1KobrB9o6L7mhlRbsirulA/view?utm_content=DAFio2sNXFQ&utm_campaign=designshare&utm_medium=link&utm_source=homepage_design_menu">Apresentação Sprint 02</a>
+
+<a href="https://www.canva.com/design/DAFj8Hs9Mag/7vVdV-QWaIlIhyr4DzZ3BA/view?utm_content=DAFj8Hs9Mag&utm_campaign=designshare&utm_medium=link&utm_source=homepage_design_menu">Apresentação Sprint 03</a>
+
+<a href="https://www.canva.com/design/DAFlHLvRuzQ/Js2yTFaiPWbBcXzvjdKk-w/view?utm_content=DAFlHLvRuzQ&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink">Apresentação Sprint 04</a>
