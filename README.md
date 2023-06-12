@@ -16,10 +16,7 @@
 
 ## Descrição
 
-📜 O projeto foca no desenvolvimento de uma simulação de robôs que cumprem um papel de realizar a inspeção de espaços confinados visando a segurança do trabalho.
-<br><br>
-
-💡Nosso projeto é um desenvolvimento, em simulação, de um robô capaz de se mover em ambientes de espaço confinado, coletar dados a partir de sensores (principalmente de oxigênio e outros gases) e que utiliza imagens para apoiar na inspeção prévia da estrutura e localizar rachaduras. 
+📜 O projeto foca no desenvolvimento de uma simulação de robôs que cumprem um papel de realizar a inspeção de espaços confinados visando a segurança do trabalho. Nosso projeto é um desenvolvimento, em simulação, de um robô capaz de se mover em ambientes de espaço confinado, coletar dados a partir de sensores (principalmente de oxigênio e outros gases) e que utiliza imagens para apoiar na inspeção prévia da estrutura e localizar rachaduras. 
 <br><br>
 
 ## 🛠 Estrutura de pastas
@@ -32,38 +29,33 @@
 │   ├── _config.yml
 │   └── index.md
 ├── media
+│   ├── arquitetura_sistema
+│   ├── artefatos_negocios
+│   ├── interface_usuario
+│   ├── visao_computacional
 │   └── README.md
 └── src
+│   ├── backend
+│   ├── frontend
+│   ├── gazebo
+│   ├── visão_computacional
     └── README.md
 
-3 directories, 7 files
+3 directories, 15 files
 ```
 
 A pasta raiz contem dois arquivos que devem ser alterados:
 
 <b>README.MD</b>: Arquivo que serve como guia e explicação geral sobre seu projeto. O mesmo que você está lendo agora.
 
-Há também 4 pastas que seguem da seguinte forma:
+Há também 3 pastas que seguem da seguinte forma:
 
 <b>docs</b>: Aqui está o arquivo index.md, que serve como o ponto principal da documentação do projeto.
 
-<b>media</b>: Algumas imagens do sistema e logos prontos para serem utilizados e visualizados.
+<b>media</b>: Algumas imagens do sistema, logos e tabelas, prontos para serem utilizados e visualizados.
 
-<b>src</b>: Nesta pasta irá todo o código fonte do sistema, pronto para para ser baixado e modificado.
+<b>src</b>: Nesta pasta está todo o código fonte do sistema, pronto para para ser baixado e modificado.
 
-## 🛠 Instalação
-
-Coloque suas instruções de instalação aqui.
-
-## 📈 Exemplo de uso
-
-Alguns exemplos interessantes e úteis sobre como seu projeto pode ser utilizado.
-
-Adicione blocos de códigos e, se necessário, screenshots.
-
-Este modelo pode ser copiado e utilizado à vontade.
-
-Através da cópia/clone/ download do repositório, altere os dados do readme.md e carregue os arquivos de seu projeto.
 
 ## 💻 Configuração para Desenvolvimento
 
@@ -84,7 +76,7 @@ Por fim, execute no terminal do ubuntu:
 
 ## 📋 Licença/License
 
-<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/Spidus/Teste_Final_1">Safe-McQueen</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.yggbrasil.com.br/vr">INTELI, Alberto Miranda, Amanda Fontes, Antonio Teixeira, Joao Vitor Oliveira, Lucas Sales, Tainara Teixeira, Vitor Zeferino</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p>
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/2023M6T2-Inteli/Safe-McQueen/">Safe-McQueen</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName">INTELI, Alberto Miranda, Amanda Fontes, Antonio Teixeira, Joao Vitor Oliveira, Lucas Sales, Tainara Teixeira, Vitor Zeferino</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p>
 
 ## 🎓 Referências
 
