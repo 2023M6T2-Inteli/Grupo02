@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from routes.node import node_router
 from routes.graph import graph_router
 from routes.edge import edge_router
-from routes.image import router as image_router
+from routes.image import image_router
 from routes.register import register_router
 from config import db
 #cors

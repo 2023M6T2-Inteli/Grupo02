@@ -1,6 +1,4 @@
 from sqlalchemy.orm import Mapped, mapped_column
-from sqlalchemy import ForeignKey, DateTime
-from datetime import datetime
 from models.base import Base
 
 class Images(Base):
@@ -9,12 +7,14 @@ class Images(Base):
     edge_id: Mapped[int] = mapped_column()#ForeignKey("edge_id")
     graph_id: Mapped[int] = mapped_column()#ForeignKey("graph.id")
     time: Mapped[str] = mapped_column()
+    address: Mapped[str] = mapped_column()
 
     def return_json(self):
 
         return {
-            "images_report_id": self.id,
+            "id": self.id,
             "edge_id": self.edge_id,
             "graph_id": self.graph_id,
-            "time": self.time
+            "time": self.time,
+            "address": self.address
         }

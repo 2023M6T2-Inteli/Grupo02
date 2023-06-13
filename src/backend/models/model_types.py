@@ -13,7 +13,6 @@ class EdgeT(BaseModel):
     graph_id: int
 
 class GraphT(BaseModel):
-    id: int | None = None
     name: str
     description: str | None = None
     image_address: str | None = None
@@ -23,3 +22,9 @@ class RegisterT(BaseModel):
     date: str | None = None
     name: str
     description: str | None = None
+    
+class ImageT(BaseException):
+    graph_id: int
+    edge_id: int
+    time: str
+    address: str

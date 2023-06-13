@@ -24,7 +24,14 @@ async def get_register():
     registers_data = [reg.return_json() for reg in registers]
     return registers_data
     
+@register_router.delete("/delete")
+async def delete_graph(msg:dict):
+   
+    registers = db.session.execute(select(Register).where(Register.name == msg["name"]))
+    register = [reg for reg in registers][0][0]
 
+    db.session.delete(register)
+    db.session.commit()
 
 @register_router.post("/create")
 async def get_register(msg: RegisterT):
