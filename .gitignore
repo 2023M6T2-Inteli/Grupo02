@@ -36,3 +36,10 @@ data.db
 *.exe
 *.out
 *.app
+
+build
+
+node_modules
+
+# Specific files
+lib
