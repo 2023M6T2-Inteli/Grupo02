@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from sqlalchemy import select
+from sqlalchemy import null, select
 from models.model_types import NodeT
 from models.node import Node
 from models.edge import Edge
@@ -10,7 +10,6 @@ node_router = APIRouter(prefix="/node")
 @node_router.get("/get/{id}")
 async def get_node(id: int):
     node = db.session.query(Node).filter(Node.id == id).first()
-    
     return {node}
 
 @node_router.post("/create")

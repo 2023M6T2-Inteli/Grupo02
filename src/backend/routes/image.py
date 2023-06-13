@@ -1,7 +1,6 @@
 from fastapi import APIRouter
 from supabase import create_client, Client
 import os
-from dotenv import load_dotenv
 
 load_dotenv()
 url = os.getenv("url")

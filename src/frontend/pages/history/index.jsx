@@ -1,6 +1,5 @@
 import Header from '../../components/Header'
 import Insp_H from '@/components/Insp_H';
-// import SearchBar from '@/components/Search';
 import { Search } from "react-bootstrap-icons";
 import { useEffect, useState } from 'react';
 
@@ -24,6 +23,8 @@ export default function History() {
 
     get_registers(url)
   }, []);
+
+  
   const get_registers = async (url) => {
     const response = await fetch(url);
     const data = await response.json();
