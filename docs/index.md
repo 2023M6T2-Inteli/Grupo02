@@ -195,11 +195,7 @@ Outrossim, há uma interface gráfica que tem como objetivo ajudar no planejamen
 (Matriz SWOT)
 
 ## 1.3. Análise do time de desenvolvimento
-<<<<<<< HEAD
 (Matriz de Riscos)
-=======
-<img href="./">
->>>>>>> 459302da6c94ef64552e2298946b56d66afbf90a
 
 ## 1.4. Análise da solução
 (Proposta de valor)
@@ -485,6 +481,77 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 <img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/rodando.png">
 <p>Essa página é carregada quando a simulação é iniciada. Com informações relevantes para o projeto</p>
 
+<<<<<<< HEAD
+# 6. Sistema de visão computacional
+## 6.1. Implementação da técnica de filtros para detecção ou escolha de modelo pré-treinado a ser utilizado 
+</br>
+
+## 6.3. Validação do sistema de visão computacional.
+<p> A fim de otimizar o processo de identificação de rachaduras, foi desenvolvido um filtro para ser aplicado sobre as imagens do dataset. O filtro em questão coloca em evidência o objeto a ser identificado, de modo a aumentar sua nitidez. Esse processo faz com que a possível rachadura a ser identificada se destaque na imagem em comparação com os outros elementos da figura. Motivado pelo objetivo de conferir a eficiência do filtro desenvolvido, o grupo construiu dois modelos distintos utilizando o Yolo V8: um que aplica o filtro às imagens do dataset, e um que não utiliza o filtro e processa as imagens puras.
+</p>
+
+<img scr="">
+
+<img scr="">
+
+
+<p> Desse modo, após a aplicação do filtro é notório que o resultado esperado de que ele atingisse uma métrica de averiguação depois que transformasse a imagem em preto e branco, pudesse também sintetizar com a diferença de contraste em pontos da imagem que tivesse com pouca luminosidade ou não. Outrossim para esse impasse, é justificável para que ocorra de fato uma melhora no processamento de identificação é necessário a melhoria dessa filtro, visto que, através dos dados fornecidos pelo o modelo, não foi possível identificar uma melhoria ou não no tratamento das imagens. </p>
+
+</br>
+
+# 7. Manual de Instruções 
+
+</br>
+
+## 7.1 Intrudução 
+
+</br>
+
+### Solução
+<p> O objetivo do desenvolvimento é construir uma simulação de um robô capaz de se mover em ambientes de espaço confinado, coletar dados a partir dos sensores (principalmente de oxigênio e outros gases) e que utilize filmagens para apoiar na inspeção prévia da estrutura e na execução da atividade. </p>
+
+<br> 
+
+### Arquitetura da Solução 
+
+<br> 
+
+## 7.2 Componentes e Recursos 
+
+<br> 
+
+### Componentes de hardware 
+
+<br> 
+
+### Componentes externos 
+
+<br>
+
+### Requisitos de conectividade 
+
+<br>
+
+## 7.3  Guia de Montagem 
+
+<br>
+
+## 7.4 Guia de Instalação 
+
+<br>
+
+## 7.5 Guia de Operação
+
+<br>
+
+## 7.6 Troublesshootinhg
+
+<br>
+
+
+# 8. Sistemas de segurança
+
+=======
 # 7. Sistema de visão computacional
 
 ## 7.1 Pipeline de Pré-processamento de Imagem
@@ -615,6 +682,7 @@ Dessa forma, ao adotar o protocolo MQTT, é possível superar a falta de conecti
 
 ## 8.4 Implementação e validação de sistemas de proteção contra comandos indevidos.
 
+>>>>>>> main
 # 9. Backend
 
 # 10. Integração de sistemas
