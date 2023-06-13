@@ -13,18 +13,18 @@ const Pop_up_edit = ({ name = "Nome da Rota", description = "Descrição da rota
    const [graph, set_graph] = useState([]);
 
 
-    const get_graph = async (url) => {
+   const get_graph = async (url) => {
       const response = await fetch(url);
       const data = await response.json();
       set_graph(data);
-  
-    };
 
-    useEffect(() => {
-      let url = `http://localhost:8000/graph/get/${id}`
-  
-      get_graph(url)
-    }, []);
+   };
+
+   useEffect(() => {
+      // let url = `http://localhost:8000/graph/get/${id}`
+
+      // get_graph(url)
+   }, []);
 
 
    useEffect(() => {
@@ -33,7 +33,10 @@ const Pop_up_edit = ({ name = "Nome da Rota", description = "Descrição da rota
          //setFileInputDisplay('none')
          image = URL.createObjectURL(selectedImage)
          setImageUrl(image)
-      }else setImageUrl(image)
+      }
+      // else {
+      // setImageUrl(image)
+      // }
    }, [selectedImage]);
    const customStyles = {
       overlay: {
@@ -71,30 +74,30 @@ const Pop_up_edit = ({ name = "Nome da Rota", description = "Descrição da rota
                               <input placeholder={description} type="text" id="small-input" className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                            </div>
                         </div>
-                        
+
                         <div className="flex flex-col justify-center w-full h-full" >{/*  style={{ display: fileInputDisplay }}> */}
                            <p className="mb-2">Configure, abaixo, a rota do robô para o espaço confinado.</p>
-       
-                           {graph && imageUrl && (<Canvas backgroundImageSrc={imageUrl} edge={graph["edges"]} alt={name} />)  ||
-                           (
-                              <div className='w-full h-full'>
-                                 <label for="dropzone-file" className="flex flex-col items-center justify-center w-full h-full border-2 border-gray-300 border-dashed rounded-lg cursor-pointer         bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600" >
-                                    <div className="flex h-full flex-col items-center justify-center pt-5 pb-6">
-                                       <svg aria-hidden="true" className="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                                       <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span className="font-semibold">Clique para fazer o upload da imagem</span> ou arraste e solte-a aqui</p>
-                                       <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG ou JPG (MAX. 800x400px)</p>
-                                    </div>
-                                 </label>
-                                 <input
-                                    accept="image/"
-                                    type="file"
-                                    id="dropzone-file"
-                                    // className="hidden"
-                                    style={{ display: 'none' }}
-                                    onChange={e => setSelectedImage(e.target.files[0])}
-                                 />
-                              </div>
-                           )
+
+                           {graph && imageUrl && (<Canvas backgroundImageSrc={imageUrl} edge={graph["edges"]} alt={name} />) ||
+                              (
+                                 <div className='w-full h-full'>
+                                    <label for="dropzone-file" className="flex flex-col items-center justify-center w-full h-full border-2 border-gray-300 border-dashed rounded-lg cursor-pointer         bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600" >
+                                       <div className="flex h-full flex-col items-center justify-center pt-5 pb-6">
+                                          <svg aria-hidden="true" className="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                                          <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span className="font-semibold">Clique para fazer o upload da imagem</span> ou arraste e solte-a aqui</p>
+                                          <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG ou JPG (MAX. 800x400px)</p>
+                                       </div>
+                                    </label>
+                                    <input
+                                       accept="image/"
+                                       type="file"
+                                       id="dropzone-file"
+                                       // className="hidden"
+                                       style={{ display: 'none' }}
+                                       onChange={e => setSelectedImage(e.target.files[0])}
+                                    />
+                                 </div>
+                              )
                            }
                         </div>
                         <div className='pb-10'></div>
