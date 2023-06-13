@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from supabase import create_client, Client
 import os
 
-load_dotenv()
+# load_dotenv()
 url = os.getenv("url")
 key = os.getenv("api_key")
 image_router = APIRouter(prefix="/images")
@@ -20,10 +20,10 @@ async def get_all(file):
 
 @image_router.post("/add")
 async def store_image(msg: dict):
-    image = msg["image"] # a imagem definida em base64
-    name = msg["name"] # nome para a imagem
+    image = msg["image"]  # a imagem definida em base64
+    name = msg["name"]  # nome para a imagem
     try:
-        f = open(f"{name}.txt", "w") 
+        f = open(f"{name}.txt", "w")
         f.write(image)
         f.close()
 
