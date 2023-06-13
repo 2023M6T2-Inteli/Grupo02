@@ -352,15 +352,65 @@ A viabilidade técnica, refere-se a possibilidade de implementar na prática a s
 
 </br>
 
-# 7. Sistemas de segurança
+# 7. Manual de Instruções 
 
-# 8. Backend
+</br>
 
-# 9. Integração de sistemas
+## 7.1 Intrudução 
 
-# 10. Validação da eficácia do sistema
+</br>
 
-# 11. Referências
+### Solução
+<p> O objetivo do desenvolvimento é construir uma simulação de um robô capaz de se mover em ambientes de espaço confinado, coletar dados a partir dos sensores (principalmente de oxigênio e outros gases) e que utilize filmagens para apoiar na inspeção prévia da estrutura e na execução da atividade. </p>
+
+<br> 
+
+### Arquitetura da Solução 
+
+<br> 
+
+## 7.2 Componentes e Recursos 
+
+<br> 
+
+### Componentes de hardware 
+
+<br> 
+
+### Componentes externos 
+
+<br>
+
+### Requisitos de conectividade 
+
+<br>
+
+## 7.3  Guia de Montagem 
+
+<br>
+
+## 7.4 Guia de Instalação 
+
+<br>
+
+## 7.5 Guia de Operação
+
+<br>
+
+## 7.6 Troublesshootinhg
+
+<br>
+
+
+# 8. Sistemas de segurança
+
+# 9. Backend
+
+# 10. Integração de sistemas
+
+# 11. Validação da eficácia do sistema
+
+# 12. Referências
 
 BRASIL. Ministério do Trabalho e Emprego. Portaria nº 202, de 22 de dezembro de 2006 - **NR33**. Diário Oficial da União, 27 de dezembro de 2006.<br>
 MELLO, Pedro. Estratégia do Oceano Azul - 22. DÊGRAU10, 01 ago. 2020. Disponível em: https://degrau10.com.br/estrategia-do-oceano-azul/. Acesso em: 19 abr. 2023.<br>
