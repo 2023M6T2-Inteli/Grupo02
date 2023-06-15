@@ -217,10 +217,20 @@ A segunda parte da arquitetura consiste em uma solução web, que permite a visu
 
 Adicionalmente, está sendo considerado o uso de uma bridge entre o ROS2 e o WebSocket, permitindo que o robô envie os dados para a aplicação web de forma mais eficiente. Essa integração proporcionará uma comunicação direta entre o sistema ROS2 e a aplicação web, possibilitando o monitoramento real dos dados coletados pelo robô. Diante desse cenário e levando em consideração a limitação de acesso constante à internet pelo robô, a  introdução de um banco de dados embarcado para armazenamento dos dados coletados e a possível integração entre ROS2 e WebSocket foi primordial, e visa pri otimizar a coleta e visualização dos dados, contribuindo para a eficiência e funcionalidade do sistema como um todo.
 
+<br> 
 
+### Troubleshooting
 
+<br> 
 
+| Problema | Possível solução |
+| --- | --- |
+| Quando a a carga da bateria estiver acabando | Antes da atividade ocorrer, é necessário a implementação do carregamento da bateria ao menos com 2 horas de antecedência. Caso essa averiguação for feita durante algum procedimento de inspeção é recomendado que haja uma interrupção das tarefas programadas. |
+| LIDAR com a resíduos na frente  | Como há a possibilidade de que nos ambientes confinados podem ou não ter algum tipo de resíduo é necessário fazer uma manutenção contínua, antes, durante e após a realização da detecção de objetos. |
+| Perder alguma peça no caminho | Embora seja um risco de baixa probabilidade, existe a possibilidade de que alguma peça do robô, como parafusos ou componentes, nesse caso, a recomendação é que seja feita uma averiguação sobre a integridade física do robô  antes e depois da vistoria.  |
+| Perda de conectividade | Esperar a inspeção a terminar por completo para depois verificar os dados obtidos ao final da inspeção. |
 
+<br>
 
   - [Manual de Implantação](#manual-de-implantação)
   - [Manual do Usuário](#manual-do-usuário)
