@@ -18,6 +18,16 @@
   - [1.4. Análise do time de desenvolvimento](#14-análise-do-time-de-desenvolvimento)
       - [Matriz de riscos](#matriz-de-riscos)
   - [1.5. Análise da solução](#15-análise-da-solução)
+- [Outrossim, há uma interface gráfica que tem como objetivo ajudar no planejamento para as inspeções e manutenções desses ambientes confinados. Essa interface gráfica possuirá dashboards que se atualizam em tempo real e, também, fotos do interior do ambiente confinado que serão captadas pela câmera que o protótipo está equipado.](#outrossim-há-uma-interface-gráfica-que-tem-como-objetivo-ajudar-no-planejamento-para-as-inspeções-e-manutenções-desses-ambientes-confinados-essa-interface-gráfica-possuirá-dashboards-que-se-atualizam-em-tempo-real-e-também-fotos-do-interior-do-ambiente-confinado-que-serão-captadas-pela-câmera-que-o-protótipo-está-equipado)
+- [Conteúdo](#conteúdo)
+    - [Solução](#solução)
+    - [Arquitetura da Solução](#arquitetura-da-solução)
+    - [Troubleshooting](#troubleshooting)
+- [1. Entendimento de negócio](#1-entendimento-de-negócio-1)
+  - [1.1. Análise setorial](#11-análise-setorial-1)
+  - [1.2. Análise empresarial](#12-análise-empresarial-1)
+  - [1.3. Análise do time de desenvolvimento](#13-análise-do-time-de-desenvolvimento)
+  - [1.4. Análise da solução](#14-análise-da-solução)
 - [2. Entendimento do metadesign](#2-entendimento-do-metadesign)
   - [2.1. Fatores mercadológicos](#21-fatores-mercadológicos)
       - [Relação entre o produto desenvolvido e sua precificação com o merdaco atual](#relação-entre-o-produto-desenvolvido-e-sua-precificação-com-o-merdaco-atual)
@@ -43,13 +53,18 @@
   - [3.2 Viabilidade](#32-viabilidade)
 - [4. Sistema de locomoção e otimização de rota](#4-sistema-de-locomoção-e-otimização-de-rota)
   - [4.1 Sistema de locomoção](#41-sistema-de-locomoção)
-    - [4.1.1 Comunicação](#411-comunicação)
-- [5. Interface de usuário](#5-interface-de-usuário)
-  - [5.1. Visão geral do design](#51-visão-geral-do-design)
+  - [4.2 Otimização de rota](#42-otimização-de-rota)
+    - [4.2.1 Problema “O caixeiro viajante”](#421-problema-o-caixeiro-viajante)
+    - [4.2.2 Implementação](#422-implementação)
+    - [5.1.1 Instalação do ambiente de simulação](#511-instalação-do-ambiente-de-simulação)
+      - [5.1.1.1 Ros Humble Turtlebot3](#5111-ros-humble-turtlebot3)
+    - [5.1.2 Comunicação](#512-comunicação)
+- [6. Interface de usuário](#6-interface-de-usuário)
+  - [6.1. Visão geral do design](#61-visão-geral-do-design)
       - [Palheta de cores](#palheta-de-cores)
       - [Tipografia](#tipografia)
       - [Ícones](#ícones)
-  - [5.2. Telas](#52-telas)
+  - [6.2. Telas](#62-telas)
       - [Tela inicial](#tela-inicial)
       - [Tela principal](#tela-principal)
       - [Setup](#setup)
@@ -60,10 +75,14 @@
   - [6.1. Implementação da técnica de filtros para detecção ou escolha de modelo pré-treinado a ser utilizado](#61-implementação-da-técnica-de-filtros-para-detecção-ou-escolha-de-modelo-pré-treinado-a-ser-utilizado)
   - [6.3. Validação do sistema de visão computacional.](#63-validação-do-sistema-de-visão-computacional)
 - [7. Sistemas de segurança](#7-sistemas-de-segurança)
-- [8. Backend](#8-backend)
-- [9. Integração de sistemas](#9-integração-de-sistemas)
-- [10. Validação da eficácia do sistema](#10-validação-da-eficácia-do-sistema)
-- [11. Referências](#11-referências)
+  - [8.1 Definição, implementação e validação de um sistema de tomada de decisões a partir da detecção de um obstáculo.](#81-definição-implementação-e-validação-de-um-sistema-de-tomada-de-decisões-a-partir-da-detecção-de-um-obstáculo)
+  - [8.2 Mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos.](#82-mapeamento-de-riscos-dos-sistemas-eletromecânicos-mecânicos-e-eletrônicos)
+  - [8.3 Definição, implementação e validação de dispositivos de segurança para os riscos mapeados.](#83-definição-implementação-e-validação-de-dispositivos-de-segurança-para-os-riscos-mapeados)
+  - [8.4 Implementação e validação de sistemas de proteção contra comandos indevidos.](#84-implementação-e-validação-de-sistemas-de-proteção-contra-comandos-indevidos)
+- [9. Backend](#9-backend)
+- [10. Integração de sistemas](#10-integração-de-sistemas)
+- [11. Validação da eficácia do sistema](#11-validação-da-eficácia-do-sistema)
+- [12. Referências](#12-referências)
 - [12. Material de apoio](#12-material-de-apoio)
 - [13. Anexos](#13-anexos)
 
@@ -107,7 +126,7 @@ Os acidentes no ambiente de trabalho não geram apenas custos financeiros direto
 Em contrapartida, a implementação de políticas de segurança eficazes pode ter um impacto positivo na moral e produtividade dos funcionários. Ademais, uma cultura de segurança positiva pode levar a uma maior colaboração e comunicação entre os funcionários, o que pode melhorar a eficiência e a qualidade do trabalho. Portanto, investir em medidas preventivas e políticas de segurança eficazes é uma forma de proteger os funcionários, reduzir os custos associados a acidentes no ambiente de trabalho e melhorar a moral e produtividade da equipe. Dessa forma, é possível garantir a saúde e segurança dos funcionários e evitar custos desnecessários para a empresa, tornando a implementação do projeto financeiramente viável e positiva para todos os envolvidos.
 Foi realizada uma pesquisa com o objetivo de coletar informações quantitativas sobre os custos dos acidentes de trabalho, a fim de embasar a abordagem proposta na análise financeira. O grupo teve como prioridade os dados relacionados aos acidentes sofridos pelos funcionários da empresa, incluindo desde casos leves até os mais graves. Além disso, foram levantadas informações sobre as multas decorrentes da emissão de gases durante o processo de fundição do aço, que é a principal atividade realizada pela Gerdau. Com base nas pesquisas realizadas na internet, foi elaborada uma planilha de preços que mostra o custo de alguns acidentes que poderiam ser evitados pela empresa ao adotar soluções preventivas.
 
-<img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/artefatos_negocios/numeros_analise.jpeg"></img>
+<img src="../media/artefatos_negocios/numeros_analise.jpeg"></img>
 fontes: Indenização por acidente de trabalho: valor, requisitos e como receber (2023):
 https://mdn.adv.br/indenizacao-por-acidente-de-trabalho/#:~:text=Para%20a%20CLT%2C%20o%20valor,com%20a%20gravidade%20da%20situa%C3%A7%C3%A3o.
 
@@ -119,11 +138,11 @@ Tabelas de Preços de Referência para Cálculo de Multas Ambientais divulgadas 
 #### Matriz de riscos
 
 Uma matriz de riscos é uma ferramenta utilizada para avaliar e gerenciar os riscos e oportunidades envolvidos em um projeto, atividade ou processo. Ela ajuda a identificar e avaliar os potenciais riscos e a probabilidade de sua ocorrência, bem como o impacto que eles podem exercer sobre o projeto ou atividade. A matriz também pode ajudar a definir a prioridade das ações correspondentes ao gerenciamento do projeto, indicando quais riscos devem ser tratados com maior urgência, por exemplo. Além disso, no projeto em questão, a criação da matriz visa apresentar ao parceiro o que a equipe imagina enfrentar e pensar em conjunto em maneiras de mitigar os riscos, bem como aproveitar as oportunidades existentes.
-<img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/artefatos_negocios/matriz_riscos.png"></img>
+<img src="../media/artefatos_negocios/matriz_riscos.png"></img>
 
 ## 1.5. Análise da solução
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/artefatos_negocios/proposta_de_valor.png" width="60%"></p>
+<p align="center"><img src="../media/artefatos_negocios/proposta_de_valor.png" width="60%"></p>
 Nossa proposta de valor consiste em uma solução que contempla os seguintes serviços: 
 <ul>
   <li> Simulação do trajeto de um robô seguidor e seus dados de sensores para medição atmosférica</li>
@@ -134,9 +153,56 @@ Essa solução consegue mitigar as principais dores do cliente: a segurança do 
 
 Outrossim, há uma interface gráfica que tem como objetivo ajudar no planejamento para as inspeções e manutenções desses ambientes confinados. Essa interface gráfica possuirá dashboards que se atualizam em tempo real e, também, fotos do interior do ambiente confinado que serão captadas pela câmera que o protótipo está equipado.
 
-# 2. Entendimento do metadesign
+### Solução 
 
-## 2.1. Fatores mercadológicos
+<br>
+
+<p align="center"><img src="../media/interface_usuario/logo_equipe.png" width="40%"></img></p>
+
+<h5 align="center"> Logo da equipe Safe Mc Queen </h5>  
+
+<br>
+
+O objetivo do desenvolvimento é construir uma simulação de um robô capaz de se mover em ambientes de espaço confinado e áreas de difícil acesso. O robô terá a capacidade de coletar dados a partir dos sensores (principalmente de oxigênio e outros gases), também irá utilizar filmagens para apoiar na inspeção prévia da estrutura e no suporte  na execução das atividades planejadas. 
+
+<br> 
+
+Para alcançar esse objetivo, foi adotada uma metodologia abrangente no desenvolvimento da solução, que envolve diferentes aspectos. Na parte da simulação  existe o controle do robô e seus periféricos, esse tópico lida  primordialmente com a comunicação entre os componentes e a simulação do robô. Além disso, foi utilizado o ROS2, que é um framework de robótica que permite a comunicação entre o sistema, consequentemente ele também permite a simulação do robô, o que permite testar como seria o comportamento do robô mesmo apenas com o ambiente virtual antes de sua implementação física. 
+
+<br> 
+
+### Arquitetura da Solução
+
+<br>
+
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/arquitetura_sistema/diagrama_solu%C3%A7%C3%A3ov2.drawio.png?raw=true" width="60%"></img></p>
+
+<h5 align="center"> Arquitetura da Solução </h5>  
+
+<br>
+
+ A arquitetura do projeto é composta por duas partes distintas. A primeira parte envolve o sistema responsável pelo controle do robô e seus periféricos. Essa parte abrange a comunicação entre os diferentes componentes do sistema, bem como a simulação do robô. Para realizar essas funcionalidades, utiliza-se o ROS2, um framework de robótica que facilita a comunicação entre os componentes do sistema e permite a simulação do robô. Essa abordagem é vantajosa, pois possibilita o desenvolvimento e teste do sistema sem a necessidade de um robô físico.
+<br> 
+
+A segunda parte da arquitetura consiste em uma solução web, que permite a visualização dos dados coletados pelo robô. Essa parte do sistema é desenvolvida utilizando o React, um framework de desenvolvimento web, o Flask, um framework de desenvolvimento web para Python, e o SQLite, um banco de dados embarcado. Para ser possível o funcionamento do projeto mesmo com a restrição de acesso constante à internet por parte do robô, foi implementado um banco de dados embarcado para armazenar os dados coletados pelo robô. Além disso, agora o robô envia os dados para o banco de dados apenas ao final da rota. 
+  <br> 
+
+Adicionalmente, está sendo considerado o uso de uma bridge entre o ROS2 e o WebSocket, permitindo que o robô envie os dados para a aplicação web de forma mais eficiente. Essa integração proporcionará uma comunicação direta entre o sistema ROS2 e a aplicação web, possibilitando o monitoramento real dos dados coletados pelo robô. Diante desse cenário e levando em consideração a limitação de acesso constante à internet pelo robô, a  introdução de um banco de dados embarcado para armazenamento dos dados coletados e a possível integração entre ROS2 e WebSocket foi primordial, e visa pri otimizar a coleta e visualização dos dados, contribuindo para a eficiência e funcionalidade do sistema como um todo.
+
+<br> 
+
+### Troubleshooting
+
+<br> 
+
+| Problema | Possível solução |
+| --- | --- |
+| Quando a a carga da bateria estiver acabando | Antes da atividade ocorrer, é necessário a implementação do carregamento da bateria ao menos com 2 horas de antecedência. Caso essa averiguação for feita durante algum procedimento de inspeção é recomendado que haja uma interrupção das tarefas programadas. |
+| LIDAR com a resíduos na frente  | Como há a possibilidade de que nos ambientes confinados podem ou não ter algum tipo de resíduo é necessário fazer uma manutenção contínua, antes, durante e após a realização da detecção de objetos. |
+| Perder alguma peça no caminho | Embora seja um risco de baixa probabilidade, existe a possibilidade de que alguma peça do robô, como parafusos ou componentes, nesse caso, a recomendação é que seja feita uma averiguação sobre a integridade física do robô  antes e depois da vistoria.  |
+| Perda de conectividade | Esperar a inspeção a terminar por completo para depois verificar os dados obtidos ao final da inspeção. |
+
+<br/>
 
 #### Relação entre o produto desenvolvido e sua precificação com o merdaco atual
 
@@ -181,7 +247,7 @@ O grupo também propôs uma solução visando ser mais ecoeficiente, que poderia
 
 ### Persona
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/artefatos_negocios/persona.png" width="60%"></img></p>
+<p align="center"><img src="../media/artefatos_negocios/persona.png" width="60%"></img></p>
 A persona foi criada para ajudar a entender as necessidades e os desejos do público alvo para a solução de automação industrial que foi apresentada, ela é um personagem fictício, doravante, com informações reais fornecidas pelos representantes da Gerdau. Nesse caso, especificamente,  Joana é técnica em segurança do trabalho, realiza atividades de alto risco, e, portanto, está sempre com equipamentos de proteção individual, sobretudo, por serem ainda atividades arriscadas, compreende que é um trabalho bastante delicado. Com a implementação da solução em desenvolvimento , Joana teria que aprender a supervisionar o trabalho do robô, deixando para ele concluir a etapa mais perigosa e garantindo que seu desempenho nas demais responsabilidades do processo de inspeção do ambiente confinado estivessem ocorrendo de forma correta.
 
 ### User Story
@@ -245,17 +311,93 @@ A viabilidade técnica, refere-se a possibilidade de implementar na prática a s
 
 4. Mapear possíveis desafios técnicos e proporcionar soluções, por exemplo, caso ocorra falha em algum sensor físico, é necessário um planejamento de um plano B, ter um segundo sensor para usar em casos de substituições.
 
+
 # 4. Sistema de locomoção e otimização de rota
 
 ## 4.1 Sistema de locomoção
 
-<p>Nosso sistema de locomoção está operando com o sistema de nós do ROS. Esse sistema permite a comunicação entre nosso scripth em python e o ambiente de cimulação Gazebo.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Foi desenvolvido um algoritmo para a segunda entrega da sprint, com o objetivo de fazer o robô se movimentar até um ponto desejado utilizando ângulos de Euler. O algoritmo utiliza o odômetro para obter os ângulos do robô e do ponto de destino, e então realiza uma subtração contínua desses ângulos até que a diferença esteja dentro de uma faixa aceitável de tolerância. Enquanto o robô estiver dentro dessa faixa, ele se move em direção ao ponto de destino. A lista de pontos é fornecida com coordenadas (x, y, z) e seus respectivos valores.
+<br>
+<br>
+<img src="../media/c%C3%B3digo_prints/pontos.png"></img>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O controle do robô é feito através da subscrição do tópico '/odom' para obter os valores do odômetro, e da publicação no tópico 'cmd_vel' para enviar os comandos de velocidade.
+<br>
+<br>
+<img src="../media/c%C3%B3digo_prints/topics.png"></img>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A função listener_callback recebe os valores do odômetro e os converte utilizando a biblioteca "tf_transformations" para obter os ângulos de Euler.
+A função publisher_callback realiza a subtração entre os ângulos de posição do robô e o ângulo do ponto de destino. Além disso, ela avança para o próximo ponto da lista quando o ponto atual é alcançado. Todas essas funções são chamadas e executadas no main.
+<br>
+<br>
+<img src="../media/c%C3%B3digo_prints/funcoes.png"></img>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No entanto, o grupo identificou uma limitação no código em relação à passagem de uma lista de pontos desordenados. O algoritmo foi projetado para otimizar o movimento até um ponto específico, mas não lida adequadamente para gerar uma sequência lógica e otimizada dos pontos. Para resolver esse problema, o grupo implementou um código complementar que aborda essa questão, conforme explicado no tópico a seguir.
 
-### 4.1.1 Comunicação
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Além disso, como plano de contingência, o grupo decidiu incorporar a biblioteca "navigation2" do ROS2 como entrega da segunda sprint. O "navigation2" é um pacote de software de código aberto que permite a navegação autônoma de robôs móveis em ambientes complexos. Ele possui vantagens, como desvio efetivo de obstáculos e otimização de rotas. No entanto, também apresenta desvantagens, como uma interface gráfica mais complexa e a necessidade de realizar o mapeamento manual do ambiente para obter rotas otimizadas entre pontos de partida e chegada.
 
-# 5. Interface de usuário
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Em resumo, o grupo desenvolveu um algoritmo inicial para mover o robô até um ponto específico, mas identificou limitações em relação à sequência dos pontos. Para abordar essa questão, um código complementar foi implementado. Além disso, como plano de contingência, o grupo considerou a utilização da biblioteca "navigation2" para oferecer recursos avançados de navegação autônoma, mas também ciente das complexidades e requisitos de mapeamento associados a ela.
 
-## 5.1. Visão geral do design
+</p>
+
+## 4.2 Otimização de rota
+<br>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Primeiramente, para a construção e formulação dos passos necessários para a implementação das rotas e suas principais otimizações, foi utilizado o contexto do problema caixeiro-viajante que estabelece variáveis primordiais para a compreensão de como foi feita a otimização das rotas que passam pelo robô. A seguir, está descrito detalhes do enigma citado, o algoritmo para o aprimoramento do trajeto e a decisão de qual será o caminho que possibilita o aprimoramento do percurso robótico apresentado no tópico anterior do projeto com a utilização do Gazebo. 
+
+<br>
+
+### 4.2.1 Problema “O caixeiro viajante” 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; O problema em questão consiste na busca de uma resolução de em uma série de pontos pré estabelecidos, que o caixeiro necessita passar em todos eles levando sempre a menor distância possível e após seguir o trajeto ele regressará ao ponto de origem. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Para a construção de circuitos, é possível recorrer a alguns métodos, um exemplo seria o método do vizinho mais próximo e  priorizar assim a escolha do ponto mais próximo até que todos os pontos sejam visitados. Outro método e o que foi aplicado é o algoritmo de Dijkstra. O algoritmo considera um conjunto S de menores caminhos, iniciado com um vértice inicial I. A cada passo do algoritmo busca-se nas adjacências dos vértices pertencentes a S aquele vértice com menor distância relativa a I e adiciona-o a S e, então, repetindo os passos até que todos os vértices alcançáveis por I estejam em S. Arestas que ligam vértices já pertencentes a S são desconsideradas. Dessa forma, calculando o caminho de custo mínimo entre as vértices do grafo. 
+<br>
+<br>
+
+### 4.2.2 Implementação 
+  
+A biblioteca networkx implementa  este algoritmo na função traveling_salesman que foi utilizada pelo grupo. Começamos transformando os pontos em nodos e criando arestas entre todos os vértices, futuramente o usuário poderá escolher as arestas. Após isso calculamos as distâncias entre os pontos para definir os pesos entre as arestas.
+</p> 
+
+<br>
+<img src="../media/integracao_rotas/code.png">
+<br>
+<br>
+
+### 4.3 Instalação do ambiente de simulação
+Para abrir este projeto você necessita das seguintes ferramentas:
+
+#### 4.3.1 Ros Humble Turtlebot3
+Para instalar esse pacote, abra o terminal do ubuntu e execute:
+
+```sudo apt install ros-humble-turtlebot3*```
+
+Isso instalará todos os pacotes necessários para executar o Gazebo, o ambiente de simulação que utilizamos.
+Por fim, execute no terminal do ubuntu para verificar se foi instalado corretamente:
+
+```gazebo```
+
+Em caso de erros, consulte a documentação de instalação do ros2 humble: [Documentação](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
+
+
+### 4.4 Comunicação 
+A comunicação entre a plataforma robótica móvel e o sistema de simulação integrada ao sistema operacional robótico é feita por meio do protocolo TCP/IP, onde os nós definidos em nosso script se comunicam entre os nós do sistema como *subcribers* (que se inscrevem nos tópicos dos nós do sistema para receberem as mensagens que eles enviam) ou *publishers* (que publicam mensagens nos tópicos do sistema para executar comandos no robô, por exemplo).
+
+Por enquanto, usamos os tópicos ```/odom```, para receber a posição atual do robô dentro do ambiente de simulação, e ```/cmd_vel```, para alterar a velocidade linear e angular do robô dentro do ambiente de simulação. Mas faremos uso de outros tópicos para receber as informações dos sensores que estão acoplados ao robô.
+
+Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, onde as setas pontilhadas indicam a direção das mensagens que são publicadas nos tópicos. 
+
+<img src="../media/arquitetura_sistema/interacao_topicos.png">
+
+<br>
+<br>
+
+# 6. Interface de usuário
+
+## 6.1. Visão geral do design
 
 <p>O sistema de design é uma coleção de elementos e padrões visuais que definem a aparência e a experiência do usuário em todo o projeto. Ele garante consistência e coesão em todas as telas e componentes, promovendo uma experiência de usuário unificada. A seguir, apresentamos os principais elementos do sistema de design:</p>
 
@@ -299,57 +441,57 @@ A viabilidade técnica, refere-se a possibilidade de implementar na prática a s
 
 <p>Assim como nos tópicos anteriores, o objetivo do grupo é utilizar esses ícones no projeto para manter um padrão e facilitar a experiência do usuário de modo que fique mais intuitivo.</p>
 
-## 5.2. Telas
+## 6.2. Telas
 
 <p>A seguir, apresentamos uma lista das telas principais do projeto, juntamente com uma breve descrição de suas funcionalidades:</p>
 
 #### Tela inicial
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/tela_inicial.png" width="65%"></img></p>
+<p align="center"><img src="../media/interface_usuario/tela_inicial.png" width="65%"></img></p>
 
 <p>A tela inicial é a primeira informação que o usuário receberá. Essa é nossa página de boas vindas e após selecionar "iniciar", eles são redirecionados para a tela principal do aplicativo.</p>
 
 #### Tela principal
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/registros_inspeções_vazio.png" width="65%"></img></p>
+<p align="center"><img src="../media/interface_usuario/registros_inspe%C3%A7%C3%B5es_vazio.png" width="65%"></img></p>
 
 <p>Essa é nossa tela principal do aplicativo, o histórico de inspeções. No príncipio ela está vazia, mas a intenção é que após o usuário cadastrar e realizar inspeções, aqui será demonstrado as informações, como na imagem abaixo.</p>
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/registros_inspeções_preenchido.png" width="65%"></p>
+<p align="center"><img src="../media/interface_usuario/registros_inspeções_preenchido.png" width="65%"></p>
 
 <p>Aqui, os usuários podem checar as informações das inspeções realizadas com sua data e qual rota foi realizada.</p>
 
 #### Setup
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/setup_vazio.png" width="65%"></p>
+<p align="center"><img src="../media/interface_usuario/setup_vazio.png" width="65%"></p>
 
 <p>A tela de setup permite que os usuários visualizem e editem suas informações de rota, criem novas rotas ou inicie a inspeção de uma rota. A ideia é que o botão de "Iniciar inspeção" esteja inativo, e somente após selecionar uma rota clicando no ícone de seta ">>" a rota selecionada seja carregada como no exemplo da imagem abaixo</p>
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/setup_selecionado.png" width="65%"></p>
+<p align="center"><img src="../media/interface_usuario/setup_selecionado.png" width="65%"></p>
 
 #### Criar
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/modal_crie.png" width="65%"></p>
+<p align="center"><img src="../media/interface_usuario/modal_crie.png" width="65%"></p>
 
 <p>Ao clicar no "Adicionar nova rota" uma modal surge para que o usuário envie a planta e crie sua rota.</p>
 
 #### Editar
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/modal_edite.png" width="65%"></p>
+<p align="center"><img src="../media/interface_usuario/modal_edite.png" width="65%"></p>
 
 <p>Ao clicar no lápis para editar uma rota, será aberta essa modal, semelhante a de criar, em que o usuário pode reorganizar a rota, alterar o nome, descrição e a imagem.</p>
 
 #### Rodando
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/rodando.png" width="65%"></p>
+<p align="center"><img src="../media/interface_usuario/rodando.png" width="65%"></p>
 
 <p>Essa página é carregada quando a simulação é iniciada. Com informações relevantes para o projeto</p>
 
-# 6. Sistema de visão computacional
-## 6.1. Implementação da técnica de filtros para detecção ou escolha de modelo pré-treinado a ser utilizado 
+# 7. Sistema de visão computacional
+## 7.1. Implementação da técnica de filtros para detecção ou escolha de modelo pré-treinado a ser utilizado 
 </br>
 
-## 6.3. Validação do sistema de visão computacional.
+## 7.2 Validação do sistema de visão computacional.
 <p> A fim de otimizar o processo de identificação de rachaduras, foi desenvolvido um filtro para ser aplicado sobre as imagens do dataset. O filtro em questão coloca em evidência o objeto a ser identificado, de modo a aumentar sua nitidez. Esse processo faz com que a possível rachadura a ser identificada se destaque na imagem em comparação com os outros elementos da figura. Motivado pelo objetivo de conferir a eficiência do filtro desenvolvido, o grupo construiu dois modelos distintos utilizando o Yolo V8: um que aplica o filtro às imagens do dataset, e um que não utiliza o filtro e processa as imagens puras.
 </p>
 
@@ -361,11 +503,71 @@ A viabilidade técnica, refere-se a possibilidade de implementar na prática a s
 
 </br>
 
-# 7. Sistemas de segurança
+# 8. Sistemas de segurança
 
-# 8. Backend
+## 8.1 Definição, implementação e validação de um sistema de tomada de decisões a partir da detecção de um obstáculo.
+
+<p>A definição, implementação e validação de um sistema de tomada de decisões a partir da detecção de obstáculos são fundamentais para que nosso robô equipado com um sensor LIDAR e uma câmera, navegue de forma autônoma e evite colisões.</p>
+
+<p>O sistema funciona da seguinte forma: o robô possui uma lista de metas predefinidas que precisa alcançar. Utilizando o sensor LIDAR, ele verifica continuamente se há obstáculos em seu caminho, essa é uma margem de segurança definida pela equipe. O LIDAR tem uma visão de todas as direções do robô. Todavia, ele só toma sua decisão de retornar quando detecta um obstáculo em sua frente. Quando o robô não detecta nenhum obstáculo próximo, ele segue em direção da meta atual. Ele calcula a diferença entre sua posição atual e a meta em termos de coordenadas x e y, determinando o ângulo necessário para girar em direção à meta. Se a diferença entre o ângulo atual e o ângulo desejado for maior que um limite predefinido, o robô gira no lugar para alinhar-se corretamente. Caso contrário, ele segue em linha reta em direção à meta até alcança-la e ao alcança-la, salva a posição em uma lista para retorno.</p>
+
+<p>No entanto, quando o robô detecta um obstáculo próximo usando o sensor LIDAR, ele toma uma decisão para evitar a colisão. Nesse caso, o robô faz o caminho de volta, retornando para sua posição inicial. É importante que a todo o momento o LIDAR está nos fornecendo essas informações, assim é garantido que o robô navegue de forma eficiente e segura sem colisões.</p>
+
+<p>A validação desse sistema foi realizada em um ambiente simulado. Durante os testes, o robô foi capaz de se movimentar em direção às metas, até encontrar um obstáculo e realizar o caminho de volta para sua posição inicial. Nesse teste foi analisado se o robô girava corretamente em direção de suas respectivas metas, identificava obstáculos em seu sensor e retorna ao ponto de partida quando encontra algum empecilho.</p>
+
+## 8.2 Mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos.
+
+<p><b>Acabar a bateria:</b> Existe o risco de o robô ficar sem energia devido ao esgotamento da bateria durante a operação, o que pode resultar na interrupção das tarefas programadas ou na paralisação do robô em um local indesejado.</p>
+
+<p><b>LIDAR com algo na frente:</b> O LIDAR é um componente crítico para a detecção de obstáculos. No entanto, existe o risco de sujeira, poeira ou outros detritos obstruírem a lente do LIDAR, afetando sua precisão e desempenho.</p>
+
+<p><b>Objetos em altitude menor que o LIDAR:</b> O LIDAR está localizado no topo do robô, existe o risco de objetos ou obstáculos estarem localizados em alturas inferiores à capacidade de detecção do LIDAR. Isso pode resultar em colisões ou danos ao robô.</p>
+
+<p><b>Curto-circuito ou problema nos fios:</b> Os sistemas eletromecânicos e eletrônicos do robô dependem de conexões adequadas e fiação correta para funcionar corretamente. Existe o risco de curto-circuitos, mau contato ou problemas na fiação, o que pode levar a falhas no sistema.</p>
+
+<p><b>Perder alguma peça no caminho (baixo risco):</b> Embora seja um risco de baixa probabilidade, existe a possibilidade de que alguma peça do robô, como parafusos ou componentes, possa soltar-se durante o deslocamento. Isso pode resultar em mau funcionamento do robô ou em danos aos componentes.</p>
+
+<p><b>Falta de técnica do parceiro:</b> Após a entrega do robô, é importante ressaltar que o parceiro assume algumas responsabilidades em relação ao seu manuseio adequado e ao uso correto da plataforma web. Essas responsabilidades incluem a capacidade de operar o robô de forma eficiente e habilidosa, bem como a compreensão da plataforma para mapear devidamente os pontos pelos quais o robô deve passar e determinar seu destino final. Com isso, esse ponto de responsabilidade pode gerar algumas falhas por conta da falta de técnica do parceiro relativo a esse manuseio, consistindo em um possível risco à aplicação.</p>
+
+<p><b>Perda de conectividade:</b> Embora o robô tenha sido projetado para operar de forma autônoma, sem depender de conectividade constante, é importante considerar que em certas situações específicas, como a necessidade de uma resposta ao vivo, a falta de conectividade pode representar um desafio significativo. Esse cenário se torna especialmente crítico quando o robô está em um ambiente confinado.</p>
+
+<p>Além desses exemplos, é importante considerar outros riscos potenciais específicos do ambiente de trabalho em que o robô será utilizado. Cada ambiente pode apresentar desafios e perigos únicos, portanto, é necessário realizar uma análise de risco abrangente e identificar os riscos relevantes, incluindo aqueles relacionados à segurança dos colaboradores e à integridade do equipamento.</p>
+
+## 8.3 Definição, implementação e validação de dispositivos de segurança para os riscos mapeados.
+
+<p>Vale ressaltar que todos os riscos poderiam ter sua possibilidade de ocorrência diminuída com o suporte da equipe antes da entrega da aplicação para o parceiro. Nesse sentido, a equipe capacitaria alguns funcionários para terem hábitos adequados com o projeto, mitigando em muito a chance da aplicação falhar em diversos tópicos que estão listados abaixo.</p>
+
+<p><b>BATERIA:</b> Para mitigar o risco associado à falta de bateria, foi desenvolvido um plano de contingência que inclui o uso de sinalizações adequadas. Após extensa pesquisa, foi descoberto que o robô emite um som quando a bateria está baixa. No entanto, surgiu uma preocupação específica em relação a esse recurso quando o robô estiver operando em um ambiente confinado, uma vez que o som poderia não ser ouvido.
+Para contornar essa situação, o grupo propôs uma solução alternativa. A ideia é acessar o tópico do robô responsável por monitorar o nível de voltagem da bateria e exibir essa informação na aplicação web. Dessa forma, será possível visualizar facilmente o status da bateria sem a necessidade de emitir um som que possa não ser eficiente dentro do ambiente confinado.
+Além disso, o grupo também sugeriu a implementação de um alerta na aplicação web quando o robô estiver conectado, mas ainda não tenha sido colocado no ambiente. Esse alerta servirá como uma indicação para não iniciar o processo caso o nível de bateria esteja abaixo de um certo limite. Essa medida preventiva garantirá que o robô não seja colocado em operação quando sua bateria estiver em um estado crítico, evitando danos ao equipamento.
+Com essas medidas em vigor, pretende-se proporcionar uma gestão eficaz do nível de bateria do robô, minimizando riscos e permitindo uma operação segura e eficiente em ambientes confinados.</p>
+
+<p><b>LIDAR SUJO:</b> Para solucionar esse problema, é importante que o colaborador encarregado de utilizar a aplicação realize limpezas periódicas no robô, desmontando as peças de forma adequada e realizando uma limpeza minuciosa. Essa prática tem como objetivo evitar erros decorrentes do acúmulo de sujeira no robô.
+Ao desmontar as peças, o colaborador deve ter cuidado para seguir as instruções de desmontagem e montagem corretas, garantindo que as peças sejam removidas e recolocadas adequadamente. Durante a limpeza, é importante utilizar técnicas apropriadas, como a remoção de sujeira com pincéis ou ar comprimido e a aplicação de soluções de limpeza suaves, quando necessário.
+Essa manutenção regular ajudará a prevenir a ocorrência de problemas causados por acúmulo de sujeira no robô, garantindo seu funcionamento adequado e minimizando falhas ou erros relacionados ao desempenho do equipamento.
+</p>
+
+<p><b>LIDAR ALTO:</b> Para mitigar o risco de colisões devido à localização do sensor LIDAR no topo do robô, uma solução viável é a utilização de sensores adicionais, como um LIDAR adicional posicionado na parte inferior do Turtlebot. Essa configuração permitiria a visualização da parte inferior do robô, tornando possível a detecção de obstáculos em áreas anteriormente não visíveis. Não obstante, outra adição benéfica para o projeto seriam sensores de proximidade ultrassônicos. Esses sensores emitem ondas sonoras de alta frequência e detectam o retorno dessas ondas ao refletirem em objetos próximos. Com a instalação de sensores ultrassônicos em várias direções ao redor do robô, seria possível detectar obstáculos próximos em distâncias curtas, fornecendo informações adicionais para a navegação em ambientes confinados.
+A combinação desses sensores adicionais aumentaria significativamente a capacidade do Turtlebot de detectar obstáculos e evitar colisões em ambientes confinados. Esses sensores forneceriam uma visão mais completa do ambiente, tanto em termos de altura quanto de proximidade, permitindo uma navegação mais precisa e segura.</p>
+
+<p><b>Curto-circuito ou problema nos fios, Perda de peças e Falta de técnica do parceiro:</b> Para resolver esse problema, é crucial que o colaborador tenha um entendimento completo da montagem adequada do robô, verificando cuidadosamente seu estado antes e depois de cada inspeção.
+Antes de iniciar qualquer processo de inspeção, o colaborador deve garantir que esteja familiarizado com as instruções de montagem fornecidas pelo grupo. É crucial entender a sequência correta de montagem das peças do robô, bem como as conexões e encaixes necessários para garantir um funcionamento adequado.
+Após a inspeção, o colaborador deve revisar minuciosamente a montagem do robô, verificando se todas as peças estão devidamente encaixadas e fixadas. Isso inclui a verificação de conexões elétricas, conexões mecânicas e outros componentes relevantes. Qualquer sinal de desalinhamento, soltura ou dano deve ser identificado e corrigido imediatamente.
+Ao adotar essa abordagem, o colaborador assegurará que o robô seja montado corretamente, eliminando a possibilidade de erros decorrentes de montagem inadequada. Além disso, essa prática ajudará a identificar problemas ou danos que possam ter ocorrido durante a inspeção, permitindo que sejam abordados antes que afetem o desempenho do robô.
+
+<p><b>Perda de conexão:</b>
+A perda de conectividade é um problema complexo de resolver, especialmente quando há uma necessidade de conexão constante. Uma solução viável é aumentar a potência da internet para melhorar a conectividade em locais remotos como ambientes confinados.
+Além disso, o grupo identificou uma abordagem para contornar a falta de conectividade constante, que é o uso do protocolo MQTT. Esse protocolo acumula os dados do percurso e permite que todas essas informações sejam enviadas de uma só vez ao final do processo, quando o robô estiver novamente conectado à internet.
+Com o uso do protocolo MQTT, o robô é capaz de armazenar os dados localmente durante a falta de conectividade e, assim que a conexão for restabelecida, enviar todas as informações de uma só vez. Isso garante que nenhuma informação seja perdida durante os períodos de desconexão, proporcionando uma sincronização eficiente com a plataforma web.
+Dessa forma, ao adotar o protocolo MQTT, é possível superar a falta de conectividade constante, permitindo que o robô mantenha suas operações mesmo em ambientes com acesso limitado à internet.</p>
+
+## 8.4 Implementação e validação de sistemas de proteção contra comandos indevidos.
+
+# 9. Backend
 
 O sistema de Backend da solução desenvolvida foi projetado de modo a conectar as informações fornecidas pelo Turtlebot e as informações fornecidas pelo usuário via interface gráfica, bem como tornar a aplicação web funcional no que concerne aos procedimentos que devem ser realizados pelo cliente diante da inspeção de um espaço confinado.
+
+## 9.1. Banco de dados
 
 Para a construção do banco de dados da solução, duas tecnologias distintas foram utilizadas: SQLAlchemy, para informações advindas do robô e do usuário, e Supabase, enquanto ferramenta de armazenamento de arquivos para abrigar as imagens capturadas pelo robô no ato da inspeção.
 
@@ -373,203 +575,161 @@ A fim de contemplar o conjunto de informações necessárias, as tabelas abaixo 
 
 <center>
 <table>
+
 <tr>
 <td><p align="center"><b>graph</b></p></td>
+<td><p align="center"><b>node</b></p></td>
+<td><p align="center"><b>edge</b></p></td>
+<td><p align="center"><b>image_report</b></p></td>
+<td><p align="center"><b>gas_report</b></p></td>
+<td><p align="center"><b>register</b></p></td>
+</tr>
+
+<tr>
+<td>+ id: int</td>
+<td>+ id: int</td>
+<td>+ id: int</td>
+<td>+ id: int</td>
+<td>+ id: int</td>
+<td>+ id: int</td>
 </tr>
 <tr>
-<td>
-+ id: int
-</td>
+<td> + name: string </td>
+<td> + x: float </td>
+<td> + nodeid_1: int </td>
+<td> + graph_id: int </td>
+<td> + graph_id: int </td>
+<td> + desciprtion: string </td>
 </tr>
 <tr>
-<td>
-+ name: string
-</td>
+<td> + description: string </td>
+<td> + y: float </td>
+<td> + nodeid_2: int </td>
+<td> + edge_id: int </td>
+<td> + edge_id: int </td>
+<td> + date: dateTime </td>
 </tr>
 <tr>
-<td>
-+ description: string
-</td>
+<td> + image_address: string </td>
+<td> + first_node: bool</td>
+<td> + graph_id: int</td>
+<td> + time: dateTime</td>
+<td> + time: dateTime</td>
+<td> + graph_id: int</td>
 </tr>
 <tr>
-<td>
-+ image_address: string
-+ </td>
+  <td>  </td>
+  <td> + graph_id: int </td>
+  <td>  </td>
+  <td> + image_address: string </td>
+  <td> + pression: float </td>
+  <td> + name: string </td>
 </tr>
 </table>
 </center>
 
-<center>
-<table>
-<tr>
-<td><p align="center"><b>node</b></p></td>
-</tr>
-<tr>
-<td>
-+ id: int
-</td>
-</tr>
-<tr>
-<td>
-+ x: node
-</td>
-</tr>
-<tr>
-<td>
-+ y: node
-</td>
-</tr>
-<tr>
-<td>
-+ first_node: bool
-</td>
-</tr>
-<tr>
-<td>
-+ graph_id: int
-</td>
-</tr>
-</table>
-<center>
-
-<center>
-<table>
-<tr>
-<td><p align="center"><b>edge</b></p></td>
-</tr>
-<tr>
-<td>
-+ id: int
-</td>
-</tr>
-<tr>
-<td>
-+ nodeid_1: int
-</td>
-</tr>
-<tr>
-<td>
-+ nodeid_2: int
-</td>
-</tr>
-<tr>
-<td>
-+ graph_id: int
-</td>
-</tr>
-</table>
-<center>
-
-<center>
-<table>
-<tr>
-<td><p align="center"><b>image_report</b></p></td>
-</tr>
-<tr>
-<td>
-+ id: int
-</td>
-</tr>
-<tr>
-<td>
-+ graph_id: int
-</td>
-</tr>
-<tr>
-<td>
-+ edge_id> int
-</td>
-</tr>
-<tr>
-<td>
-+ time: dateTime
-</td>
-</tr>
-<tr>
-<td>
-+ image_address: string
-</td>
-</tr>
-</table>
-<center>
-
-<center>
-<table>
-<tr>
-<td><p align="center"><b>gas_report</b></p></td>
-</tr>
-<tr>
-<td>
-+ id: int
-</td>
-</tr>
-<tr>
-<td>
-+ graph_id: int
-</td>
-</tr>
-<tr>
-<td>
-+ edge_id: int
-</td>
-</tr>
-<tr>
-<td>
-+ time: dateTime
-</td>
-</tr>
-<tr>
-<td>
-+ pression: float
-</td>
-</tr>
-</table>
-<center>
-
-<center>
-<table>
-<tr>
-<td><p align="center"><b>register</b></p></td>
-</tr>
-<tr>
-<td>
-+ id: int
-</td>
-</tr>
-<tr>
-<td>
-+ description: string
-</td>
-</tr>
-<tr>
-<td>
-+ date: dateTime
-</td>
-</tr>
-<tr>
-<td>
-+ graph_id: int
-</td>
-</tr>
-<tr>
-<td>
-+ name: string
-</td>
-</tr>
-</table>
-<center>
-</table>
   
-  As tabelas <b>graph</b>, <b>node</b> e <b>register</b> foram idealizadas com base no fato de que a interface gráfica possibilita ao usuário criar a trajetória a ser seguida pelo robô durante a inspeção de um espaço confinado. Para isso, o usuário insere os pontos pelos quais o robô deve passar baseando-se na imagem da planta do espaço confinado em questão. Os pontos inseridos podem ou não formar arestas, indicando a possibilidade de que o robô se direcione de um ponto ao outro com o qual existe conexão. Uma vez criado o desenho da rota a ser seguida pelo Turtlebot, ocorre a conversão da lista de pontos e arestas para um grafo, estrutura escolhida para representar a trajetória que guiará o robô quando este receber as informações de movimentação via ROS. Já a tabela <b>register</b> cumpre a função de armazenar o registro de uma rota criada pelo usuário. Uma vez que o grafo representante da rota é concretizado, é oferecida ao usuário a possibilidade de atribuir à rota em questão um nome e uma descrição.
+As tabelas <b>graph</b>, <b>node</b> e <b>register</b> foram idealizadas com base no fato de que a interface gráfica possibilita ao usuário criar a trajetória a ser seguida pelo robô durante a inspeção de um espaço confinado. Para isso, o usuário insere os pontos pelos quais o robô deve passar baseando-se na imagem da planta do espaço confinado em questão. Os pontos inseridos podem ou não formar arestas, indicando a possibilidade de que o robô se direcione de um ponto ao outro com o qual existe conexão. Uma vez criado o desenho da rota a ser seguida pelo Turtlebot, ocorre a conversão da lista de pontos e arestas para um grafo, estrutura escolhida para representar a trajetória que guiará o robô quando este receber as informações de movimentação via ROS. Já a tabela <b>register</b> cumpre a função de armazenar o registro de uma rota criada pelo usuário. Uma vez que o grafo representante da rota é concretizado, é oferecida ao usuário a possibilidade de atribuir à rota em questão um nome e uma descrição.
 
   
-  A tabela <b>image_report</b>, por outro lado, está associada à necessidade de obter informações do espaço confinado por meio da atuação do robô. Sabendo-se que o Turtlebot terá uma câmera acoplada à sua estrutura, ele será capaz de fotografar o ambiente a cada ponto pelo qual passar. As imagens em questão serão submetidas ao modelo de visão computacional desenvolvido e, após o processamento dos arquivos, eles serão enviados para um bucket do Supabase, de modo que se tornem visíveis no relatório da inspeção exibido na interface gráfica uma vez que o procedimento é finalizado. Considerando também a existência de um sensor de gás acoplado à estrutura robótica, serão coletadas informações relativas às condições atmosféricas do espaço confinado. A fim de que se tornem visíveis no relatório de inspeção, possibilitando sua análise pelo usuário, tais informações serão armazenadas na tabela <b>gas_report</b> e estarão associadas ao identificador do grafo ao qual se referem.
+A tabela <b>image_report</b>, por outro lado, está associada à necessidade de obter informações do espaço confinado por meio da atuação do robô. Sabendo-se que o Turtlebot terá uma câmera acoplada à sua estrutura, ele será capaz de fotografar o ambiente a cada ponto pelo qual passar. As imagens em questão serão submetidas ao modelo de visão computacional desenvolvido e, após o processamento dos arquivos, eles serão enviados para um bucket do Supabase, de modo que se tornem visíveis no relatório da inspeção exibido na interface gráfica uma vez que o procedimento é finalizado. Considerando também a existência de um sensor de gás acoplado à estrutura robótica, serão coletadas informações relativas às condições atmosféricas do espaço confinado. A fim de que se tornem visíveis no relatório de inspeção, possibilitando sua análise pelo usuário, tais informações serão armazenadas na tabela <b>gas_report</b> e estarão associadas ao identificador do grafo ao qual se referem.
    
-# 9. Integração de sistemas
+## 9.2. Rotas
+Para a construção das rotas da solução, duas tecnologias distintas foram utilizadas: FastAPI, um framework para python que cria a API utilizada pela aplicação, e o pydantic, como forma de validar as estruturas de dados definidas no banco de dados.
 
-# 10. Validação da eficácia do sistema
+A fim de contemplar tanto as necessidades da interface de usuário, quando para dar segurança ao usuário quando tiver que mudar algumas coisas do banco de dados de forma bruta, as rotas abaixo foram construídas:
 
-# 11. Referências
+### 9.2.1. Rotas da tabela Graph
+
+A rota /graph/get/{id} é uma rota do tipo GET que permite obter um grafo com base no seu ID. Ao receber o ID do grafo como parâmetro, a rota realiza uma consulta no banco de dados para buscar o grafo correspondente. Em seguida, obtém todos os nós e arestas relacionados a esse grafo. Os dados são estruturados em um formato JSON, mapeando as coordenadas dos nós para as arestas. Por fim, os dados do grafo são retornados em formato JSON.
+<p align="center"><img src="../media/rotas/graph_get_graph.png" width="65%"></p>
+
+
+A rota /graph/get_all é uma rota do tipo GET que retorna todos os grafos existentes. Ao ser acessada, a rota realiza uma consulta no banco de dados para obter todos os grafos. Para cada grafo obtido, são buscados os nós e as arestas relacionados a ele. Os dados são estruturados em um formato JSON e retornados como resultado da requisição.
+<p align="center"><img src="../media/rotas/graph_get_all.png" width="65%"></p>
+<br/>
+
+A rota /graph/create é uma rota do tipo POST que permite criar um novo grafo. Ao receber um objeto JSON contendo as informações do novo grafo, a rota verifica se já existe um grafo com o mesmo nome no banco de dados. Se não existir, um novo objeto Graph é criado com base nas informações fornecidas e adicionado ao banco de dados. Após as alterações serem confirmadas no banco de dados, é retornada uma mensagem de sucesso em formato JSON.
+<p align="center"><img src="../media/rotas/graph_create.png" width="65%"></p>
+<br/>
+
+A rota /graph/delete é uma rota do tipo DELETE que exclui um grafo com base no nome. Ao receber um dicionário JSON contendo o nome do grafo a ser excluído, a rota realiza uma consulta no banco de dados para encontrar o grafo correspondente. Em seguida, remove o grafo do banco de dados e confirma as alterações.
+<p align="center"><img src="../media/rotas/graph_delete.png" width="65%"></p>
+<br/>
+
+A rota /graph/update é uma rota do tipo PUT que atualiza as informações de um grafo existente. Ao receber um dicionário JSON contendo as informações atualizadas do grafo, a rota realiza uma consulta no banco de dados para encontrar o grafo com o ID especificado. Em seguida, atualiza as informações do grafo com base nos campos especificados no JSON. Após as alterações serem confirmadas no banco de dados, é retornada uma mensagem de sucesso em formato JSON.
+<p align="center"><img src="../media/rotas/graph_update.png" width="65%"></p>
+<br/>
+
+### 9.2.2. Rotas da tabela Node (nós dos grafos)
+
+A rota /node/get/{id} é uma rota do tipo GET que permite obter um nó específico com base no seu ID. Ao receber o ID do nó como parâmetro, a rota realiza uma consulta no banco de dados para buscar o nó correspondente. O nó encontrado é retornado em formato JSON.
+<p align="center"><img src="../media/rotas/node_get.png" width="65%"></p>
+<br/>
+
+A rota /node/create é uma rota do tipo POST que permite criar um novo nó. Ao receber um objeto JSON contendo as informações do novo nó, a rota cria um novo objeto Node com base nos valores fornecidos. Em seguida, o nó é adicionado ao banco de dados e as alterações são confirmadas. É retornado uma mensagem indicando que o nó foi criado com sucesso, juntamente com os valores do nó criado.
+<p align="center"><img src="../media/rotas/node_create.png" width="65%"></p>
+<br/>
+
+A rota /node/delete/{id} é uma rota do tipo DELETE que exclui um nó com base no seu ID. Ao receber o ID do nó como parâmetro, a rota realiza uma consulta no banco de dados para encontrar o nó correspondente. Em seguida, são buscadas todas as arestas que têm o nó como ponto de partida ou ponto de destino. Essas arestas são excluídas do banco de dados. O nó é então excluído e as alterações são confirmadas. É retornado um JSON com uma mensagem de sucesso indicando que o nó foi excluído com sucesso
+<p align="center"><img src="../media/rotas/node_delete.png" width="65%"></p>
+<br/>
+
+### 9.2.3. Rotas da tabela Edge (arestas dos grafos)
+
+A rota /edge/create é uma rota do tipo POST que permite criar uma nova aresta. Ao receber um objeto JSON contendo as informações da aresta, a rota verifica se os nós existem. Se alguma dessas verificações falhar, a rota retorna uma mensagem de erro indicando o problema específico. Caso contrário, a rota cria uma nova instância de Edge com base nos valores fornecidos e adiciona a aresta ao banco de dados. Em seguida, as alterações são confirmadas e é retornado um JSON com uma mensagem de sucesso, juntamente com as informações da aresta criada.
+<p align="center"><img src="../media/rotas/edge_create.png" width="65%"></p>
+<br/>
+
+A rota /edge/get/{id} é uma rota do tipo GET que permite obter uma aresta específica com base no seu ID. Ao receber o ID da aresta como parâmetro, a rota realiza uma consulta no banco de dados para buscar a aresta correspondente. A aresta encontrada é retornada em formato JSON
+<p align="center"><img src="../media/rotas/edge_get.png" width="65%"></p>
+<br/>
+
+A rota /edge/delete é uma rota do tipo DELETE que exclui uma aresta com base no seu ID. Ao receber o ID da aresta como parâmetro, a rota realiza uma consulta no banco de dados para encontrar a aresta correspondente. Em seguida, a aresta é excluída do banco de dados e as alterações são confirmadas. É retornado um JSON com uma mensagem de sucesso indicando que a aresta foi excluída com sucesso.
+<p align="center"><img src="../media/rotas/edge_delete.png" width="65%"></p>
+<br/>
+
+A rota /edge/update é uma rota do tipo PUT que permite atualizar uma aresta existente. Ao receber um objeto JSON contendo as informações atualizadas da aresta, a rota encontra a aresta correspondente no banco de dados com base no seu ID. Em seguida, atualiza os campos relevantes da aresta com base nas chaves presentes no objeto JSON. As alterações são confirmadas e é retornado um JSON com uma mensagem de sucesso, juntamente com as informações atualizadas da aresta.
+<p align="center"><img src="../media/rotas/edge_update.png" width="65%"></p>
+<br/>
+
+### 9.2.5. Rotas da tabela Register (registros do histórico)
+
+A rota /register/{type}/{val} é uma rota do tipo GET que permite obter um registro específico com base no tipo e no valor fornecido. Dependendo do tipo fornecido, a rota realiza uma consulta no banco de dados para buscar o registro correspondente. Se o tipo for "id", a consulta é feita com base no ID do registro. Se o tipo for "register_name", a consulta é feita com base no nome do registro. O registro encontrado é retornado em formato JSON.
+<p align="center"><img src="../media/rotas/register_get.png" width="65%"></p>
+<br/>
+
+A rota /register/get_all é uma rota do tipo GET que permite obter todos os registros existentes. A rota realiza uma consulta no banco de dados para buscar todos os registros ordenados pela data. Os registros encontrados são retornados em formato JSON.
+<p align="center"><img src="../media/rotas/register_get_all.png" width="65%"></p>
+<br/>
+
+A rota /register/create é uma rota do tipo POST que permite criar um novo registro. Ao receber um objeto JSON contendo as informações do novo registro, a rota cria uma nova instância de Register com base nos valores fornecidos, incluindo a data atual. O registro é adicionado ao banco de dados e as alterações são confirmadas. É retornado uma mensagem indicando que o registro foi criado com sucesso, juntamente com os valores do registro criado.
+<p align="center"><img src="../media/rotas/register_create.png" width="65%"></p>
+<br/>
+
+A rota /register/delete é uma rota do tipo DELETE que exclui um registro com base no seu nome. Ao receber um objeto JSON contendo o nome do registro a ser excluído, a rota realiza uma consulta no banco de dados para encontrar o registro correspondente. O registro é excluído do banco de dados e as alterações são confirmadas. É retornado um JSON com uma mensagem de sucesso indicando que o registro foi excluído com sucesso.
+<p align="center"><img src="../media/rotas/register_delete.png" width="65%"></p>
+<br/>
+
+
+### 9.2.6. Rotas da tabela Image (imagens)
+
+A rota /get/{file} é uma rota do tipo GET que permite obter a URL pública de um arquivo de imagem. Ela recebe um parâmetro file, que representa o nome do arquivo de imagem. A rota utiliza a biblioteca Supabase para acessar o armazenamento de arquivos e obter a URL pública correspondente ao arquivo especificado. A URL é retornada como resultado.
+<p align="center"><img src="../media/rotas/image_get.png" width="65%"></p>
+<br/>
+
+A rota /add é uma rota do tipo POST que permite armazenar uma nova imagem. Ela recebe um objeto JSON contendo dois campos: image, que representa a imagem em formato base64, e name, que representa o nome da imagem. A rota cria um arquivo de texto com o nome fornecido e escreve a imagem codificada em base64 nesse arquivo. Em seguida, o arquivo é lido em modo binário e carregado no armazenamento Supabase usando a biblioteca Supabase. Após o carregamento bem-sucedido, o arquivo de texto é removido do sistema de arquivos local. Por fim, a rota retorna a URL pública da imagem recém-armazenada por meio da chamada à rota /get/{file}.
+<p align="center"><img src="../media/rotas/image_post.png" width="65%"></p>
+<br/>
+
+
+
+É válido observar que algumas rotas não são utilizadas pela aplicação, mas sua existência é importante para o controle de mudanças do banco de dados, caso seja necessário acessá-las diretamente, isso pode ser feito acessando diretamente o endereço da rota.
+# 10. Integração de sistemas
+
+# 11. Validação da eficácia do sistema
+
+# 12. Referências
 
 BRASIL. Ministério do Trabalho e Emprego. Portaria nº 202, de 22 de dezembro de 2006 - **NR33**. Diário Oficial da União, 27 de dezembro de 2006.<br>
 MELLO, Pedro. Estratégia do Oceano Azul - 22. DÊGRAU10, 01 ago. 2020. Disponível em: https://degrau10.com.br/estrategia-do-oceano-azul/. Acesso em: 19 abr. 2023.<br>
