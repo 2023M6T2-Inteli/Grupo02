@@ -126,7 +126,7 @@ Os acidentes no ambiente de trabalho não geram apenas custos financeiros direto
 Em contrapartida, a implementação de políticas de segurança eficazes pode ter um impacto positivo na moral e produtividade dos funcionários. Ademais, uma cultura de segurança positiva pode levar a uma maior colaboração e comunicação entre os funcionários, o que pode melhorar a eficiência e a qualidade do trabalho. Portanto, investir em medidas preventivas e políticas de segurança eficazes é uma forma de proteger os funcionários, reduzir os custos associados a acidentes no ambiente de trabalho e melhorar a moral e produtividade da equipe. Dessa forma, é possível garantir a saúde e segurança dos funcionários e evitar custos desnecessários para a empresa, tornando a implementação do projeto financeiramente viável e positiva para todos os envolvidos.
 Foi realizada uma pesquisa com o objetivo de coletar informações quantitativas sobre os custos dos acidentes de trabalho, a fim de embasar a abordagem proposta na análise financeira. O grupo teve como prioridade os dados relacionados aos acidentes sofridos pelos funcionários da empresa, incluindo desde casos leves até os mais graves. Além disso, foram levantadas informações sobre as multas decorrentes da emissão de gases durante o processo de fundição do aço, que é a principal atividade realizada pela Gerdau. Com base nas pesquisas realizadas na internet, foi elaborada uma planilha de preços que mostra o custo de alguns acidentes que poderiam ser evitados pela empresa ao adotar soluções preventivas.
 
-<img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/artefatos_negocios/numeros_analise.jpeg"></img>
+<img src="../media/artefatos_negocios/numeros_analise.jpeg"></img>
 fontes: Indenização por acidente de trabalho: valor, requisitos e como receber (2023):
 https://mdn.adv.br/indenizacao-por-acidente-de-trabalho/#:~:text=Para%20a%20CLT%2C%20o%20valor,com%20a%20gravidade%20da%20situa%C3%A7%C3%A3o.
 
@@ -138,11 +138,11 @@ Tabelas de Preços de Referência para Cálculo de Multas Ambientais divulgadas 
 #### Matriz de riscos
 
 Uma matriz de riscos é uma ferramenta utilizada para avaliar e gerenciar os riscos e oportunidades envolvidos em um projeto, atividade ou processo. Ela ajuda a identificar e avaliar os potenciais riscos e a probabilidade de sua ocorrência, bem como o impacto que eles podem exercer sobre o projeto ou atividade. A matriz também pode ajudar a definir a prioridade das ações correspondentes ao gerenciamento do projeto, indicando quais riscos devem ser tratados com maior urgência, por exemplo. Além disso, no projeto em questão, a criação da matriz visa apresentar ao parceiro o que a equipe imagina enfrentar e pensar em conjunto em maneiras de mitigar os riscos, bem como aproveitar as oportunidades existentes.
-<img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/artefatos_negocios/matriz_riscos.png"></img>
+<img src="../media/artefatos_negocios/matriz_riscos.png"></img>
 
 ## 1.5. Análise da solução
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/artefatos_negocios/proposta_de_valor.png" width="60%"></p>
+<p align="center"><img src="../media/artefatos_negocios/proposta_de_valor.png" width="60%"></p>
 Nossa proposta de valor consiste em uma solução que contempla os seguintes serviços: 
 <ul>
   <li> Simulação do trajeto de um robô seguidor e seus dados de sensores para medição atmosférica</li>
@@ -575,197 +575,71 @@ A fim de contemplar o conjunto de informações necessárias, as tabelas abaixo 
 
 <center>
 <table>
+
 <tr>
 <td><p align="center"><b>graph</b></p></td>
-</tr>
-<tr>
-<td>
-+ id: int
-</td>
-</tr>
-<tr>
-<td>
-+ name: string
-</td>
-</tr>
-<tr>
-<td>
-+ description: string
-</td>
-</tr>
-<tr>
-<td>
-+ image_address: string
-+ </td>
-</tr>
-</table>
-</center>
-
-<center>
-<table>
-<tr>
 <td><p align="center"><b>node</b></p></td>
-</tr>
-<tr>
-<td>
-+ id: int
-</td>
-</tr>
-<tr>
-<td>
-+ x: node
-</td>
-</tr>
-<tr>
-<td>
-+ y: node
-</td>
-</tr>
-<tr>
-<td>
-+ first_node: bool
-</td>
-</tr>
-<tr>
-<td>
-+ graph_id: int
-</td>
-</tr>
-</table>
-</center>
-
-<center>
-<table>
-<tr>
 <td><p align="center"><b>edge</b></p></td>
-</tr>
-<tr>
-<td>
-+ id: int
-</td>
-</tr>
-<tr>
-<td>
-+ nodeid_1: int
-</td>
-</tr>
-<tr>
-<td>
-+ nodeid_2: int
-</td>
-</tr>
-<tr>
-<td>
-+ graph_id: int
-</td>
-</tr>
-</table>
-</center>
-
-<center>
-<table>
-<tr>
 <td><p align="center"><b>image_report</b></p></td>
-</tr>
-<tr>
-<td>
-+ id: int
-</td>
-</tr>
-<tr>
-<td>
-+ graph_id: int
-</td>
-</tr>
-<tr>
-<td>
-+ edge_id> int
-</td>
-</tr>
-<tr>
-<td>
-+ time: dateTime
-</td>
-</tr>
-<tr>
-<td>
-+ image_address: string
-</td>
-</tr>
-</table>
-</center>
-
-<center>
-<table>
-<tr>
 <td><p align="center"><b>gas_report</b></p></td>
-</tr>
-<tr>
-<td>
-+ id: int
-</td>
-</tr>
-<tr>
-<td>
-+ graph_id: int
-</td>
-</tr>
-<tr>
-<td>
-+ edge_id: int
-</td>
-</tr>
-<tr>
-<td>
-+ time: dateTime
-</td>
-</tr>
-<tr>
-<td>
-+ pression: float
-</td>
-</tr>
-</table>
-</center>
-
-<center>
-<table>
-<tr>
 <td><p align="center"><b>register</b></p></td>
 </tr>
+
 <tr>
-<td>
-+ id: int
-</td>
+<td>+ id: int</td>
+<td>+ id: int</td>
+<td>+ id: int</td>
+<td>+ id: int</td>
+<td>+ id: int</td>
+<td>+ id: int</td>
 </tr>
 <tr>
-<td>
-+ description: string
-</td>
+<td> + name: string </td>
+<td> + x: float </td>
+<td> + nodeid_1: int </td>
+<td> + graph_id: int </td>
+<td> + graph_id: int </td>
+<td> + desciprtion: string </td>
 </tr>
 <tr>
-<td>
-+ date: dateTime
-</td>
+<td> + description: string </td>
+<td> + y: float </td>
+<td> + nodeid_2: int </td>
+<td> + edge_id: int </td>
+<td> + edge_id: int </td>
+<td> + date: dateTime </td>
 </tr>
 <tr>
-<td>
-+ graph_id: int
-</td>
+<td> + image_address: string </td>
+<td> + first_node: bool</td>
+<td> + graph_id: int</td>
+<td> + time: dateTime</td>
+<td> + time: dateTime</td>
+<td> + graph_id: int</td>
 </tr>
 <tr>
-<td>
-+ name: string
-</td>
+  <td>  </td>
+  <td> + graph_id: int </td>
+  <td>  </td>
+  <td> + image_address: string </td>
+  <td> + pression: float </td>
+  <td> + name: string </td>
 </tr>
 </table>
 </center>
+
   
 As tabelas <b>graph</b>, <b>node</b> e <b>register</b> foram idealizadas com base no fato de que a interface gráfica possibilita ao usuário criar a trajetória a ser seguida pelo robô durante a inspeção de um espaço confinado. Para isso, o usuário insere os pontos pelos quais o robô deve passar baseando-se na imagem da planta do espaço confinado em questão. Os pontos inseridos podem ou não formar arestas, indicando a possibilidade de que o robô se direcione de um ponto ao outro com o qual existe conexão. Uma vez criado o desenho da rota a ser seguida pelo Turtlebot, ocorre a conversão da lista de pontos e arestas para um grafo, estrutura escolhida para representar a trajetória que guiará o robô quando este receber as informações de movimentação via ROS. Já a tabela <b>register</b> cumpre a função de armazenar o registro de uma rota criada pelo usuário. Uma vez que o grafo representante da rota é concretizado, é oferecida ao usuário a possibilidade de atribuir à rota em questão um nome e uma descrição.
 
   
 A tabela <b>image_report</b>, por outro lado, está associada à necessidade de obter informações do espaço confinado por meio da atuação do robô. Sabendo-se que o Turtlebot terá uma câmera acoplada à sua estrutura, ele será capaz de fotografar o ambiente a cada ponto pelo qual passar. As imagens em questão serão submetidas ao modelo de visão computacional desenvolvido e, após o processamento dos arquivos, eles serão enviados para um bucket do Supabase, de modo que se tornem visíveis no relatório da inspeção exibido na interface gráfica uma vez que o procedimento é finalizado. Considerando também a existência de um sensor de gás acoplado à estrutura robótica, serão coletadas informações relativas às condições atmosféricas do espaço confinado. A fim de que se tornem visíveis no relatório de inspeção, possibilitando sua análise pelo usuário, tais informações serão armazenadas na tabela <b>gas_report</b> e estarão associadas ao identificador do grafo ao qual se referem.
    
+## 9.2. Rotas
+Para a construção das rotas da solução, duas tecnologias distintas foram utilizadas: SQLAlchemy, para informações advindas do robô e do usuário, e Supabase, enquanto ferramenta de armazenamento de arquivos para abrigar as imagens capturadas pelo robô no ato da inspeção.
+
+A fim de contemplar o conjunto de informações necessárias, as tabelas abaixo foram construídas:
+
+
 # 10. Integração de sistemas
 
 # 11. Validação da eficácia do sistema
