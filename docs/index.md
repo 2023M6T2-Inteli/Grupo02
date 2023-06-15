@@ -185,7 +185,11 @@ Outrossim, há uma interface gráfica que tem como objetivo ajudar no planejamen
 
 <br>
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/arquitetura_sistema/diagrama_solu%C3%A7%C3%A3ov2.drawio.png?raw=true" width="50%"></img></p>
+<p align="center"><img src="https://raw.githubusercontent.com/2023M6T2-Inteli/Safe-McQueen/main/media/interface_usuario/logo_equipe.png" width="40%"></img></p>
+
+<h5 align="center"> Logo da equipe Safe Mc Queen </h5>  
+
+<br>
 
 O objetivo do desenvolvimento é construir uma simulação de um robô capaz de se mover em ambientes de espaço confinado e áreas de difícil acesso. O robô terá a capacidade de coletar dados a partir dos sensores (principalmente de oxigênio e outros gases), também irá utilizar filmagens para apoiar na inspeção prévia da estrutura e no suporte  na execução das atividades planejadas. 
 
@@ -200,6 +204,10 @@ Para alcançar esse objetivo, foi adotada uma metodologia abrangente no desenvol
 <br>
 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/arquitetura_sistema/diagrama_solu%C3%A7%C3%A3ov2.drawio.png?raw=true" width="60%"></img></p>
+
+<h5 align="center"> Arquitetura da Solução </h5>  
+
+<br>
 
  A arquitetura do projeto é composta por duas partes distintas. A primeira parte envolve o sistema responsável pelo controle do robô e seus periféricos. Essa parte abrange a comunicação entre os diferentes componentes do sistema, bem como a simulação do robô. Para realizar essas funcionalidades, utiliza-se o ROS2, um framework de robótica que facilita a comunicação entre os componentes do sistema e permite a simulação do robô. Essa abordagem é vantajosa, pois possibilita o desenvolvimento e teste do sistema sem a necessidade de um robô físico.
 <br> 
