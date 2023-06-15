@@ -152,14 +152,12 @@ Nossa proposta de valor consiste em uma solução que contempla os seguintes ser
 Essa solução consegue mitigar as principais dores do cliente: a segurança do operador que realiza a manutenção e a dificuldade em avaliar se há riscos ao colaborador sem entrar no ambiente confinado. Essas dores são sanadas graças aos sensores que identificam a presença e a quantidade de componentes gasosos tóxicos, inflamáveis e seu nível de perigo no local; além do fato de que o protótipo verificará o ambiente primeiro, perdendo a necessidade de um colaborador se arriscar dentro dos ambientes confinados.
 
 Outrossim, há uma interface gráfica que tem como objetivo ajudar no planejamento para as inspeções e manutenções desses ambientes confinados. Essa interface gráfica possuirá dashboards que se atualizam em tempo real e, também, fotos do interior do ambiente confinado que serão captadas pela câmera que o protótipo está equipado.
-=======
-# Conteúdo
-- [Manuais](#manuais)
+
 ### Solução 
 
 <br>
 
-<p align="center"><img src="https://raw.githubusercontent.com/2023M6T2-Inteli/Safe-McQueen/main/media/interface_usuario/logo_equipe.png" width="40%"></img></p>
+<p align="center"><img src="../media/interface_usuario/logo_equipe.png" width="40%"></img></p>
 
 <h5 align="center"> Logo da equipe Safe Mc Queen </h5>  
 
@@ -204,32 +202,7 @@ Adicionalmente, está sendo considerado o uso de uma bridge entre o ROS2 e o Web
 | Perder alguma peça no caminho | Embora seja um risco de baixa probabilidade, existe a possibilidade de que alguma peça do robô, como parafusos ou componentes, nesse caso, a recomendação é que seja feita uma averiguação sobre a integridade física do robô  antes e depois da vistoria.  |
 | Perda de conectividade | Esperar a inspeção a terminar por completo para depois verificar os dados obtidos ao final da inspeção. |
 
-<br>
-
-  - [Manual de Implantação](#manual-de-implantação)
-  - [Manual do Usuário](#manual-do-usuário)
-- [Referências](#referências)
-
-# 1. Entendimento de negócio
-
-
-## 1.1. Análise setorial
-(Oceano azul)
-
-## 1.2. Análise empresarial
-(Matriz SWOT)
-
-## 1.3. Análise do time de desenvolvimento
-(Matriz de Riscos)
-
-## 1.4. Análise da solução
-(Proposta de valor)
->>>>>>> Stashed changes
-
-# 2. Entendimento do metadesign
-
-## 2.1. Fatores mercadológicos
-<<<<<<< Updated upstream
+<br/>
 
 #### Relação entre o produto desenvolvido e sua precificação com o merdaco atual
 
@@ -274,7 +247,7 @@ O grupo também propôs uma solução visando ser mais ecoeficiente, que poderia
 
 ### Persona
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/artefatos_negocios/persona.png" width="60%"></img></p>
+<p align="center"><img src="../media/artefatos_negocios/persona.png" width="60%"></img></p>
 A persona foi criada para ajudar a entender as necessidades e os desejos do público alvo para a solução de automação industrial que foi apresentada, ela é um personagem fictício, doravante, com informações reais fornecidas pelos representantes da Gerdau. Nesse caso, especificamente,  Joana é técnica em segurança do trabalho, realiza atividades de alto risco, e, portanto, está sempre com equipamentos de proteção individual, sobretudo, por serem ainda atividades arriscadas, compreende que é um trabalho bastante delicado. Com a implementação da solução em desenvolvimento , Joana teria que aprender a supervisionar o trabalho do robô, deixando para ele concluir a etapa mais perigosa e garantindo que seu desempenho nas demais responsabilidades do processo de inspeção do ambiente confinado estivessem ocorrendo de forma correta.
 
 ### User Story
@@ -394,10 +367,10 @@ A biblioteca networkx implementa  este algoritmo na função traveling_salesman 
 <br>
 <br>
 
-### 5.1.1 Instalação do ambiente de simulação
+### 4.3 Instalação do ambiente de simulação
 Para abrir este projeto você necessita das seguintes ferramentas:
 
-#### 5.1.1.1 Ros Humble Turtlebot3
+#### 4.3.1 Ros Humble Turtlebot3
 Para instalar esse pacote, abra o terminal do ubuntu e execute:
 
 ```sudo apt install ros-humble-turtlebot3*```
@@ -410,7 +383,7 @@ Por fim, execute no terminal do ubuntu para verificar se foi instalado corretame
 Em caso de erros, consulte a documentação de instalação do ros2 humble: [Documentação](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
 
 
-### 5.1.2 Comunicação 
+### 4.4 Comunicação 
 A comunicação entre a plataforma robótica móvel e o sistema de simulação integrada ao sistema operacional robótico é feita por meio do protocolo TCP/IP, onde os nós definidos em nosso script se comunicam entre os nós do sistema como *subcribers* (que se inscrevem nos tópicos dos nós do sistema para receberem as mensagens que eles enviam) ou *publishers* (que publicam mensagens nos tópicos do sistema para executar comandos no robô, por exemplo).
 
 Por enquanto, usamos os tópicos ```/odom```, para receber a posição atual do robô dentro do ambiente de simulação, e ```/cmd_vel```, para alterar a velocidade linear e angular do robô dentro do ambiente de simulação. Mas faremos uso de outros tópicos para receber as informações dos sensores que estão acoplados ao robô.
@@ -474,51 +447,51 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 #### Tela inicial
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/tela_inicial.png" width="65%"></img></p>
+<p align="center"><img src="../media/interface_usuario/tela_inicial.png" width="65%"></img></p>
 
 <p>A tela inicial é a primeira informação que o usuário receberá. Essa é nossa página de boas vindas e após selecionar "iniciar", eles são redirecionados para a tela principal do aplicativo.</p>
 
 #### Tela principal
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/registros_inspeções_vazio.png" width="65%"></img></p>
+<p align="center"><img src="../media/interface_usuario/registros_inspe%C3%A7%C3%B5es_vazio.png" width="65%"></img></p>
 
 <p>Essa é nossa tela principal do aplicativo, o histórico de inspeções. No príncipio ela está vazia, mas a intenção é que após o usuário cadastrar e realizar inspeções, aqui será demonstrado as informações, como na imagem abaixo.</p>
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/registros_inspeções_preenchido.png" width="65%"></p>
+<p align="center"><img src="../media/interface_usuario/registros_inspeções_preenchido.png" width="65%"></p>
 
 <p>Aqui, os usuários podem checar as informações das inspeções realizadas com sua data e qual rota foi realizada.</p>
 
 #### Setup
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/setup_vazio.png" width="65%"></p>
+<p align="center"><img src="../media/interface_usuario/setup_vazio.png" width="65%"></p>
 
 <p>A tela de setup permite que os usuários visualizem e editem suas informações de rota, criem novas rotas ou inicie a inspeção de uma rota. A ideia é que o botão de "Iniciar inspeção" esteja inativo, e somente após selecionar uma rota clicando no ícone de seta ">>" a rota selecionada seja carregada como no exemplo da imagem abaixo</p>
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/setup_selecionado.png" width="65%"></p>
+<p align="center"><img src="../media/interface_usuario/setup_selecionado.png" width="65%"></p>
 
 #### Criar
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/modal_crie.png" width="65%"></p>
+<p align="center"><img src="../media/interface_usuario/modal_crie.png" width="65%"></p>
 
 <p>Ao clicar no "Adicionar nova rota" uma modal surge para que o usuário envie a planta e crie sua rota.</p>
 
 #### Editar
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/modal_edite.png" width="65%"></p>
+<p align="center"><img src="../media/interface_usuario/modal_edite.png" width="65%"></p>
 
 <p>Ao clicar no lápis para editar uma rota, será aberta essa modal, semelhante a de criar, em que o usuário pode reorganizar a rota, alterar o nome, descrição e a imagem.</p>
 
 #### Rodando
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/rodando.png" width="65%"></p>
+<p align="center"><img src="../media/interface_usuario/rodando.png" width="65%"></p>
 
 <p>Essa página é carregada quando a simulação é iniciada. Com informações relevantes para o projeto</p>
 
-# 6. Sistema de visão computacional
-## 6.1. Implementação da técnica de filtros para detecção ou escolha de modelo pré-treinado a ser utilizado 
+# 7. Sistema de visão computacional
+## 7.1. Implementação da técnica de filtros para detecção ou escolha de modelo pré-treinado a ser utilizado 
 </br>
 
-## 6.3. Validação do sistema de visão computacional.
+## 7.2 Validação do sistema de visão computacional.
 <p> A fim de otimizar o processo de identificação de rachaduras, foi desenvolvido um filtro para ser aplicado sobre as imagens do dataset. O filtro em questão coloca em evidência o objeto a ser identificado, de modo a aumentar sua nitidez. Esse processo faz com que a possível rachadura a ser identificada se destaque na imagem em comparação com os outros elementos da figura. Motivado pelo objetivo de conferir a eficiência do filtro desenvolvido, o grupo construiu dois modelos distintos utilizando o Yolo V8: um que aplica o filtro às imagens do dataset, e um que não utiliza o filtro e processa as imagens puras.
 </p>
 
@@ -530,7 +503,7 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 </br>
 
-# 7. Sistemas de segurança
+# 8. Sistemas de segurança
 
 ## 8.1 Definição, implementação e validação de um sistema de tomada de decisões a partir da detecção de um obstáculo.
 
@@ -657,7 +630,7 @@ A fim de contemplar o conjunto de informações necessárias, as tabelas abaixo 
 </td>
 </tr>
 </table>
-<center>
+</center>
 
 <center>
 <table>
@@ -685,7 +658,7 @@ A fim de contemplar o conjunto de informações necessárias, as tabelas abaixo 
 </td>
 </tr>
 </table>
-<center>
+</center>
 
 <center>
 <table>
@@ -718,7 +691,7 @@ A fim de contemplar o conjunto de informações necessárias, as tabelas abaixo 
 </td>
 </tr>
 </table>
-<center>
+</center>
 
 <center>
 <table>
@@ -751,7 +724,7 @@ A fim de contemplar o conjunto de informações necessárias, as tabelas abaixo 
 </td>
 </tr>
 </table>
-<center>
+</center>
 
 <center>
 <table>
@@ -784,8 +757,7 @@ A fim de contemplar o conjunto de informações necessárias, as tabelas abaixo 
 </td>
 </tr>
 </table>
-<center>
-</table>
+</center>
   
   As tabelas <b>graph</b>, <b>node</b> e <b>register</b> foram idealizadas com base no fato de que a interface gráfica possibilita ao usuário criar a trajetória a ser seguida pelo robô durante a inspeção de um espaço confinado. Para isso, o usuário insere os pontos pelos quais o robô deve passar baseando-se na imagem da planta do espaço confinado em questão. Os pontos inseridos podem ou não formar arestas, indicando a possibilidade de que o robô se direcione de um ponto ao outro com o qual existe conexão. Uma vez criado o desenho da rota a ser seguida pelo Turtlebot, ocorre a conversão da lista de pontos e arestas para um grafo, estrutura escolhida para representar a trajetória que guiará o robô quando este receber as informações de movimentação via ROS. Já a tabela <b>register</b> cumpre a função de armazenar o registro de uma rota criada pelo usuário. Uma vez que o grafo representante da rota é concretizado, é oferecida ao usuário a possibilidade de atribuir à rota em questão um nome e uma descrição.
 
