@@ -32,6 +32,8 @@ async def delete_graph(msg:dict):
 
     db.session.delete(register)
     db.session.commit()
+    
+    return {'success': 'Register deleted successfully'}
 
 @register_router.post("/create")
 async def get_register(msg: RegisterT):
