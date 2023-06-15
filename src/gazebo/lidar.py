@@ -1,5 +1,6 @@
 from sensor_msgs.msg import LaserScan
 import numpy as np
+from rclpy.qos import qos_profile_sensor_data
 
 class Lidar():
     def __init__(self, node):
@@ -10,7 +11,7 @@ class Lidar():
             msg_type=LaserScan,
             topic='/scan',
             callback=self.lidar_callback,
-            qos_profile=10
+            qos_profile=qos_profile_sensor_data
         )
         
     # Recebe o array de distâncias do Lidar

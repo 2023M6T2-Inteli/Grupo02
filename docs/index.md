@@ -10,7 +10,6 @@
 
 # Sumário
 
-- [](#)
 - [Sumário](#sumário)
 - [1. Entendimento de negócio](#1-entendimento-de-negócio)
   - [1.1. Análise setorial](#11-análise-setorial)
@@ -21,11 +20,13 @@
   - [1.5. Análise da solução](#15-análise-da-solução)
 - [Outrossim, há uma interface gráfica que tem como objetivo ajudar no planejamento para as inspeções e manutenções desses ambientes confinados. Essa interface gráfica possuirá dashboards que se atualizam em tempo real e, também, fotos do interior do ambiente confinado que serão captadas pela câmera que o protótipo está equipado.](#outrossim-há-uma-interface-gráfica-que-tem-como-objetivo-ajudar-no-planejamento-para-as-inspeções-e-manutenções-desses-ambientes-confinados-essa-interface-gráfica-possuirá-dashboards-que-se-atualizam-em-tempo-real-e-também-fotos-do-interior-do-ambiente-confinado-que-serão-captadas-pela-câmera-que-o-protótipo-está-equipado)
 - [Conteúdo](#conteúdo)
+    - [Solução](#solução)
+    - [Arquitetura da Solução](#arquitetura-da-solução)
+    - [Troubleshooting](#troubleshooting)
 - [1. Entendimento de negócio](#1-entendimento-de-negócio-1)
   - [1.1. Análise setorial](#11-análise-setorial-1)
   - [1.2. Análise empresarial](#12-análise-empresarial-1)
   - [1.3. Análise do time de desenvolvimento](#13-análise-do-time-de-desenvolvimento)
-- [(Matriz de Riscos)](#matriz-de-riscos-1)
   - [1.4. Análise da solução](#14-análise-da-solução)
 - [2. Entendimento do metadesign](#2-entendimento-do-metadesign)
   - [2.1. Fatores mercadológicos](#21-fatores-mercadológicos)
@@ -70,16 +71,10 @@
       - [Criar](#criar)
       - [Editar](#editar)
       - [Rodando](#rodando)
-- [7. Sistema de visão computacional](#7-sistema-de-visão-computacional)
-  - [7.1 Pipeline de Pré-processamento de Imagem](#71-pipeline-de-pré-processamento-de-imagem)
-    - [Carregamento da imagem](#carregamento-da-imagem)
-    - [Conversão de cores](#conversão-de-cores)
-    - [Correção de iluminação](#correção-de-iluminação)
-    - [Filtro para extração de características](#filtro-para-extração-de-características)
-  - [7.2 Escolha do modele de predição](#72-escolha-do-modele-de-predição)
-  - [7.3 Validação do sistema de visão computacional](#73-validação-do-sistema-de-visão-computacional)
-      - [Testes de Eficácia](#testes-de-eficácia)
-- [8. Sistemas de segurança](#8-sistemas-de-segurança)
+- [6. Sistema de visão computacional](#6-sistema-de-visão-computacional)
+  - [6.1. Implementação da técnica de filtros para detecção ou escolha de modelo pré-treinado a ser utilizado](#61-implementação-da-técnica-de-filtros-para-detecção-ou-escolha-de-modelo-pré-treinado-a-ser-utilizado)
+  - [6.3. Validação do sistema de visão computacional.](#63-validação-do-sistema-de-visão-computacional)
+- [7. Sistemas de segurança](#7-sistemas-de-segurança)
   - [8.1 Definição, implementação e validação de um sistema de tomada de decisões a partir da detecção de um obstáculo.](#81-definição-implementação-e-validação-de-um-sistema-de-tomada-de-decisões-a-partir-da-detecção-de-um-obstáculo)
   - [8.2 Mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos.](#82-mapeamento-de-riscos-dos-sistemas-eletromecânicos-mecânicos-e-eletrônicos)
   - [8.3 Definição, implementação e validação de dispositivos de segurança para os riscos mapeados.](#83-definição-implementação-e-validação-de-dispositivos-de-segurança-para-os-riscos-mapeados)
@@ -90,27 +85,6 @@
 - [12. Referências](#12-referências)
 - [12. Material de apoio](#12-material-de-apoio)
 - [13. Anexos](#13-anexos)
-- [Apresentação Sprint 03](#apresentação-sprint-03)
-  - [2.2. Sistema produto/design](#22-sistema-produtodesign-1)
-  - [2.3. Sustentabilidade ambiental](#23-sustentabilidade-ambiental-1)
-  - [2.4. Influências socioculturais](#24-influências-socioculturais-1)
-  - [2.5. Tipológico-formais e ergonômicos](#25-tipológico-formais-e-ergonômicos-1)
-- [\<\<\<\<\<\<\< HEAD](#-head)
-  - [2.6. Tecnologia produtiva e materiais empregados](#26-tecnologia-produtiva-e-materiais-empregados-1)
-- [3. Descrição da arquitetura do sistema.](#3-descrição-da-arquitetura-do-sistema)
-- [\<\<\<\<\<\<\< HEAD](#-head-1)
-  - [3.1  Engenharia de requisitos](#31--engenharia-de-requisitos)
-    - [Requisitos Funcionais](#requisitos-funcionais-1)
-    - [Requisitos Não Funcionais](#requisitos-não-funcionais-1)
-- [4. Sistema de locomoção e otimização de rota.](#4-sistema-de-locomoção-e-otimização-de-rota-1)
-- [5. Interface de usuário.](#5-interface-de-usuário)
-- [6. Sistema de visão computacional.](#6-sistema-de-visão-computacional)
-- [7. Sistemas de segurança.](#7-sistemas-de-segurança)
-- [8. Backend.](#8-backend)
-- [9. Integração de sistemas.](#9-integração-de-sistemas)
-- [10.  Validação da eficácia do sistema.](#10--validação-da-eficácia-do-sistema)
-- [10.  Validação da eficácia do sistema.](#10--validação-da-eficácia-do-sistema-1)
-- [11. Referências](#11-referências)
 
 # 1. Entendimento de negócio
 
@@ -246,11 +220,7 @@ Adicionalmente, está sendo considerado o uso de uma bridge entre o ROS2 e o Web
 (Matriz SWOT)
 
 ## 1.3. Análise do time de desenvolvimento
-<<<<<<< HEAD
 (Matriz de Riscos)
-=======
-<img href="./">
->>>>>>> 459302da6c94ef64552e2298946b56d66afbf90a
 
 ## 1.4. Análise da solução
 (Proposta de valor)
@@ -504,109 +474,63 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 #### Tela inicial
 
-<img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/tela_inicial.png"></img>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/tela_inicial.png" width="65%"></img></p>
 
 <p>A tela inicial é a primeira informação que o usuário receberá. Essa é nossa página de boas vindas e após selecionar "iniciar", eles são redirecionados para a tela principal do aplicativo.</p>
 
 #### Tela principal
 
-<img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/registros_inspeções_vazio.png">
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/registros_inspeções_vazio.png" width="65%"></img></p>
+
 <p>Essa é nossa tela principal do aplicativo, o histórico de inspeções. No príncipio ela está vazia, mas a intenção é que após o usuário cadastrar e realizar inspeções, aqui será demonstrado as informações, como na imagem abaixo.</p>
-<img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/registros_inspeções_preenchido.png">
+
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/registros_inspeções_preenchido.png" width="65%"></p>
+
 <p>Aqui, os usuários podem checar as informações das inspeções realizadas com sua data e qual rota foi realizada.</p>
 
 #### Setup
 
-<img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/setup_vazio.png">
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/setup_vazio.png" width="65%"></p>
+
 <p>A tela de setup permite que os usuários visualizem e editem suas informações de rota, criem novas rotas ou inicie a inspeção de uma rota. A ideia é que o botão de "Iniciar inspeção" esteja inativo, e somente após selecionar uma rota clicando no ícone de seta ">>" a rota selecionada seja carregada como no exemplo da imagem abaixo</p>
-<img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/setup_selecionado.png">
+
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/setup_selecionado.png" width="65%"></p>
 
 #### Criar
 
-<img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/modal_crie.png">
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/modal_crie.png" width="65%"></p>
+
 <p>Ao clicar no "Adicionar nova rota" uma modal surge para que o usuário envie a planta e crie sua rota.</p>
 
 #### Editar
 
-<img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/modal_edite.png">
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/modal_edite.png" width="65%"></p>
+
 <p>Ao clicar no lápis para editar uma rota, será aberta essa modal, semelhante a de criar, em que o usuário pode reorganizar a rota, alterar o nome, descrição e a imagem.</p>
 
 #### Rodando
 
-<img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/rodando.png">
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/interface_usuario/rodando.png" width="65%"></p>
+
 <p>Essa página é carregada quando a simulação é iniciada. Com informações relevantes para o projeto</p>
 
-# 7. Sistema de visão computacional
+# 6. Sistema de visão computacional
+## 6.1. Implementação da técnica de filtros para detecção ou escolha de modelo pré-treinado a ser utilizado 
+</br>
 
-## 7.1 Pipeline de Pré-processamento de Imagem
+## 6.3. Validação do sistema de visão computacional.
+<p> A fim de otimizar o processo de identificação de rachaduras, foi desenvolvido um filtro para ser aplicado sobre as imagens do dataset. O filtro em questão coloca em evidência o objeto a ser identificado, de modo a aumentar sua nitidez. Esse processo faz com que a possível rachadura a ser identificada se destaque na imagem em comparação com os outros elementos da figura. Motivado pelo objetivo de conferir a eficiência do filtro desenvolvido, o grupo construiu dois modelos distintos utilizando o Yolo V8: um que aplica o filtro às imagens do dataset, e um que não utiliza o filtro e processa as imagens puras.
+</p>
 
-<p>O Pipeline de Pré-processamento de Imagem é um conjunto de etapas sequenciais que são aplicadas a uma imagem para prepará-la para análise, processamento ou classificação posterior. Em nosso pipeline fizemos os seguintes processos:</p>
-.1  Carregamento da imagem
-.2 Redimensionamento
-.3 Conversão de cores
-.4 Correção de iluminação
-.5 Filtro de suavização
-.6 Extração de características
+<img scr="">
 
-### Carregamento da imagem
+<img scr="">
 
-Nesta etapa, a imagem é carregada a partir de um arquivo ou outra fonte de dados.
+<p> Desse modo, após a aplicação do filtro é notório que o resultado esperado de que ele atingisse uma métrica de averiguação depois que transformasse a imagem em preto e branco, pudesse também sintetizar com a diferença de contraste em pontos da imagem que tivesse com pouca luminosidade ou não. Outrossim para esse impasse, é justificável para que ocorra de fato uma melhora no processamento de identificação é necessário a melhoria dessa filtro, visto que, através dos dados fornecidos pelo o modelo, não foi possível identificar uma melhoria ou não no tratamento das imagens. </p>
 
-> ![Imagem](../media/visao_computacional/upload.png)
+</br>
 
-### Conversão de cores
-
-A conversão de cores é útil quando a imagem precisa ser convertida de um espaço de cores para outro. Em nosso projeto, fizemos a conversão das imagens de RGB para escala de cinza. Partimos da premissa de que ao dar maior evidência aos relevos, nosso modelo seria capaz de fazer predições com mais facilidade.
-
-> ![Imagem](../media/visao_computacional/scala_cinza.png)
-
-### Correção de iluminação
-
-A correção de iluminação é útil quando a imagem precisa ser ajustada em relação ao brilho e ao contraste. Em nosso projeto, realizamos a conversão das imagens de RGB para escala de cinza. Acreditamos que ao dar maior destaque aos relevos, nosso modelo seria capaz de fazer predições com mais facilidade.
-
-> ![Imagem](../media/visao_computacional/iluminacao.png)
-
-### Filtro para extração de características
-
-A aplicação de um filtro de contraste na imagem é útil para remover detalhes desnecessários. Para esse projeto, desenvolvemos um filtro (kernel2) que ressalta os pontos de destaque e as áreas mais escuras.
-
-> ![Imagem](../media/visao_computacional/filtro.png)
-
-## 7.2 Escolha do modele de predição
-<p>Identificamos a necessidade de criar um sistema automatizado para detecção de rachaduras em imagens, visando permitir que a Gerdau consiga planejar o que deve ser feito pelo colaborador quando ele tiver que entrar no espaço fechado. Para isso, decidimos utilizar técnicas de visão computacional e aprendizado de máquina.
-O primeiro passo foi obter um conjunto de dados adequado para treinamento e teste do modelo. Pesquisamos e encontramos o dataset do Roboflow, que oferecia uma coleção diversificada de imagens contendo rachaduras.
-Em seguida, chegou o momento de treinar o modelo usando a estrutura YOLO. O YOLO é conhecido por sua eficiência na detecção de objetos em tempo real, tornando-o uma escolha adequada para o nosso projeto. O YOLO utiliza frameworks de aprendizado de máquina, como TensorFlow ou PyTorch, para desenvolver o modelo preditivo. Durante o treinamento, o modelo aprendeu a associar características visuais às rachaduras, aprimorando sua capacidade de detecção.
-Após o treinamento, avaliamos o desempenho do modelo usando um conjunto separado de dados de validação ou teste. Utilizamos métricas como precisão, revocação e F1-score para medir a qualidade da detecção das rachaduras. Como será mostrado em seções mais a diante o modelo ainda tem substancial potencial de melhora (edited) </p>
-
-
-
-## 7.3 Validação do sistema de visão computacional
-
-#### Testes de Eficácia
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A fim de otimizar o processo de identificação de rachaduras, foi desenvolvido um filtro para ser aplicado sobre as imagens do dataset. O filtro em questão coloca em evidência o objeto a ser identificado, de modo a aumentar sua nitidez. Esse processo faz com que a possível rachadura a ser identificada se destaque na imagem em comparação com os outros elementos da figura.
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Motivado pelo objetivo de conferir a eficiência do filtro desenvolvido, o grupo construiu dois modelos distintos utilizando o Yolo V8: um que aplica o filtro às imagens do dataset, e um que não utiliza o filtro e processa as imagens puras.
-
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/visao_computacional/rachadura_sem_filtro.png?raw=true" width="50%"></img></p>
-<p align="center"><font size=2><b>Imagem sem a aplicação do filtro</b></font></p>
-
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/visao_computacional/rachadura_com_filtro.png?raw=true" width="50%"></img></p>
-<p align="center"><font size=2><b>Imagem com a aplicação do filtro</b></font></p>
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Desse modo, após a aplicação do filtro é notório que o resultado esperado de que ele atingisse uma métrica de averiguação depois que transformasse a imagem em preto e branco, pudesse também sintetizar com a diferença de contraste em pontos da imagem que tivesse com pouca luminosidade ou não. Outrossim, para esse impasse, é justificável para que ocorra de fato uma melhora no processamento de identificação é necessário a melhoria dessa filtro, visto que, através dos dados fornecidos pelo modelo, não foi possível identificar uma melhoria ou não no tratamento das imagens.
-
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/visao_computacional/exemplos_de_rachaduras.png?raw=true" width="50%"></img></p>
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;De acordo com a imagem acima, é possível identificar que a detecção das rachaduras acontece de maneira clara e objetiva, considerando a caixa deliminatória vermelha que abrange todo o contorno da rachadura. Nesse sentido, o objetivo primordial se tratando principalmente do desenvolvimento e implementação de testes de performance é justificável considerar um bom resultado atingido. 
- 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para exemplificar melhor, seguinte a matriz de confusão feita a partir dos dados fornecidos após a execução do processamento: 
-
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/visao_computacional/matrix_de_confusao.png?raw=true" width="50%"></img></p>
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Considerando os valores descritos, é possível afirmar que existem mais falsos positivos do que falsos negativos, o que nesse caso é extremamente positivo, por exemplo, é melhor o robô identificar uma rachadura em um lugar que não existe, do que ele apenas ignorar uma rachadura inexistente.  
-
-# 8. Sistemas de segurança
+# 7. Sistemas de segurança
 
 ## 8.1 Definição, implementação e validação de um sistema de tomada de decisões a partir da detecção de um obstáculo.
 
@@ -668,6 +592,206 @@ Dessa forma, ao adotar o protocolo MQTT, é possível superar a falta de conecti
 
 # 9. Backend
 
+O sistema de Backend da solução desenvolvida foi projetado de modo a conectar as informações fornecidas pelo Turtlebot e as informações fornecidas pelo usuário via interface gráfica, bem como tornar a aplicação web funcional no que concerne aos procedimentos que devem ser realizados pelo cliente diante da inspeção de um espaço confinado.
+
+Para a construção do banco de dados da solução, duas tecnologias distintas foram utilizadas: SQLAlchemy, para informações advindas do robô e do usuário, e Supabase, enquanto ferramenta de armazenamento de arquivos para abrigar as imagens capturadas pelo robô no ato da inspeção.
+
+A fim de contemplar o conjunto de informações necessárias, as tabelas abaixo foram construídas:
+
+<center>
+<table>
+<tr>
+<td><p align="center"><b>graph</b></p></td>
+</tr>
+<tr>
+<td>
++ id: int
+</td>
+</tr>
+<tr>
+<td>
++ name: string
+</td>
+</tr>
+<tr>
+<td>
++ description: string
+</td>
+</tr>
+<tr>
+<td>
++ image_address: string
++ </td>
+</tr>
+</table>
+</center>
+
+<center>
+<table>
+<tr>
+<td><p align="center"><b>node</b></p></td>
+</tr>
+<tr>
+<td>
++ id: int
+</td>
+</tr>
+<tr>
+<td>
++ x: node
+</td>
+</tr>
+<tr>
+<td>
++ y: node
+</td>
+</tr>
+<tr>
+<td>
++ first_node: bool
+</td>
+</tr>
+<tr>
+<td>
++ graph_id: int
+</td>
+</tr>
+</table>
+<center>
+
+<center>
+<table>
+<tr>
+<td><p align="center"><b>edge</b></p></td>
+</tr>
+<tr>
+<td>
++ id: int
+</td>
+</tr>
+<tr>
+<td>
++ nodeid_1: int
+</td>
+</tr>
+<tr>
+<td>
++ nodeid_2: int
+</td>
+</tr>
+<tr>
+<td>
++ graph_id: int
+</td>
+</tr>
+</table>
+<center>
+
+<center>
+<table>
+<tr>
+<td><p align="center"><b>image_report</b></p></td>
+</tr>
+<tr>
+<td>
++ id: int
+</td>
+</tr>
+<tr>
+<td>
++ graph_id: int
+</td>
+</tr>
+<tr>
+<td>
++ edge_id> int
+</td>
+</tr>
+<tr>
+<td>
++ time: dateTime
+</td>
+</tr>
+<tr>
+<td>
++ image_address: string
+</td>
+</tr>
+</table>
+<center>
+
+<center>
+<table>
+<tr>
+<td><p align="center"><b>gas_report</b></p></td>
+</tr>
+<tr>
+<td>
++ id: int
+</td>
+</tr>
+<tr>
+<td>
++ graph_id: int
+</td>
+</tr>
+<tr>
+<td>
++ edge_id: int
+</td>
+</tr>
+<tr>
+<td>
++ time: dateTime
+</td>
+</tr>
+<tr>
+<td>
++ pression: float
+</td>
+</tr>
+</table>
+<center>
+
+<center>
+<table>
+<tr>
+<td><p align="center"><b>register</b></p></td>
+</tr>
+<tr>
+<td>
++ id: int
+</td>
+</tr>
+<tr>
+<td>
++ description: string
+</td>
+</tr>
+<tr>
+<td>
++ date: dateTime
+</td>
+</tr>
+<tr>
+<td>
++ graph_id: int
+</td>
+</tr>
+<tr>
+<td>
++ name: string
+</td>
+</tr>
+</table>
+<center>
+</table>
+  
+  As tabelas <b>graph</b>, <b>node</b> e <b>register</b> foram idealizadas com base no fato de que a interface gráfica possibilita ao usuário criar a trajetória a ser seguida pelo robô durante a inspeção de um espaço confinado. Para isso, o usuário insere os pontos pelos quais o robô deve passar baseando-se na imagem da planta do espaço confinado em questão. Os pontos inseridos podem ou não formar arestas, indicando a possibilidade de que o robô se direcione de um ponto ao outro com o qual existe conexão. Uma vez criado o desenho da rota a ser seguida pelo Turtlebot, ocorre a conversão da lista de pontos e arestas para um grafo, estrutura escolhida para representar a trajetória que guiará o robô quando este receber as informações de movimentação via ROS. Já a tabela <b>register</b> cumpre a função de armazenar o registro de uma rota criada pelo usuário. Uma vez que o grafo representante da rota é concretizado, é oferecida ao usuário a possibilidade de atribuir à rota em questão um nome e uma descrição.
+
+  
+  A tabela <b>image_report</b>, por outro lado, está associada à necessidade de obter informações do espaço confinado por meio da atuação do robô. Sabendo-se que o Turtlebot terá uma câmera acoplada à sua estrutura, ele será capaz de fotografar o ambiente a cada ponto pelo qual passar. As imagens em questão serão submetidas ao modelo de visão computacional desenvolvido e, após o processamento dos arquivos, eles serão enviados para um bucket do Supabase, de modo que se tornem visíveis no relatório da inspeção exibido na interface gráfica uma vez que o procedimento é finalizado. Considerando também a existência de um sensor de gás acoplado à estrutura robótica, serão coletadas informações relativas às condições atmosféricas do espaço confinado. A fim de que se tornem visíveis no relatório de inspeção, possibilitando sua análise pelo usuário, tais informações serão armazenadas na tabela <b>gas_report</b> e estarão associadas ao identificador do grafo ao qual se referem.
+   
 # 10. Integração de sistemas
 
 # 11. Validação da eficácia do sistema
@@ -692,11 +816,11 @@ https://www.vdibrasil.com/aumento-no-mercado-de-robotica-e-automacao-em-2022/#:~
 
 # 12. Material de apoio
 
-https://www.robotis.us/turtlebot-3-burger-us/<br>
-https://www.arducore.com.br/modulo-sensor-de-gas-amonia-mq-135-mq-135-arduino-pic?utm_[…]emsUyRupLv3cH6KkyQNeWCK8ZT5kR232Obgy_JhbGMYNIBoCtvUQAvD_BwE<br>
-https://produto.mercadolivre.com.br/MLB-3389876702-bme280-modulo-sensor-de-presso-umidade-[…]Rlb8L5vxx2GtEwmO16FrFjN6fAUqAICrxO5YPVuPjRoCTDMQAvD_BwE<br>
-https://www.robocore.net/acessorios-raspberry-pi/camera-para-raspberry-pi-rev-1-3?gcl[…]ylU27O2mcY2VCdnCc8crxZjaG2UlU2uJwvVlelRYsTp56dxoCRKwQAvD_BwE<br>
-https://www.glassdoor.com.br/Sal%C3%A1rios/engenheiro-de-controle-e-automa%C3%A7%C3%A3o-sal%C3%A1rio-SRCH_KO0,34.htm<br>
+<li>https://www.robotis.us/turtlebot-3-burger-us/
+<li>https://www.arducore.com.br/modulo-sensor-de-gas-amonia-mq-135-mq-135-arduino-pic?utm_[…]emsUyRupLv3cH6KkyQNeWCK8ZT5kR232Obgy_JhbGMYNIBoCtvUQAvD_BwE
+<li>https://produto.mercadolivre.com.br/MLB-3389876702-bme280-modulo-sensor-de-presso-umidade-[…]Rlb8L5vxx2GtEwmO16FrFjN6fAUqAICrxO5YPVuPjRoCTDMQAvD_BwE
+<li>https://www.robocore.net/acessorios-raspberry-pi/camera-para-raspberry-pi-rev-1-3?gcl[…]ylU27O2mcY2VCdnCc8crxZjaG2UlU2uJwvVlelRYsTp56dxoCRKwQAvD_BwE
+<li>https://www.glassdoor.com.br/Sal%C3%A1rios/engenheiro-de-controle-e-automa%C3%A7%C3%A3o-sal%C3%A1rio-SRCH_KO0,34.htm
 
 # 13. Anexos
 
@@ -705,80 +829,5 @@ https://www.glassdoor.com.br/Sal%C3%A1rios/engenheiro-de-controle-e-automa%C3%A7
 <a href="https://www.canva.com/design/DAFio2sNXFQ/1KobrB9o6L7mhlRbsirulA/view?utm_content=DAFio2sNXFQ&utm_campaign=designshare&utm_medium=link&utm_source=homepage_design_menu">Apresentação Sprint 02</a>
 
 <a href="https://www.canva.com/design/DAFj8Hs9Mag/7vVdV-QWaIlIhyr4DzZ3BA/view?utm_content=DAFj8Hs9Mag&utm_campaign=designshare&utm_medium=link&utm_source=homepage_design_menu">Apresentação Sprint 03</a>
-=======
-<<<<<<< HEAD
 
-=======
-<p align="center"> Relação entre o produto desenvolvido e sua precificação com o merdaco atual </p> 
-
-O produto será desenvolvido com a principal função de simular virtualmente a movimentação de um robô que, por sua vez, irá estar em um espaço confinado com objetivo primordial de captar informações sobre o ambiente atmosférico especificado na planta disponibilizada pela Gerdau. Após a simulação consolidada, haverá uma demonstração com um robô de forma física, que irá avaliar o local ao seu entorno, tendo a possibilidade de selecionar pontos específicos com intervalos de distâncias reguláveis. Ademais, os dados atmosféricos coletados pelos sensores estão relacionados principalmente à taxa de oxigênio local, pressão atmosférica, velocidade da ventilação para a remoção de compostos contaminantes, entre outros itens gasosos.
-
-Em um conceito macro do projeto, é possível perceber que seu processo de desenvolvimento será pautado na segurança e na confiabilidade dos sensores usados na sua implementação. Portanto, o robô em sua versão final será capaz de se mover de maneira autônoma, voltando para seu ponto de origem caso aconteça alguma falha, utilizando filmagens para acrescentar na inspeção que será feita. Diante desse cenário, a comercialização dentro desse setor na robótica acontece com custos elevados, dado a quantidade de requisitos e a possibilidade de customização do projeto.
->>>>>>> 459302da6c94ef64552e2298946b56d66afbf90a
-## 2.2. Sistema produto/design
-
-## 2.3. Sustentabilidade ambiental
-
-## 2.4. Influências socioculturais
-
-## 2.5. Tipológico-formais e ergonômicos
-<<<<<<< HEAD
-=======
-
->>>>>>> 459302da6c94ef64552e2298946b56d66afbf90a
-## 2.6. Tecnologia produtiva e materiais empregados
-
-# 3. Descrição da arquitetura do sistema.
-
-<<<<<<< HEAD
-=======
-## 3.1  Engenharia de requisitos
-
-### Requisitos Funcionais 
-
-1. Os usuários terão acesso aos dados e às funcionalidades do sistema por meio de uma interface de usuário, que contará com uma simulação do robô e uma aba para o operador fazer sua guiagem.
-
-2. Coleta e armazenagem de dados em área por sensores.
-    
-### Requisitos Não Funcionais 
-    1. Utilizando electron e react para criar uma aplicação web capaz de rodar de forma local.
-    2. Os dados necessários para o sistema serão fornecidos por uma API, utilizando MongoDB.
-    3. A simulação será feita com a biblioteca ROS2 e suas ferramentas.
-    4. Com o auxílio de uma câmara nosso sistema será capaz de processar e fazer o stream para o controlador do que está acontecendo. 
-    5. Nosso robô contará com sensores atmosféricos e de procimidade.
-    6. Nosso robô fará o envio dos dados coletados para nossa aplicação por meio do protocolo HTTP, utilizando WIFI. 
-    7. Nosso sistema irá fazer a captura dos dados por meio de um sistema de metrôs.
-
->>>>>>> 459302da6c94ef64552e2298946b56d66afbf90a
-# 4. Sistema de locomoção e otimização de rota.
-
-# 5. Interface de usuário.
-
-# 6. Sistema de visão computacional.
-
-# 7. Sistemas de segurança.
-
-# 8. Backend.
-
-# 9. Integração de sistemas. 
-
-<<<<<<< HEAD
-# 10.  Validação da eficácia do sistema. 
-=======
-# 10.  Validação da eficácia do sistema. 
-
-# 11. Referências
-
-1. <https://github.com/iuricode/readme-template>
-2. <https://github.com/gabrieldejesus/readme-model>
-3. <https://creativecommons.org/share-your-work/>
-4. <https://g1.globo.com/mg/vales-mg/noticia/2022/12/12/morre-funcionario-da-usiminas-hospitalizado-apos-vazamento-de-gas-dentro-da-empresa.ghtml>
-5. <https://g1.globo.com/rj/sul-do-rio-costa-verde/noticia/2023/03/27/funcionario-morre-em-acidente-de-trabalho-na-csn-em-volta-redonda.ghtml>
-6. <https://www.brasildefato.com.br/2016/11/09/operarios-denunciam-aumento-de-acidentes-de-trabalho-na-csn-em-volta-redonda/>
-7. <https://www.robotis.us/turtlebot-3-burger-us/>
-8. <https://www.arducore.com.br/modulo-sensor-de-gas-amonia-mq-135-mq-135-arduino-pic?utm_[…]emsUyRupLv3cH6KkyQNeWCK8ZT5kR232Obgy_JhbGMYNIBoCtvUQAvD_BwE>
-9. <https://produto.mercadolivre.com.br/MLB-3389876702-bme280-modulo-sensor-de-presso-umidade-[…]Rlb8L5vxx2GtEwmO16FrFjN6fAUqAICrxO5YPVuPjRoCTDMQAvD_BwE>
-10. <https://www.robocore.net/acessorios-raspberry-pi/camera-para-raspberry-pi-rev-1-3?gcl[…]ylU27O2mcY2VCdnCc8crxZjaG2UlU2uJwvVlelRYsTp56dxoCRKwQAvD_BwE>
-11. <https://www.glassdoor.com.br/Sal%C3%A1rios/engenheiro-de-controle-e-automa%C3%A7%C3%A3o-sal%C3%A1rio-SRCH_KO0,34.htm>
->>>>>>> 459302da6c94ef64552e2298946b56d66afbf90a
->>>>>>> Stashed changes
+<a href="https://www.canva.com/design/DAFlHLvRuzQ/Js2yTFaiPWbBcXzvjdKk-w/view?utm_content=DAFlHLvRuzQ&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink">Apresentação Sprint 04</a>
