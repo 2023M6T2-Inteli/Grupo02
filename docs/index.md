@@ -181,25 +181,36 @@ Outrossim, há uma interface gráfica que tem como objetivo ajudar no planejamen
 =======
 # Conteúdo
 - [Manuais](#manuais)
-### Solução
+### Solução 
 
-	  O objetivo do desenvolvimento é construir uma simulação de um robô capaz de se mover em ambientes de espaço confinado e áreas de difícil acesso. O robô terá a capacidade de coletar dados a partir dos sensores (principalmente de oxigênio e outros gases), também irá utilizar filmagens para apoiar na inspeção prévia da estrutura e no suporte  na execução das atividades planejadas. 
-  <br> 
+<br>
 
-	  Para alcançar esse objetivo, foi adotada uma metodologia abrangente no desenvolvimento da solução, que envolve diferentes aspectos. Na parte da simulação  existe o controle do robô e seus periféricos, esse tópico lida  primordialmente com a comunicação entre os componentes e a simulação do robô. Além disso, foi utilizado o ROS2, que é um framework de robótica que permite a comunicação entre o sistema, consequentemente ele também permite a simulação do robô, o que permite testar como seria o comportamento do robô mesmo apenas com o ambiente virtual antes de sua implementação física. 
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/arquitetura_sistema/diagrama_solu%C3%A7%C3%A3ov2.drawio.png?raw=true" width="50%"></img></p>
+
+O objetivo do desenvolvimento é construir uma simulação de um robô capaz de se mover em ambientes de espaço confinado e áreas de difícil acesso. O robô terá a capacidade de coletar dados a partir dos sensores (principalmente de oxigênio e outros gases), também irá utilizar filmagens para apoiar na inspeção prévia da estrutura e no suporte  na execução das atividades planejadas. 
+
+<br> 
+
+Para alcançar esse objetivo, foi adotada uma metodologia abrangente no desenvolvimento da solução, que envolve diferentes aspectos. Na parte da simulação  existe o controle do robô e seus periféricos, esse tópico lida  primordialmente com a comunicação entre os componentes e a simulação do robô. Além disso, foi utilizado o ROS2, que é um framework de robótica que permite a comunicação entre o sistema, consequentemente ele também permite a simulação do robô, o que permite testar como seria o comportamento do robô mesmo apenas com o ambiente virtual antes de sua implementação física. 
 
 <br> 
 
 ### Arquitetura da Solução
-    A arquitetura do projeto é composta por duas partes distintas. A primeira parte envolve o sistema responsável pelo controle do robô e seus periféricos. Essa parte abrange a comunicação entre os diferentes componentes do sistema, bem como a simulação do robô. Para realizar essas funcionalidades, utiliza-se o ROS2, um framework de robótica que facilita a comunicação entre os componentes do sistema e permite a simulação do robô. Essa abordagem é vantajosa, pois possibilita o desenvolvimento e teste do sistema sem a necessidade de um robô físico.
+
+<br>
+
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/arquitetura_sistema/diagrama_solu%C3%A7%C3%A3ov2.drawio.png?raw=true" width="60%"></img></p>
+
+ A arquitetura do projeto é composta por duas partes distintas. A primeira parte envolve o sistema responsável pelo controle do robô e seus periféricos. Essa parte abrange a comunicação entre os diferentes componentes do sistema, bem como a simulação do robô. Para realizar essas funcionalidades, utiliza-se o ROS2, um framework de robótica que facilita a comunicação entre os componentes do sistema e permite a simulação do robô. Essa abordagem é vantajosa, pois possibilita o desenvolvimento e teste do sistema sem a necessidade de um robô físico.
 <br> 
 
-	  A segunda parte da arquitetura consiste em uma solução web, que permite a visualização dos dados coletados pelo robô. Essa parte do sistema é desenvolvida utilizando o React, um framework de desenvolvimento web, o Flask, um framework de desenvolvimento web para Python, e o SQLite, um banco de dados embarcado. Para ser possível o funcionamento do projeto mesmo com a restrição de acesso constante à internet por parte do robô, foi implementado um banco de dados embarcado para armazenar os dados coletados pelo robô. Além disso, agora o robô envia os dados para o banco de dados apenas ao final da rota. 
+A segunda parte da arquitetura consiste em uma solução web, que permite a visualização dos dados coletados pelo robô. Essa parte do sistema é desenvolvida utilizando o React, um framework de desenvolvimento web, o Flask, um framework de desenvolvimento web para Python, e o SQLite, um banco de dados embarcado. Para ser possível o funcionamento do projeto mesmo com a restrição de acesso constante à internet por parte do robô, foi implementado um banco de dados embarcado para armazenar os dados coletados pelo robô. Além disso, agora o robô envia os dados para o banco de dados apenas ao final da rota. 
   <br> 
 
-  	Adicionalmente, está sendo considerado o uso de uma bridge entre o ROS2 e o WebSocket, permitindo que o robô envie os dados para a aplicação web de forma mais eficiente. Essa integração proporcionará uma comunicação direta entre o sistema ROS2 e a aplicação web, possibilitando o monitoramento real dos dados coletados pelo robô. Diante desse cenário e levando em consideração a limitação de acesso constante à internet pelo robô, a  introdução de um banco de dados embarcado para armazenamento dos dados coletados e a possível integração entre ROS2 e WebSocket foi primordial, e visa pri otimizar a coleta e visualização dos dados, contribuindo para a eficiência e funcionalidade do sistema como um todo.
+Adicionalmente, está sendo considerado o uso de uma bridge entre o ROS2 e o WebSocket, permitindo que o robô envie os dados para a aplicação web de forma mais eficiente. Essa integração proporcionará uma comunicação direta entre o sistema ROS2 e a aplicação web, possibilitando o monitoramento real dos dados coletados pelo robô. Diante desse cenário e levando em consideração a limitação de acesso constante à internet pelo robô, a  introdução de um banco de dados embarcado para armazenamento dos dados coletados e a possível integração entre ROS2 e WebSocket foi primordial, e visa pri otimizar a coleta e visualização dos dados, contribuindo para a eficiência e funcionalidade do sistema como um todo.
 
-<img scr="https://raw.githubusercontent.com/2023M6T2-Inteli/Safe-McQueen/main/media/arquitetura_sistema/diagrama_solu%C3%A7%C3%A3ov2.drawio.png">
+
+
 
 
 
