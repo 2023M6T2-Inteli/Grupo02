@@ -635,11 +635,69 @@ As tabelas <b>graph</b>, <b>node</b> e <b>register</b> foram idealizadas com bas
 A tabela <b>image_report</b>, por outro lado, está associada à necessidade de obter informações do espaço confinado por meio da atuação do robô. Sabendo-se que o Turtlebot terá uma câmera acoplada à sua estrutura, ele será capaz de fotografar o ambiente a cada ponto pelo qual passar. As imagens em questão serão submetidas ao modelo de visão computacional desenvolvido e, após o processamento dos arquivos, eles serão enviados para um bucket do Supabase, de modo que se tornem visíveis no relatório da inspeção exibido na interface gráfica uma vez que o procedimento é finalizado. Considerando também a existência de um sensor de gás acoplado à estrutura robótica, serão coletadas informações relativas às condições atmosféricas do espaço confinado. A fim de que se tornem visíveis no relatório de inspeção, possibilitando sua análise pelo usuário, tais informações serão armazenadas na tabela <b>gas_report</b> e estarão associadas ao identificador do grafo ao qual se referem.
    
 ## 9.2. Rotas
-Para a construção das rotas da solução, duas tecnologias distintas foram utilizadas: SQLAlchemy, para informações advindas do robô e do usuário, e Supabase, enquanto ferramenta de armazenamento de arquivos para abrigar as imagens capturadas pelo robô no ato da inspeção.
+Para a construção das rotas da solução, duas tecnologias distintas foram utilizadas: FastAPI, um framework para python que cria a API utilizada pela aplicação, e o pydantic, como forma de validar as estruturas de dados definidas no banco de dados.
 
-A fim de contemplar o conjunto de informações necessárias, as tabelas abaixo foram construídas:
+A fim de contemplar tanto as necessidades da interface de usuário, quando para dar segurança ao usuário quando tiver que mudar algumas coisas do banco de dados de forma bruta, as rotas abaixo foram construídas:
+
+### 9.2.1. Rotas da tabela Graph
+
+A rota /graph/get/{id} é uma rota do tipo GET que permite obter um grafo com base no seu ID. Ao receber o ID do grafo como parâmetro, a rota realiza uma consulta no banco de dados para buscar o grafo correspondente. Em seguida, obtém todos os nós e arestas relacionados a esse grafo. Os dados são estruturados em um formato JSON, mapeando as coordenadas dos nós para as arestas. Por fim, os dados do grafo são retornados em formato JSON.
+<p align="center"><img src="../media/rotas/graph_get_graph.png" width="65%"></p>
 
 
+A rota /graph/get_all é uma rota do tipo GET que retorna todos os grafos existentes. Ao ser acessada, a rota realiza uma consulta no banco de dados para obter todos os grafos. Para cada grafo obtido, são buscados os nós e as arestas relacionados a ele. Os dados são estruturados em um formato JSON e retornados como resultado da requisição.
+<p align="center"><img src="../media/rotas/graph_get_all.png" width="65%"></p>
+<br/>
+
+A rota /graph/create é uma rota do tipo POST que permite criar um novo grafo. Ao receber um objeto JSON contendo as informações do novo grafo, a rota verifica se já existe um grafo com o mesmo nome no banco de dados. Se não existir, um novo objeto Graph é criado com base nas informações fornecidas e adicionado ao banco de dados. Após as alterações serem confirmadas no banco de dados, é retornada uma mensagem de sucesso em formato JSON.
+<p align="center"><img src="../media/rotas/graph_create.png" width="65%"></p>
+<br/>
+
+A rota /graph/delete é uma rota do tipo DELETE que exclui um grafo com base no nome. Ao receber um dicionário JSON contendo o nome do grafo a ser excluído, a rota realiza uma consulta no banco de dados para encontrar o grafo correspondente. Em seguida, remove o grafo do banco de dados e confirma as alterações.
+<p align="center"><img src="../media/rotas/graph_delete.png" width="65%"></p>
+<br/>
+
+A rota /graph/update é uma rota do tipo PUT que atualiza as informações de um grafo existente. Ao receber um dicionário JSON contendo as informações atualizadas do grafo, a rota realiza uma consulta no banco de dados para encontrar o grafo com o ID especificado. Em seguida, atualiza as informações do grafo com base nos campos especificados no JSON. Após as alterações serem confirmadas no banco de dados, é retornada uma mensagem de sucesso em formato JSON.
+<p align="center"><img src="../media/rotas/graph_update.png" width="65%"></p>
+<br/>
+
+### 9.2.2. Rotas da tabela Node (nós dos grafos)
+
+A rota /node/get/{id} é uma rota do tipo GET que permite obter um nó específico com base no seu ID. Ao receber o ID do nó como parâmetro, a rota realiza uma consulta no banco de dados para buscar o nó correspondente. O nó encontrado é retornado em formato JSON.
+<p align="center"><img src="../media/rotas/node_get.png" width="65%"></p>
+<br/>
+
+A rota /node/create é uma rota do tipo POST que permite criar um novo nó. Ao receber um objeto JSON contendo as informações do novo nó, a rota cria um novo objeto Node com base nos valores fornecidos. Em seguida, o nó é adicionado ao banco de dados e as alterações são confirmadas. É retornado uma mensagem indicando que o nó foi criado com sucesso, juntamente com os valores do nó criado.
+<p align="center"><img src="../media/rotas/node_create.png" width="65%"></p>
+<br/>
+
+A rota /node/delete/{id} é uma rota do tipo DELETE que exclui um nó com base no seu ID. Ao receber o ID do nó como parâmetro, a rota realiza uma consulta no banco de dados para encontrar o nó correspondente. Em seguida, são buscadas todas as arestas que têm o nó como ponto de partida ou ponto de destino. Essas arestas são excluídas do banco de dados. O nó é então excluído e as alterações são confirmadas. É retornado um JSON com uma mensagem de sucesso indicando que o nó foi excluído com sucesso
+<p align="center"><img src="../media/rotas/node_delete.png" width="65%"></p>
+<br/>
+
+### 9.2.3. Rotas da tabela Edge (arestas dos grafos)
+
+A rota /edge/create é uma rota do tipo POST que permite criar uma nova aresta. Ao receber um objeto JSON contendo as informações da aresta, a rota verifica se os nós existem. Se alguma dessas verificações falhar, a rota retorna uma mensagem de erro indicando o problema específico. Caso contrário, a rota cria uma nova instância de Edge com base nos valores fornecidos e adiciona a aresta ao banco de dados. Em seguida, as alterações são confirmadas e é retornado um JSON com uma mensagem de sucesso, juntamente com as informações da aresta criada.
+<p align="center"><img src="../media/rotas/node_delete.png" width="65%"></p>
+<br/>
+
+
+A rota /edge/get é uma rota do tipo GET que permite obter informações sobre uma aresta. No entanto, a implementação dessa rota está incompleta no código fornecido, pois não há uma definição clara sobre quais informações devem ser fornecidas para recuperar a aresta. É necessário completar a implementação dessa rota para que ela possa buscar a aresta com base nos critérios desejados e retornar as informações relevantes.
+<p align="center"><img src="../media/rotas/node_delete.png" width="65%"></p>
+<br/>
+
+A rota /edge/delete é uma rota do tipo DELETE que exclui uma aresta com base no seu ID. Ao receber o ID da aresta como parâmetro, a rota realiza uma consulta no banco de dados para encontrar a aresta correspondente. Em seguida, a aresta é excluída do banco de dados e as alterações são confirmadas. É retornado um JSON com uma mensagem de sucesso indicando que a aresta foi excluída com sucesso.
+<p align="center"><img src="../media/rotas/node_delete.png" width="65%"></p>
+<br/>
+
+A rota /edge/update é uma rota do tipo PUT que permite atualizar uma aresta existente. Ao receber um objeto JSON contendo as informações atualizadas da aresta, a rota encontra a aresta correspondente no banco de dados com base no seu ID. Em seguida, atualiza os campos relevantes da aresta com base nas chaves presentes no objeto JSON. As alterações são confirmadas e é retornado um JSON com uma mensagem de sucesso, juntamente com as informações atualizadas da aresta.
+<p align="center"><img src="../media/rotas/node_delete.png" width="65%"></p>
+<br/>
+
+### 9.2.4. Rotas da tabela Image (imagens)
+### 9.2.5. Rotas da tabela Register (registros do histórico)
+
+É válido observar que algumas rotas não são utilizadas pela aplicação, mas sua existência é importante para o controle de mudanças do banco de dados, caso seja necessário acessá-las diretamente, isso pode ser feito pelo postman.
 # 10. Integração de sistemas
 
 # 11. Validação da eficácia do sistema
