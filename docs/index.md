@@ -678,26 +678,53 @@ A rota /node/delete/{id} é uma rota do tipo DELETE que exclui um nó com base n
 ### 9.2.3. Rotas da tabela Edge (arestas dos grafos)
 
 A rota /edge/create é uma rota do tipo POST que permite criar uma nova aresta. Ao receber um objeto JSON contendo as informações da aresta, a rota verifica se os nós existem. Se alguma dessas verificações falhar, a rota retorna uma mensagem de erro indicando o problema específico. Caso contrário, a rota cria uma nova instância de Edge com base nos valores fornecidos e adiciona a aresta ao banco de dados. Em seguida, as alterações são confirmadas e é retornado um JSON com uma mensagem de sucesso, juntamente com as informações da aresta criada.
-<p align="center"><img src="../media/rotas/node_delete.png" width="65%"></p>
+<p align="center"><img src="../media/rotas/edge_create.png" width="65%"></p>
 <br/>
 
-
-A rota /edge/get é uma rota do tipo GET que permite obter informações sobre uma aresta. No entanto, a implementação dessa rota está incompleta no código fornecido, pois não há uma definição clara sobre quais informações devem ser fornecidas para recuperar a aresta. É necessário completar a implementação dessa rota para que ela possa buscar a aresta com base nos critérios desejados e retornar as informações relevantes.
-<p align="center"><img src="../media/rotas/node_delete.png" width="65%"></p>
+A rota /edge/get/{id} é uma rota do tipo GET que permite obter uma aresta específica com base no seu ID. Ao receber o ID da aresta como parâmetro, a rota realiza uma consulta no banco de dados para buscar a aresta correspondente. A aresta encontrada é retornada em formato JSON
+<p align="center"><img src="../media/rotas/edge_get.png" width="65%"></p>
 <br/>
 
 A rota /edge/delete é uma rota do tipo DELETE que exclui uma aresta com base no seu ID. Ao receber o ID da aresta como parâmetro, a rota realiza uma consulta no banco de dados para encontrar a aresta correspondente. Em seguida, a aresta é excluída do banco de dados e as alterações são confirmadas. É retornado um JSON com uma mensagem de sucesso indicando que a aresta foi excluída com sucesso.
-<p align="center"><img src="../media/rotas/node_delete.png" width="65%"></p>
+<p align="center"><img src="../media/rotas/edge_delete.png" width="65%"></p>
 <br/>
 
 A rota /edge/update é uma rota do tipo PUT que permite atualizar uma aresta existente. Ao receber um objeto JSON contendo as informações atualizadas da aresta, a rota encontra a aresta correspondente no banco de dados com base no seu ID. Em seguida, atualiza os campos relevantes da aresta com base nas chaves presentes no objeto JSON. As alterações são confirmadas e é retornado um JSON com uma mensagem de sucesso, juntamente com as informações atualizadas da aresta.
-<p align="center"><img src="../media/rotas/node_delete.png" width="65%"></p>
+<p align="center"><img src="../media/rotas/edge_update.png" width="65%"></p>
 <br/>
 
-### 9.2.4. Rotas da tabela Image (imagens)
 ### 9.2.5. Rotas da tabela Register (registros do histórico)
 
-É válido observar que algumas rotas não são utilizadas pela aplicação, mas sua existência é importante para o controle de mudanças do banco de dados, caso seja necessário acessá-las diretamente, isso pode ser feito pelo postman.
+A rota /register/{type}/{val} é uma rota do tipo GET que permite obter um registro específico com base no tipo e no valor fornecido. Dependendo do tipo fornecido, a rota realiza uma consulta no banco de dados para buscar o registro correspondente. Se o tipo for "id", a consulta é feita com base no ID do registro. Se o tipo for "register_name", a consulta é feita com base no nome do registro. O registro encontrado é retornado em formato JSON.
+<p align="center"><img src="../media/rotas/register_get.png" width="65%"></p>
+<br/>
+
+A rota /register/get_all é uma rota do tipo GET que permite obter todos os registros existentes. A rota realiza uma consulta no banco de dados para buscar todos os registros ordenados pela data. Os registros encontrados são retornados em formato JSON.
+<p align="center"><img src="../media/rotas/register_get_all.png" width="65%"></p>
+<br/>
+
+A rota /register/create é uma rota do tipo POST que permite criar um novo registro. Ao receber um objeto JSON contendo as informações do novo registro, a rota cria uma nova instância de Register com base nos valores fornecidos, incluindo a data atual. O registro é adicionado ao banco de dados e as alterações são confirmadas. É retornado uma mensagem indicando que o registro foi criado com sucesso, juntamente com os valores do registro criado.
+<p align="center"><img src="../media/rotas/register_create.png" width="65%"></p>
+<br/>
+
+A rota /register/delete é uma rota do tipo DELETE que exclui um registro com base no seu nome. Ao receber um objeto JSON contendo o nome do registro a ser excluído, a rota realiza uma consulta no banco de dados para encontrar o registro correspondente. O registro é excluído do banco de dados e as alterações são confirmadas. É retornado um JSON com uma mensagem de sucesso indicando que o registro foi excluído com sucesso.
+<p align="center"><img src="../media/rotas/register_delete.png" width="65%"></p>
+<br/>
+
+
+### 9.2.6. Rotas da tabela Image (imagens)
+
+A rota /get/{file} é uma rota do tipo GET que permite obter a URL pública de um arquivo de imagem. Ela recebe um parâmetro file, que representa o nome do arquivo de imagem. A rota utiliza a biblioteca Supabase para acessar o armazenamento de arquivos e obter a URL pública correspondente ao arquivo especificado. A URL é retornada como resultado.
+<p align="center"><img src="../media/rotas/image_get.png" width="65%"></p>
+<br/>
+
+A rota /add é uma rota do tipo POST que permite armazenar uma nova imagem. Ela recebe um objeto JSON contendo dois campos: image, que representa a imagem em formato base64, e name, que representa o nome da imagem. A rota cria um arquivo de texto com o nome fornecido e escreve a imagem codificada em base64 nesse arquivo. Em seguida, o arquivo é lido em modo binário e carregado no armazenamento Supabase usando a biblioteca Supabase. Após o carregamento bem-sucedido, o arquivo de texto é removido do sistema de arquivos local. Por fim, a rota retorna a URL pública da imagem recém-armazenada por meio da chamada à rota /get/{file}.
+<p align="center"><img src="../media/rotas/image_post.png" width="65%"></p>
+<br/>
+
+
+
+É válido observar que algumas rotas não são utilizadas pela aplicação, mas sua existência é importante para o controle de mudanças do banco de dados, caso seja necessário acessá-las diretamente, isso pode ser feito acessando diretamente o endereço da rota.
 # 10. Integração de sistemas
 
 # 11. Validação da eficácia do sistema
