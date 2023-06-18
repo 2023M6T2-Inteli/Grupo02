@@ -27,8 +27,11 @@ export default function Inspection() {
     setGraphs(data)
   }
 
-  const handleRouteClick = (imageAddress) => {
-    setSelectedGraph(imageAddress);
+  const handleRouteClick = (imageAddress, name) => {
+    setSelectedGraph({
+      'image': imageAddress,
+      'name': name
+    });
   };
 
   return (
@@ -49,22 +52,25 @@ export default function Inspection() {
             <div
               key={graph.id}
               className="mt-4 text-primary content-center"
-              onClick={() => handleRouteClick(graph.image_address)}
+              onClick={() => handleRouteClick(graph.image_address, graph.name)}
             >
               <Registration name={graph.name} description={graph.description} image_address={graph.image_address} nodes={graph.nodes} />
             </div>
           ))}
         </div>
-        < div className="grid w-3/5" >
-          <div className="ml-16 mt-16 mb-80 bg-azul rounded-lg h-full">
+        <div className="grid w-3/5" >
+          <div className="ml-16 mt-16 bg-azul rounded-lg h-full pl-10 pt-2 pr-10">
+            <h3 className="text-white text-center">{selectedGraph.name}</h3>
+            {selectedGraph && (<img className="border-2" src={selectedGraph.image} />)}
             {!selectedGraph && (<div className="font-inter text-white pt-10 pl-10">Selecione um espaço confinado para visualizar uma prévia de sua rota.</div>)}
-            {selectedGraph && (<img className="pt-10" src={selectedGraph} />)}
           </div>
-          <div className="ml-16 mt-24 bg-azul rounded-lg">
-            <div className="font-inter text-white pt-10 pl-10 flex justify-between">
-              <p>Iniciar inspeção</p>
-              <a href="/running">---</a>
-            </div>
+
+          <div className="ml-16 mt-24 bg-azul rounded-lg h-1/2">
+            <a href="/running">
+              <div className="font-inter text-white flex justify-between">
+                <p className="">Iniciar inspeção</p>
+              </div>
+            </a>
           </div>
         </div>
       </div>
