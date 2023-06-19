@@ -133,6 +133,9 @@ https://mdn.adv.br/indenizacao-por-acidente-de-trabalho/#:~:text=Para%20a%20CLT%
 Tabelas de Preços de Referência para Cálculo de Multas Ambientais divulgadas pela Companhia Ambiental do Estado de São Paulo (Cetesb) em 2021:
 (https://cetesb.sp.gov.br/legislacao-e-normas/).
 
+Entretanto, cabe-se lembrar dos valores de desenvolvimento, as pessoas responsáveis pela implementação (desenvolvimento de software, manutenção, testes...)<br>
+Equipe de 4 engenheiros = 36.000/mês (fonte: <a href="https://www.glassdoor.com.br/Salários/engenheiro-de-software-salário-SRCH_KO0,22.htm#:~:text=O%20salário%20médio%20nacional%20de,cargo%20de%20Engenheiro%20De%20Software.">glassdoor</a>)
+
 ## 1.4. Análise do time de desenvolvimento
 
 #### Matriz de riscos
