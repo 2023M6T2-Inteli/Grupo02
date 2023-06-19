@@ -3,30 +3,28 @@ import axios from 'axios';
 import {  AiOutlineMinus, AiFillDelete } from 'react-icons/ai';
 
 const Canvas = ({ backgroundImageSrc, edge, modal_close, file }) => {
-    
 
-    async function  SendSupabase(){
+    async function SendSupabase(){
        
-        //modal_close(false)
-        console.log(file)
         const url = 'http://localhost:8000/images/send_supabase'; // URL da API de destino
         const formData = new FormData(); // Dados a serem enviados no corpo da requisição
         formData.append("file", file)
         console.log(formData)
 
         try {
-            const url = await axios.post(url, formData);
-            graphData = {
-                "image_adress": url
+            const image_url = await axios.post(url, formData);
+            var graphData = {
+                "image_adress": image_url.data
             }
             
-
-            console.log('File uploaded successfully: ', a.data );
+            console.log('File uploaded successfully: ', image_url.data );
           } catch (error) {
             console.error('Error uploading file:', error);
-          }
+          };
+
+          modal_close(false)
+
       };
-        
      
 
     const canvasRef = useRef(null);

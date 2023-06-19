@@ -15,6 +15,8 @@ image_router = APIRouter(prefix="/images")
 supabase: Client = create_client(supabase_url=url,
                                  supabase_key=key)
 
+supabase_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(supabase_dir, '../supabase_images')
 
 @image_router.get("/get/{file}")
 async def get_all(file):
@@ -47,10 +49,10 @@ async def upload_image(file: UploadFile = File(...)):
     print("File name: ", file.filename)
     print("File file: ", file.file)
 
-    with open(f"/home/amandafontes/M6/Safe-McQueen/src/backend/supabase_images/{file_name}", "wb") as w:
+    with open(f"{file_path}/{file_name}", "wb") as w:
         shutil.copyfileobj(file.file, w)
         with open(f"supabase_images/{file_name}", "+rb") as r:
-            
+
             my_string = r.read()
             supabase.storage.from_(bucket_name).upload(f"{file_name}", my_string)
 

@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import axios from "axios"
 import Registration from "@/components/Registration";
 import NewRoute from "@/components/NewRoute";
 import SearchBar from "@/components/Search";
@@ -19,13 +18,22 @@ export default function Inspection() {
 
   const getAllGraphs = async (url) => {
 
-    const all_graphs = await fetch(url);
+    
+    try {
+      const all_graphs = await fetch(url); 
+        
+      const data = await all_graphs.json();
 
-    const data = await all_graphs.json();
+      console.log(data)
 
-    console.log(data)
+      setGraphs(data)
+      
+    } catch (error) {
+      console.error('Error get graph:', error);
+    }
 
-    setGraphs(data)
+    
+
   }
 
   const handleRouteClick = (imageAddress, name) => {
