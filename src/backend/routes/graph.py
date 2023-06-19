@@ -18,10 +18,10 @@ async def get_graph(id: int):
     edges = [edges.return_json() for edges in get_edges]
 
     for edge in edges:
-        edge["from"] = {"x": nodes[edge["from"]]
-                        ["x"], "y": nodes[edge["from"]]["y"]}
-        edge["target"] = {"x": nodes[edge["target"]]
-                          ["x"], "y": nodes[edge["target"]]["y"]}
+        edge["from"] = {"x": nodes[edge["from"]-1]["x"],
+                        "y": nodes[edge["from"]-1]["y"]}
+        edge["target"] = {"x": nodes[edge["target"]-1]["x"],
+                          "y": nodes[edge["target"]-1]["y"]}
     graph = [graph for graph in db.session.execute(stm)][0][0]
 
     graph_data = {
