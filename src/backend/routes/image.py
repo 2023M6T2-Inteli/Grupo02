@@ -1,15 +1,19 @@
+import shutil
 from fastapi import APIRouter
 from supabase import create_client, Client
+from datetime import datetime
+from fastapi import  File, UploadFile
 import os
 
 # load_dotenv()
-url = os.getenv("url")
-key = os.getenv("api_key")
+url = "https://xwotfvgmtbaarrqamwcn.supabase.co"#os.getenv("url")
+key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3b3RmdmdtdGJhYXJycWFtd2NuIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4Njg0NDIxNCwiZXhwIjoyMDAyNDIwMjE0fQ.UxjJWdWQk8POSV0OpYkEyw-XBqYaaByXyRBrlj31LSs"#os.getenv("api_key")
+bucket_name = "imagens"
 image_router = APIRouter(prefix="/images")
 
 
-supabase: Client = create_client(supabase_url="https://yvcygvkxsivgalfdzckg.supabase.co",
-                                 supabase_key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl2Y3lndmt4c2l2Z2FsZmR6Y2tnIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NTcyOTYxNSwiZXhwIjoyMDAxMzA1NjE1fQ.yZR1pgyBHbIHv8qJjQ6_GxB1PNQt9dnBqh09j_-n9AA")
+supabase: Client = create_client(supabase_url=url,
+                                 supabase_key=key)
 
 
 @image_router.get("/get/{file}")

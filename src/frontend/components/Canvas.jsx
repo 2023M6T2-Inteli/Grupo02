@@ -1,6 +1,36 @@
 import React, { useRef, useEffect } from 'react';
+import {  AiOutlineMinus, AiFillDelete } from 'react-icons/ai';
 
-const Canvas = ({ backgroundImageSrc, node, edge }) => {
+const Canvas = ({ backgroundImageSrc, edge, modal_close }) => {
+
+    async function  SendSupabase(){
+        console.log(nodes)
+        //modal_close(false)
+        const url = 'https://api.example.com/post'; // URL da API de destino
+        const dados = { nome: 'João', idade: 25 }; // Dados a serem enviados no corpo da requisição
+  
+        try {
+          const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dados),
+          });
+  
+          if (response.ok) {
+            const responseData = await response.json();
+            console.log('Resposta da requisição:', responseData);
+          } else {
+            console.log('Erro na requisição:', response.status);
+          }
+        } catch (error) {
+          console.log('Erro na requisição:', error);
+        }
+      };
+        
+     
+
     const canvasRef = useRef(null);
     const nodes = useRef([]);
     const edges = useRef([]);
@@ -8,36 +38,35 @@ const Canvas = ({ backgroundImageSrc, node, edge }) => {
     const img = new Image();
     img.src = backgroundImageSrc;
 
-
-                   
     useEffect(() => {
-
-        edge.forEach((edge_dic) => {
-            const node_1 = {
-                x: edge_dic.from.x,
-                y: edge_dic.from.y,
-                radius: 10,
-                fillStyle: '#22CCCC',
-                strokeStyle: '#009999',
-                selectedFill: '#88AAAA',
-                selected: false,
-            };
-
-            nodes.current.push(node_1);
-            const node_2 = {
-                x:edge_dic.target.x,
-                y:edge_dic.target.y,
-                radius: 10,
-                fillStyle: '#22CCCC',
-                strokeStyle: '#009999',
-                selectedFill: '#88AAAA',
-                selected: false,
-            };
-
-            nodes.current.push(node_2);
-
-            edges.current.push({ from: node_1, to: node_2 });
-        });
+        if (edge){
+            edge.forEach((edge_dic) => {
+                const node_1 = {
+                    x: edge_dic.from.x,
+                    y: edge_dic.from.y,
+                    radius: 10,
+                    fillStyle: '#22CCCC',
+                    strokeStyle: '#009999',
+                    selectedFill: '#88AAAA',
+                    selected: false,
+                };
+    
+                nodes.current.push(node_1);
+                const node_2 = {
+                    x:edge_dic.target.x,
+                    y:edge_dic.target.y,
+                    radius: 10,
+                    fillStyle: '#22CCCC',
+                    strokeStyle: '#009999',
+                    selectedFill: '#88AAAA',
+                    selected: false,
+                };
+    
+                nodes.current.push(node_2);
+    
+                edges.current.push({ from: node_1, to: node_2 });
+            });
+        }
         
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
@@ -188,19 +217,36 @@ const Canvas = ({ backgroundImageSrc, node, edge }) => {
     }, []);
 
     return (
-        <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-            <canvas
-                ref={canvasRef}
-                className='border'
-                style={{
-                    width: "100%",
-                    height:"100%",
-                    zIndex: 1,
-                    backgroundImage: `url("${backgroundImageSrc}")`,
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'contain',
-                    // backgroundColor: 'rgba(218, 226, 234, 0.5)'
-                }} />
+        <div className='flex'>
+            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                <canvas
+                    ref={canvasRef}
+                    className='border'
+                    style={{
+                        width: "100%",
+                        height:"100%",
+                        zIndex: 1,
+                        backgroundImage: `url("${backgroundImageSrc}")`,
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: 'contain',
+                        // backgroundColor: 'rgba(218, 226, 234, 0.5)'
+                    }} />
+            </div>
+            <div className="w-3/12 flex flex-col items-center">
+                <div className="bg-azul cursor-pointer mb-8 flex flex-col rounded-2xl text-white items-center gap-y-1.5 p-8 H-max-15 W-max-20">
+                <div className='circulo'></div>
+                <span>Inserir nó</span>
+                </div>
+                <div className="bg-azul cursor-pointer mb-8 flex flex-col rounded-2xl text-white items-center gap-y-1.5 p-8 H-max-15 W-max-20">
+                <div className="text-4xl"><AiOutlineMinus /></div>
+                <span>Inserir aresta</span>
+                </div>
+                <div className="cursor-pointer bg-azul mb-8 flex flex-col rounded-2xl text-white items-center gap-y-1.5 p-8 H-max-15 W-max-20">
+                <div><AiFillDelete /></div>
+                <span>Deletar</span>
+                </div>
+                <button onClick={() => {SendSupabase()}} className='W-max-20 bg-azul rounded-2xl h-9 text-white'>save</button>
+            </div>
         </div>
     );
 };
