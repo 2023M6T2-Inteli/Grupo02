@@ -208,6 +208,7 @@ Adicionalmente, está sendo considerado o uso de uma bridge entre o ROS2 e o Web
 
 <br/>
 
+## 2.1. Fatores mercadológicos
 #### Relação entre o produto desenvolvido e sua precificação com o merdaco atual
 
 O produto será desenvolvido com a principal função de simular virtualmente a movimentação de um robô que, por sua vez, irá estar em um espaço confinado com objetivo primordial de captar informações sobre o ambiente atmosférico. Atualmente, a Confederação Nacional da Indústria (CNI) realizou um estudo para mapear os principais níveis de automação industrial do Brasil, aproximadamente 19% das indústrias já possuem sistemas integrados de engenharia, aumentando, portanto, sua produtividade e garantindo a segurança humana em trabalhos com altos riscos. Em 2022, foram contabilizados três milhões de robôs operando em indústrias em todo o mundo, ao total foram mais de US$ 13,2 bilhões investidos nos últimos anos para a instalação desses projetos robóticos. Especificamente, com o robô a ser utilizado para a solução descrita acima, não irá ultrapassar US$ 1000, é notório, portanto, que o valor investido não é exageradamente elevado, visto que, hoje tem robôs no mercado que custam mais milhões de dólares.
@@ -223,11 +224,19 @@ O aço é importante pelas indústrias que fazem seu uso. Ele está presente na 
 Há uma preocupação relativa ao aspecto ecológico por parte da indústria, que tem explorado significativamente o conceito de aço verde – alternativa inovadora constituída pela fabricação de aço sem a necessidade do uso de combustíveis fósseis e pelo uso efetivo da sucata de metal. Dentre outras inovações dessa área, destaca-se o aumento da automatização de processos, com o uso de AGVs em tarefas de risco, diminuindo o erro humano em acidentes ecológicos.
 O mercado nacional contou com um forte crescimento durante a pandemia de Covid-19, fazendo contra ponto ao setor nesse mesmo período. “Apesar da montanha-russa que foi 2022, foi um bom ano para o setor. Tanto que, em termos de vendas internas, este foi o quarto melhor da década”, resumiu o presidente-executivo do Aço Brasil, Marco Polo de Mello Lopes. Atualmente a área já não está mais em constante crescimento, apresentando um recuo em sua produção, que em fevereiro fechou em 2,5 milhões de toneladas, representando uma queda de 4,9%.
 
+### Visão do projeto
+
+Nossa visão é proporcionar maior segurança para os funcionários da Gerdau, com a intenção de facilitar tarefas e garantir a vida dos colaboradores da empresa, para diminuir o erro de acidentes ou qualquer tipo de danos que poderia vir a ocorrer durante atividades do trabalho no futuro.
+
 ## 2.2. Sistema produto/design
 
 #### Missão do projeto proposto
 
-O propósito do projeto elaborado para a Gerdau relaciona-se à crescente atenção da empresa aos aspectos de segurança que envolvem seus funcionários e colaboradores. Sabendo-se que um desejo da instituição é evitar a exposição ao risco nos espaços confinados com os quais a Gerdau trabalha, evidencia-se o desafio de projetar uma solução capaz de informar, de maneira precisa, as condições atmosféricas do espaço a ser inspecionado. A missão do projeto está diretamente relacionada à visão institucional da Gerdau, que tem como princípios a valorização da segurança e inovação.
+A missão do projeto proposto para a Gerdau é desenvolver e implementar um sistema que contribua para a segurança dos funcionários e colaboradores da empresa ao lidar com espaços confinados. A empresa reconhece a importância de evitar a exposição a riscos nesses ambientes e busca uma solução precisa e eficaz para informar as condições atmosféricas durante as inspeções. O projeto visa atender às necessidades da Gerdau, oferecendo um sistema capaz de monitorar e analisar as condições atmosféricas dos espaços confinados de forma precisa. Isso permite que a empresa tenha informações confiáveis sobre os níveis de gases, temperatura e outros parâmetros relevantes, possibilitando uma tomada de decisão mais segura e assertiva.
+<br>
+Ao cumprir sua missão, o projeto reforça a visão institucional da Gerdau, que valoriza a segurança e a inovação como pilares fundamentais. A empresa busca constantemente soluções tecnológicas avançadas para aprimorar suas práticas de segurança e proporcionar um ambiente de trabalho cada vez mais seguro e confiável. O projeto também demonstra o comprometimento da Gerdau em adotar abordagens inovadoras para enfrentar desafios complexos. Ao investir em tecnologia e pesquisa, a empresa reafirma seu papel de liderança e sua responsabilidade em promover a segurança e o bem-estar de seus colaboradores. 
+<br>
+Dessa forma, o projeto proposto não apenas atende as necessidades específicas da Gerdau em relação à segurança em espaços confinados, mas também está alinhado com sua visão institucional de valorizar a segurança e a inovação como elementos-chave de sua atuação.
 
 #### Unidade formal entre design, divulgação e venda
 
