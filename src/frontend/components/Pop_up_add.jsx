@@ -82,7 +82,7 @@ const Pop_up_add = () => {
                            />
                         </div>
                         {/* <div style={{ width: '25px', height: '25px' }}> */}
-                        {imageUrl && selectedImage && (<Canvas modal_close={setIsOpen} backgroundImageSrc={imageUrl} alt={selectedImage.name} />)
+                        {imageUrl && selectedImage && (<Canvas modal_close={setIsOpen} backgroundImageSrc={imageUrl} file={selectedImage} />)
                         
                         }
                         {/* </div> */}

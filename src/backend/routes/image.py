@@ -1,14 +1,14 @@
 import shutil
-from fastapi import APIRouter
+from fastapi import APIRouter, File, UploadFile
 from supabase import create_client, Client
 from datetime import datetime
-from fastapi import  File, UploadFile
+
 import os
 
 # load_dotenv()
-url = "https://xwotfvgmtbaarrqamwcn.supabase.co"#os.getenv("url")
-key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3b3RmdmdtdGJhYXJycWFtd2NuIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4Njg0NDIxNCwiZXhwIjoyMDAyNDIwMjE0fQ.UxjJWdWQk8POSV0OpYkEyw-XBqYaaByXyRBrlj31LSs"#os.getenv("api_key")
-bucket_name = "imagens"
+url = "https://exwsjbueckvbqbvtahzr.supabase.co"#os.getenv("url")
+key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV4d3NqYnVlY2t2YnFidnRhaHpyIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NjY2NjYxMCwiZXhwIjoyMDAyMjQyNjEwfQ.k5B0bBc3ttbSlnvOzqQZldVQZYcOf7cxum9Eg3blavI"#os.getenv("api_key")
+bucket_name = "bucket_teste"
 image_router = APIRouter(prefix="/images")
 
 
@@ -44,14 +44,16 @@ async def store_image(msg: dict):
 async def upload_image(file: UploadFile = File(...)):
     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
     file_name = f"{timestamp}_{file.filename}"
+    print("File name: ", file.filename)
+    print("File file: ", file.file)
 
-    with open(f"../supabase_images/{file_name}", "wb") as w:
+    with open(f"/home/amandafontes/M6/Safe-McQueen/src/backend/supabase_images/{file_name}", "wb") as w:
         shutil.copyfileobj(file.file, w)
         with open(f"supabase_images/{file_name}", "+rb") as r:
             
             my_string = r.read()
             supabase.storage.from_(bucket_name).upload(f"{file_name}", my_string)
 
-    image_url = f"{url}/storage/v1/object/public/imagens/{file_name}"
+    image_url = f"{url}/storage/v1/object/public/{bucket_name}/{file_name}"
     
     return image_url

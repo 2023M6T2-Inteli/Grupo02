@@ -1,32 +1,30 @@
 import React, { useRef, useEffect } from 'react';
+import axios from 'axios';
 import {  AiOutlineMinus, AiFillDelete } from 'react-icons/ai';
 
-const Canvas = ({ backgroundImageSrc, edge, modal_close }) => {
+const Canvas = ({ backgroundImageSrc, edge, modal_close, file }) => {
+    
 
     async function  SendSupabase(){
-        console.log(nodes)
+       
         //modal_close(false)
-        const url = 'https://api.example.com/post'; // URL da API de destino
-        const dados = { nome: 'João', idade: 25 }; // Dados a serem enviados no corpo da requisição
-  
+        console.log(file)
+        const url = 'http://localhost:8000/images/send_supabase'; // URL da API de destino
+        const formData = new FormData(); // Dados a serem enviados no corpo da requisição
+        formData.append("file", file)
+        console.log(formData)
+
         try {
-          const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(dados),
-          });
-  
-          if (response.ok) {
-            const responseData = await response.json();
-            console.log('Resposta da requisição:', responseData);
-          } else {
-            console.log('Erro na requisição:', response.status);
+            const url = await axios.post(url, formData);
+            graphData = {
+                "image_adress": url
+            }
+            
+
+            console.log('File uploaded successfully: ', a.data );
+          } catch (error) {
+            console.error('Error uploading file:', error);
           }
-        } catch (error) {
-          console.log('Erro na requisição:', error);
-        }
       };
         
      
