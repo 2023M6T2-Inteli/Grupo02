@@ -145,6 +145,7 @@ Uma matriz de riscos é uma ferramenta utilizada para avaliar e gerenciar os ris
 
 ## 1.5. Análise da solução
 
+<p>Nosso valor principal é garantir a diminuição de riscos, gerando mais segurança para os colaboradores da empresa Gerdau.</p>
 <p align="center"><img src="../media/artefatos_negocios/proposta_de_valor.png" width="60%"></p>
 Nossa proposta de valor consiste em uma solução que contempla os seguintes serviços: 
 <ul>
