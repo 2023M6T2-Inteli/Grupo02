@@ -3,7 +3,13 @@ import Modal from 'react-modal'
 import { AiOutlineClose, AiOutlineMinus, AiFillDelete } from 'react-icons/ai';
 import { MdModeEditOutline } from 'react-icons/md';
 import Canvas from './Canvas'
+<<<<<<< HEAD
 const Pop_up_edit = ({id, name, description, image}) => {
+=======
+
+
+const Pop_up_edit = ({ id, name, description, image }) => {
+>>>>>>> 8bafb163b2a34169447e2f4aeac95d0a6d8cf17f
    const [isOpen, setIsOpen] = useState(false)
    const [selectedImage, setSelectedImage] = useState(null);
    const [imageUrl, setImageUrl] = useState(null);
@@ -13,18 +19,35 @@ const Pop_up_edit = ({id, name, description, image}) => {
       const response = await fetch(url);
       const data = await response.json();
       set_graph(data);
+<<<<<<< HEAD
     };
     useEffect(() => {
       let url = `http://localhost:8000/graph/get/${id}`
       get_graph(url)
     }, []);
+=======
+
+   };
+
+   useEffect(() => {
+      let url = `http://localhost:8000/graph/get/${id}`
+
+      get_graph(url)
+   }, []);
+
+
+>>>>>>> 8bafb163b2a34169447e2f4aeac95d0a6d8cf17f
    useEffect(() => {
       if (selectedImage && imageUrl == null) {
          console.log("Image !null")
          //setFileInputDisplay('none')
          image = URL.createObjectURL(selectedImage)
          setImageUrl(image)
+<<<<<<< HEAD
       }else setImageUrl(image)
+=======
+      } else setImageUrl(image)
+>>>>>>> 8bafb163b2a34169447e2f4aeac95d0a6d8cf17f
    }, [selectedImage]);
    const customStyles = {
       overlay: {
