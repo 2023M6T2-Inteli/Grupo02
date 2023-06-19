@@ -35,3 +35,19 @@ async def store_image(msg: dict):
         return get_all(f'{name}.txt')
     except Exception as e:
         return str(e)
+
+@image_router.post("/send_supabase")
+async def upload_image(file: UploadFile = File(...)):
+    timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+    file_name = f"{timestamp}_{file.filename}"
+
+    with open(f"../supabase_images/{file_name}", "wb") as w:
+        shutil.copyfileobj(file.file, w)
+        with open(f"supabase_images/{file_name}", "+rb") as r:
+            
+            my_string = r.read()
+            supabase.storage.from_(bucket_name).upload(f"{file_name}", my_string)
+
+    image_url = f"{url}/storage/v1/object/public/imagens/{file_name}"
+    
+    return image_url

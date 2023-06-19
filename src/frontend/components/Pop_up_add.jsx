@@ -4,6 +4,9 @@ import { AiOutlineClose, AiOutlineMinus, AiFillDelete } from 'react-icons/ai';
 import { Plus } from "react-bootstrap-icons";
 import Canvas from './Canvas'
 
+function SendSupabase() {
+   
+}
 
 const Pop_up_add = () => {
    const [name, setName] = useState(null)
@@ -32,6 +35,7 @@ const Pop_up_add = () => {
          console.log(selectedImage)
          setFileInputDisplay('none')
          setImageUrl(URL.createObjectURL(selectedImage));
+
       }
    }, [selectedImage]);
    const customStyles = {
@@ -113,7 +117,7 @@ const Pop_up_add = () => {
                            <div><AiFillDelete /></div>
                            <span>Deletar</span>
                         </div>
-                        <button onClick={() => setIsOpen(false)} className='W-max-20 bg-azul rounded-2xl h-9 text-white'>save</button>
+                        <button onClick={() => setIsOpen(false); SendSupabase()} className='W-max-20 bg-azul rounded-2xl h-9 text-white'>save</button>
                      </div>
                   </div>
                </div>

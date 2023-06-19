@@ -23,7 +23,6 @@ export default function History() {
 
     get_registers(url)
   }, []);
-
   
   const get_registers = async (url) => {
     const response = await fetch(url);
