@@ -82,7 +82,7 @@ const Pop_up_add = () => {
                            />
                         </div>
                         {/* <div style={{ width: '25px', height: '25px' }}> */}
-                        {imageUrl && selectedImage && (<Canvas modal_close={setIsOpen} backgroundImageSrc={imageUrl} file={selectedImage} />)
+                        {imageUrl && selectedImage && (<Canvas modal_close={setIsOpen} backgroundImageSrc={imageUrl} file={selectedImage} _name={name} _description={description} />)
                         
                         }
                         {/* </div> */}
@@ -90,7 +90,7 @@ const Pop_up_add = () => {
                         <button
                            className='W-max-21 bg-azul rounded-2x1 h-9 text-white'
                            onClick={() => { setSelectedImage(null); setFileInputDisplay(null) }}>
-                           Mudar
+                           Mudar imagem
                         </button>
                      </div>
 

@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import axios from 'axios';
 import {  AiOutlineMinus, AiFillDelete } from 'react-icons/ai';
 
-const Canvas = ({ backgroundImageSrc, edge, modal_close, file }) => {
+const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _description }) => {
 
     async function SendSupabase(){
        
@@ -14,8 +14,13 @@ const Canvas = ({ backgroundImageSrc, edge, modal_close, file }) => {
         try {
             const image_url = await axios.post(url, formData);
             var graphData = {
-                "image_adress": image_url.data
+                "image_address": image_url.data,
+                "name": _name,
+                "description": _description,
+                "edge": []
             }
+
+            await axios.post("http://localhost:8000/graph/create", graphData);
             
             console.log('File uploaded successfully: ', image_url.data );
           } catch (error) {

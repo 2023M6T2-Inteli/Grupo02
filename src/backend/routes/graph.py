@@ -50,6 +50,7 @@ async def get_graphs():
 
 @graph_router.post("/create")
 async def post_root(msg: GraphT):
+    print(msg.edge)
     graphs = db.session.query(Graph).all()
     graph_data = [(graph.return_json()) for graph in graphs]
     for content in graph_data:
