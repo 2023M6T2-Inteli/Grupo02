@@ -14,36 +14,30 @@
 - [1. Entendimento de negócio](#1-entendimento-de-negócio)
   - [1.1. Análise setorial](#11-análise-setorial)
   - [1.2. Análise empresarial](#12-análise-empresarial)
-  - [1.3 Análise financeira](#13-análise-financeira)
+  - [1.3. Análise financeira](#13-análise-financeira)
   - [1.4. Análise do time de desenvolvimento](#14-análise-do-time-de-desenvolvimento)
-      - [Matriz de riscos](#matriz-de-riscos)
+      - [1.4.1. Matriz de riscos](#141-matriz-de-riscos)
   - [1.5. Análise da solução](#15-análise-da-solução)
-- [Outrossim, há uma interface gráfica que tem como objetivo ajudar no planejamento para as inspeções e manutenções desses ambientes confinados. Essa interface gráfica possuirá dashboards que se atualizam em tempo real e, também, fotos do interior do ambiente confinado que serão captadas pela câmera que o protótipo está equipado.](#outrossim-há-uma-interface-gráfica-que-tem-como-objetivo-ajudar-no-planejamento-para-as-inspeções-e-manutenções-desses-ambientes-confinados-essa-interface-gráfica-possuirá-dashboards-que-se-atualizam-em-tempo-real-e-também-fotos-do-interior-do-ambiente-confinado-que-serão-captadas-pela-câmera-que-o-protótipo-está-equipado)
-- [Conteúdo](#conteúdo)
-    - [Solução](#solução)
-    - [Arquitetura da Solução](#arquitetura-da-solução)
-    - [Troubleshooting](#troubleshooting)
-- [1. Entendimento de negócio](#1-entendimento-de-negócio-1)
-  - [1.1. Análise setorial](#11-análise-setorial-1)
-  - [1.2. Análise empresarial](#12-análise-empresarial-1)
-  - [1.3. Análise do time de desenvolvimento](#13-análise-do-time-de-desenvolvimento)
-  - [1.4. Análise da solução](#14-análise-da-solução)
+    - [1.5.1. Solução](#151-solução)
+    - [1.5.2. Arquitetura da Solução](#152-arquitetura-da-solução)
+    - [1.5.3. Troubleshooting](#153-troubleshooting)
 - [2. Entendimento do metadesign](#2-entendimento-do-metadesign)
   - [2.1. Fatores mercadológicos](#21-fatores-mercadológicos)
-      - [Relação entre o produto desenvolvido e sua precificação com o merdaco atual](#relação-entre-o-produto-desenvolvido-e-sua-precificação-com-o-merdaco-atual)
-      - [Precificação](#precificação)
-    - [Cenário do mercado.](#cenário-do-mercado)
+      - [2.1.1. Relação entre o produto desenvolvido e sua precificação com o mercado atual](#211-relação-entre-o-produto-desenvolvido-e-sua-precificação-com-o-mercado-atual)
+      - [2.1.2. Precificação](#212-precificação)
+    - [2.1.3. Cenário do mercado.](#213-cenário-do-mercado)
+    - [2.1.4. Visão do projeto](#214-visão-do-projeto)
   - [2.2. Sistema produto/design](#22-sistema-produtodesign)
-      - [Missão do projeto proposto](#missão-do-projeto-proposto)
-      - [Unidade formal entre design, divulgação e venda](#unidade-formal-entre-design-divulgação-e-venda)
+      - [2.2.1. Missão do projeto proposto](#221-missão-do-projeto-proposto)
+      - [2.2.2. Unidade formal entre design, divulgação e venda](#222-unidade-formal-entre-design-divulgação-e-venda)
   - [2.3. Sustentabilidade ambiental](#23-sustentabilidade-ambiental)
-      - [Ecoeficiência ambiental proposta pelo projeto](#ecoeficiência-ambiental-proposta-pelo-projeto)
+      - [2.3.1. Ecoeficiência ambiental proposta pelo projeto](#231-ecoeficiência-ambiental-proposta-pelo-projeto)
   - [2.4. Influências socioculturais](#24-influências-socioculturais)
   - [2.5. Tipológico-formais e ergonômicos](#25-tipológico-formais-e-ergonômicos)
   - [2.6. Tecnologia produtiva e materiais empregados](#26-tecnologia-produtiva-e-materiais-empregados)
   - [2.7. Entendimento da experiência do usuário](#27-entendimento-da-experiência-do-usuário)
-    - [Persona](#persona)
-    - [User Story](#user-story)
+    - [2.7.1. Persona](#271-persona)
+    - [2.7.2. User Story](#272-user-story)
 - [3. Arquitetura do sistema](#3-arquitetura-do-sistema)
     - [V1](#v1)
     - [V2](#v2)
@@ -56,9 +50,9 @@
   - [4.2 Otimização de rota](#42-otimização-de-rota)
     - [4.2.1 Problema “O caixeiro viajante”](#421-problema-o-caixeiro-viajante)
     - [4.2.2 Implementação](#422-implementação)
-    - [5.1.1 Instalação do ambiente de simulação](#511-instalação-do-ambiente-de-simulação)
-      - [5.1.1.1 Ros Humble Turtlebot3](#5111-ros-humble-turtlebot3)
-    - [5.1.2 Comunicação](#512-comunicação)
+    - [4.3 Instalação do ambiente de simulação](#43-instalação-do-ambiente-de-simulação)
+      - [4.3.1 Ros Humble Turtlebot3](#431-ros-humble-turtlebot3)
+    - [4.4 Comunicação](#44-comunicação)
 - [6. Interface de usuário](#6-interface-de-usuário)
   - [6.1. Visão geral do design](#61-visão-geral-do-design)
       - [Palheta de cores](#palheta-de-cores)
@@ -71,15 +65,22 @@
       - [Criar](#criar)
       - [Editar](#editar)
       - [Rodando](#rodando)
-- [6. Sistema de visão computacional](#6-sistema-de-visão-computacional)
-  - [6.1. Implementação da técnica de filtros para detecção ou escolha de modelo pré-treinado a ser utilizado](#61-implementação-da-técnica-de-filtros-para-detecção-ou-escolha-de-modelo-pré-treinado-a-ser-utilizado)
-  - [6.3. Validação do sistema de visão computacional.](#63-validação-do-sistema-de-visão-computacional)
-- [7. Sistemas de segurança](#7-sistemas-de-segurança)
+- [7. Sistema de visão computacional](#7-sistema-de-visão-computacional)
+  - [7.1. Implementação da técnica de filtros para detecção ou escolha de modelo pré-treinado a ser utilizado](#71-implementação-da-técnica-de-filtros-para-detecção-ou-escolha-de-modelo-pré-treinado-a-ser-utilizado)
+  - [7.2 Validação do sistema de visão computacional.](#72-validação-do-sistema-de-visão-computacional)
+- [8. Sistemas de segurança](#8-sistemas-de-segurança)
   - [8.1 Definição, implementação e validação de um sistema de tomada de decisões a partir da detecção de um obstáculo.](#81-definição-implementação-e-validação-de-um-sistema-de-tomada-de-decisões-a-partir-da-detecção-de-um-obstáculo)
   - [8.2 Mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos.](#82-mapeamento-de-riscos-dos-sistemas-eletromecânicos-mecânicos-e-eletrônicos)
   - [8.3 Definição, implementação e validação de dispositivos de segurança para os riscos mapeados.](#83-definição-implementação-e-validação-de-dispositivos-de-segurança-para-os-riscos-mapeados)
   - [8.4 Implementação e validação de sistemas de proteção contra comandos indevidos.](#84-implementação-e-validação-de-sistemas-de-proteção-contra-comandos-indevidos)
 - [9. Backend](#9-backend)
+  - [9.1. Banco de dados](#91-banco-de-dados)
+  - [9.2. Rotas](#92-rotas)
+    - [9.2.1. Rotas da tabela Graph](#921-rotas-da-tabela-graph)
+    - [9.2.2. Rotas da tabela Node (nós dos grafos)](#922-rotas-da-tabela-node-nós-dos-grafos)
+    - [9.2.3. Rotas da tabela Edge (arestas dos grafos)](#923-rotas-da-tabela-edge-arestas-dos-grafos)
+    - [9.2.5. Rotas da tabela Register (registros do histórico)](#925-rotas-da-tabela-register-registros-do-histórico)
+    - [9.2.6. Rotas da tabela Image (imagens)](#926-rotas-da-tabela-image-imagens)
 - [10. Integração de sistemas](#10-integração-de-sistemas)
 - [11. Validação da eficácia do sistema](#11-validação-da-eficácia-do-sistema)
 - [12. Referências](#12-referências)
@@ -119,7 +120,7 @@
 
 (Matriz SWOT)
 
-## 1.3 Análise financeira
+## 1.3. Análise financeira
 
 A análise financeira de um projeto visa mostrar a um parceiro de negócios que sua implementação é viável do ponto de vista financeiro, complementando a precificação. Nesse contexto, a mitigação do risco de acidentes no ambiente de trabalho foi considerada a forma de viabilizar o projeto. Com isso, os funcionários estariam mais protegidos em relação à entrada em ambientes confinados, o que reduziria o risco de acidentes e, consequentemente, os custos associados, como despesas médicas, indenizações, reparação de danos e perda de produtividade. Além disso, os custos indiretos, como danos à reputação e perda de negócios, também seriam minimizados.
 Os acidentes no ambiente de trabalho não geram apenas custos financeiros diretos e indiretos, mas também podem ter um impacto negativo na moral e produtividade dos funcionários. Somado ao fato de que os funcionários podem precisar lidar com a interrupção do trabalho enquanto o acidente é investigado e resolvido, o que pode levar à perda de produtividade.
@@ -138,7 +139,7 @@ Equipe de 4 engenheiros = 36.000/mês (fonte: <a href="https://www.glassdoor.com
 
 ## 1.4. Análise do time de desenvolvimento
 
-#### Matriz de riscos
+#### 1.4.1. Matriz de riscos
 
 Uma matriz de riscos é uma ferramenta utilizada para avaliar e gerenciar os riscos e oportunidades envolvidos em um projeto, atividade ou processo. Ela ajuda a identificar e avaliar os potenciais riscos e a probabilidade de sua ocorrência, bem como o impacto que eles podem exercer sobre o projeto ou atividade. A matriz também pode ajudar a definir a prioridade das ações correspondentes ao gerenciamento do projeto, indicando quais riscos devem ser tratados com maior urgência, por exemplo. Além disso, no projeto em questão, a criação da matriz visa apresentar ao parceiro o que a equipe imagina enfrentar e pensar em conjunto em maneiras de mitigar os riscos, bem como aproveitar as oportunidades existentes.
 <img src="../media/artefatos_negocios/matriz_riscos.png"></img>
@@ -157,7 +158,7 @@ Essa solução consegue mitigar as principais dores do cliente: a segurança do 
 
 Outrossim, há uma interface gráfica que tem como objetivo ajudar no planejamento para as inspeções e manutenções desses ambientes confinados. Essa interface gráfica possuirá dashboards que se atualizam em tempo real e, também, fotos do interior do ambiente confinado que serão captadas pela câmera que o protótipo está equipado.
 
-### Solução 
+### 1.5.1. Solução 
 
 <br>
 
@@ -175,7 +176,7 @@ Para alcançar esse objetivo, foi adotada uma metodologia abrangente no desenvol
 
 <br> 
 
-### Arquitetura da Solução
+### 1.5.2. Arquitetura da Solução
 
 <br>
 
@@ -195,7 +196,7 @@ Adicionalmente, está sendo considerado o uso de uma bridge entre o ROS2 e o Web
 
 <br> 
 
-### Troubleshooting
+### 1.5.3. Troubleshooting
 
 <br> 
 
@@ -208,29 +209,30 @@ Adicionalmente, está sendo considerado o uso de uma bridge entre o ROS2 e o Web
 
 <br/>
 
+# 2. Entendimento do metadesign
 ## 2.1. Fatores mercadológicos
-#### Relação entre o produto desenvolvido e sua precificação com o merdaco atual
+#### 2.1.1. Relação entre o produto desenvolvido e sua precificação com o mercado atual
 
 O produto será desenvolvido com a principal função de simular virtualmente a movimentação de um robô que, por sua vez, irá estar em um espaço confinado com objetivo primordial de captar informações sobre o ambiente atmosférico. Atualmente, a Confederação Nacional da Indústria (CNI) realizou um estudo para mapear os principais níveis de automação industrial do Brasil, aproximadamente 19% das indústrias já possuem sistemas integrados de engenharia, aumentando, portanto, sua produtividade e garantindo a segurança humana em trabalhos com altos riscos. Em 2022, foram contabilizados três milhões de robôs operando em indústrias em todo o mundo, ao total foram mais de US$ 13,2 bilhões investidos nos últimos anos para a instalação desses projetos robóticos. Especificamente, com o robô a ser utilizado para a solução descrita acima, não irá ultrapassar US$ 1000, é notório, portanto, que o valor investido não é exageradamente elevado, visto que, hoje tem robôs no mercado que custam mais milhões de dólares.
 
-#### Precificação
+#### 2.1.2. Precificação
 
 O processo de precificação acontece com o objetivo primordial de levantar os dados financeiros sobre os serviços necessários para a implementação da solução, de modo que, seja visível o preço dos materiais utilizados, por exemplo: o modelo do robô, taxa de importação, os sensores atmosféricos a serem utilizados, a câmera, etc , as ferramentas digitais usadas no desenvolvimento do projeto que podem incluir algum gasto, por exemplo: o uso do figma e canva pro , o valor que será necessário para o treinamento dos funcionários para terem uma adaptação melhor com o sistema, e se tiver, acrescentar à soma outros fatores que necessitem investimentos para a implementação da solução ocorrer de maneira qualitativamente satisfatória.
 
-### Cenário do mercado.
+### 2.1.3. Cenário do mercado.
 
 A indústria mundial da produção de aço, por séculos, tem se valorizado pela produção de um material resistente e durável, ganhando um importante espaço no avanço da sociedade, permitindo-nos construir pontes, ferrovias, navios e arranha-céus. Com a demanda crescente de aço, o setor consolidou um histórico de aumentos em sua capacidade, volume e valor.
 O aço é importante pelas indústrias que fazem seu uso. Ele está presente na construção civil, na industria automobilística, nas forças armadas e em demais setores. O produto processado é usado na criação de diversos produtos do cotiano, como geladeiras, máquinas de lavar, trens e bisturis cirúrgicos.
 Há uma preocupação relativa ao aspecto ecológico por parte da indústria, que tem explorado significativamente o conceito de aço verde – alternativa inovadora constituída pela fabricação de aço sem a necessidade do uso de combustíveis fósseis e pelo uso efetivo da sucata de metal. Dentre outras inovações dessa área, destaca-se o aumento da automatização de processos, com o uso de AGVs em tarefas de risco, diminuindo o erro humano em acidentes ecológicos.
 O mercado nacional contou com um forte crescimento durante a pandemia de Covid-19, fazendo contra ponto ao setor nesse mesmo período. “Apesar da montanha-russa que foi 2022, foi um bom ano para o setor. Tanto que, em termos de vendas internas, este foi o quarto melhor da década”, resumiu o presidente-executivo do Aço Brasil, Marco Polo de Mello Lopes. Atualmente a área já não está mais em constante crescimento, apresentando um recuo em sua produção, que em fevereiro fechou em 2,5 milhões de toneladas, representando uma queda de 4,9%.
 
-### Visão do projeto
+### 2.1.4. Visão do projeto
 
 Nossa visão é proporcionar maior segurança para os funcionários da Gerdau, com a intenção de facilitar tarefas e garantir a vida dos colaboradores da empresa, para diminuir o erro de acidentes ou qualquer tipo de danos que poderia vir a ocorrer durante atividades do trabalho no futuro.
 
 ## 2.2. Sistema produto/design
 
-#### Missão do projeto proposto
+#### 2.2.1. Missão do projeto proposto
 
 A missão do projeto proposto para a Gerdau é desenvolver e implementar um sistema que contribua para a segurança dos funcionários e colaboradores da empresa ao lidar com espaços confinados. A empresa reconhece a importância de evitar a exposição a riscos nesses ambientes e busca uma solução precisa e eficaz para informar as condições atmosféricas durante as inspeções. O projeto visa atender às necessidades da Gerdau, oferecendo um sistema capaz de monitorar e analisar as condições atmosféricas dos espaços confinados de forma precisa. Isso permite que a empresa tenha informações confiáveis sobre os níveis de gases, temperatura e outros parâmetros relevantes, possibilitando uma tomada de decisão mais segura e assertiva.
 <br>
@@ -238,13 +240,13 @@ Ao cumprir sua missão, o projeto reforça a visão institucional da Gerdau, que
 <br>
 Dessa forma, o projeto proposto não apenas atende as necessidades específicas da Gerdau em relação à segurança em espaços confinados, mas também está alinhado com sua visão institucional de valorizar a segurança e a inovação como elementos-chave de sua atuação.
 
-#### Unidade formal entre design, divulgação e venda
+#### 2.2.2. Unidade formal entre design, divulgação e venda
 
 A princípio, será concebida uma simulação virtual do veículo autônomo guiado atuando sobre um espaço confinado genérico. Desse modo, será possível estudar a viabilidade da construção de um protótipo físico que atenda aos requisitos da empresa. É ideal que o protótipo seja capaz de reproduzir os resultados obtidos por meio da simulação. Além disso, é de fundamental importância que o protótipo seja escalável — requisito imperativo para a implementação do produto por parte do cliente. O produto desenvolvido, portanto, será apresentado ao mercado como ferramenta de apoio à manutenção da segurança do trabalho, cumprindo o papel de inspecionar de forma eficaz os ambientes confinados que ofereçam potenciais riscos em casos de intervenção humana. Espera-se tornar evidente a qualidade do produto por meio de demonstrações de seu funcionamento, desde sua configuração no ambiente industrial em que será utilizado até a geração do relatório referente à inspeção feita. Os diferenciais da solução, como a possibilidade de análise de imagens computacionais e controle do veículo via interface, também serão destacados. Será imprescindível, por fim, tratar de maneira transparente o processo de produção do veículo, evidenciando os aspectos que funcionam e os pontos de melhoria para implementação futura.
 
 ## 2.3. Sustentabilidade ambiental
 
-#### Ecoeficiência ambiental proposta pelo projeto
+#### 2.3.1. Ecoeficiência ambiental proposta pelo projeto
 
 O projeto em parceria com a Gerdau tem como objetivo alcançar a ecoeficiência de forma indireta, evitando impactos ambientais prejudiciais ao entorno da instalação da Gerdau. Uma das soluções propostas é o uso de Veículos Autônomos Guiados (AGVs) para monitorar regularmente as tubulações de gás e prevenir possíveis acidentes que possam contaminar o meio ambiente e afetar a saúde humana. Além disso, o uso de energia elétrica em vez de combustíveis fósseis torna essa solução ainda mais vantajosa para o meio ambiente.
 
@@ -258,12 +260,12 @@ O grupo também propôs uma solução visando ser mais ecoeficiente, que poderia
 
 ## 2.7. Entendimento da experiência do usuário
 
-### Persona
+### 2.7.1. Persona
 
 <p align="center"><img src="../media/artefatos_negocios/persona.png" width="60%"></img></p>
 A persona foi criada para ajudar a entender as necessidades e os desejos do público alvo para a solução de automação industrial que foi apresentada, ela é um personagem fictício, doravante, com informações reais fornecidas pelos representantes da Gerdau. Nesse caso, especificamente,  Joana é técnica em segurança do trabalho, realiza atividades de alto risco, e, portanto, está sempre com equipamentos de proteção individual, sobretudo, por serem ainda atividades arriscadas, compreende que é um trabalho bastante delicado. Com a implementação da solução em desenvolvimento , Joana teria que aprender a supervisionar o trabalho do robô, deixando para ele concluir a etapa mais perigosa e garantindo que seu desempenho nas demais responsabilidades do processo de inspeção do ambiente confinado estivessem ocorrendo de forma correta.
 
-### User Story
+### 2.7.2. User Story
 
 # 3. Arquitetura do sistema
 
