@@ -86,7 +86,6 @@
 - [12. Referências](#12-referências)
 - [12. Material de apoio](#12-material-de-apoio)
 - [13. Anexos](#13-anexos)
-- [14. Licença](#14-licença)
 
 # 1. Entendimento de negócio
 
@@ -795,7 +794,3 @@ https://www.vdibrasil.com/aumento-no-mercado-de-robotica-e-automacao-em-2022/#:~
 <a href="https://www.canva.com/design/DAFj8Hs9Mag/7vVdV-QWaIlIhyr4DzZ3BA/view?utm_content=DAFj8Hs9Mag&utm_campaign=designshare&utm_medium=link&utm_source=homepage_design_menu">Apresentação Sprint 03</a>
 
 <a href="https://www.canva.com/design/DAFlHLvRuzQ/Js2yTFaiPWbBcXzvjdKk-w/view?utm_content=DAFlHLvRuzQ&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink">Apresentação Sprint 04</a>
-
-# 14. Licença
-
-<p>Safe-McQueen by <a href="https://www.inteli.edu.br">Inteli</a>, <a href="https://www.linkedin.com/in/alberto-da-rocha-miranda-angrysine/">Alberto Miranda</a>, <a href="https://www.linkedin.com/in/amanda-fontes/">Amanda Fontes</a>, <a href="https://www.linkedin.com/in/antonio-angelo-teixeira-a70b781a7/">Antonio Teixeira</a>, <a href="https://www.linkedin.com/in/jv-oliveira-rodrigues/">Joao Vitor Oliveira</a>, <a href="https://www.linkedin.com/in/lucas-henrique-sales-de-souza/">Lucas Sales</a>,<a href="https://www.linkedin.com/in/tainara-rodrigues-teixeira/">Tainara Teixeira</a>, <a href="https://www.linkedin.com/in/vitor-zeferino/"> Vitor Zeferino</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p>
