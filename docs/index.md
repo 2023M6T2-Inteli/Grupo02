@@ -279,16 +279,17 @@ A persona foi criada para ajudar a entender as necessidades e os desejos do púb
 
 ### V1
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/arquitetura_sistema/diagrama_solu%C3%A7%C3%A3ov1.drawio.png?raw=true" width="60%"></img></p>
+Primeiramente nossa arquitetura pode ser dividia em 2 partes:
 
-Atualmente nossa arquitetura pode ser dividia em 2 partes:
 A primeira envolve todo o sistema que controla o robo e seus periféricos, esse parte lida com a comunicação entre os componentes e a simulação do robo, essa parte é feita utilizando o ROS2, que é um framework de robótica que permite a comunicação entre os componentes do sistema, além disso ele também permite a simulação do robo, o que facilita o desenvolvimento do sistema, pois não é necessário ter um robo fisico para testar o sistema. A segunda parte é uma solução web que permite a visualização dos dados coletados pelo robo, essa parte é feita utilizando o React, que é um framework de desenvolvimento web, flask que é um framework de desenvolvimento web para python e sqlite.
+
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/arquitetura_sistema/diagrama_solu%C3%A7%C3%A3ov1.drawio.png?raw=true" width="60%"></img></p>
 
 ### V2
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/arquitetura_sistema/diagrama_solu%C3%A7%C3%A3ov2.drawio.png?raw=true" width="60%"></img></p>
-
 Atualizamos nossa arquitetura para levar em conta que o robô não terá acesso a internet de forma constante por isso precisamos de um banco de dados embarcado para armazenar os dados coletados pelo robô, além disso agora o robo só manda dara os dados para o bancos de dados ao final da rota. Além disso estamos considerando usar uma bridge entre o ros2 e a websocket para que o robo possa mandar os dados para a aplicação web.
+
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/arquitetura_sistema/diagrama_solu%C3%A7%C3%A3ov2.drawio.png?raw=true" width="60%"></img></p>
 
 ## 3.1 Engenharia de requisitos
 
