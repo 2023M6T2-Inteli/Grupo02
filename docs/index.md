@@ -254,11 +254,19 @@ O grupo também propôs uma solução visando ser mais ecoeficiente, que poderia
 
 ## 2.4. Influências socioculturais
 
+<p>Em construção</p>
+
 ## 2.5. Tipológico-formais e ergonômicos
+
+<p>Em construção</p>
 
 ## 2.6. Tecnologia produtiva e materiais empregados
 
+<p>Em construção</p>
+
 ## 2.7. Entendimento da experiência do usuário
+
+<p>Em construção</p>
 
 ### 2.7.1. Persona
 
@@ -504,15 +512,16 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 # 7. Sistema de visão computacional
 ## 7.1. Implementação da técnica de filtros para detecção ou escolha de modelo pré-treinado a ser utilizado 
-</br>
+
+<p>Em construção</p>
 
 ## 7.2 Validação do sistema de visão computacional.
 <p> A fim de otimizar o processo de identificação de rachaduras, foi desenvolvido um filtro para ser aplicado sobre as imagens do dataset. O filtro em questão coloca em evidência o objeto a ser identificado, de modo a aumentar sua nitidez. Esse processo faz com que a possível rachadura a ser identificada se destaque na imagem em comparação com os outros elementos da figura. Motivado pelo objetivo de conferir a eficiência do filtro desenvolvido, o grupo construiu dois modelos distintos utilizando o Yolo V8: um que aplica o filtro às imagens do dataset, e um que não utiliza o filtro e processa as imagens puras.
 </p>
 
-<img scr="">
+<img scr="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/visao_computacional/rachadura_sem_filtro.png">
 
-<img scr="">
+<img scr="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/visao_computacional/rachadura_com_filtro.png">
 
 <p> Desse modo, após a aplicação do filtro é notório que o resultado esperado de que ele atingisse uma métrica de averiguação depois que transformasse a imagem em preto e branco, pudesse também sintetizar com a diferença de contraste em pontos da imagem que tivesse com pouca luminosidade ou não. Outrossim para esse impasse, é justificável para que ocorra de fato uma melhora no processamento de identificação é necessário a melhoria dessa filtro, visto que, através dos dados fornecidos pelo o modelo, não foi possível identificar uma melhoria ou não no tratamento das imagens. </p>
 
@@ -577,6 +586,8 @@ Com o uso do protocolo MQTT, o robô é capaz de armazenar os dados localmente d
 Dessa forma, ao adotar o protocolo MQTT, é possível superar a falta de conectividade constante, permitindo que o robô mantenha suas operações mesmo em ambientes com acesso limitado à internet.</p>
 
 ## 8.4 Implementação e validação de sistemas de proteção contra comandos indevidos.
+
+<p>Em construção</p>
 
 # 9. Backend
 
@@ -742,7 +753,11 @@ A rota /add é uma rota do tipo POST que permite armazenar uma nova imagem. Ela 
 É válido observar que algumas rotas não são utilizadas pela aplicação, mas sua existência é importante para o controle de mudanças do banco de dados, caso seja necessário acessá-las diretamente, isso pode ser feito acessando diretamente o endereço da rota.
 # 10. Integração de sistemas
 
+<p>Em construção</p>
+
 # 11. Validação da eficácia do sistema
+
+<p>Em construção</p>
 
 # 12. Referências
 
