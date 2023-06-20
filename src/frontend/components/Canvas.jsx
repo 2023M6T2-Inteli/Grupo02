@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import axios from 'axios';
 import {  AiOutlineMinus, AiFillDelete } from 'react-icons/ai';
 
-const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _description }) => {
+const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _description, just_show=false }) => {
 
     async function SendSupabase(){
        
@@ -17,7 +17,7 @@ const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _descripti
                 "image_address": image_url.data,
                 "name": _name,
                 "description": _description,
-                "edge": []
+                "edges": edges.current
             }
 
             await axios.post("http://localhost:8000/graph/create", graphData);
@@ -100,8 +100,8 @@ const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _descripti
 
             // Desenhar a imagem de plano de fundo
             // drawImage();
-            console.log('nodes:', nodes)
-            console.log('edges:', edges)
+            console.log("NOdes: ", nodes);
+            console.log("Edges: ", edges);
 
             // Desenha todas as arestas, que são as linha entre dois nós que possuam conexão
             for (let i = 0; i < edges.current.length; i++) {
@@ -112,9 +112,10 @@ const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _descripti
                 context.strokeStyle = fromNode.strokeStyle;
                 context.moveTo(fromNode.x, fromNode.y);
                 context.lineTo(toNode.x, toNode.y);
-                context.fillStyle = 'red';
+                context.fillStyle = 'black';
                 context.textAlign = 'center';
-                context.fillText(`W = ${(Math.sqrt((fromNode.x - toNode.x) ** 2 + (fromNode.y - toNode.y) ** 2)).toFixed(3)}`,
+                var weight = (Math.sqrt((fromNode.x - toNode.x) ** 2 + (fromNode.y - toNode.y) ** 2)).toFixed(3);
+                context.fillText(`W = ${weight}`,
                     toNode.x + ((toNode.x - fromNode.x) * -1) / 2,
                     toNode.y + ((toNode.y - fromNode.y) * -1) / 2)
                 context.stroke();
@@ -151,6 +152,7 @@ const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _descripti
         };
 
         const down = (e) => {
+            if (!just_show) {
             const { offsetX, offsetY } = getCanvasOffset(e);
             const target = within(offsetX, offsetY);
 
@@ -160,13 +162,14 @@ const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _descripti
 
             if (target) {
                 if (selection.current && selection.current !== target) {
-                    edges.current.push({ from: selection.current, to: target });
+                    let weight = (Math.sqrt((selection.current.x - target.x) ** 2 + (selection.current.y - target.y) ** 2)).toFixed(3)
+                    edges.current.push({ from: selection.current, to: target, weight: weight  });
                 }
 
                 selection.current = target;
                 selection.current.selected = true;
                 draw();
-            }
+            }}
         };
 
         const move = (e) => {
@@ -233,7 +236,9 @@ const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _descripti
                         // backgroundColor: 'rgba(218, 226, 234, 0.5)'
                     }} />
             </div>
-            <div className="w-3/12 flex flex-col items-center">
+
+            {!just_show && (
+                <div className="w-3/12 flex flex-col items-center">
                 <div className="bg-azul cursor-pointer mb-8 flex flex-col rounded-2xl text-white items-center gap-y-1.5 p-8 H-max-15 W-max-20">
                 <div className='circulo'></div>
                 <span>Inserir nó</span>
@@ -247,7 +252,7 @@ const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _descripti
                 <span>Deletar</span>
                 </div>
                 <button onClick={() => {SendSupabase()}} className='W-max-20 bg-azul rounded-2xl h-9 text-white'>save</button>
-            </div>
+            </div>)}
         </div>
     );
 };

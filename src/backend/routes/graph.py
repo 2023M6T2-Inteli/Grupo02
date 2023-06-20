@@ -5,6 +5,7 @@ from models.graph import Graph
 from models.node import Node
 from models.edge import Edge
 from config import db
+from math import sqrt
 
 graph_router = APIRouter(prefix='/graph')
 
@@ -50,24 +51,76 @@ async def get_graphs():
 
 @graph_router.post("/create")
 async def post_root(msg: GraphT):
-    print(msg.edge)
-    graphs = db.session.query(Graph).all()
-    graph_data = [(graph.return_json()) for graph in graphs]
-    for content in graph_data:
-        if content["name"] == msg.name:
-            return "Nome já cadastrado"
+    try:
+        graphs = db.session.query(Graph).all()
 
-    graph = Graph(name=msg.name,
-                  description=msg.description,
-                  image_address=msg.image_address)
+        # Verificação de nó igual
+        graph_data = [(graph.return_json()) for graph in graphs]
+        for content in graph_data:
+            if content["name"] == msg.name:
+                return "Nome já cadastrado"
 
-    db.session.add(graph)
+        graph = Graph(name=msg.name,
+                    description=msg.description,
+                    image_address=msg.image_address)
 
-    db.session.commit()
-    db.session.close()
+        db.session.add(graph)
+        db.session.commit()
 
-    return {f"Sucessful create graph {msg.name}"}
+        graph = db.session.query(Graph).filter(Graph.name == msg.name).first()
+        
+        nodes = []
+        for edge in msg.edges:   
+            node1 = Node(
+                x=edge['from']['x'],
+                y=edge['from']['y'],
+                first_node=(True if (edge['from'] is nodes[0]) else False),
+                graph_id=graph.id
 
+            )
+            if node1 not in nodes:
+                nodes.append(node1)
+
+            node2 = Node(
+                x=edge['to']['x'],
+                y=edge['to']['y'],
+                first_node=False ,
+                graph_id=graph.id
+
+            )
+
+            if node2 not in nodes:
+                nodes.append(node2)
+            
+        print("nodes: ", nodes)
+        db.session.add_all(nodes)
+        db.session.commit()
+                    
+        nodes = db.session.query(Node).filter(Node.graph_id == graph.id).all()
+        print(nodes)
+        for node in nodes:
+            print(node.id)
+
+        for edge in msg.edges:
+            node1 = db.session.query(Node).filter(Node.x == edge['from']['x'] and Node.y == edge['from']['y']).first()
+            node2 = db.session.query(Node).filter(Node.x == edge['to']['x'] and Node.y == edge['to']['y']).first()
+            weight = (sqrt((node1['x'] - node2['x']) ** 2 + (node1['y'] - node2['y']) ** 2))
+
+            edge = Edge(
+                weight=weight,
+                node1_id=node1.id,
+                node2_id=node2.id,
+                graph_id=graph.id
+            )
+            db.session.add(edge)
+
+        db.session.commit()
+
+        db.session.close()
+
+        return {f"Sucessful create graph {msg.name}"}
+    except Exception as e:
+        return {'erro': str(e)}
 
 @graph_router.delete("/delete")
 async def delete_graph(name: dict):

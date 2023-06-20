@@ -51,7 +51,7 @@ async def upload_image(file: UploadFile = File(...)):
 
     with open(f"{file_path}/{file_name}", "wb") as w:
         shutil.copyfileobj(file.file, w)
-        with open(f"/home/amandafontes/M6/Safe-McQueen/src/backend/supabase_images/{file_name}", "+rb") as r:
+        with open(f"./supabase_images/{file_name}", "+rb") as r:
 
             my_string = r.read()
             supabase.storage.from_(bucket_name).upload(f"{file_name}", my_string)
