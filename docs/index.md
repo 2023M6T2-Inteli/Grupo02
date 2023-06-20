@@ -42,29 +42,29 @@
     - [V1](#v1)
     - [V2](#v2)
   - [3.1 Engenharia de requisitos](#31-engenharia-de-requisitos)
-    - [Requisitos Funcionais](#requisitos-funcionais)
-    - [Requisitos Não Funcionais](#requisitos-não-funcionais)
+    - [3.1.1. Requisitos Funcionais](#311-requisitos-funcionais)
+    - [3.1.2. Requisitos Não Funcionais](#312-requisitos-não-funcionais)
   - [3.2 Viabilidade](#32-viabilidade)
 - [4. Sistema de locomoção e otimização de rota](#4-sistema-de-locomoção-e-otimização-de-rota)
-  - [4.1 Sistema de locomoção](#41-sistema-de-locomoção)
-  - [4.2 Otimização de rota](#42-otimização-de-rota)
-    - [4.2.1 Problema “O caixeiro viajante”](#421-problema-o-caixeiro-viajante)
-    - [4.2.2 Implementação](#422-implementação)
+  - [4.1. Sistema de locomoção](#41-sistema-de-locomoção)
+  - [4.2. Otimização de rota](#42-otimização-de-rota)
+    - [4.2.1. Problema “O caixeiro viajante”](#421-problema-o-caixeiro-viajante)
+    - [4.2.2. Implementação](#422-implementação)
     - [4.3 Instalação do ambiente de simulação](#43-instalação-do-ambiente-de-simulação)
       - [4.3.1 Ros Humble Turtlebot3](#431-ros-humble-turtlebot3)
     - [4.4 Comunicação](#44-comunicação)
 - [6. Interface de usuário](#6-interface-de-usuário)
   - [6.1. Visão geral do design](#61-visão-geral-do-design)
-      - [Palheta de cores](#palheta-de-cores)
-      - [Tipografia](#tipografia)
-      - [Ícones](#ícones)
+      - [6.1.1. Palheta de cores](#611-palheta-de-cores)
+      - [6.1.2. Tipografia](#612-tipografia)
+      - [6.1.3. Ícones](#613-ícones)
   - [6.2. Telas](#62-telas)
-      - [Tela inicial](#tela-inicial)
-      - [Tela principal](#tela-principal)
-      - [Setup](#setup)
-      - [Criar](#criar)
-      - [Editar](#editar)
-      - [Rodando](#rodando)
+      - [6.2.1. Tela inicial](#621-tela-inicial)
+      - [6.2.2. Tela principal](#622-tela-principal)
+      - [6.2.3. Setup](#623-setup)
+      - [6.2.4. Criar](#624-criar)
+      - [6.2.5. Editar](#625-editar)
+      - [6.2.6. Rodando](#626-rodando)
 - [7. Sistema de visão computacional](#7-sistema-de-visão-computacional)
   - [7.1. Implementação da técnica de filtros para detecção ou escolha de modelo pré-treinado a ser utilizado](#71-implementação-da-técnica-de-filtros-para-detecção-ou-escolha-de-modelo-pré-treinado-a-ser-utilizado)
   - [7.2 Validação do sistema de visão computacional.](#72-validação-do-sistema-de-visão-computacional)
@@ -286,7 +286,7 @@ Atualizamos nossa arquitetura para levar em conta que o robô não terá acesso 
 
 A engenharia de requisitos tem como objetivo promover em frases curtas e objetivas funcionalidades e características específicas do sistema, assim, atendendo as necessidades e expectativas do usuário, cumprir as especificações técnicas, a conformidades com as regulamentações e o padrão de qualidade aplicável em cada etapa do projeto.
 
-### Requisitos Funcionais
+### 3.1.1. Requisitos Funcionais
 
 Tem como objetivo primordial descrever as principais funcionalidades e características específicas da interação do sistema robótico. Como: a configuração do intervalo de distância entre os pontos de medição, a transmissão das informações para o relatório e o armazenamento dos dados atmosféricos por meio de sensores.
 
@@ -296,7 +296,7 @@ Tem como objetivo primordial descrever as principais funcionalidades e caracter�
 
 3. O armazenamento de dados atmosféricos referentes aos espaços confinados serão conletados por meio de sensores.
 
-### Requisitos Não Funcionais
+### 3.1.2. Requisitos Não Funcionais
 
 Tem como objetivo primordial descrever aspectos mais generalizados, como desempenho na usabilidade e segurança do sistema, não são diretamente relacionados às funcionalidades mas sim à eficiência e eficácia em relação ao usuário final da aplicação. Incluindo: a comunicação entre o robô e o Backend usando a arquitetura publisher/subscriber, a coordenação da simulação e protótipo por meio do sistema ROS2, a capacidade de armazenar arquivos de imagem e vídeo por meio da câmera, o uso de sensores de medição atmosférica e a escolha de tecnologias específicas para o armazenamento de dados não relacionais e a construção do Frontend.
 
@@ -329,7 +329,7 @@ A viabilidade técnica, refere-se a possibilidade de implementar na prática a s
 
 # 4. Sistema de locomoção e otimização de rota
 
-## 4.1 Sistema de locomoção
+## 4.1. Sistema de locomoção
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Foi desenvolvido um algoritmo para a segunda entrega da sprint, com o objetivo de fazer o robô se movimentar até um ponto desejado utilizando ângulos de Euler. O algoritmo utiliza o odômetro para obter os ângulos do robô e do ponto de destino, e então realiza uma subtração contínua desses ângulos até que a diferença esteja dentro de uma faixa aceitável de tolerância. Enquanto o robô estiver dentro dessa faixa, ele se move em direção ao ponto de destino. A lista de pontos é fornecida com coordenadas (x, y, z) e seus respectivos valores.
 <br>
@@ -358,13 +358,13 @@ A função publisher_callback realiza a subtração entre os ângulos de posiç�
 
 </p>
 
-## 4.2 Otimização de rota
+## 4.2. Otimização de rota
 <br>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Primeiramente, para a construção e formulação dos passos necessários para a implementação das rotas e suas principais otimizações, foi utilizado o contexto do problema caixeiro-viajante que estabelece variáveis primordiais para a compreensão de como foi feita a otimização das rotas que passam pelo robô. A seguir, está descrito detalhes do enigma citado, o algoritmo para o aprimoramento do trajeto e a decisão de qual será o caminho que possibilita o aprimoramento do percurso robótico apresentado no tópico anterior do projeto com a utilização do Gazebo. 
 
 <br>
 
-### 4.2.1 Problema “O caixeiro viajante” 
+### 4.2.1. Problema “O caixeiro viajante” 
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; O problema em questão consiste na busca de uma resolução de em uma série de pontos pré estabelecidos, que o caixeiro necessita passar em todos eles levando sempre a menor distância possível e após seguir o trajeto ele regressará ao ponto de origem. 
 
@@ -372,7 +372,7 @@ A função publisher_callback realiza a subtração entre os ângulos de posiç�
 <br>
 <br>
 
-### 4.2.2 Implementação 
+### 4.2.2. Implementação 
   
 A biblioteca networkx implementa  este algoritmo na função traveling_salesman que foi utilizada pelo grupo. Começamos transformando os pontos em nodos e criando arestas entre todos os vértices, futuramente o usuário poderá escolher as arestas. Após isso calculamos as distâncias entre os pontos para definir os pesos entre as arestas.
 </p> 
@@ -416,7 +416,7 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 <p>O sistema de design é uma coleção de elementos e padrões visuais que definem a aparência e a experiência do usuário em todo o projeto. Ele garante consistência e coesão em todas as telas e componentes, promovendo uma experiência de usuário unificada. A seguir, apresentamos os principais elementos do sistema de design:</p>
 
-#### Palheta de cores
+#### 6.1.1. Palheta de cores
 
 <p>A paleta de cores foi selecionada para transmitir a identidade visual da Gerdau. As cores utilizadas são:</p>
 
@@ -428,7 +428,7 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 <p>O objetivo do grupo é utilizar essas cores em todo o projeto para manter a harmonia visual.</p>
 
-#### Tipografia
+#### 6.1.2. Tipografia
 
 <p>Acreditamos que seja importante compartilhar a tipografia, afinal ela tem um papel importante na legibilidade. As fontes selecionadas são:</p>
 
@@ -440,7 +440,7 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 <p>O objetivo do grupo é utilizar essas fontes em todas as telas para manter a consistência tipográfica.</p>
 
-#### Ícones
+#### 6.1.3. Ícones
 
 <p>Os ícones fornecem representações visuais de elementos ou ações específicas. Utilizamos o plugin "Material Design Icons" para a maioria desse projeto. Alguns ícones relevantes incluem:</p>
 
@@ -460,13 +460,13 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 <p>A seguir, apresentamos uma lista das telas principais do projeto, juntamente com uma breve descrição de suas funcionalidades:</p>
 
-#### Tela inicial
+#### 6.2.1. Tela inicial
 
 <p align="center"><img src="../media/interface_usuario/tela_inicial.png" width="65%"></img></p>
 
 <p>A tela inicial é a primeira informação que o usuário receberá. Essa é nossa página de boas vindas e após selecionar "iniciar", eles são redirecionados para a tela principal do aplicativo.</p>
 
-#### Tela principal
+#### 6.2.2. Tela principal
 
 <p align="center"><img src="../media/interface_usuario/registros_inspe%C3%A7%C3%B5es_vazio.png" width="65%"></img></p>
 
@@ -476,7 +476,7 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 <p>Aqui, os usuários podem checar as informações das inspeções realizadas com sua data e qual rota foi realizada.</p>
 
-#### Setup
+#### 6.2.3. Setup
 
 <p align="center"><img src="../media/interface_usuario/setup_vazio.png" width="65%"></p>
 
@@ -484,19 +484,19 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 <p align="center"><img src="../media/interface_usuario/setup_selecionado.png" width="65%"></p>
 
-#### Criar
+#### 6.2.4. Criar
 
 <p align="center"><img src="../media/interface_usuario/modal_crie.png" width="65%"></p>
 
 <p>Ao clicar no "Adicionar nova rota" uma modal surge para que o usuário envie a planta e crie sua rota.</p>
 
-#### Editar
+#### 6.2.5. Editar
 
 <p align="center"><img src="../media/interface_usuario/modal_edite.png" width="65%"></p>
 
 <p>Ao clicar no lápis para editar uma rota, será aberta essa modal, semelhante a de criar, em que o usuário pode reorganizar a rota, alterar o nome, descrição e a imagem.</p>
 
-#### Rodando
+#### 6.2.6. Rodando
 
 <p align="center"><img src="../media/interface_usuario/rodando.png" width="65%"></p>
 
