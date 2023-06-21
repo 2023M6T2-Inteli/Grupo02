@@ -13,11 +13,11 @@ const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _descripti
 
         try {
             const image_url = await axios.post(url, formData);
-            var graphData = {
-                "image_address": image_url.data,
-                "name": _name,
-                "description": _description,
-                "edges": edges.current
+            const graphData = {
+                image_address: image_url.data,
+                name: _name,
+                description: _description,
+                edges: edges.current
             }
 
             await axios.post("http://localhost:8000/graph/create", graphData);

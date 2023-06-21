@@ -19,10 +19,10 @@ async def get_graph(id: int):
     edges = [edges.return_json() for edges in get_edges]
 
     for edge in edges:
-        edge["from"] = {"x": nodes[edge["from"]-1]["x"],
-                        "y": nodes[edge["from"]-1]["y"]}
-        edge["target"] = {"x": nodes[edge["target"]-1]["x"],
-                          "y": nodes[edge["target"]-1]["y"]}
+        edge["from"] = {"x": nodes[edge["from"]]["x"],
+                        "y": nodes[edge["from"]]["y"]}
+        edge["target"] = {"x": nodes[edge["target"]]["x"],
+                          "y": nodes[edge["target"]]["y"]}
     graph = [graph for graph in db.session.execute(stm)][0][0]
 
     graph_data = {
@@ -68,13 +68,13 @@ async def post_root(msg: GraphT):
         db.session.commit()
 
         graph = db.session.query(Graph).filter(Graph.name == msg.name).first()
-        
+
         nodes = []
-        for edge in msg.edges:   
+        for edge in msg.edges: 
             node1 = Node(
-                x=edge['from']['x'],
-                y=edge['from']['y'],
-                first_node=(True if (edge['from'] is nodes[0]) else False),
+                x=round(edge['from']['x'],3),
+                y=round(edge['from']['y'],3),
+                first_node=False,
                 graph_id=graph.id
 
             )
@@ -92,29 +92,28 @@ async def post_root(msg: GraphT):
             if node2 not in nodes:
                 nodes.append(node2)
             
-        print("nodes: ", nodes)
         db.session.add_all(nodes)
         db.session.commit()
                     
         nodes = db.session.query(Node).filter(Node.graph_id == graph.id).all()
-        print(nodes)
         for node in nodes:
             print(node.id)
 
         for edge in msg.edges:
-            node1 = db.session.query(Node).filter(Node.x == edge['from']['x'] and Node.y == edge['from']['y']).first()
-            node2 = db.session.query(Node).filter(Node.x == edge['to']['x'] and Node.y == edge['to']['y']).first()
-            weight = (sqrt((node1['x'] - node2['x']) ** 2 + (node1['y'] - node2['y']) ** 2))
-
-            edge = Edge(
+            node1 = db.session.query(Node).filter(Node.x == round(edge['from']['x'], 3) and Node.y == round(edge['from']['y'], 3) and Node.graph_id == graph.id).first()
+            node2 = db.session.query(Node).filter(Node.x == round(edge['to']['x'], 3) and Node.y == round(edge['to']['y'], 3) and Node.graph_id == graph.id).first()
+            weight = sqrt((node1.x - node2.x)**2 + (node1.y - node2.y)**2)
+            print("weight: ", weight)
+            edge_ = Edge(
                 weight=weight,
                 node1_id=node1.id,
                 node2_id=node2.id,
                 graph_id=graph.id
             )
-            db.session.add(edge)
+            db.session.add(edge_)
 
         db.session.commit()
+        print("Salve -------------------------------------")
 
         db.session.close()
 
