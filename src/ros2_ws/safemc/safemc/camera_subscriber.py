@@ -11,10 +11,8 @@ from rclpy.node import Node  # Handles the creation of nodes
 from sensor_msgs.msg import Image  # Image is the message type
 from cv_bridge import CvBridge  # Package to convert between ROS and OpenCV Images
 import cv2  # OpenCV library
-import base64
-from ultralytics import YOLO
-model = YOLO("../visao_computacional/model_filtered.pt")
-i = 0
+
+
 
 class ImageSubscriber(Node):
     """
@@ -36,9 +34,10 @@ class ImageSubscriber(Node):
             self.listener_callback,
             10)
         self.subscription  # prevent unused variable warning
-
+        
         # Used to convert between ROS and OpenCV images
         self.br = CvBridge()
+        self.i = cv2.VideoWriter('../visao_computacional/images/frame.mp4',cv2.VideoWriter_fourcc(*'mp4v'), 15, ( 640, 480))
 
     def listener_callback(self, data):
         """
@@ -50,9 +49,15 @@ class ImageSubscriber(Node):
         # Convert ROS Image message to OpenCV image
         current_frame = self.br.imgmsg_to_cv2(data)
         # Display image
-        _, frame = cv2.imencode(".jpg", current_frame)
-        results = model.predict(frame, conf=0.6)
         
+        #results = model.predict(current_frame, conf=0.6)
+        #save frame
+        
+        #cv2.imwrite(f"../visao_computacional/images/frame.mp4",current_frame)
+        self.i.write(current_frame)
+       
+        #log
+        self.get_logger().info(f"frame{self.i} saved")
         ##image = base64.b64encode(results)
         ##i+=1
             ##requests.post("http://localhost:8000/images/add", json={"text": image.decode("utf-8"),"name":f"frame{i}"},headers={"Content-": "application/json","apikey":"apikey","authorization":"Bearer apikey"})
@@ -65,7 +70,7 @@ def main(args=None):
 
     # Create the node
     image_subscriber = ImageSubscriber()
-
+    
     # Spin the node so the callback function is called.
     rclpy.spin(image_subscriber)
 
