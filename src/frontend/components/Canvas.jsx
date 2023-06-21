@@ -1,11 +1,11 @@
 import React, { useRef, useEffect } from 'react';
 import axios from 'axios';
-import {  AiOutlineMinus, AiFillDelete } from 'react-icons/ai';
+import { AiOutlineMinus, AiFillDelete } from 'react-icons/ai';
 
-const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _description, just_show=false }) => {
+const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _description, just_show = false }) => {
 
-    async function SendSupabase(){
-       
+    async function SendSupabase() {
+
         const url = 'http://localhost:8000/images/send_supabase'; // URL da API de destino
         const formData = new FormData(); // Dados a serem enviados no corpo da requisição
         formData.append("file", file)
@@ -21,16 +21,16 @@ const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _descripti
             }
 
             await axios.post("http://localhost:8000/graph/create", graphData);
-            
-            console.log('File uploaded successfully: ', image_url.data );
-          } catch (error) {
+
+            console.log('File uploaded successfully: ', image_url.data);
+        } catch (error) {
             console.error('Error uploading file:', error);
-          };
+        };
 
-          modal_close(false)
+        modal_close(false)
 
-      };
-     
+    };
+
 
     const canvasRef = useRef(null);
     const nodes = useRef([]);
@@ -40,7 +40,7 @@ const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _descripti
     img.src = backgroundImageSrc;
 
     useEffect(() => {
-        if (edge){
+        if (edge) {
             edge.forEach((edge_dic) => {
                 const node_1 = {
                     x: edge_dic.from.x,
@@ -51,24 +51,24 @@ const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _descripti
                     selectedFill: '#88AAAA',
                     selected: false,
                 };
-    
+
                 nodes.current.push(node_1);
                 const node_2 = {
-                    x:edge_dic.target.x,
-                    y:edge_dic.target.y,
+                    x: edge_dic.target.x,
+                    y: edge_dic.target.y,
                     radius: 10,
                     fillStyle: '#22CCCC',
                     strokeStyle: '#009999',
                     selectedFill: '#88AAAA',
                     selected: false,
                 };
-    
+
                 nodes.current.push(node_2);
-    
+
                 edges.current.push({ from: node_1, to: node_2 });
             });
         }
-        
+
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
         context.font = '30px Arial';
@@ -152,7 +152,6 @@ const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _descripti
         };
 
         const down = (e) => {
-            if (!just_show) {
             const { offsetX, offsetY } = getCanvasOffset(e);
             const target = within(offsetX, offsetY);
 
@@ -163,13 +162,13 @@ const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _descripti
             if (target) {
                 if (selection.current && selection.current !== target) {
                     let weight = (Math.sqrt((selection.current.x - target.x) ** 2 + (selection.current.y - target.y) ** 2)).toFixed(3)
-                    edges.current.push({ from: selection.current, to: target, weight: weight  });
+                    edges.current.push({ from: selection.current, to: target, weight: weight });
                 }
 
                 selection.current = target;
                 selection.current.selected = true;
                 draw();
-            }}
+            }
         };
 
         const move = (e) => {
@@ -206,11 +205,12 @@ const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _descripti
         };
 
         window.addEventListener('resize', resize);
-        canvas.addEventListener('mousedown', down);
-        canvas.addEventListener('mousemove', move);
-        canvas.addEventListener('mouseup', up);
-
-        resize();
+        if (just_show == false) {
+            canvas.addEventListener('mousedown', down);
+            canvas.addEventListener('mousemove', move);
+            canvas.addEventListener('mouseup', up);
+            resize();
+        }
 
         return () => {
             window.removeEventListener('resize', resize);
@@ -228,7 +228,7 @@ const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _descripti
                     className='border'
                     style={{
                         width: "100%",
-                        height:"100%",
+                        height: "100%",
                         zIndex: 1,
                         backgroundImage: `url("${backgroundImageSrc}")`,
                         backgroundRepeat: 'no-repeat',
@@ -239,20 +239,20 @@ const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _descripti
 
             {!just_show && (
                 <div className="w-3/12 flex flex-col items-center">
-                <div className="bg-azul cursor-pointer mb-8 flex flex-col rounded-2xl text-white items-center gap-y-1.5 p-8 H-max-15 W-max-20">
-                <div className='circulo'></div>
-                <span>Inserir nó</span>
-                </div>
-                <div className="bg-azul cursor-pointer mb-8 flex flex-col rounded-2xl text-white items-center gap-y-1.5 p-8 H-max-15 W-max-20">
-                <div className="text-4xl"><AiOutlineMinus /></div>
-                <span>Inserir aresta</span>
-                </div>
-                <div className="cursor-pointer bg-azul mb-8 flex flex-col rounded-2xl text-white items-center gap-y-1.5 p-8 H-max-15 W-max-20">
-                <div><AiFillDelete /></div>
-                <span>Deletar</span>
-                </div>
-                <button onClick={() => {SendSupabase()}} className='W-max-20 bg-azul rounded-2xl h-9 text-white'>save</button>
-            </div>)}
+                    <div className="bg-azul cursor-pointer mb-8 flex flex-col rounded-2xl text-white items-center gap-y-1.5 p-8 H-max-15 W-max-20">
+                        <div className='circulo'></div>
+                        <span>Inserir nó</span>
+                    </div>
+                    <div className="bg-azul cursor-pointer mb-8 flex flex-col rounded-2xl text-white items-center gap-y-1.5 p-8 H-max-15 W-max-20">
+                        <div className="text-4xl"><AiOutlineMinus /></div>
+                        <span>Inserir aresta</span>
+                    </div>
+                    <div className="cursor-pointer bg-azul mb-8 flex flex-col rounded-2xl text-white items-center gap-y-1.5 p-8 H-max-15 W-max-20">
+                        <div><AiFillDelete /></div>
+                        <span>Deletar</span>
+                    </div>
+                    <button onClick={() => { SendSupabase() }} className='W-max-20 bg-azul rounded-2xl h-9 text-white'>save</button>
+                </div>)}
         </div>
     );
 };
