@@ -27,7 +27,23 @@ async def get_graph(id: int):
 
     graph_data = {
         "graph": graph.return_json(),
-        "edges": [edge for edge in edges]
+        "edges": [edge for edge in edges],
+    }
+
+    return graph_data
+
+
+@graph_router.get("/get_gazebo/{id}")
+async def get_graph(id: int):
+    stm = select(Graph).where(Graph.id == id)
+    nodes = db.session.query(Node).filter(Node.graph_id == id).all()
+    edges = db.session.query(Edge).filter(Edge.graph_id == id).all()
+    graph = [graph for graph in db.session.execute(stm)][0][0]
+
+    graph_data = {
+        "graph": graph.return_json(),
+        "nodes": [node.return_json() for node in nodes],
+        "edges": [edge.return_json() for edge in edges]
     }
 
     return graph_data
@@ -61,8 +77,8 @@ async def post_root(msg: GraphT):
                 return "Nome já cadastrado"
 
         graph = Graph(name=msg.name,
-                    description=msg.description,
-                    image_address=msg.image_address)
+                      description=msg.description,
+                      image_address=msg.image_address)
 
         db.session.add(graph)
         db.session.commit()
@@ -70,10 +86,10 @@ async def post_root(msg: GraphT):
         graph = db.session.query(Graph).filter(Graph.name == msg.name).first()
 
         nodes = []
-        for edge in msg.edges: 
+        for edge in msg.edges:
             node1 = Node(
-                x=round(edge['from']['x'],3),
-                y=round(edge['from']['y'],3),
+                x=round(edge['from']['x'], 3),
+                y=round(edge['from']['y'], 3),
                 first_node=False,
                 graph_id=graph.id
 
@@ -84,24 +100,26 @@ async def post_root(msg: GraphT):
             node2 = Node(
                 x=edge['to']['x'],
                 y=edge['to']['y'],
-                first_node=False ,
+                first_node=False,
                 graph_id=graph.id
 
             )
 
             if node2 not in nodes:
                 nodes.append(node2)
-            
+
         db.session.add_all(nodes)
         db.session.commit()
-                    
+
         nodes = db.session.query(Node).filter(Node.graph_id == graph.id).all()
         for node in nodes:
             print(node.id)
 
         for edge in msg.edges:
-            node1 = db.session.query(Node).filter(Node.x == round(edge['from']['x'], 3) and Node.y == round(edge['from']['y'], 3) and Node.graph_id == graph.id).first()
-            node2 = db.session.query(Node).filter(Node.x == round(edge['to']['x'], 3) and Node.y == round(edge['to']['y'], 3) and Node.graph_id == graph.id).first()
+            node1 = db.session.query(Node).filter(Node.x == round(edge['from']['x'], 3) and Node.y == round(
+                edge['from']['y'], 3) and Node.graph_id == graph.id).first()
+            node2 = db.session.query(Node).filter(Node.x == round(edge['to']['x'], 3) and Node.y == round(
+                edge['to']['y'], 3) and Node.graph_id == graph.id).first()
             weight = sqrt((node1.x - node2.x)**2 + (node1.y - node2.y)**2)
             print("weight: ", weight)
             edge_ = Edge(
@@ -120,6 +138,7 @@ async def post_root(msg: GraphT):
         return {f"Sucessful create graph {msg.name}"}
     except Exception as e:
         return {'erro': str(e)}
+
 
 @graph_router.delete("/delete")
 async def delete_graph(name: dict):
