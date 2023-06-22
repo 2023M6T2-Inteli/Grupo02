@@ -13,7 +13,6 @@
 - [Sumário](#sumário)
 - [1. Entendimento de negócio](#1-entendimento-de-negócio)
   - [1.1. Análise setorial](#11-análise-setorial)
-  - [1.2. Análise empresarial](#12-análise-empresarial)
   - [1.3. Análise financeira](#13-análise-financeira)
   - [1.4. Análise do time de desenvolvimento](#14-análise-do-time-de-desenvolvimento)
       - [1.4.1. Matriz de riscos](#141-matriz-de-riscos)
@@ -37,7 +36,6 @@
   - [2.6. Tecnologia produtiva e materiais empregados](#26-tecnologia-produtiva-e-materiais-empregados)
   - [2.7. Entendimento da experiência do usuário](#27-entendimento-da-experiência-do-usuário)
     - [2.7.1. Persona](#271-persona)
-    - [2.7.2. User Story](#272-user-story)
 - [3. Arquitetura do sistema](#3-arquitetura-do-sistema)
     - [Versão 1](#versão-1)
     - [Versão 2](#versão-2)
@@ -115,10 +113,6 @@
   Conforto: Criar um ambiente de trabalho mais confortável para os funcionários que precisam trabalhar em espaços confinados. Já que a segurança em ambientes confinados pode ser uma fonte de estresse e desconforto. Além de demonstrar a preocupação da empresa quanto a saúde deles.<br>
   Tecnologia: Com esse protótipo inicial é possível criar tecnologias mais avançadas; sistemas de monitoramento, sensores, até realidade virtual, o que pode ser visto como um diferencial tecnológico em relação à concorrência
 </ul>
-
-## 1.2. Análise empresarial
-
-(Matriz SWOT)
 
 ## 1.3. Análise financeira
 
@@ -272,8 +266,6 @@ O grupo também propôs uma solução visando ser mais ecoeficiente, que poderia
 
 <p align="center"><img src="../media/artefatos_negocios/persona.png" width="60%"></img></p>
 A persona foi criada para ajudar a entender as necessidades e os desejos do público alvo para a solução de automação industrial que foi apresentada, ela é um personagem fictício, doravante, com informações reais fornecidas pelos representantes da Gerdau. Nesse caso, especificamente,  Joana é técnica em segurança do trabalho, realiza atividades de alto risco, e, portanto, está sempre com equipamentos de proteção individual, sobretudo, por serem ainda atividades arriscadas, compreende que é um trabalho bastante delicado. Com a implementação da solução em desenvolvimento , Joana teria que aprender a supervisionar o trabalho do robô, deixando para ele concluir a etapa mais perigosa e garantindo que seu desempenho nas demais responsabilidades do processo de inspeção do ambiente confinado estivessem ocorrendo de forma correta.
-
-### 2.7.2. User Story
 
 # 3. Arquitetura do sistema
 
