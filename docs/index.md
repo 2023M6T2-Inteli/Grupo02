@@ -749,12 +749,20 @@ A rota /add é uma rota do tipo POST que permite armazenar uma nova imagem. Ela 
 <p align="center"><img src="../media/rotas/image_post.png" width="65%"></p>
 <br/>
 
-
-
 É válido observar que algumas rotas não são utilizadas pela aplicação, mas sua existência é importante para o controle de mudanças do banco de dados, caso seja necessário acessá-las diretamente, isso pode ser feito acessando diretamente o endereço da rota.
+
 # 10. Integração de sistemas
 
-<p>Em construção</p>
+<p>Considerando a versão final da arquitetura da solução construída, a integração de sistemas se faz necessária para os seguintes componentes do projeto:</p>
+
+<li>A interface gráfica por meio da qual será possível configurar a inspeção de um espaço confinado;
+<li>O algoritmo de visão computacional para detecção de rachaduras em espaços confinados;
+<li>A camada de servidor que serve a interface gráfica;
+<li>O motor de simulação computacional do Gazebo;
+<li>O controlador do Turtlebot3;
+<li>Os sensores acoplados ao Turtlebot3.
+
+<p>A interface de usuário é composta por uma aplicação web desenvolvida em Next.js e um sistema de back-end implementado em FastAPI — tecnologia com suporte para API Rest, que permite uma comunicação efetiva entre o front-end e o back-end. A integração entre as ferramentas permite que haja um processamento eficiente para as solicitações efetuadas. A partir desse procedimento, a aplicação se torna funcional, de modo que o usuário seja capaz de realizar uma série de ações. A primeira delas é cadastrar a rota correspondente a um novo espaço confinado. Para essa ação, informações como a planta do ambiente confinado e o grafo que representa a trajetória a ser seguida pelo robô são enviados, respectivamente, para um bucket no Supabase e para o banco de dados da aplicação, em SQLAlchemy. Uma vez que a inspeção de um espaço confinado é iniciada, o usuário pode visualizar, na página denominada "running", informações enviadas pelo robô, como o status da inspeção e os valores de output dos sensores acoplados ao robô. Além disso, dados relativos aos processos se inspeção serão exibidos na página de histórico, responsável por registrar a execução das rotas.</p>
 
 # 11. Validação da eficácia do sistema
 
