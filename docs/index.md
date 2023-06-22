@@ -68,11 +68,11 @@
 - [6. Sistema de visão computacional](#6-sistema-de-visão-computacional)
   - [6.1. Implementação da técnica de filtros para detecção ou escolha de modelo pré-treinado a ser utilizado](#61-implementação-da-técnica-de-filtros-para-detecção-ou-escolha-de-modelo-pré-treinado-a-ser-utilizado)
   - [6.2 Validação do sistema de visão computacional.](#62-validação-do-sistema-de-visão-computacional)
-- [8. Sistemas de segurança](#8-sistemas-de-segurança)
+- [7. Sistemas de segurança](#7-sistemas-de-segurança)
   - [7.1 Definição, implementação e validação de um sistema de tomada de decisões a partir da detecção de um obstáculo.](#71-definição-implementação-e-validação-de-um-sistema-de-tomada-de-decisões-a-partir-da-detecção-de-um-obstáculo)
   - [7.2 Mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos.](#72-mapeamento-de-riscos-dos-sistemas-eletromecânicos-mecânicos-e-eletrônicos)
-  - [8.3 Definição, implementação e validação de dispositivos de segurança para os riscos mapeados.](#83-definição-implementação-e-validação-de-dispositivos-de-segurança-para-os-riscos-mapeados)
-  - [8.4 Implementação e validação de sistemas de proteção contra comandos indevidos.](#84-implementação-e-validação-de-sistemas-de-proteção-contra-comandos-indevidos)
+  - [7.3 Definição, implementação e validação de dispositivos de segurança para os riscos mapeados.](#73-definição-implementação-e-validação-de-dispositivos-de-segurança-para-os-riscos-mapeados)
+  - [7.4 Implementação e validação de sistemas de proteção contra comandos indevidos.](#74-implementação-e-validação-de-sistemas-de-proteção-contra-comandos-indevidos)
 - [8. Backend](#8-backend)
   - [8.1. Banco de dados](#81-banco-de-dados)
   - [8.2. Rotas](#82-rotas)
@@ -514,7 +514,15 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 # 6. Sistema de visão computacional
 ## 6.1. Implementação da técnica de filtros para detecção ou escolha de modelo pré-treinado a ser utilizado 
 
-<p>Em construção</p>
+<img scr="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/visao_computacional/exemplos_de_rachaduras.png">
+
+<p>De acordo com a imagem acima, é possível identificar que a detecção das rachaduras acontece de maneira clara e objetiva, considerando a caixa deliminatória vermelha que abrange todo o contorno da rachadura. Nesse sentido, o objetivo primordial se tratando principalmente do desenvolvimento e implementação de testes de performance é justificável considerar um bom resultado atingido.</p>
+
+<p>Para exemplificar melhor, seguinte a matriz de confusão feita a partir dos dados fornecidos após a execução do processamento: </p>
+
+<img scr="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/media/visao_computacional/matrix_de_confusao.png">
+
+<p>Considerando os valores descritos, é possível afirmar que existem mais falsos positivos do que falsos negativos, o que nesse caso é extremamente positivo,por exemplo, é melhor o robô identificar uma rachadura em um lugar que não existe, do que ele apenas ignorar uma rachadura inexistente.  </p>
 
 ## 6.2 Validação do sistema de visão computacional.
 <p> A fim de otimizar o processo de identificação de rachaduras, foi desenvolvido um filtro para ser aplicado sobre as imagens do dataset. O filtro em questão coloca em evidência o objeto a ser identificado, de modo a aumentar sua nitidez. Esse processo faz com que a possível rachadura a ser identificada se destaque na imagem em comparação com os outros elementos da figura. Motivado pelo objetivo de conferir a eficiência do filtro desenvolvido, o grupo construiu dois modelos distintos utilizando o Yolo V8: um que aplica o filtro às imagens do dataset, e um que não utiliza o filtro e processa as imagens puras.
@@ -528,7 +536,7 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 </br>
 
-# 8. Sistemas de segurança
+# 7. Sistemas de segurança
 
 ## 7.1 Definição, implementação e validação de um sistema de tomada de decisões a partir da detecção de um obstáculo.
 
@@ -558,7 +566,7 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 <p>Além desses exemplos, é importante considerar outros riscos potenciais específicos do ambiente de trabalho em que o robô será utilizado. Cada ambiente pode apresentar desafios e perigos únicos, portanto, é necessário realizar uma análise de risco abrangente e identificar os riscos relevantes, incluindo aqueles relacionados à segurança dos colaboradores e à integridade do equipamento.</p>
 
-## 8.3 Definição, implementação e validação de dispositivos de segurança para os riscos mapeados.
+## 7.3 Definição, implementação e validação de dispositivos de segurança para os riscos mapeados.
 
 <p>Vale ressaltar que todos os riscos poderiam ter sua possibilidade de ocorrência diminuída com o suporte da equipe antes da entrega da aplicação para o parceiro. Nesse sentido, a equipe capacitaria alguns funcionários para terem hábitos adequados com o projeto, mitigando em muito a chance da aplicação falhar em diversos tópicos que estão listados abaixo.</p>
 
@@ -586,9 +594,16 @@ Além disso, o grupo identificou uma abordagem para contornar a falta de conecti
 Com o uso do protocolo MQTT, o robô é capaz de armazenar os dados localmente durante a falta de conectividade e, assim que a conexão for restabelecida, enviar todas as informações de uma só vez. Isso garante que nenhuma informação seja perdida durante os períodos de desconexão, proporcionando uma sincronização eficiente com a plataforma web.
 Dessa forma, ao adotar o protocolo MQTT, é possível superar a falta de conectividade constante, permitindo que o robô mantenha suas operações mesmo em ambientes com acesso limitado à internet.</p>
 
-## 8.4 Implementação e validação de sistemas de proteção contra comandos indevidos.
+## 7.4 Implementação e validação de sistemas de proteção contra comandos indevidos.
 
-<p>Em construção</p>
+<p><b>Parada de emergência:</b> 
+Implementar um mecanismo de parada de emergência na interface, como um botão de desligamento imediato, que pode ser pressionado em caso de perigo iminente. Configurar o sistema de controle para exigir uma sequência específica de comandos para acionar a parada de emergência, evitando ativações acidentais. Realizar treinamentos para que os operadores entendam como e quando usar a parada de emergência.</p>
+
+<p><b>Passagem de grafo errado pela interface:</b>
+Implementar uma validação rigorosa dos dados de entrada fornecidos pela interface. Verificar se o grafo é válido, contendo os nós corretos e as conexões esperadas.
+Utilizar algoritmos de verificação e validação para garantir que o grafo fornecido seja consistente e atenda aos requisitos pré-definidos.
+Implementar mecanismos de detecção de erros durante a leitura do grafo, como detecção de loops ou nós inválidos.
+Exibir mensagens de erro claras e orientações para o operador quando forem identificados problemas na passagem do grafo, permitindo que erros sejam corrigidos antes que afetem a operação do robô.</p>
 
 # 8. Backend
 
