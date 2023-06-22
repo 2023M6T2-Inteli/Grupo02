@@ -11,15 +11,17 @@ def publisher_callback(node):
     try:
         goal = calculate_goal(node)
         angle_to_goal = calculate_angle_to_goal(node,goal)
-        node.logger("aqui")
+        
 
         if not check_lidar_margin(node) and not node.returning:
+            node.logger(f"lidar{node.i}")
+            node.i +=1
                 
-                node.returning = True
-                node.point_list = [(0.0,0.0),*node.point_list[0:node.current_point]]
-                node.point_list.reverse()
+            node.returning = True
+            node.point_list = [(0.0,0.0),*node.point_list[0:node.current_point]]
+            node.point_list.reverse()
                 
-                node.current_point =0
+            node.current_point =0
                 
         if check_reached_point(goal.x - node.x, goal.y - node.y,MAX_DIFF):
             if len(node.point_list)-1 > node.current_point:

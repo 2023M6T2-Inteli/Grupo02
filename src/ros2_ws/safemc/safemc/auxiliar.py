@@ -25,6 +25,6 @@ def adjust_speed(node, angle_to_goal,MAX_DIFF):
         speed.linear.x = 0.0
         speed.angular.z = 0.3 if (angle_to_goal - node.theta) > 0.0 else -0.3
     else:
-        speed.linear.x = 0.5
+        speed.linear.x = 0.1
         speed.angular.z = 0.0
     return speed

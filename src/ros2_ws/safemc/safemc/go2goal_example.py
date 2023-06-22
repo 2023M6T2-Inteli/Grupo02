@@ -26,6 +26,7 @@ except:
          (5.0, 4.0),
          (7.0, 8.0),
          (0.0, 0.0)]
+    goals = [(0.5,0.0),(0.5,0.5),(0.0,0.0)]
 
     
 
@@ -36,7 +37,7 @@ class TurtleController(Node):
         
         self.vel_msg = Twist()
         self.goal = Point()
-        
+        self.i=0
         self.current_point = 0
         self.returning = False
         self.point_list = goals

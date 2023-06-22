@@ -1,0 +1,27 @@
+[2.885s] Invoking command in '/home/inteli/project/Safe-McQueen/src/ros2_ws/safemc': PYTHONPATH=/home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/prefix_override:/home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/safemc build --build-base /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build install --record /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/install.log --single-version-externally-managed
+[3.971s] running egg_info
+[3.974s] writing ../build/safemc/safemc.egg-info/PKG-INFO
+[3.976s] writing dependency_links to ../build/safemc/safemc.egg-info/dependency_links.txt
+[3.977s] writing entry points to ../build/safemc/safemc.egg-info/entry_points.txt
+[3.979s] writing requirements to ../build/safemc/safemc.egg-info/requires.txt
+[3.979s] writing top-level names to ../build/safemc/safemc.egg-info/top_level.txt
+[3.987s] reading manifest file '../build/safemc/safemc.egg-info/SOURCES.txt'
+[3.991s] writing manifest file '../build/safemc/safemc.egg-info/SOURCES.txt'
+[3.992s] running build
+[3.992s] running build_py
+[3.994s] copying safemc/go2goal_example.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+[3.997s] running install
+[3.998s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[3.999s]   warnings.warn(
+[3.999s] running install_lib
+[4.003s] copying /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/go2goal_example.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+[4.007s] byte-compiling /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/go2goal_example.py to go2goal_example.cpython-310.pyc
+[4.012s] running install_data
+[4.014s] running install_egg_info
+[4.020s] removing '/home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc-0.0.0-py3.10.egg-info' (and everything under it)
+[4.022s] Copying ../build/safemc/safemc.egg-info to /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc-0.0.0-py3.10.egg-info
+[4.028s] running install_scripts
+[4.106s] Installing go2goal script to /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/safemc
+[4.107s] Installing test script to /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/safemc
+[4.109s] writing list of installed files to '/home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/install.log'
+[4.227s] Invoked command in '/home/inteli/project/Safe-McQueen/src/ros2_ws/safemc' returned '0': PYTHONPATH=/home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/prefix_override:/home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/safemc build --build-base /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build install --record /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/install.log --single-version-externally-managed
