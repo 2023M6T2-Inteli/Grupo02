@@ -1,0 +1,55 @@
+running egg_info
+writing ../build/safemc/safemc.egg-info/PKG-INFO
+writing dependency_links to ../build/safemc/safemc.egg-info/dependency_links.txt
+writing entry points to ../build/safemc/safemc.egg-info/entry_points.txt
+writing requirements to ../build/safemc/safemc.egg-info/requires.txt
+writing top-level names to ../build/safemc/safemc.egg-info/top_level.txt
+reading manifest file '../build/safemc/safemc.egg-info/SOURCES.txt'
+writing manifest file '../build/safemc/safemc.egg-info/SOURCES.txt'
+running build
+running build_py
+copying safemc/camera_subscriber.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+copying safemc/publisher_callback.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+copying safemc/lidar.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+copying safemc/auxiliar.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+copying safemc/go2goal_example.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+copying safemc/__init__.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+copying safemc/stop.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+copying safemc/error_handling.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+copying safemc/build_goals.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+copying safemc/listener_callback.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+copying safemc/camera_publisher.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+running install
+/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+running install_lib
+copying /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/camera_subscriber.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+copying /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/publisher_callback.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+copying /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/lidar.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+copying /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/auxiliar.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+copying /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/go2goal_example.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+copying /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/__init__.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+copying /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/stop.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+copying /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/error_handling.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+copying /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/build_goals.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+copying /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/listener_callback.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+copying /home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/camera_publisher.py -> /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+byte-compiling /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/camera_subscriber.py to camera_subscriber.cpython-310.pyc
+byte-compiling /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/publisher_callback.py to publisher_callback.cpython-310.pyc
+byte-compiling /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/lidar.py to lidar.cpython-310.pyc
+byte-compiling /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/auxiliar.py to auxiliar.cpython-310.pyc
+byte-compiling /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/go2goal_example.py to go2goal_example.cpython-310.pyc
+byte-compiling /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/stop.py to stop.cpython-310.pyc
+byte-compiling /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/error_handling.py to error_handling.cpython-310.pyc
+byte-compiling /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/build_goals.py to build_goals.cpython-310.pyc
+byte-compiling /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/listener_callback.py to listener_callback.cpython-310.pyc
+byte-compiling /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/camera_publisher.py to camera_publisher.cpython-310.pyc
+running install_data
+running install_egg_info
+removing '/home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../build/safemc/safemc.egg-info to /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc-0.0.0-py3.10.egg-info
+running install_scripts
+Installing go2goal script to /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/safemc
+Installing test script to /home/inteli/project/Safe-McQueen/src/ros2_ws/install/safemc/lib/safemc
+writing list of installed files to '/home/inteli/project/Safe-McQueen/src/ros2_ws/build/safemc/install.log'

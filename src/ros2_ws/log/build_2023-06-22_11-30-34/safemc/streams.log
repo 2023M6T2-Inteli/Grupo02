@@ -1,0 +1,67 @@
+[0.616s] Invoking command in '/home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/safemc': PYTHONPATH=/home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/prefix_override:/home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages: /usr/bin/python3 setup.py egg_info --egg-base ../build/safemc build --build-base /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build install --record /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/install.log --single-version-externally-managed
+[0.771s] running egg_info
+[0.772s] creating ../build/safemc/safemc.egg-info
+[0.772s] writing ../build/safemc/safemc.egg-info/PKG-INFO
+[0.773s] writing dependency_links to ../build/safemc/safemc.egg-info/dependency_links.txt
+[0.773s] writing entry points to ../build/safemc/safemc.egg-info/entry_points.txt
+[0.774s] writing requirements to ../build/safemc/safemc.egg-info/requires.txt
+[0.774s] writing top-level names to ../build/safemc/safemc.egg-info/top_level.txt
+[0.774s] writing manifest file '../build/safemc/safemc.egg-info/SOURCES.txt'
+[0.776s] reading manifest file '../build/safemc/safemc.egg-info/SOURCES.txt'
+[0.776s] writing manifest file '../build/safemc/safemc.egg-info/SOURCES.txt'
+[0.776s] running build
+[0.776s] running build_py
+[0.777s] creating /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build
+[0.777s] creating /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib
+[0.777s] creating /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+[0.778s] copying safemc/__init__.py -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+[0.778s] copying safemc/publisher_callback.py -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+[0.778s] copying safemc/camera_publisher.py -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+[0.778s] copying safemc/build_goals.py -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+[0.778s] copying safemc/auxiliar.py -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+[0.778s] copying safemc/stop.py -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+[0.778s] copying safemc/go2goal_example.py -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+[0.779s] copying safemc/lidar.py -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+[0.779s] copying safemc/listener_callback.py -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+[0.779s] copying safemc/camera_subscriber.py -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+[0.779s] copying safemc/error_handling.py -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc
+[0.779s] running install
+[0.780s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[0.780s]   warnings.warn(
+[0.781s] running install_lib
+[0.781s] creating /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+[0.782s] copying /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/__init__.py -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+[0.782s] copying /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/publisher_callback.py -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+[0.782s] copying /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/camera_publisher.py -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+[0.782s] copying /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/build_goals.py -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+[0.782s] copying /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/auxiliar.py -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+[0.782s] copying /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/stop.py -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+[0.783s] copying /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/go2goal_example.py -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+[0.783s] copying /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/lidar.py -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+[0.783s] copying /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/listener_callback.py -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+[0.783s] copying /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/camera_subscriber.py -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+[0.784s] copying /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build/lib/safemc/error_handling.py -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc
+[0.784s] byte-compiling /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/__init__.py to __init__.cpython-310.pyc
+[0.784s] byte-compiling /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/publisher_callback.py to publisher_callback.cpython-310.pyc
+[0.785s] byte-compiling /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/camera_publisher.py to camera_publisher.cpython-310.pyc
+[0.785s] byte-compiling /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/build_goals.py to build_goals.cpython-310.pyc
+[0.786s] byte-compiling /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/auxiliar.py to auxiliar.cpython-310.pyc
+[0.786s] byte-compiling /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/stop.py to stop.cpython-310.pyc
+[0.787s] byte-compiling /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/go2goal_example.py to go2goal_example.cpython-310.pyc
+[0.787s] byte-compiling /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/lidar.py to lidar.cpython-310.pyc
+[0.788s] byte-compiling /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/listener_callback.py to listener_callback.cpython-310.pyc
+[0.788s] byte-compiling /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/camera_subscriber.py to camera_subscriber.cpython-310.pyc
+[0.789s] byte-compiling /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc/error_handling.py to error_handling.cpython-310.pyc
+[0.789s] running install_data
+[0.790s] creating /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/share/ament_index
+[0.790s] creating /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/share/ament_index/resource_index
+[0.790s] creating /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/share/ament_index/resource_index/packages
+[0.790s] copying resource/safemc -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/share/ament_index/resource_index/packages
+[0.790s] copying package.xml -> /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/share/safemc
+[0.790s] running install_egg_info
+[0.792s] Copying ../build/safemc/safemc.egg-info to /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages/safemc-0.0.0-py3.10.egg-info
+[0.793s] running install_scripts
+[0.809s] Installing go2goal script to /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/safemc
+[0.809s] Installing test script to /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/safemc
+[0.809s] writing list of installed files to '/home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/install.log'
+[0.830s] Invoked command in '/home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/safemc' returned '0': PYTHONPATH=/home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/prefix_override:/home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/install/safemc/lib/python3.10/site-packages: /usr/bin/python3 setup.py egg_info --egg-base ../build/safemc build --build-base /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/build install --record /home/lukovsk/github/meus_repositorios/Safe-McQueen/src/ros2_ws/build/safemc/install.log --single-version-externally-managed

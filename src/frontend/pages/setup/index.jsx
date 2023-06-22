@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import axios from "axios"
 import Registration from "@/components/Registration";
 import NewRoute from "@/components/NewRoute";
 import SearchBar from "@/components/Search";
 import Header from "@/components/Header";
+import Canvas from '@/components/Canvas'
 
 
 export default function Inspection() {
@@ -19,13 +19,22 @@ export default function Inspection() {
 
   const getAllGraphs = async (url) => {
 
-    const all_graphs = await fetch(url);
+    
+    try {
+      const all_graphs = await fetch(url); 
+        
+      const data = await all_graphs.json();
 
-    const data = await all_graphs.json();
+      console.log(data)
 
-    console.log(data)
+      setGraphs(data)
+      
+    } catch (error) {
+      console.error('Error get graph:', error);
+    }
 
-    setGraphs(data)
+    
+
   }
 
   const handleRouteClick = (imageAddress, name) => {
@@ -61,7 +70,14 @@ export default function Inspection() {
         <div className="grid w-3/5" >
           <div className="ml-16 mt-16 bg-azul rounded-lg h-full pl-10 pt-2 pr-10">
             <h3 className="text-white text-center">{selectedGraph.name}</h3>
-            {selectedGraph && (<img className="border-2" src={selectedGraph.image} />)}
+            {selectedGraph && (
+              <Canvas 
+                backgroundImageSrc={selectedGraph.image}
+                edge={selectedGraph.edges}
+                alt={selectedGraph.name}  
+                just_show={true}
+              />
+            )}
             {!selectedGraph && (<div className="font-inter text-white pt-10 pl-10">Selecione um espaço confinado para visualizar uma prévia de sua rota.</div>)}
           </div>
 
