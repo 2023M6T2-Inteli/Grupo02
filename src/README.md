@@ -10,4 +10,15 @@
 
 # Organização do diretório de arquivos fonte
 
-Este diretório é destinado para o armazenamento e versionamento dos arquivos fonte relacionados à aplicação desenvolvida pelos alunos. Preencha aqui explicando como está organizado seu diretório e resumindo o que faz cada um dos arquivos principais.
+Pasta "backend":
+   - Descrição: Lógica e servidor do projeto.
+<br>
+
+   Pasta "frontend":
+   - Descrição: Interface do usuário e interação com o usuário.
+<br>
+Pasta "gazebo":
+   - Descrição: Simulação e modelagem usando o ambiente do Gazebo.
+<br>
+Pasta "visao_computacional":
+   - Descrição: Processamento de imagens e visão computacional no projeto.
