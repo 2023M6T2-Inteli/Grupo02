@@ -39,8 +39,8 @@
     - [2.7.1. Persona](#271-persona)
     - [2.7.2. User Story](#272-user-story)
 - [3. Arquitetura do sistema](#3-arquitetura-do-sistema)
-    - [V1](#v1)
-    - [V2](#v2)
+    - [Versão 1](#versão-1)
+    - [Versão 2](#versão-2)
   - [3.1 Engenharia de requisitos](#31-engenharia-de-requisitos)
     - [3.1.1. Requisitos Funcionais](#311-requisitos-funcionais)
     - [3.1.2. Requisitos Não Funcionais](#312-requisitos-não-funcionais)
@@ -53,37 +53,37 @@
     - [4.3 Instalação do ambiente de simulação](#43-instalação-do-ambiente-de-simulação)
       - [4.3.1 Ros Humble Turtlebot3](#431-ros-humble-turtlebot3)
     - [4.4 Comunicação](#44-comunicação)
-- [6. Interface de usuário](#6-interface-de-usuário)
-  - [6.1. Visão geral do design](#61-visão-geral-do-design)
-      - [6.1.1. Palheta de cores](#611-palheta-de-cores)
-      - [6.1.2. Tipografia](#612-tipografia)
-      - [6.1.3. Ícones](#613-ícones)
-  - [6.2. Telas](#62-telas)
-      - [6.2.1. Tela inicial](#621-tela-inicial)
-      - [6.2.2. Tela principal](#622-tela-principal)
-      - [6.2.3. Setup](#623-setup)
-      - [6.2.4. Criar](#624-criar)
-      - [6.2.5. Editar](#625-editar)
-      - [6.2.6. Rodando](#626-rodando)
-- [7. Sistema de visão computacional](#7-sistema-de-visão-computacional)
-  - [7.1. Implementação da técnica de filtros para detecção ou escolha de modelo pré-treinado a ser utilizado](#71-implementação-da-técnica-de-filtros-para-detecção-ou-escolha-de-modelo-pré-treinado-a-ser-utilizado)
-  - [7.2 Validação do sistema de visão computacional.](#72-validação-do-sistema-de-visão-computacional)
+- [5. Interface de usuário](#5-interface-de-usuário)
+  - [5.1. Visão geral do design](#51-visão-geral-do-design)
+      - [5.1.1. Palheta de cores](#511-palheta-de-cores)
+      - [5.1.2. Tipografia](#512-tipografia)
+      - [5.1.3. Ícones](#513-ícones)
+  - [5.2. Telas](#52-telas)
+      - [5.2.1. Tela inicial](#521-tela-inicial)
+      - [5.2.2. Tela principal](#522-tela-principal)
+      - [5.2.3. Setup](#523-setup)
+      - [5.2.4. Criar](#524-criar)
+      - [5.2.5. Editar](#525-editar)
+      - [5.2.6. Rodando](#526-rodando)
+- [6. Sistema de visão computacional](#6-sistema-de-visão-computacional)
+  - [6.1. Implementação da técnica de filtros para detecção ou escolha de modelo pré-treinado a ser utilizado](#61-implementação-da-técnica-de-filtros-para-detecção-ou-escolha-de-modelo-pré-treinado-a-ser-utilizado)
+  - [6.2 Validação do sistema de visão computacional.](#62-validação-do-sistema-de-visão-computacional)
 - [8. Sistemas de segurança](#8-sistemas-de-segurança)
-  - [8.1 Definição, implementação e validação de um sistema de tomada de decisões a partir da detecção de um obstáculo.](#81-definição-implementação-e-validação-de-um-sistema-de-tomada-de-decisões-a-partir-da-detecção-de-um-obstáculo)
-  - [8.2 Mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos.](#82-mapeamento-de-riscos-dos-sistemas-eletromecânicos-mecânicos-e-eletrônicos)
+  - [7.1 Definição, implementação e validação de um sistema de tomada de decisões a partir da detecção de um obstáculo.](#71-definição-implementação-e-validação-de-um-sistema-de-tomada-de-decisões-a-partir-da-detecção-de-um-obstáculo)
+  - [7.2 Mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos.](#72-mapeamento-de-riscos-dos-sistemas-eletromecânicos-mecânicos-e-eletrônicos)
   - [8.3 Definição, implementação e validação de dispositivos de segurança para os riscos mapeados.](#83-definição-implementação-e-validação-de-dispositivos-de-segurança-para-os-riscos-mapeados)
   - [8.4 Implementação e validação de sistemas de proteção contra comandos indevidos.](#84-implementação-e-validação-de-sistemas-de-proteção-contra-comandos-indevidos)
-- [9. Backend](#9-backend)
-  - [9.1. Banco de dados](#91-banco-de-dados)
-  - [9.2. Rotas](#92-rotas)
-    - [9.2.1. Rotas da tabela Graph](#921-rotas-da-tabela-graph)
-    - [9.2.2. Rotas da tabela Node (nós dos grafos)](#922-rotas-da-tabela-node-nós-dos-grafos)
-    - [9.2.3. Rotas da tabela Edge (arestas dos grafos)](#923-rotas-da-tabela-edge-arestas-dos-grafos)
-    - [9.2.5. Rotas da tabela Register (registros do histórico)](#925-rotas-da-tabela-register-registros-do-histórico)
-    - [9.2.6. Rotas da tabela Image (imagens)](#926-rotas-da-tabela-image-imagens)
-- [10. Integração de sistemas](#10-integração-de-sistemas)
-- [11. Validação da eficácia do sistema](#11-validação-da-eficácia-do-sistema)
-- [12. Referências](#12-referências)
+- [8. Backend](#8-backend)
+  - [8.1. Banco de dados](#81-banco-de-dados)
+  - [8.2. Rotas](#82-rotas)
+    - [8.2.1. Rotas da tabela Graph](#821-rotas-da-tabela-graph)
+    - [8.2.2. Rotas da tabela Node (nós dos grafos)](#822-rotas-da-tabela-node-nós-dos-grafos)
+    - [8.2.3. Rotas da tabela Edge (arestas dos grafos)](#823-rotas-da-tabela-edge-arestas-dos-grafos)
+    - [8.2.5. Rotas da tabela Register (registros do histórico)](#825-rotas-da-tabela-register-registros-do-histórico)
+    - [8.2.6. Rotas da tabela Image (imagens)](#826-rotas-da-tabela-image-imagens)
+- [9. Integração de sistemas](#9-integração-de-sistemas)
+- [10. Validação da eficácia do sistema](#10-validação-da-eficácia-do-sistema)
+- [11. Referências](#11-referências)
 - [12. Material de apoio](#12-material-de-apoio)
 - [13. Anexos](#13-anexos)
 
@@ -277,7 +277,7 @@ A persona foi criada para ajudar a entender as necessidades e os desejos do púb
 
 # 3. Arquitetura do sistema
 
-### V1
+### Versão 1
 
 Primeiramente nossa arquitetura pode ser dividia em 2 partes:
 
@@ -285,7 +285,7 @@ A primeira envolve todo o sistema que controla o robo e seus periféricos, esse 
 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Grupo02/blob/main/media/arquitetura_sistema/diagrama_solu%C3%A7%C3%A3ov1.drawio.png?raw=true" width="60%"></img></p>
 
-### V2
+### Versão 2
 
 Atualizamos nossa arquitetura para levar em conta que o robô não terá acesso a internet de forma constante por isso precisamos de um banco de dados embarcado para armazenar os dados coletados pelo robô, além disso agora o robo só manda dara os dados para o bancos de dados ao final da rota. Além disso estamos considerando usar uma bridge entre o ros2 e a websocket para que o robo possa mandar os dados para a aplicação web.
 
@@ -419,13 +419,13 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 <br>
 <br>
 
-# 6. Interface de usuário
+# 5. Interface de usuário
 
-## 6.1. Visão geral do design
+## 5.1. Visão geral do design
 
 <p>O sistema de design é uma coleção de elementos e padrões visuais que definem a aparência e a experiência do usuário em todo o projeto. Ele garante consistência e coesão em todas as telas e componentes, promovendo uma experiência de usuário unificada. A seguir, apresentamos os principais elementos do sistema de design:</p>
 
-#### 6.1.1. Palheta de cores
+#### 5.1.1. Palheta de cores
 
 <p>A paleta de cores foi selecionada para transmitir a identidade visual da Gerdau. As cores utilizadas são:</p>
 
@@ -437,7 +437,7 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 <p>O objetivo do grupo é utilizar essas cores em todo o projeto para manter a harmonia visual.</p>
 
-#### 6.1.2. Tipografia
+#### 5.1.2. Tipografia
 
 <p>Acreditamos que seja importante compartilhar a tipografia, afinal ela tem um papel importante na legibilidade. As fontes selecionadas são:</p>
 
@@ -449,7 +449,7 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 <p>O objetivo do grupo é utilizar essas fontes em todas as telas para manter a consistência tipográfica.</p>
 
-#### 6.1.3. Ícones
+#### 5.1.3. Ícones
 
 <p>Os ícones fornecem representações visuais de elementos ou ações específicas. Utilizamos o plugin "Material Design Icons" para a maioria desse projeto. Alguns ícones relevantes incluem:</p>
 
@@ -465,17 +465,17 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 <p>Assim como nos tópicos anteriores, o objetivo do grupo é utilizar esses ícones no projeto para manter um padrão e facilitar a experiência do usuário de modo que fique mais intuitivo.</p>
 
-## 6.2. Telas
+## 5.2. Telas
 
 <p>A seguir, apresentamos uma lista das telas principais do projeto, juntamente com uma breve descrição de suas funcionalidades:</p>
 
-#### 6.2.1. Tela inicial
+#### 5.2.1. Tela inicial
 
 <p align="center"><img src="../media/interface_usuario/tela_inicial.png" width="65%"></img></p>
 
 <p>A tela inicial é a primeira informação que o usuário receberá. Essa é nossa página de boas vindas e após selecionar "iniciar", eles são redirecionados para a tela principal do aplicativo.</p>
 
-#### 6.2.2. Tela principal
+#### 5.2.2. Tela principal
 
 <p align="center"><img src="../media/interface_usuario/registros_inspe%C3%A7%C3%B5es_vazio.png" width="65%"></img></p>
 
@@ -485,7 +485,7 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 <p>Aqui, os usuários podem checar as informações das inspeções realizadas com sua data e qual rota foi realizada.</p>
 
-#### 6.2.3. Setup
+#### 5.2.3. Setup
 
 <p align="center"><img src="../media/interface_usuario/setup_vazio.png" width="65%"></p>
 
@@ -493,30 +493,30 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 <p align="center"><img src="../media/interface_usuario/setup_selecionado.png" width="65%"></p>
 
-#### 6.2.4. Criar
+#### 5.2.4. Criar
 
 <p align="center"><img src="../media/interface_usuario/modal_crie.png" width="65%"></p>
 
 <p>Ao clicar no "Adicionar nova rota" uma modal surge para que o usuário envie a planta e crie sua rota.</p>
 
-#### 6.2.5. Editar
+#### 5.2.5. Editar
 
 <p align="center"><img src="../media/interface_usuario/modal_edite.png" width="65%"></p>
 
 <p>Ao clicar no lápis para editar uma rota, será aberta essa modal, semelhante a de criar, em que o usuário pode reorganizar a rota, alterar o nome, descrição e a imagem.</p>
 
-#### 6.2.6. Rodando
+#### 5.2.6. Rodando
 
 <p align="center"><img src="../media/interface_usuario/rodando.png" width="65%"></p>
 
 <p>Essa página é carregada quando a simulação é iniciada. Com informações relevantes para o projeto</p>
 
-# 7. Sistema de visão computacional
-## 7.1. Implementação da técnica de filtros para detecção ou escolha de modelo pré-treinado a ser utilizado 
+# 6. Sistema de visão computacional
+## 6.1. Implementação da técnica de filtros para detecção ou escolha de modelo pré-treinado a ser utilizado 
 
 <p>Em construção</p>
 
-## 7.2 Validação do sistema de visão computacional.
+## 6.2 Validação do sistema de visão computacional.
 <p> A fim de otimizar o processo de identificação de rachaduras, foi desenvolvido um filtro para ser aplicado sobre as imagens do dataset. O filtro em questão coloca em evidência o objeto a ser identificado, de modo a aumentar sua nitidez. Esse processo faz com que a possível rachadura a ser identificada se destaque na imagem em comparação com os outros elementos da figura. Motivado pelo objetivo de conferir a eficiência do filtro desenvolvido, o grupo construiu dois modelos distintos utilizando o Yolo V8: um que aplica o filtro às imagens do dataset, e um que não utiliza o filtro e processa as imagens puras.
 </p>
 
@@ -530,7 +530,7 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 # 8. Sistemas de segurança
 
-## 8.1 Definição, implementação e validação de um sistema de tomada de decisões a partir da detecção de um obstáculo.
+## 7.1 Definição, implementação e validação de um sistema de tomada de decisões a partir da detecção de um obstáculo.
 
 <p>A definição, implementação e validação de um sistema de tomada de decisões a partir da detecção de obstáculos são fundamentais para que nosso robô equipado com um sensor LIDAR e uma câmera, navegue de forma autônoma e evite colisões.</p>
 
@@ -540,7 +540,7 @@ Essa interação entre os tópicos está descrita no diagrama de blocos abaixo, 
 
 <p>A validação desse sistema foi realizada em um ambiente simulado. Durante os testes, o robô foi capaz de se movimentar em direção às metas, até encontrar um obstáculo e realizar o caminho de volta para sua posição inicial. Nesse teste foi analisado se o robô girava corretamente em direção de suas respectivas metas, identificava obstáculos em seu sensor e retorna ao ponto de partida quando encontra algum empecilho.</p>
 
-## 8.2 Mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos.
+## 7.2 Mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos.
 
 <p><b>Acabar a bateria:</b> Existe o risco de o robô ficar sem energia devido ao esgotamento da bateria durante a operação, o que pode resultar na interrupção das tarefas programadas ou na paralisação do robô em um local indesejado.</p>
 
@@ -590,11 +590,11 @@ Dessa forma, ao adotar o protocolo MQTT, é possível superar a falta de conecti
 
 <p>Em construção</p>
 
-# 9. Backend
+# 8. Backend
 
 O sistema de Backend da solução desenvolvida foi projetado de modo a conectar as informações fornecidas pelo Turtlebot e as informações fornecidas pelo usuário via interface gráfica, bem como tornar a aplicação web funcional no que concerne aos procedimentos que devem ser realizados pelo cliente diante da inspeção de um espaço confinado.
 
-## 9.1. Banco de dados
+## 8.1. Banco de dados
 
 Para a construção do banco de dados da solução, duas tecnologias distintas foram utilizadas: SQLAlchemy, para informações advindas do robô e do usuário, e Supabase, enquanto ferramenta de armazenamento de arquivos para abrigar as imagens capturadas pelo robô no ato da inspeção.
 
@@ -661,12 +661,12 @@ As tabelas <b>graph</b>, <b>node</b> e <b>register</b> foram idealizadas com bas
   
 A tabela <b>image_report</b>, por outro lado, está associada à necessidade de obter informações do espaço confinado por meio da atuação do robô. Sabendo-se que o Turtlebot terá uma câmera acoplada à sua estrutura, ele será capaz de fotografar o ambiente a cada ponto pelo qual passar. As imagens em questão serão submetidas ao modelo de visão computacional desenvolvido e, após o processamento dos arquivos, eles serão enviados para um bucket do Supabase, de modo que se tornem visíveis no relatório da inspeção exibido na interface gráfica uma vez que o procedimento é finalizado. Considerando também a existência de um sensor de gás acoplado à estrutura robótica, serão coletadas informações relativas às condições atmosféricas do espaço confinado. A fim de que se tornem visíveis no relatório de inspeção, possibilitando sua análise pelo usuário, tais informações serão armazenadas na tabela <b>gas_report</b> e estarão associadas ao identificador do grafo ao qual se referem.
    
-## 9.2. Rotas
+## 8.2. Rotas
 Para a construção das rotas da solução, duas tecnologias distintas foram utilizadas: FastAPI, um framework para python que cria a API utilizada pela aplicação, e o pydantic, como forma de validar as estruturas de dados definidas no banco de dados.
 
 A fim de contemplar tanto as necessidades da interface de usuário, quando para dar segurança ao usuário quando tiver que mudar algumas coisas do banco de dados de forma bruta, as rotas abaixo foram construídas:
 
-### 9.2.1. Rotas da tabela Graph
+### 8.2.1. Rotas da tabela Graph
 
 A rota /graph/get/{id} é uma rota do tipo GET que permite obter um grafo com base no seu ID. Ao receber o ID do grafo como parâmetro, a rota realiza uma consulta no banco de dados para buscar o grafo correspondente. Em seguida, obtém todos os nós e arestas relacionados a esse grafo. Os dados são estruturados em um formato JSON, mapeando as coordenadas dos nós para as arestas. Por fim, os dados do grafo são retornados em formato JSON.
 <p align="center"><img src="../media/rotas/graph_get_graph.png" width="65%"></p>
@@ -688,7 +688,7 @@ A rota /graph/update é uma rota do tipo PUT que atualiza as informações de um
 <p align="center"><img src="../media/rotas/graph_update.png" width="65%"></p>
 <br/>
 
-### 9.2.2. Rotas da tabela Node (nós dos grafos)
+### 8.2.2. Rotas da tabela Node (nós dos grafos)
 
 A rota /node/get/{id} é uma rota do tipo GET que permite obter um nó específico com base no seu ID. Ao receber o ID do nó como parâmetro, a rota realiza uma consulta no banco de dados para buscar o nó correspondente. O nó encontrado é retornado em formato JSON.
 <p align="center"><img src="../media/rotas/node_get.png" width="65%"></p>
@@ -702,7 +702,7 @@ A rota /node/delete/{id} é uma rota do tipo DELETE que exclui um nó com base n
 <p align="center"><img src="../media/rotas/node_delete.png" width="65%"></p>
 <br/>
 
-### 9.2.3. Rotas da tabela Edge (arestas dos grafos)
+### 8.2.3. Rotas da tabela Edge (arestas dos grafos)
 
 A rota /edge/create é uma rota do tipo POST que permite criar uma nova aresta. Ao receber um objeto JSON contendo as informações da aresta, a rota verifica se os nós existem. Se alguma dessas verificações falhar, a rota retorna uma mensagem de erro indicando o problema específico. Caso contrário, a rota cria uma nova instância de Edge com base nos valores fornecidos e adiciona a aresta ao banco de dados. Em seguida, as alterações são confirmadas e é retornado um JSON com uma mensagem de sucesso, juntamente com as informações da aresta criada.
 <p align="center"><img src="../media/rotas/edge_create.png" width="65%"></p>
@@ -720,7 +720,7 @@ A rota /edge/update é uma rota do tipo PUT que permite atualizar uma aresta exi
 <p align="center"><img src="../media/rotas/edge_update.png" width="65%"></p>
 <br/>
 
-### 9.2.5. Rotas da tabela Register (registros do histórico)
+### 8.2.5. Rotas da tabela Register (registros do histórico)
 
 A rota /register/{type}/{val} é uma rota do tipo GET que permite obter um registro específico com base no tipo e no valor fornecido. Dependendo do tipo fornecido, a rota realiza uma consulta no banco de dados para buscar o registro correspondente. Se o tipo for "id", a consulta é feita com base no ID do registro. Se o tipo for "register_name", a consulta é feita com base no nome do registro. O registro encontrado é retornado em formato JSON.
 <p align="center"><img src="../media/rotas/register_get.png" width="65%"></p>
@@ -739,7 +739,7 @@ A rota /register/delete é uma rota do tipo DELETE que exclui um registro com ba
 <br/>
 
 
-### 9.2.6. Rotas da tabela Image (imagens)
+### 8.2.6. Rotas da tabela Image (imagens)
 
 A rota /get/{file} é uma rota do tipo GET que permite obter a URL pública de um arquivo de imagem. Ela recebe um parâmetro file, que representa o nome do arquivo de imagem. A rota utiliza a biblioteca Supabase para acessar o armazenamento de arquivos e obter a URL pública correspondente ao arquivo especificado. A URL é retornada como resultado.
 <p align="center"><img src="../media/rotas/image_get.png" width="65%"></p>
@@ -752,15 +752,15 @@ A rota /add é uma rota do tipo POST que permite armazenar uma nova imagem. Ela 
 
 
 É válido observar que algumas rotas não são utilizadas pela aplicação, mas sua existência é importante para o controle de mudanças do banco de dados, caso seja necessário acessá-las diretamente, isso pode ser feito acessando diretamente o endereço da rota.
-# 10. Integração de sistemas
+# 9. Integração de sistemas
 
 <p>Em construção</p>
 
-# 11. Validação da eficácia do sistema
+# 10. Validação da eficácia do sistema
 
 <p>Em construção</p>
 
-# 12. Referências
+# 11. Referências
 
 BRASIL. Ministério do Trabalho e Emprego. Portaria nº 202, de 22 de dezembro de 2006 - **NR33**. Diário Oficial da União, 27 de dezembro de 2006.<br>
 MELLO, Pedro. Estratégia do Oceano Azul - 22. DÊGRAU10, 01 ago. 2020. Disponível em: https://degrau10.com.br/estrategia-do-oceano-azul/. Acesso em: 19 abr. 2023.<br>
