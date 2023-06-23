@@ -25,7 +25,7 @@ export default function Inspection() {
         
       const data = await all_graphs.json();
 
-      console.log(data)
+      console.log("A data: ",data)
 
       setGraphs(data)
       
@@ -37,10 +37,11 @@ export default function Inspection() {
 
   }
 
-  const handleRouteClick = (imageAddress, name) => {
+  const handleRouteClick = (imageAddress, name, edges) => {
     setSelectedGraph({
       'image': imageAddress,
-      'name': name
+      'name': name,
+      'edge_': edges
     });
   };
   return (
@@ -61,7 +62,7 @@ export default function Inspection() {
             <div
               key={graph.id}
               className="mt-4 text-primary content-center"
-              onClick={() => handleRouteClick(graph.image_address, graph.name)}
+              onClick={() => handleRouteClick(graph.image_address, graph.name, graph.edges)}
             >
               <Registration name={graph.name} description={graph.description} id={graph.id} image_address={graph.image_address} />
             </div>
@@ -70,10 +71,11 @@ export default function Inspection() {
         <div className="grid w-3/5" >
           <div className="ml-16 mt-16 bg-azul rounded-lg h-full pl-10 pt-2 pr-10">
             <h3 className="text-white text-center">{selectedGraph.name}</h3>
+            {console.log("----> ",selectedGraph.edge_)}
             {selectedGraph && (
               <Canvas 
                 backgroundImageSrc={selectedGraph.image}
-                edge={selectedGraph.edges}
+                edge={selectedGraph.edge_}
                 alt={selectedGraph.name}  
                 just_show={true}
               />

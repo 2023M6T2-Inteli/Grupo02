@@ -121,6 +121,14 @@
     color: #ffffff;
 }
 
-.iniciar_inspecao:hover{
+.iniciar_inspecao:hover {
     background-color: #276aa8;
+}
+
+
+
+.bg-componentes:hover{
+    color: #ffffff;
+    background-color: hsl(210, 100%, 57%);
+    cursor: pointer;
 }

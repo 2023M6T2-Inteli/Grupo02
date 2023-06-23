@@ -9,7 +9,7 @@ const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _descripti
         const url = 'http://localhost:8000/images/send_supabase'; // URL da API de destino
         const formData = new FormData(); // Dados a serem enviados no corpo da requisição
         formData.append("file", file)
-        console.log(formData)
+        //console.log(formData)
 
         try {
             const image_url = await axios.post(url, formData);
@@ -100,8 +100,8 @@ const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _descripti
 
             // Desenhar a imagem de plano de fundo
             // drawImage();
-            console.log("NOdes: ", nodes);
-            console.log("Edges: ", edges);
+            //console.log("NOdes: ", nodes);
+            //console.log("Edges: ", edges);
 
             // Desenha todas as arestas, que são as linha entre dois nós que possuam conexão
             for (let i = 0; i < edges.current.length; i++) {
@@ -206,10 +206,12 @@ const Canvas = ({ backgroundImageSrc, edge, modal_close, file, _name, _descripti
 
         window.addEventListener('resize', resize);
         if (just_show == false) {
+            draw();
             canvas.addEventListener('mousedown', down);
             canvas.addEventListener('mousemove', move);
             canvas.addEventListener('mouseup', up);
             resize();
+            
         }
 
         return () => {
