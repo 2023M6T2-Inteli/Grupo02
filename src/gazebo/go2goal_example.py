@@ -1,6 +1,7 @@
 import rclpy
 from rclpy.node import Node
 
+
 from build_goals import build_goals
 
 from geometry_msgs.msg import Twist, Point

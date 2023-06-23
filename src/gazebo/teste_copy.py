@@ -3,30 +3,23 @@ from rclpy.node import Node
 from std_msgs.msg import String
 
 
-class Publisher(Node):
+class Subscriber(Node):
     def __init__(self):
         super().__init__('controller')
-        self.publisher = self.create_publisher(
+        self.subscription = self.create_subscription(
             msg_type=String,
             topic='/meu_topico',
-            qos_profile=10
+            qos_profile=10,
+            callback=self.listener
         )
 
-        self.timer = self.create_timer(
-            timer_period_sec=0.2,
-            callback=self.callback
-        )
-
-    def callback(self):
-        msg = String()
-        msg.data = "Oi"
-
-        self.publisher.publish(msg)
+    def listener(self, msg):
+        print(msg.data)
 
 
 def main(args=None):
     rclpy.init(args=args)
-    controller = Publisher()
+    controller = Subscriber()
     rclpy.spin(controller)
     controller.destroy_node()
     rclpy.shutdown()
