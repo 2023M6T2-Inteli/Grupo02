@@ -43,8 +43,8 @@ const Pop_up_add = () => {
 
    return (
       <>
-         <div>
-            <div role="button" onClick={() => setIsOpen(true)}><Plus /></div>
+         <div className="h-full w-3/12">
+            <div className='flex items-center justify-center  h-full' role="button" onClick={() => setIsOpen(true)}><Plus /></div>
             <Modal ariaHideApp={false} isOpen={isOpen} onRequestClose={() => setIsOpen(true)} style={customStyles}>
                <div className='bg-modal'>
                   <div className="flex justify-between ">

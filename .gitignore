@@ -40,3 +40,5 @@ data.db
 
 # Specific files
 lib
+src/backend/supabase_images/20230623003158_j.jpeg
+src/backend/supabase_images/20230623003237_j.jpeg
