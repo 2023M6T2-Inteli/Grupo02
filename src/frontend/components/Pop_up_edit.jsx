@@ -58,7 +58,7 @@ const Pop_up_edit = ({ id, name, description, image }) => {
                      <button className="mr-4 text-2xl" onClick={() => setIsOpen(false)}><AiOutlineClose /></button>
                   </div>
                   <div className="flex justify-between items-center mr-4 ml-4 h-full">
-                     <div className='flex flex-col w-9/12 H-90 '>
+                     <div className='flex flex-col w-full H-90 '>
                         <div className="flex justify-between items-center mb-10">
                            <div>
                               {/* <label for="small-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Nome da Rota</label> */}
@@ -99,21 +99,6 @@ const Pop_up_edit = ({ id, name, description, image }) => {
                            onClick={() => { setImageUrl(null); setFileInputDisplay(null) }}>
                            Mudar image
                         </button>
-                     </div>
-                     <div className="w-3/12 flex flex-col items-center">
-                        <div className="bg-azul cursor-pointer mb-8 flex flex-col rounded-2xl text-white items-center gap-y-1.5 p-8 H-max-15 W-max-20">
-                           <div className='circulo'></div>
-                           <span>Inserir nó</span>
-                        </div>
-                        <div className="bg-azul cursor-pointer mb-8 flex flex-col rounded-2xl text-white items-center gap-y-1.5 p-8 H-max-15 W-max-20">
-                           <div className="text-4xl"><AiOutlineMinus /></div>
-                           <span>Inserir aresta</span>
-                        </div>
-                        <div className="cursor-pointer bg-azul mb-8 flex flex-col rounded-2xl text-white items-center gap-y-1.5 p-8 H-max-15 W-max-20">
-                           <div><AiFillDelete /></div>
-                           <span>Deletar</span>
-                        </div>
-                        <button onClick={() => setIsOpen(false)} className='W-max-20 bg-azul rounded-2xl h-9 text-white'>save</button>
                      </div>
                   </div>
                </div>

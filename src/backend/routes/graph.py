@@ -20,8 +20,8 @@ async def get_graph(id: int):
         edge["from"] = {"x": (((db.session.query(Node).filter(Node.id == edge["from"])).first()).return_json())["x"],
                         "y": (((db.session.query(Node).filter(Node.id == edge["from"])).first()).return_json())["y"]}
 
-        edge["target"] = {"x": (((db.session.query(Node).filter(Node.id == edge["to"])).first()).return_json())["x"],
-                          "y": (((db.session.query(Node).filter(Node.id == edge["to"])).first()).return_json())["y"]}
+        edge["target"] = {"x": (((db.session.query(Node).filter(Node.id == edge["target"])).first()).return_json())["x"],
+                          "y": (((db.session.query(Node).filter(Node.id == edge["target"])).first()).return_json())["y"]}
 
     graph = [graph for graph in db.session.execute(stm)][0][0]
 

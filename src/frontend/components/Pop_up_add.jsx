@@ -93,7 +93,6 @@ const Pop_up_add = () => {
                            Mudar imagem
                         </button>
                      </div>
-
                   </div>
                </div>
 
