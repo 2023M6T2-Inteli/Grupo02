@@ -248,19 +248,43 @@ O grupo também propôs uma solução visando ser mais ecoeficiente, que poderia
 
 ## 2.4. Influências socioculturais
 
-<p>Em construção</p>
+<p>A solução proposta pelo projeto busca atender as necessidades socioculturais relacionadas principalmente a segurança e bem-estar dos trabalhadores da Gerdau. A conscientização sobre a importância da segurança no trabalho tem se fortalecido cada vez mais, de modo que são reconhecidos os riscos e impactos negativos que acidentes e doenças ocupacionais podem causar tanto para os indivíduos quanto para as organizações.
+
+Além disso, há uma crescente preocupação com a preservação do meio ambiente e a busca por práticas mais sustentáveis. O projeto, ao utilizar veículos autônomos guiados e tecnologias que evitam a exposição humana a ambientes confinados perigosos, contribui para a redução de acidentes e riscos ambientais, alinhando-se com as expectativas sociais de preservação e responsabilidade ambiental.
+
+Também, é importante destacar que a implementação de soluções tecnológicas avançadas como a proposta pelo projeto reflete a busca pela inovação e pelo uso inteligente da tecnologia para resolver problemas complexos da nossa sociedade. Essa abordagem valoriza a utilização de recursos tecnológicos para melhorar processos, aumentar a segurança e alcançar resultados eficientes.</p>
 
 ## 2.5. Tipológico-formais e ergonômicos
 
-<p>Em construção</p>
+<p>Os termos "tipológico-formais" e "ergonômicos" referem-se a aspectos relacionados a forma, configuração e design de um objeto, espaço ou sistema, levando em consideração tanto a estética quanto a funcionalidade e conforto para os usuários.
+
+Nosso projeto considera aspectos tipológico-formais e ergonômicos para garantir a eficácia e a adaptabilidade da solução proposta. A escolha de veículos autônomos guiados (AGVs) como base para o sistema leva em conta características como tamanho, mobilidade e capacidade de operação em espaços confinados.
+
+Além disso, a interface gráfica do usuário (GUI) é desenvolvida com foco na usabilidade e na experiência do usuário. O projeto considera princípios de design centrado no usuário, garantindo que a interação com a interface seja intuitiva e eficiente. O layout da GUI é projetado para facilitar a configuração da inspeção do espaço confinado, a visualização dos dados coletados e o acompanhamento do status da inspeção.
+
+Especialmente sobre os aspectos ergonômicos, são consideradas as necessidades e limitações dos usuários que irão interagir com o sistema. Os comandos e controles são projetados de forma ergonômica (ergonomia visa o entendimento da relação das pessoas com as máquinas, equipamentos e condições de trabalho), levando em conta a facilidade de operação e o conforto do usuário. Além disso, a interface proporciona feedback visual adequado para auxiliar na compreensão das informações e no monitoramento da inspeção.</p>
 
 ## 2.6. Tecnologia produtiva e materiais empregados
 
-<p>Em construção</p>
+<p>O projeto adota uma abordagem que valoriza a tecnologia produtiva e a seleção adequada de materiais para garantir a qualidade e eficiência da solução. A utilização de veículos autônomos guiados (AGVs) como base para o sistema requer o uso de tecnologias avançadas de robótica, navegação autônoma e detecção de obstáculos. Essas tecnologias permitem que os veículos operem de forma autônoma e segura, realizando as inspeções de forma eficiente e confiável.
+
+Especialmente sobre os materiais empregados, é importante a seleção de materiais resistentes e duráveis para a construção dos veículos autônomos. O uso de materiais de alta qualidade garante a robustez e a confiabilidade do sistema, reduzindo a necessidade de manutenção e reparos frequentes, todavia não é descartado a necessidade do cuidado com todos os componentes, para mais detalhes clique <a src="https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/Dev/docs/index.md#72-mapeamento-de-riscos-dos-sistemas-eletromecânicos-mecânicos-e-eletrônicos"> aqui.</a>.
+
+Também são utilizados sensores e dispositivos eletrônicos para coletar e processar os dados atmosféricos e fornecer informações precisas sobre as condições do ambiente. A escolha adequada desses componentes tecnológicos contribui para a precisão e confiabilidade das medições realizadas durante a inspeção.
+
+No processo produtivo, são adotadas práticas e tecnologias que visam otimizar a eficiência e a qualidade do sistema. A integração de métodos como a fabricação aditiva (impressão 3D) contribui para a agilidade e a padronização da produção, reduzindo custos e garantindo a qualidade do produto final.</p>
 
 ## 2.7. Entendimento da experiência do usuário
 
-<p>Em construção</p>
+<p>A experiência do usuário (UX) é fundamental para criar uma solução intuitiva, eficiente e agradável. Envolve usabilidade, entender as necessidades dos usuários e criar um design atraente. Personalização, feedback em tempo real e interações intuitivas também são importantes. Desempenho, segurança e acessibilidade também influenciam na experiência.</p>
+
+<p>É por isso que nosso projeto foi cuidadosamente considerada em cada etapa. No frontend, nossa equipe utilizou o framework Next.js, que oferece recursos para aprimorar a experiência do usuário.
+
+A interação do usuário com a aplicação é facilitada pelo backend, que fornece os dados necessários para criar uma interface intuitiva. A organização das pastas, como a divisão entre frontend e backend, permite uma estrutura clara e de fácil manutenção, contribuindo para a usabilidade do projeto.
+
+Outro aspecto importante da experiência do usuário é a velocidade e desempenho da aplicação. Ao utilizar o Next.js, você se beneficia de sua capacidade de pré-renderizar páginas e otimizar o carregamento dos componentes, proporcionando uma experiência ágil.
+
+Nosso projeto busca proporcionar uma experiência do usuário positiva, considerando aspectos como usabilidade, personalização e desempenho. O objetivo é criar um ambiente intuitivo e agradável, onde os usuários possam interagir de forma eficiente e satisfatória.</p>
 
 ### 2.7.1. Persona
 
@@ -775,7 +799,13 @@ A rota /add é uma rota do tipo POST que permite armazenar uma nova imagem. Ela 
 
 # 10. Validação da eficácia do sistema
 
-<p>Em construção</p>
+<p>A validação da eficácia do sistema é um passo extremamente importante para garantir que a solução desenvolvida atenda aos requisitos e funcionalidades esperadas.
+
+A primeira etapa da validação envolveu a verificação da correta integração dos componentes do sistema. É preciso fazer avaliação da interação entre a interface gráfica, o algoritmo de visão computacional e os sensores acoplados ao robô. Nesse caso é verificado se os comandos são transmitidos corretamente, se as informações são recebidas e processadas adequadamente e se os resultados são exibidos de forma precisa para que o usuário tenha conhecimento do sistema.
+
+Em seguida, é preciso realizar testes para verificar se todas as principais funcionalidades do sistema estão operando conforme o esperado. Para isso é devidamente importante diferentes cenários de inspeção em espaços confinados, considerando variações na planta do ambiente e trajetórias complexas. Seria avaliada a capacidade do sistema em realizar a inspeção de forma precisa, identificar rachaduras corretamente e coletar os dados de gás e temperatura de maneira confiável.
+
+Por fim, após do projeto já estar rodando, é de extrema recomendação coletar feedbacks e opiniões dos usuários para obter insights sobre a usabilidade e eficácia do sistema. Esses dados seriam analisados para identificar possíveis melhorias e ajustes necessários.</p>
 
 # 11. Referências
 
