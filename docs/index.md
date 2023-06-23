@@ -260,7 +260,15 @@ O grupo também propôs uma solução visando ser mais ecoeficiente, que poderia
 
 ## 2.7. Entendimento da experiência do usuário
 
-<p>Em construção</p>
+<p>A experiência do usuário (UX) é fundamental para criar uma solução intuitiva, eficiente e agradável. Envolve usabilidade, entender as necessidades dos usuários e criar um design atraente. Personalização, feedback em tempo real e interações intuitivas também são importantes. Desempenho, segurança e acessibilidade também influenciam na experiência.</p>
+
+<p>É por isso que nosso projeto foi cuidadosamente considerada em cada etapa. No frontend, nossa equipe utilizou o framework Next.js, que oferece recursos para aprimorar a experiência do usuário.
+
+A interação do usuário com a aplicação é facilitada pelo backend, que fornece os dados necessários para criar uma interface intuitiva. A organização das pastas, como a divisão entre frontend e backend, permite uma estrutura clara e de fácil manutenção, contribuindo para a usabilidade do projeto.
+
+Outro aspecto importante da experiência do usuário é a velocidade e desempenho da aplicação. Ao utilizar o Next.js, você se beneficia de sua capacidade de pré-renderizar páginas e otimizar o carregamento dos componentes, proporcionando uma experiência ágil.
+
+Nosso projeto busca proporcionar uma experiência do usuário positiva, considerando aspectos como usabilidade, personalização e desempenho. O objetivo é criar um ambiente intuitivo e agradável, onde os usuários possam interagir de forma eficiente e satisfatória.</p>
 
 ### 2.7.1. Persona
 
