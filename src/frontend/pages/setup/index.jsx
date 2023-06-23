@@ -83,7 +83,7 @@ export default function Inspection() {
 
           <div className="ml-16 mt-24 bg-azul rounded-lg h-1/2">
             <a href="/running">
-              <div className="font-inter text-white flex justify-between">
+              <div className="iniciar_inspecao">
                 <p className="">Iniciar inspeção</p>
               </div>
             </a>

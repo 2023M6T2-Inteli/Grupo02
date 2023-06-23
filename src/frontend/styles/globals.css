@@ -107,3 +107,20 @@
 .md-50 {
     width: 50vw;
 }
+
+
+
+.iniciar_inspecao{
+    display: flex;
+    height: 100%;
+    width: 100%;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+}
+
+.iniciar_inspecao:hover{
+    background-color: #276aa8;
+}
