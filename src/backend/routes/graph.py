@@ -86,7 +86,6 @@ async def post_root(msg: GraphT):
         graph = db.session.query(Graph).filter(Graph.name == msg.name).first()
 
         nodes = []
-        a = False
         for edge in msg.edges:
             node1 = Node(
                 x=round(edge['from']['x'], 3),
@@ -157,15 +156,27 @@ async def post_root(msg: GraphT):
 
 
 @graph_router.delete("/delete")
-async def delete_graph(name: dict):
-
+async def delete_graph(name_: dict):
     graphs = db.session.execute(
-        select(Graph).where(Graph.name == name["name"]))
+    select(Graph).where(Graph.name == name_["name"]))
     graph = [graph for graph in graphs][0][0]
     db.session.delete(graph)
+    # db.session.commit()
+    G_id = graph.return_json()["id"]
+    edges = db.session.query(Edge).filter(Edge.graph_id == G_id).all()
+    
+    for edge in edges:
+        db.session.delete(edge)
+
+    nodes = db.session.query(Node).filter(Node.graph_id == G_id).all()
+    
+    for node in nodes:
+        db.session.delete(node)
+
     db.session.commit()
 
-    return {'success': f'Graph {name["name"]} was successfully deleted'}
+
+    return {'success': f'Graph {name_["name"]} was successfully deleted'}
 
 
 @graph_router.put("/update")

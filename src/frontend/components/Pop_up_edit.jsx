@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Modal from 'react-modal'
-import { AiOutlineClose, AiOutlineMinus, AiFillDelete } from 'react-icons/ai';
+import { AiOutlineClose} from 'react-icons/ai';
 import { MdModeEditOutline } from 'react-icons/md';
 import Canvas from './Canvas'
 
@@ -11,16 +11,16 @@ const Pop_up_edit = ({ id, name, description, image }) => {
    const [imageUrl, setImageUrl] = useState(null);
    const [fileInputDisplay, setFileInputDisplay] = useState(null);
    const [graph, set_graph] = useState([]);
-    const get_graph = async (url) => {
-      try {
-         const response = await fetch(url);
-         const data = await response.json();
-         set_graph(data);
-      } catch (error) {
-         console.log(error)
-         
-      }
-    };
+   const get_graph = async (url) => {
+   try {
+      const response = await fetch(url);
+      const data = await response.json();
+      set_graph(data);
+   } catch (error) {
+      console.log(error)
+      
+   }
+   };
     useEffect(() => {
       let url = `http://localhost:8000/graph/get/${id}`
       get_graph(url)

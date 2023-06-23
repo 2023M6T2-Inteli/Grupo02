@@ -132,3 +132,8 @@
     background-color: hsl(210, 100%, 57%);
     cursor: pointer;
 }
+
+.redhover:hover{
+    color: #ff1f1f;
+    size: 64px;
+}
