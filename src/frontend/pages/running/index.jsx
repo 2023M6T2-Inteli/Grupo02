@@ -1,5 +1,6 @@
 import Header from "@/components/Header"
 import { useState, useEffect } from "react"
+import Canvas from '@/components/Canvas'
 
 export default function Running() {
     const [graph, setGraph] = useState([])
@@ -7,42 +8,68 @@ export default function Running() {
 
     return (
         <div>
-            <div className="bg-cinza w-screen h-screen ">
+            <div className="bg-cinza w-screen h-screen overflow-x-hidden">
                 <Header />
-                <div className="flex items-center flex-col m-4 gap-y-8 text-white">
-                    {/* Parte de cima, com imagem, status e gás */}
-                    <div className="flex gap-x-6 justify-around w-full grid-col-2">
-                        {/* Imagem à esquerda */}
-                        <div className="pl-10 pr-10 pb-8 w-2/5 bg-azul rounded-lg">
-                            <p className="p-4">Confira abaixo a trajetória feita pelo robô para realizar a inspeção do espaço selecionado.</p>
-                            <img src="https://raw.githubusercontent.com/2023M6T2-Inteli/Safe-McQueen/Front-end/src/front/public/Rectangle13.png" alt="Imagem de background para o grafo" />
-                        </div>
+                <div className="grid grid-cols-2 grid-rows-2 gap-4 flex items-center text-white mt-6 ml-6 mr-6">
+                    {/* Imagem à esquerda */}
+                    <div className="border row-span-2 bg-azul rounded-x1 text-center">
+                        <p>Confira abaixo a trajetória </p>
 
-                        {/* Status e quantidade de gás à direita */}
-                        <div className="flex gap-y-6 flex-row grid w-3/5 grid-row-2 justify-around">
-                            {/* Status */}
-                            <div className="bg-azul rounded-xl p-4 flex justify-center">
-                                <p>STATUS</p>
-                            </div>
-
-                            {/* Quantidade de gás */}
-                            <div className="bg-azul flex rounded-xl p-4 justify-center gap-x-4">
-                                <div className="p-2 flex items-center flex-col">
-                                    <img src="https://raw.githubusercontent.com/2023M6T2-Inteli/Safe-McQueen/Front-end/src/front/public/o2%20(1)%201.png" />
-                                    <p>22%</p>
-                                </div>
-                                <div className="p-2 flex items-center flex">
-                                    <img src="https://raw.githubusercontent.com/2023M6T2-Inteli/Safe-McQueen/Front-end/src/front/public/thermometer%201.png" />
-                                    <p>22%</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div className="w-full pt-10">
-                        <div className="bg-azul p-4 rounded-xl h-full  "><p>Logs importantes</p></div>
+                        <Canvas
+                            just_show={true}
+                            backgroundImageSrc="https://raw.githubusercontent.com/2023M6T2-Inteli/Safe-McQueen/Front-end/src/front/public/Rectangle13.png"
+                            alt="Imagem de background para o grafo"
+                            className="h-full w-full object-contain"
+                        />
                     </div>
 
+                    <div className="border bg-azul flex-wrap rounded-x1 p-4 justify-center">
+                        <h1 className="w-full text-center"> STATUS </h1>
+
+                        <div id="turtlebot-status" className="bg-green w-full h-10">
+                            <h3 className="h-full flex items-center justify-center">Funcionando</h3>
+                        </div>
+                    </div>
+
+                    {/* Status e quantidade de gás à direita  */}
+                    <div className="border bg-azul rounded-x1 p-4 justify-center grid grid-cols-3">
+                        <div className="flex flex-col items-center">
+                            <div className="p-2 items-center">
+                                <img src="https://raw.githubusercontent.com/2023M6T2-Inteli/Safe-McQueen/Front-end/src/front/public/o2%20(1)%201.png" />
+                            </div>
+                            <div>
+                                <p>22%</p>
+                            </div>
+                        </div>
+                        <div className="flex flex-col items-center">
+                            <div className="p-2 flex items-center justify-center flex-col h-full">
+                                <img src="https://raw.githubusercontent.com/2023M6T2-Inteli/Safe-McQueen/Front-end/src/front/public/thermometer%201.png" />
+                            </div>
+
+                            <div>
+                                <p>22%</p>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col items-center">
+                            <div className="p-2 flex items-center justify-center flex-col h-full">
+                                <img style={{ width: '65px' }} src="https://raw.githubusercontent.com/2023M6T2-Inteli/Safe-McQueen/80cc2942e42ec33822c1b5fa39c7f577972cdfbc/src/frontend/public/batery.png" />
+                            </div>
+
+                            <div>
+                                <p>22%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* Logs importantes */}
+                <div className="mr-6 ml-6 mt-6">
+                    <div className="col-span-2 row-span-1 border bg-azul p-4 rounded-x1 w-full text-white">
+                        <h1> Logs importantes </h1>
+                        <div className="h-full bg-black">
+                            <p className="pl-5">Log</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
