@@ -6,6 +6,7 @@ from models.node import Node
 from models.edge import Edge
 from config import db
 from math import sqrt
+import json
 
 graph_router = APIRouter(prefix='/graph')
 
@@ -43,8 +44,12 @@ async def get_graph(id: int):
     graph_data = {
         "graph": graph.return_json(),
         "nodes": [node.return_json() for node in nodes],
-        "edges": [edge.return_json() for edge in edges]
+        "edges": [edge.return_json() for edge in edges],
+        "read": 0
     }
+
+    with open('../arquivo.json', 'w') as f:
+        json.dump(graph_data, f)
 
     return graph_data
 
@@ -158,23 +163,22 @@ async def post_root(msg: GraphT):
 @graph_router.delete("/delete")
 async def delete_graph(name_: dict):
     graphs = db.session.execute(
-    select(Graph).where(Graph.name == name_["name"]))
+        select(Graph).where(Graph.name == name_["name"]))
     graph = [graph for graph in graphs][0][0]
     db.session.delete(graph)
     # db.session.commit()
     G_id = graph.return_json()["id"]
     edges = db.session.query(Edge).filter(Edge.graph_id == G_id).all()
-    
+
     for edge in edges:
         db.session.delete(edge)
 
     nodes = db.session.query(Node).filter(Node.graph_id == G_id).all()
-    
+
     for node in nodes:
         db.session.delete(node)
 
     db.session.commit()
-
 
     return {'success': f'Graph {name_["name"]} was successfully deleted'}
 
