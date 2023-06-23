@@ -2,16 +2,54 @@ import Header from "@/components/Header"
 import { useState, useEffect } from "react"
 import Canvas from '@/components/Canvas'
 
+//import roslib
+import { 
+    RosConnection, 
+    ImageViewer, 
+    Subscriber, 
+    TopicListProvider, 
+    useMsg, 
+    useTopicList, 
+    Publisher, 
+    Param, 
+    useParam, 
+    ParamListProvider, 
+    useParamList, 
+    ServiceListProvider, 
+    useServiceList, 
+    ServiceCaller, 
+    ServiceServer
+} from "rosreact";
 
-export default function Running() {
-    const [graph, setGraph] = useState([])
 
+
+export default function Running({id}) {
     useEffect(() => {
-    }, [])
-
-
+        let url = "http://localhost:8000/graph/get_gazebo/"+id
+        getAllGraphs(url)
+    }, []);
+    const [graph, setGraph] = useState([])
+    function getAllGraphs(url) {
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                setGraph(data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
     return (
         <div>
+            <RosConnection url={"ws://127.0.0.1:9090"} autoConnect>
+                <Publisher 
+                        autoRepeat 
+                        topic="/connection"
+                        throttleRate={10.0} 
+                        message={{"data": JSON.stringify(graph)}} 
+                        messageType="std_msgs/String"
+                    />
+            </RosConnection>
             <div className="bg-cinza w-screen h-screen overflow-x-hidden">
                 <Header />
                 <div className="grid grid-cols-2 grid-rows-2 gap-4 flex items-center text-white mt-6 ml-6 mr-6">
@@ -19,12 +57,12 @@ export default function Running() {
                     <div className="border row-span-2 bg-azul rounded-x1 text-center">
                         <p>Confira abaixo a trajetória </p>
 
-                        <Canvas
+                        {/* <Canvas
                             just_show={true}
                             backgroundImageSrc="https://raw.githubusercontent.com/2023M6T2-Inteli/Safe-McQueen/Front-end/src/front/public/Rectangle13.png"
                             alt="Imagem de background para o grafo"
                             className="h-full w-full object-contain"
-                        />
+                        /> */}
                     </div>
 
                     <div className="border bg-azul flex-wrap rounded-x1 p-4 justify-center">
@@ -80,6 +118,14 @@ export default function Running() {
 
     );
 }
+
+
+export const getServerSideProps = (ctx) =>{
+    const {id} = ctx.params
+    return {props:{id}}
+}
+    
+
 
 
 

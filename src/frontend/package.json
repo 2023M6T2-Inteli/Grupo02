@@ -14,7 +14,9 @@
     "next": "^13.4.7",
     "react-bootstrap-icons": "^1.10.3",
     "react-icons": "^4.9.0",
-    "react-modal": "^3.16.1"
+    "react-modal": "^3.16.1",
+    "react-router-dom": "^6.13.0",
+    "rosreact": "^0.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",

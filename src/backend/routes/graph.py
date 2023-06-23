@@ -45,11 +45,8 @@ async def get_graph(id: int):
         "graph": graph.return_json(),
         "nodes": [node.return_json() for node in nodes],
         "edges": [edge.return_json() for edge in edges],
-        "read": 0
     }
 
-    with open('../arquivo.json', 'w') as f:
-        json.dump(graph_data, f)
 
     return graph_data
 

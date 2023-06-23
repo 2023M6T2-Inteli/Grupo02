@@ -5,7 +5,7 @@ from geometry_msgs.msg import Twist, Point
 from nav_msgs.msg import Odometry
 from std_msgs.msg import String  # Standard ROS 2 String message
 
-from publisher_callback import publisher_callback, publisher_callback2
+from publisher_callback import publisher_callback
 from listener_callback import listener_callback,  listener_callback2
 
 
@@ -24,7 +24,7 @@ class TurtleController(Node):
         self.returning = False
         self.point_list = []
         self.return_list = [(0.0, 0.0)]
-        self.connected = False
+        
         self.running = False
 
         self.publisher = self.create_publisher(
@@ -32,10 +32,6 @@ class TurtleController(Node):
             topic='/cmd_vel',
             qos_profile=10)
 
-        self.publisher2 = self.create_publisher(
-            msg_type=String,
-            topic='/connection',
-            qos_profile=10)
 
         def listener_lambda(msg): return listener_callback(self, msg)
         self.subscription = self.create_subscription(
@@ -58,8 +54,7 @@ class TurtleController(Node):
             timer_period_sec=0.02,
             callback=publisher_lambda)
 
-        def publisher_lambda2(): return publisher_callback2(self)
-        self.timer2 = self.create_timer(3, publisher_lambda2)
+
 
     def logger(self, msg):
         self.get_logger().info(msg)

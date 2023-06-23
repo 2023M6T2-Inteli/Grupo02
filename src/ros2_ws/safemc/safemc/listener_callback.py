@@ -14,9 +14,12 @@ def listener_callback(node, msg):
 def listener_callback2(node, data):
     # publish the message
     
-    if not node.connected:
-        node.logger(str(data))
-        node.connected = True
-        node.logger("connected")
+    
+    # node.logger(str(data.data))
+    if not node.running:
+        node.point_list = build_goals(json.loads(data.data))
+        node.logger(str(node.point_list))
+        node.running = True
+        
 
     

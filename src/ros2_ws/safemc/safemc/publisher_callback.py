@@ -46,15 +46,3 @@ def publisher_callback(node):
             node.logger(str(error))
 
 
-def publisher_callback2(node):
-    msg = String()
-    node.logger(str(node.connected))
-    node.logger(str(node.running))
-    msg.data = "{'connection':'true'}"
-
-    # Create the message
-    # Publish the message
-    node.publisher2.publish(msg)
-    # add sensors later
-
-    return

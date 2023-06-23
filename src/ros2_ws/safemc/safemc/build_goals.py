@@ -22,7 +22,7 @@ def build_goals(data):
     for node_id in tsp(nx.Graph(graph)):
         for node in nodes:
             if node['id'] == node_id:
-                goals.append((node['x'], node['y']))
+                goals.append((node['x']/1000, node['y']/1000))
                 break
     print("Goals: ",goals)
     return goals

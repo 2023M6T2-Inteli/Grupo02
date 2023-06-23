@@ -10,6 +10,8 @@ export default function Inspection() {
   const [graphs, setGraphs] = useState([])
   const [selectedGraph, setSelectedGraph] = useState('');
 
+  const [id, setId] = useState(null)
+
   useEffect(() => {
 
     let url = "http://localhost:8000/graph/get_all"
@@ -37,7 +39,8 @@ export default function Inspection() {
 
   }
 
-  const handleRouteClick = (imageAddress, name, edges) => {
+  const handleRouteClick = (imageAddress, name, edges, id) => {
+    setId(id)
     setSelectedGraph({
       'image': imageAddress,
       'name': name,
@@ -62,7 +65,7 @@ export default function Inspection() {
             <div
               key={graph.id}
               className="mt-4 text-primary content-center"
-              onClick={() => handleRouteClick(graph.image_address, graph.name, graph.edges)}
+              onClick={() => handleRouteClick(graph.image_address, graph.name, graph.edges, graph.id)}
             >
               <Registration name={graph.name} description={graph.description} id={graph.id} image_address={graph.image_address} />
             </div>
@@ -84,7 +87,7 @@ export default function Inspection() {
           </div>
 
           <div className="ml-16 mt-24 bg-azul rounded-lg h-1/2">
-            <a href="/running">
+            <a href={"running/"+id}>
               <div className="iniciar_inspecao">
                 <p className="">Iniciar inspeção</p>
               </div>
