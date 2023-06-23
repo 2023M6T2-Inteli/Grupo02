@@ -12,9 +12,14 @@ const Pop_up_edit = ({ id, name, description, image }) => {
    const [fileInputDisplay, setFileInputDisplay] = useState(null);
    const [graph, set_graph] = useState([]);
     const get_graph = async (url) => {
-      const response = await fetch(url);
-      const data = await response.json();
-      set_graph(data);
+      try {
+         const response = await fetch(url);
+         const data = await response.json();
+         set_graph(data);
+      } catch (error) {
+         console.log(error)
+         
+      }
     };
     useEffect(() => {
       let url = `http://localhost:8000/graph/get/${id}`

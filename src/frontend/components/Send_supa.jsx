@@ -30,9 +30,6 @@ function SendSupabase() {
 
   // Rest of your component code...
 
-  return (
-    // Your component JSX...
-  );
 }
 
 export default SendSupabase;
