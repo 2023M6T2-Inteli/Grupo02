@@ -783,7 +783,13 @@ A rota /add é uma rota do tipo POST que permite armazenar uma nova imagem. Ela 
 
 # 10. Validação da eficácia do sistema
 
-<p>Em construção</p>
+<p>A validação da eficácia do sistema é um passo extremamente importante para garantir que a solução desenvolvida atenda aos requisitos e funcionalidades esperadas.
+
+A primeira etapa da validação envolveu a verificação da correta integração dos componentes do sistema. É preciso fazer avaliação da interação entre a interface gráfica, o algoritmo de visão computacional e os sensores acoplados ao robô. Nesse caso é verificado se os comandos são transmitidos corretamente, se as informações são recebidas e processadas adequadamente e se os resultados são exibidos de forma precisa para que o usuário tenha conhecimento do sistema.
+
+Em seguida, é preciso realizar testes para verificar se todas as principais funcionalidades do sistema estão operando conforme o esperado. Para isso é devidamente importante diferentes cenários de inspeção em espaços confinados, considerando variações na planta do ambiente e trajetórias complexas. Seria avaliada a capacidade do sistema em realizar a inspeção de forma precisa, identificar rachaduras corretamente e coletar os dados de gás e temperatura de maneira confiável.
+
+Por fim, após do projeto já estar rodando, é de extrema recomendação coletar feedbacks e opiniões dos usuários para obter insights sobre a usabilidade e eficácia do sistema. Esses dados seriam analisados para identificar possíveis melhorias e ajustes necessários.</p>
 
 # 11. Referências
 
