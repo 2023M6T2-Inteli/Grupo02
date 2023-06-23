@@ -11,21 +11,41 @@ from std_msgs.msg import String  # Standard ROS 2 String message
 import json
 
 
-
-class ImagePublisher(Node):
+class RobotCommunicator(Node):
   """
   this class will conenct with robot and recieve data
   """
+  def listener_callback(self, data):
+    #publish the message
+    if not self.connected:
+        self.connected = True
+        self.logger("connected")
+            # Create the message
+
+        
+    if not self.running:
+      data = json.loads(data)
+      if ["graph","nodes","edges" ] in data.keys():
+        self.running = True
+        self.logger("running")
+        return data
+  def logger(self,msg):
+    self.get_logger().info(str(msg))
+    
+ 
+      # Display the message on the console
+      #self.get_logger().info('Publishing message: "%s"' % msg.data)
+
+  
   def __init__(self):
     """
     Class constructor to set up the node
     """
     # Initiate the Node class's constructor and give it a name
     super().__init__('connection_starter')
-      
-    # Create the publisher. This publisher will publish an Image
-    # to the video_frames topic. The queue size is 10 messages.
-    self.publisher_ = self.create_publisher(String, 'comunication', 10)
+    self.connected = False
+    self.running = False
+    
       
     # We will publish a message every 0.1 seconds
     timer_period = 0.1  # seconds
@@ -42,25 +62,7 @@ class ImagePublisher(Node):
     self.subscription  # prevent unused variable warning
          
 
-    def logger(self,msg):
-        self.get_logger().info(str(msg))
-    def timer_callback(self):
-        
-        # Create the message
-        if not self.connected:
-            msg = String()
-            msg.data = "{'connection':'true'}"
-            # Publish the message
-            self.publisher_.publish(msg)
-            # Display the message on the console
-            self.get_logger().info('Publishing message: "%s"' % msg.data)
-
-    def listener_callback(self, data):
-        if not self.connected:
-            self.get_logger().info('Connecting to robot')
-            self.connected = True
-            
-            return
+   
         
         
         
@@ -72,15 +74,15 @@ def main(args=None):
   rclpy.init(args=args)
   
   # Create the node
-  image_publisher = ImagePublisher()
+  robot_communicator = RobotCommunicator()
   
   # Spin the node so the callback function is called.
-  rclpy.spin(image_publisher)
+  rclpy.spin(robot_communicator)
   
   # Destroy the node explicitly
   # (optional - otherwise it will be done automatically
   # when the garbage collector destroys the node object)
-  image_publisher.destroy_node()
+  robot_communicator.destroy_node()
   
   # Shutdown the ROS client library for Python
   rclpy.shutdown()

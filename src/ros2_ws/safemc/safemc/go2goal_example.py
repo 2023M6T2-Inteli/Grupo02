@@ -5,33 +5,19 @@ from .build_goals import build_goals
 
 from geometry_msgs.msg import Twist, Point
 from nav_msgs.msg import Odometry
+from std_msgs.msg import String  # Standard ROS 2 String message
 
-from .publisher_callback import publisher_callback
-from .listener_callback import listener_callback
+from .publisher_callback import publisher_callback,publisher_callback2
+from .listener_callback import listener_callback,  listener_callback2
+
 
 
 
 from .lidar import Lidar
 
-try: 
-    graph_id = 1
-    goals = build_goals(graph_id)
-    
-except:
-    goals = [(1.0, 2.0),
-         (4.0, 5.0),
-         (2.0, 1.0),
-         (3.0, 3.0),
-         (5.0, 1.0),
-         (5.0, 4.0),
-         (7.0, 8.0),
-         (0.0, 0.0)]
-    goals = [(0.5,0.0),(0.5,0.5),(0.0,0.0)]
-
-    
 
 class TurtleController(Node):
-    def __init__(self, goals):
+    def __init__(self):
         super().__init__('controller')
         self.x, self.y, self.theta = 0.0, 0.0, 0.0
         
@@ -40,12 +26,19 @@ class TurtleController(Node):
         self.i=0
         self.current_point = 0
         self.returning = False
-        self.point_list = goals
+        self.point_list = []
         self.return_list = [(0.0, 0.0)]
+        self.connected = False
+        self.running = False
 
         self.publisher = self.create_publisher(
             msg_type=Twist,
             topic='/cmd_vel',
+            qos_profile=10)
+        
+        self.publisher2 = self.create_publisher(
+            msg_type=String,
+            topic='/connection',
             qos_profile=10)
         
         listener_lambda =  lambda msg: listener_callback(self,msg)
@@ -55,12 +48,22 @@ class TurtleController(Node):
             callback=listener_lambda,
             qos_profile=10)
         
+        listener_lambda2 =  lambda msg: listener_callback2(self,msg)
+        self.subscription2 = self.create_subscription(
+            msg_type=String,
+            topic='/comunication',
+            callback=listener_lambda2,
+            qos_profile=10)
+        
         self.lidar_ = Lidar(self)
 
         publisher_lambda =  lambda : publisher_callback(self)
         self.timer = self.create_timer(
             timer_period_sec=0.02,
             callback=publisher_lambda)
+        
+        publisher_lambda2 =  lambda : publisher_callback2(self)
+        self.timer2 = self.create_timer(3, publisher_lambda2)
     def logger(self,msg):
         self.get_logger().info(msg)
 
@@ -70,7 +73,7 @@ class TurtleController(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    controller = TurtleController(goals)
+    controller = TurtleController()
     controller.logger("aqui_tmb")
     rclpy.spin(controller)
     controller.destroy_node()

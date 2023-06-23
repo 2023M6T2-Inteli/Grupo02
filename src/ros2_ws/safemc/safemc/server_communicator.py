@@ -12,10 +12,29 @@ import json
 
 
 
-class ImagePublisher(Node):
-  """
-  this class will conenct with robot and recieve data
-  """
+class ServerCommunicator(Node):
+
+  def logger(self,msg):
+      self.get_logger().info(str(msg))
+  def timer_callback(self):
+      
+      # Create the message
+      if not self.connected:
+          msg = String()
+          msg.data = "{'connection':'true'}"
+          # Publish the message
+          self.publisher_.publish(msg)
+          # Display the message on the console
+          self.get_logger().info('Publishing message: "%s"' % msg.data)
+
+  def listener_callback(self, data):
+      if not self.connected:
+          self.get_logger().info('Connected')
+          self.connected = True
+          
+          return
+      
+
   def __init__(self):
     """
     Class constructor to set up the node
@@ -29,7 +48,8 @@ class ImagePublisher(Node):
       
     # We will publish a message every 0.1 seconds
     timer_period = 0.1  # seconds
-      
+    self.connected = False
+    self.running = False
     # Create the timer
     self.timer = self.create_timer(timer_period, self.timer_callback)
 
@@ -41,27 +61,6 @@ class ImagePublisher(Node):
         10)
     self.subscription  # prevent unused variable warning
          
-
-    def logger(self,msg):
-        self.get_logger().info(str(msg))
-    def timer_callback(self):
-        
-        # Create the message
-        if not self.connected:
-            msg = String()
-            msg.data = "{'connection':'true'}"
-            # Publish the message
-            self.publisher_.publish(msg)
-            # Display the message on the console
-            self.get_logger().info('Publishing message: "%s"' % msg.data)
-
-    def listener_callback(self, data):
-        if not self.connected:
-            self.get_logger().info('Connecting to robot')
-            self.connected = True
-            
-            return
-        
         
         
         
@@ -72,15 +71,15 @@ def main(args=None):
   rclpy.init(args=args)
   
   # Create the node
-  image_publisher = ImagePublisher()
+  server_communicator = ServerCommunicator()
   
   # Spin the node so the callback function is called.
-  rclpy.spin(image_publisher)
+  rclpy.spin(server_communicator)
   
   # Destroy the node explicitly
   # (optional - otherwise it will be done automatically
   # when the garbage collector destroys the node object)
-  image_publisher.destroy_node()
+  server_communicator.destroy_node()
   
   # Shutdown the ROS client library for Python
   rclpy.shutdown()
