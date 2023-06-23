@@ -2,8 +2,12 @@ import Header from "@/components/Header"
 import { useState, useEffect } from "react"
 import Canvas from '@/components/Canvas'
 
+
 export default function Running() {
     const [graph, setGraph] = useState([])
+
+    useEffect(() => {
+    }, [])
 
 
     return (
