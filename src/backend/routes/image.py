@@ -1,16 +1,22 @@
-from fastapi import APIRouter
+import shutil
+from fastapi import APIRouter, File, UploadFile
 from supabase import create_client, Client
+from datetime import datetime
+
 import os
 
 # load_dotenv()
-url = os.getenv("url")
-key = os.getenv("api_key")
+url = "https://exwsjbueckvbqbvtahzr.supabase.co"#os.getenv("url")
+key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV4d3NqYnVlY2t2YnFidnRhaHpyIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NjY2NjYxMCwiZXhwIjoyMDAyMjQyNjEwfQ.k5B0bBc3ttbSlnvOzqQZldVQZYcOf7cxum9Eg3blavI"#os.getenv("api_key")
+bucket_name = "bucket_teste"
 image_router = APIRouter(prefix="/images")
 
 
-supabase: Client = create_client(supabase_url="https://yvcygvkxsivgalfdzckg.supabase.co",
-                                 supabase_key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl2Y3lndmt4c2l2Z2FsZmR6Y2tnIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NTcyOTYxNSwiZXhwIjoyMDAxMzA1NjE1fQ.yZR1pgyBHbIHv8qJjQ6_GxB1PNQt9dnBqh09j_-n9AA")
+supabase: Client = create_client(supabase_url=url,
+                                 supabase_key=key)
 
+supabase_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(supabase_dir, '../supabase_images')
 
 @image_router.get("/get/{file}")
 async def get_all(file):
@@ -35,3 +41,21 @@ async def store_image(msg: dict):
         return get_all(f'{name}.txt')
     except Exception as e:
         return str(e)
+
+@image_router.post("/send_supabase")
+async def upload_image(file: UploadFile = File(...)):
+    timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+    file_name = f"{timestamp}_{file.filename}"
+    print("File name: ", file.filename)
+    print("File file: ", file.file)
+
+    with open(f"{file_path}/{file_name}", "wb") as w:
+        shutil.copyfileobj(file.file, w)
+        with open(f"./supabase_images/{file_name}", "+rb") as r:
+
+            my_string = r.read()
+            supabase.storage.from_(bucket_name).upload(f"{file_name}", my_string)
+
+    image_url = f"{url}/storage/v1/object/public/{bucket_name}/{file_name}"
+    
+    return image_url

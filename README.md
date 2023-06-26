@@ -16,10 +16,11 @@
 
 ## Descrição
 
-📜 O projeto foca no desenvolvimento de uma simulação de robôs que cumprem um papel de realizar a inspeção de espaços confinados visando a segurança do trabalho. Nosso projeto é um desenvolvimento, em simulação, de um robô capaz de se mover em ambientes de espaço confinado, coletar dados a partir de sensores (principalmente de oxigênio e outros gases) e que utiliza imagens para apoiar na inspeção prévia da estrutura e localizar rachaduras. 
+📜 O projeto foca no desenvolvimento de uma simulação de robôs que cumprem um papel de realizar a inspeção de espaços confinados visando a segurança do trabalho. Nosso projeto é um desenvolvimento, em simulação, de um robô capaz de se mover em ambientes de espaço confinado, coletar dados a partir de sensores (principalmente de oxigênio e outros gases) e que utiliza imagens para apoiar na inspeção prévia da estrutura e localizar rachaduras.
 <br><br>
 
 ## 🛠 Estrutura de pastas
+
 ```bash
 .
 ├── LICENSE
@@ -56,7 +57,6 @@ Há também 3 pastas que seguem da seguinte forma:
 
 <b>src</b>: Nesta pasta está todo o código fonte do sistema, pronto para para ser baixado e modificado.
 
-
 ## 💻 Configuração para Desenvolvimento
 
 <!-- Descreva como instalar todas as dependências para desenvolvimento e como rodar um test-suite automatizado de algum tipo. Se necessário, faça isso para múltiplas plataformas. -->
@@ -64,19 +64,19 @@ Há também 3 pastas que seguem da seguinte forma:
 Para abrir este projeto você necessita das seguintes ferramentas:
 
 ### Ros Humble Turtlebot3
+
 Para instalar esse pacote, abra o terminal do ubuntu e execute:
 
-```sudo apt install ros-humble-turtlebot3*```
+`sudo apt install ros-humble-turtlebot3*`
 
 Isso instalará todos os pacotes necessários para executar o Gazebo, o ambiente de simulação que utilizamos.
 Por fim, execute no terminal do ubuntu:
 
-```gazebo```
-
+`gazebo`
 
 ## 📋 Licença/License
 
-<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/2023M6T2-Inteli/Safe-McQueen/">Safe-McQueen</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName">INTELI, Alberto Miranda, Amanda Fontes, Antonio Teixeira, Joao Vitor Oliveira, Lucas Sales, Tainara Teixeira, Vitor Zeferino</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p>
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/2023M6T2-Inteli/Safe-McQueen/">Safe-McQueen</a> by <a href="https://www.inteli.edu.br">Inteli</a>, <a href="https://www.linkedin.com/in/alberto-da-rocha-miranda-angrysine/">Alberto Miranda</a>, <a href="https://www.linkedin.com/in/amanda-fontes/">Amanda Fontes</a>, <a href="https://www.linkedin.com/in/antonio-angelo-teixeira-a70b781a7/">Antonio Teixeira</a>, <a href="https://www.linkedin.com/in/jv-oliveira-rodrigues/">Joao Vitor Oliveira</a>, <a href="https://www.linkedin.com/in/lucas-henrique-sales-de-souza/">Lucas Sales</a>,<a href="https://www.linkedin.com/in/tainara-rodrigues-teixeira/">Tainara Teixeira</a>, <a href="https://www.linkedin.com/in/vitor-zeferino/"> Vitor Zeferino</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p>
 
 ## 🎓 Referências
 

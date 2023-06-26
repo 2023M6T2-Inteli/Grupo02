@@ -23,18 +23,21 @@ export default function History() {
 
     get_registers(url)
   }, []);
-
-  
   const get_registers = async (url) => {
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data);
-    set_register(data);
-    setFilteredList(data);
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      console.log(data);
+      set_register(data);
+      setFilteredList(data);
+    } catch (error) {
+      console.log(error)
+      
+    }
 
   };
   return (
-    <div className='w-full h-full bg-cinza'>
+    <div className='w-full h-screen h-full bg-cinza'>
       <Header />
       <div className="w-screen h-fit my-12 flex items-center justify-center">
         <div className='w-11/12 pb-90 rounded-md h-5/6 bg-azul flex flex-col items-center justify-center'>
@@ -60,3 +63,8 @@ export default function History() {
     </div>
   );
 }
+
+
+
+
+

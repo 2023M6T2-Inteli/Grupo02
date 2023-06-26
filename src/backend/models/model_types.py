@@ -16,6 +16,7 @@ class GraphT(BaseModel):
     name: str
     description: str | None = None
     image_address: str | None = None
+    edges: list | None = None
 
 class RegisterT(BaseModel):
     graph_id: int

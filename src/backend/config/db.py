@@ -6,6 +6,7 @@ from models.node import Node
 from models.edge import Edge
 from models.register import Register
 
+
 engine = create_engine("sqlite+pysqlite:///models/data.db")
 Base.metadata.create_all(engine)
 

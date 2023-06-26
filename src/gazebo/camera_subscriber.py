@@ -52,10 +52,10 @@ class ImageSubscriber(Node):
         # Display image
         _, frame = cv2.imencode(".jpg", current_frame)
         results = model.predict(frame, conf=0.6)
-        image = base64.b64encode(results)
-        if len(image[0]) > 0 and i<10:
-            i+=1
-            requests.post("http://localhost:8000/images/add", json={"text": image.decode("utf-8"),"name":f"frame{i}"},headers={"Content-": "application/json","apikey":"apikey","authorization":"Bearer apikey"})
+        
+        ##image = base64.b64encode(results)
+        ##i+=1
+            ##requests.post("http://localhost:8000/images/add", json={"text": image.decode("utf-8"),"name":f"frame{i}"},headers={"Content-": "application/json","apikey":"apikey","authorization":"Bearer apikey"})
 
 
 def main(args=None):
