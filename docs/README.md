@@ -10,8 +10,18 @@
 
 # Organização do Diretório de Documentação
 
-Este diretório é destinado para armazenar a documentação elaborada ao longo do projeto. Aqui é possível encontrar o manual do usuário e o relatório do projeto. O relatório do projeto é gerado automaticamente utilizando o github pages com a tecnologia Jekyll. Para alterar os itens do relatório, basta modificar o arquivo `index.md` que encontra-se nesta pasta. Para acessar o relatório renderizado, basta acessar este [link](https://2023m5t2-inteli.github.io/template/) (lembre-se de modificar o link quando criar o seu repositório). Preencha aqui quaisquer detalhes a mais devem ser considerados acerca da organização do seu diretório de documentação.
+## 1. Introdução
 
+Este diretório contém os documentos de especificação do projeto Safe McQueen, desenvolvido pelos alunos do curso de Engenharia da computação do Instituto de Tecnologia e Liderança Inteli - em parceria com a Gerdau, no segundo modulo de 2023.
 
+## 2. Organização
 
+O diretório está organizado da seguinte forma:
 
+- `docs`: contém os documentos de especificação do projeto, como o manual de instrução e o manual de usuário.
+- `media`: contém as imagens utilizadas nos documentos de especificação.
+- `src`: contém os códigos fontes do projeto.
+
+O arquivo index.md contém o texto que será exibido na página inicial do repositório.
+
+Manual de instrução [link](<https://github.com/2023M6T2-Inteli/Safe-McQueen/blob/main/docs/Manual%20de%20Instru%C3%A7%C3%B5es%20-%20M%C3%B3dulo%206%20.docx%20(1).pdf>)
